@@ -37,6 +37,7 @@ node_modules/
 /.well-known/
 /data/
 /skin/
+/stats/
 /.htaccess
 /auth.json
 /.php_cs.dist
@@ -50,11 +51,18 @@ node_modules/
 /CategoriesSelectors
 /composer.json.orig
 /composer.json.rej
+/composer.json.bak
 /composer.lock.orig
 /composer.lock.rej
 /magento_umask
 /nexinfo.1617987176.php
 /registration.php
+/error_log
+/php.ini
+/phpfiddle.php
+/phpinfo.php
+/Watchlog-uninstall.sh
+/Amasty_RecurringPayments
 /*.sql
 /*.csv
 /*.txt
