@@ -15,18 +15,30 @@
 ?>
 <?php
     $top_dietary = [ "Dairy Free", "Gluten Free", "Organic", "Raw", "Vegan", "Vegetarian", "Wheat Free", "Sugar Free", "Fair Trade", "Produce of GB" ];
+
+    $pFilterItems = [];
+    $nFilterItems = [];
+    $isPreference = false;
+    foreach ($filterItems as $filterItem) {
+        if ( $filterItem->getFilter()->getName() == "Preferences" ) {
+            $isPreference = true;
+            $option_value = $filterItem->getLabel();
+            if (in_array($option_value, $top_dietary)) {
+                $pFilterItems[] = $filterItem;
+            } else {
+                $nFilterItems[] = $filterItem;
+            }
+        }
+    }
+
+    if($isPreference) {
+        $filterItems = array_merge( $pFilterItems, $nFilterItems);
+    }
+
 ?>
 <ol class="items">
     
     <?php foreach ($filterItems as $filterItem) : ?>
-        <?php
-            if ( $filterItem->getFilter()->getName() == "Preferences" ) {
-                $option_value = $filterItem->getLabel();
-                if (!in_array($option_value, $top_dietary)) {
-                    continue;
-                }
-            }
-        ?>
         <li class="item">
             <?php if ($filterItem->getCount() > 0) : ?>
                 <a href="<?= $block->escapeUrl($filterItem->getUrl()) ?>">

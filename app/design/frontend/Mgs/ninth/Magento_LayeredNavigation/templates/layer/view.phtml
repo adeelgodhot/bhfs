@@ -80,8 +80,8 @@
             ], function ($) {
 
                 $('.filter-options-content').each(function(i, obj) {
-                    if ( $(this).find("ol.items li.item").length > 8 ) {
-                        $(this).find("ol.items li.item").slice(8).hide();
+                    if ( $(this).find("ol.items li.item").length > 10 ) {
+                        $(this).find("ol.items li.item").slice(10).hide();
                         $(this).find(".show-more").show();
                     }
                 });
@@ -90,7 +90,7 @@
                     var elm = $(this).attr('data-togle');
                     console.log( "Show more clicked " + elm );
 
-                    $(elm).find("ol.items li.item").slice(8).slideToggle();
+                    $(elm).find("ol.items li.item").slice(10).slideToggle();
 
                     if ( $(this).text() === 'Show More...' ) {
                         $(this).text('Show Less...');
