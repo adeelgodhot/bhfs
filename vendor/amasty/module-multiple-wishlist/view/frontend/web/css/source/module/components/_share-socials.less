@@ -1,0 +1,89 @@
+//
+//  Amasty Social Share Component Styles
+//  ____________________________________________
+
+//
+//  Variables
+//  --------------------------------------------
+
+@amwishlist-social-icon__size: 40px;
+@amwishlist-social-icon__mail: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMjAiIGN5PSIyMCIgcj0iMjAiIGZpbGw9IiNGRjU2MDQiLz48ZyBjbGlwLXBhdGg9InVybCgjY2xpcDApIiBmaWxsPSIjZmZmIj48cGF0aCBkPSJNMzAuMjE0IDEyLjE0M0g5Ljc4NkwyMCAyMC41NTZsMTAuMzMtOC4zOWEuNzEuNzEgMCAwMC0uMTE2LS4wMjN6Ii8+PHBhdGggZD0iTTIwLjQ5NiAyMi4xODFhLjc4Ni43ODYgMCAwMS0uOTk2IDBMOSAxMy41MzF2MTMuNTRjMCAuNDM0LjM1Mi43ODYuNzg2Ljc4NmgyMC40MjhhLjc4Ni43ODYgMCAwMC43ODYtLjc4NlYxMy42NDdMMjAuNDk2IDIyLjE4eiIvPjwvZz48ZGVmcz48Y2xpcFBhdGggaWQ9ImNsaXAwIj48cGF0aCBmaWxsPSIjZmZmIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg5IDkpIiBkPSJNMCAwaDIydjIySDB6Ii8+PC9jbGlwUGF0aD48L2RlZnM+PC9zdmc+');
+@amwishlist-social-icon__facebook: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTQwIDIwQzQwIDguOTUzIDMxLjA0NyAwIDIwIDBTMCA4Ljk1MyAwIDIwYzAgOS45ODQgNy4zMTMgMTguMjU4IDE2Ljg3NSAxOS43NThWMjUuNzhoLTUuMDc4VjIwaDUuMDc4di00LjQwNmMwLTUuMDEyIDIuOTg0LTcuNzgxIDcuNTU1LTcuNzgxIDIuMTg3IDAgNC40NzYuMzkgNC40NzYuMzl2NC45MjJoLTIuNTIzYy0yLjQ4NSAwLTMuMjU4IDEuNTQzLTMuMjU4IDMuMTI1VjIwaDUuNTQ3bC0uODg3IDUuNzgxaC00LjY2djEzLjk3N0MzMi42ODggMzguMjU4IDQwIDI5Ljk4NCA0MCAyMHoiIGZpbGw9IiMxODc3RjIiLz48cGF0aCBkPSJNMjcuNzg1IDI1Ljc4MUwyOC42NzIgMjBoLTUuNTQ3di0zLjc1YzAtMS41ODIuNzczLTMuMTI1IDMuMjU4LTMuMTI1aDIuNTIzVjguMjAzcy0yLjI4OS0uMzktNC40NzYtLjM5Yy00LjU3IDAtNy41NTUgMi43NjktNy41NTUgNy43OFYyMGgtNS4wNzh2NS43ODFoNS4wNzh2MTMuOTc3YzEuMDIuMTYgMi4wNjMuMjQyIDMuMTI1LjI0MiAxLjA2MyAwIDIuMTA1LS4wODIgMy4xMjUtLjI0MlYyNS43OGg0LjY2eiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==');
+@amwishlist-social-icon__twitter: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMjBDMCA4Ljk1NCA4Ljk1NCAwIDIwIDBzMjAgOC45NTQgMjAgMjAtOC45NTQgMjAtMjAgMjBTMCAzMS4wNDYgMCAyMHoiIGZpbGw9IiM1NUFDRUUiLz48cGF0aCBkPSJNMTkuNDAxIDE2LjI1NmwuMDQyLjY5Mi0uNy0uMDg0Yy0yLjU0Ni0uMzI1LTQuNzctMS40MjctNi42NTktMy4yNzdsLS45MjMtLjkxOC0uMjM4LjY3OGMtLjUwMyAxLjUxMS0uMTgyIDMuMTA3Ljg2OCA0LjE4LjU2LjU5My40MzMuNjc4LS41MzIuMzI1LS4zMzYtLjExMy0uNjMtLjE5OC0uNjU3LS4xNTUtLjA5OC4wOTkuMjM3IDEuMzg0LjUwMyAxLjg5Mi4zNjQuNzA3IDEuMTA1IDEuMzk5IDEuOTE3IDEuODA4bC42ODUuMzI1LS44MTEuMDE0Yy0uNzg0IDAtLjgxMi4wMTQtLjcyOC4zMS4yOC45MTkgMS4zODUgMS44OTMgMi42MTYgMi4zMTdsLjg2OC4yOTctLjc1Ni40NTJhNy44NzYgNy44NzYgMCAwMS0zLjc0OSAxLjA0NWMtLjYzLjAxNC0xLjE0Ny4wNy0xLjE0Ny4xMTMgMCAuMTQgMS43MDcuOTMyIDIuNyAxLjI0MyAyLjk4LjkxOCA2LjUyLjUyMiA5LjE3Ny0xLjA0NiAxLjg4OS0xLjExNSAzLjc3Ny0zLjMzMyA0LjY1OS01LjQ4LjQ3NS0xLjE0My45NTEtMy4yMzQuOTUxLTQuMjM2IDAtLjY1LjA0Mi0uNzM1LjgyNS0xLjUxMi40NjItLjQ1Mi44OTYtLjk0Ni45OC0xLjA4Ny4xNC0uMjY4LjEyNS0uMjY4LS41ODgtLjAyOC0xLjE4OS40MjMtMS4zNTcuMzY3LS43Ny0uMjY5LjQzNC0uNDUyLjk1Mi0xLjI3Ljk1Mi0xLjUxIDAtLjA0My0uMjEuMDI3LS40NDguMTU0LS4yNTIuMTQyLS44MTEuMzUzLTEuMjMuNDhsLS43NTYuMjQtLjY4Ni0uNDY1Yy0uMzc3LS4yNTUtLjkxLS41MzctMS4xODktLjYyMi0uNzEzLS4xOTctMS44MDUtLjE3LTIuNDQ4LjA1Ny0xLjc0OS42MzUtMi44NTQgMi4yNzQtMi43MjggNC4wNjd6IiBmaWxsPSIjZmZmIi8+PC9zdmc+');
+
+//
+//  Common
+//  --------------------------------------------
+
+& when (@media-common = true) {
+    .amwishlist-toolbar:not(.-deletable) .amwishlist-sharesocials-container > .amwishlist-button {
+        margin: 0 10px 0 0;
+    }
+
+    .amwishlist-sharesocials-container {
+        & {
+            position: relative;
+        }
+
+        .amwishlist-social,
+        .amwishlist-button.amwishlist-social.-mail {
+            min-width: @amwishlist-social-icon__size;
+            width: @amwishlist-social-icon__size;
+            height: @amwishlist-social-icon__size;
+            font-size: 0;
+        }
+    }
+
+    .amwishlist-sharesocials-dropdown {
+        & {
+            position: absolute;
+            top: ~'calc(100% + 5px)';
+            right: 50%;
+            display: flex;
+            align-items: center;
+            box-sizing: border-box;
+            padding: 15px;
+            border-radius: 5px;
+            background: #fff;
+            box-shadow: 0 5px 15px rgba(154, 162, 181, .2);
+            transition: visibility .1s ease, opacity .1s ease;
+            transform: translateX(50%);
+        }
+
+        > .amwishlist-social:not(:first-child) {
+            margin-left: 15px;
+        }
+
+        &:not(.-opened) {
+            visibility: hidden;
+            opacity: 0;
+        }
+    }
+
+    .amwishlist-toolbar.-deletable .amwishlist-sharesocials-dropdown {
+        right: 0;
+        transform: none;
+    }
+
+    .amwishlist-sharesocials-container .amwishlist-social {
+        & {
+            background: center/100% no-repeat;
+        }
+
+        &:hover {
+            filter: brightness(1.3);
+        }
+
+        &.-mail {
+            background-image: @amwishlist-social-icon__mail;
+        }
+
+        &.-facebook {
+            background-image: @amwishlist-social-icon__facebook;
+        }
+
+        &.-twitter {
+            background-image: @amwishlist-social-icon__twitter;
+        }
+    }
+}

@@ -1,0 +1,43 @@
+<!--@subject {{trans " Subscription Canceled at %store_name" store_name=$store.getFrontendName()}} @-->
+
+<!--@vars {
+"var customer.getName()|escape":"Customer Name",
+"var store.getFrontendName()":"Store Name",
+"store url=\"\"":"Store URL"
+} @-->
+
+
+{{template config_path="design/email/header_template"}}
+
+<div class="amrec-main-container">
+    <div class="amrec-header-container">
+        <span class="amrec-title">{{trans "Subscription Cancelled"}}</span>
+        <div class="amrec-image-wrapper">
+            <img class="amrec-image"
+                 src="{{view url='Amasty_RecurringPayments/images/email/cancelled.png'}}"
+                 alt="{{trans 'Subscription Cancelled'}}">
+        </div>
+    </div>
+
+    <div class="amrec-text-container">
+        <p class="amrec-message"><strong class="amrec-name">{{trans 'Dear %customer_name,' customer_name=$customer.getFirstName()}}</strong>
+            {{trans 'Your subscription has been canceled.'}}
+        </p>
+    </div>
+
+    {{layout
+        handle="amasty_recurring_email"
+        product=$product
+        recurring_data=$recurring_data
+    }}
+
+<!--    <div class="amrec-button-wrapper">-->
+<!--        <a href="#" class="amrec-button" title="{{trans "View Details"}}">{{trans "View Details"}}</a>-->
+<!--    </div>-->
+
+    <div class="amrec-regards-wrapper" >
+        <span class="amrec-regards">{{trans "Kindest Regards"}}, {{var store.getFrontendName()}} {{trans "Team"}}</span>
+    </div>
+</div>
+
+{{template config_path="design/email/footer_template"}}

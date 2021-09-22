@@ -1,0 +1,49 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * @var $block \Magento\Theme\Block\Html\Title
+ */
+$cssClass = $block->getCssClass() ? ' ' . $block->getCssClass() : '';
+$title = '';
+if (trim($block->getPageHeading())) {
+    $title = '<span class="base" data-ui-id="page-title-wrapper" ' .  $block->getAddBaseAttribute() . '>'
+        . $block->escapeHtml($block->getPageHeading()) . '</span>';
+}
+?>
+<?php if ($title): ?>
+    <?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+    <?php $bgType = $themeHelper->getStoreConfig('mpanel/page_title/background'); ?>
+    <?php $style = ""; ?>
+    
+    <?php if($bgType == 3){
+        $cssClass .= ' background-color'; 
+        $color = $themeHelper->getStoreConfig('mpanel/page_title/background_color');
+        if($color){
+            $style = 'background-color: '. $color . ';';
+        }
+    }else {
+        $cssClass .= ' background-image';
+        $img = $themeHelper->getPageTitleBackground();
+        if($img){
+            $style= 'background-image: url(' . $img . ');'; 
+        }
+    }
+    ?>
+    
+    <div class="page-title-wrapper<?php echo /* @escapeNotVerified */ $cssClass ?>" style="<?php echo $style ?>">
+        <h1 class="page-title"
+            <?php if ($block->getId()): ?> id="<?php echo /* @escapeNotVerified */ $block->getId() ?>" <?php endif; ?>
+            <?php if ($block->getAddBaseAttributeAria()): ?>
+                aria-labelledby="<?php echo /* @escapeNotVerified */ $block->getAddBaseAttributeAria() ?>"
+            <?php endif; ?>>
+            <?php echo /* @escapeNotVerified */ $title ?>
+        </h1>
+        <?php echo $block->getChildHtml() ?>
+    </div>
+<?php endif; ?>

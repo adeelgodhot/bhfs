@@ -1,0 +1,10 @@
+<!-- ko if: isDisplayed() -->
+<tr class="totals">
+    <th colspan="1" class="mark" scope="row">
+        <span class="label" data-bind="i18n: getFeeLabel"></span>
+    </th>
+    <td class="amount" data-bind="attr: {'data-th': title}">
+        <span class="price" data-bind="text: getValue()"></span>
+    </td>
+</tr>
+<!-- /ko -->

@@ -1,0 +1,14 @@
+.amgdprcookie-bar-template.-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin: 0 auto;
+    max-width: 740px;
+    transform: translate(-50%, -50%);
+}
+.amgdprcookie-bar-template.-popup .amgdprcookie-buttons-block {
+    flex-direction: column;
+}
+.amgdprcookie-bar-template.-popup .amgdprcookie-buttons-block .amgdprcookie-button:not(:last-child) {
+    margin-bottom: 15px;
+}

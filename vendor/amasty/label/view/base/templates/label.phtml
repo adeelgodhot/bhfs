@@ -1,0 +1,55 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Label
+ */
+?>
+<?php
+/**
+ * @var \Amasty\Label\Block\Label $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Amasty\Label\Api\Data\LabelInterface $label
+ * @var \Amasty\Label\ViewModel\Label\TextProcessor $textProcessor
+ */
+
+use Amasty\Label\Model\ResourceModel\Label\Collection;
+
+$label = $block->getLabel();
+$textProcessor = $block->getData('text_processor');
+$frontendSettings = $label->getExtensionAttributes()->getFrontendSettings();
+$mode = $frontendSettings === Collection::MODE_LIST ? 'cat' : 'prod';
+$renderSettings = $label->getExtensionAttributes()->getRenderSettings();
+$productId = $renderSettings->getProduct()->getId();
+$key = $label->getLabelId() . '-' . $productId . '-' . $mode;
+$text = $textProcessor->renderLabelText($frontendSettings->getLabelText(), $label);
+?>
+
+<?php if ($renderSettings->isLabelVisible()): ?>
+    <div class="amasty-label-container
+            amasty-label-container-<?= $escaper->escapeHtml($key); ?>
+            amasty-label-for-<?= $escaper->escapeHtml($productId); ?>"
+         style="display: none; <?= $escaper->escapeHtml($frontendSettings->getStyle()); ?>"
+         data-mage-init='{"Amasty_Label/js/initLabel":{
+             "mode": "<?= $escaper->escapeHtml($mode); ?>",
+             "isAdminArea": "<?= /* @noEscape */ $block->isAdminArea(); ?>",
+             "config": <?= /* @noEscape */ $block->getJsonConfig(); ?>,
+             "productId": "<?= $escaper->escapeHtml($productId); ?>",
+             "selector": "<?= $escaper->escapeHtml('.amasty-label-container-' . $key); ?>"
+        }}'
+    >
+        <div class="amlabel-text">
+            <?= /* @noEscape */ strip_tags($text, '<br>,<a>,<b>'); ?>
+        </div>
+
+        <?php if ($block->getImageSrc()): ?>
+            <img id="amasty-label-image-<?= $escaper->escapeHtml($key); ?>"
+                 class="amasty-label-image"
+                 src="<?= $escaper->escapeUrl($block->getImageSrc()); ?>"
+                 style="opacity: 1 !important;vertical-align: top;"
+                 title="<?= $escaper->escapeHtmlAttr($text); ?>"
+                 alt="<?= $escaper->escapeHtmlAttr($text ? $text : $renderSettings->getProduct()->getName()); ?>"
+            >
+        <?php endif; ?>
+    </div>
+<?php endif; ?>

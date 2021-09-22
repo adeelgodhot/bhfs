@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_ThankYouPage
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_thank_you_page" translate="label" type="text" sortOrder="151619" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label><![CDATA[Thank You Page]]></label>
+            <tab>amasty</tab>
+            <resource>Amasty_ThankYouPage::config_thank_you_page</resource>
+            <group id="amasty_information" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Information</label>
+                <frontend_model>Amasty\ThankYouPage\Block\Adminhtml\System\Config\Information</frontend_model>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Thank You Page</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+
+                <field id="blocks_sorting" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Blocks Sorting Order</label>
+                    <frontend_model>Amasty\ThankYouPage\Block\Adminhtml\System\Config\Field\BlocksOrder</frontend_model>
+                    <backend_model>Amasty\ThankYouPage\Model\Config\Backend\Blocks</backend_model>
+                </field>
+            </group>
+
+            <group id="coupon" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Coupons</label>
+                <comment><![CDATA[You can configure a coupon here to use it in blocks as {{coupon}}.]]></comment>
+                <!--<field id="source" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">-->
+                    <!--<label>Coupon Source</label>-->
+                    <!--<source_model>\Amasty\ThankYouPage\Model\Config\Source\CouponSource</source_model>-->
+                <!--</field>-->
+
+                <field id="rule_id" translate="label" type="hidden" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Search for Rule</label>
+                    <frontend_model>Amasty\ThankYouPage\Block\Adminhtml\System\Config\Field\CartPriceRules</frontend_model>
+                    <comment><![CDATA[Please select a shopping cart rule to add the coupon to.
+                    <br />Important: the rule should be set to "Use Auto Generation=Yes"
+                    ]]></comment>
+                    <!--<depends>-->
+                        <!--<field id="source">0</field>-->
+                    <!--</depends>-->
+                </field>
+            </group>
+
+            <group id="block_header" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Block Configuration - Header</label>
+                <field id="display" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="use_cms_block" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_class>separator-top</frontend_class>
+                    <label>Use CMS Block</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="cms_block" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select CMS Block</label>
+                    <source_model>\Amasty\ThankYouPage\Model\Config\Source\CmsBlock</source_model>
+                    <comment>You can create new CMS block in "Content > Elements > Blocks"</comment>
+                    <depends>
+                        <field id="use_cms_block">1</field>
+                    </depends>
+                    <validate>validate-greater-than-zero-for-static-block</validate>
+                </field>
+
+                <field id="title" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="sub_title" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sub Title</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="text" translate="label" type="textarea" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="background_image" translate="label comment" type="image" sortOrder="75" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Image</label>
+                    <backend_model>Amasty\ThankYouPage\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">thankyoupage</upload_dir>
+                    <base_url type="media" scope_info="1">thankyoupage</base_url>
+                    <comment><![CDATA[Allowed file types: 'png', 'jpg', 'jpe', 'jpeg', 'gif']]></comment>
+                </field>
+            </group>
+
+            <group id="block_order_review" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Block Configuration - Order Review</label>
+                <field id="display" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="block_custom1" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Block Configuration - Custom 1</label>
+                <field id="display" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="use_cms_block" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_class>separator-top</frontend_class>
+                    <label>Use CMS Block</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="cms_block" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select CMS Block</label>
+                    <source_model>\Amasty\ThankYouPage\Model\Config\Source\CmsBlock</source_model>
+                    <comment>You can create new CMS block in "Content > Elements > Blocks"</comment>
+                    <depends>
+                        <field id="use_cms_block">1</field>
+                    </depends>
+                    <validate>validate-greater-than-zero-for-static-block</validate>
+                </field>
+
+                <field id="title" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="sub_title" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sub Title</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="text" translate="label" type="textarea" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="background_image" translate="label comment" type="image" sortOrder="75" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Image</label>
+                    <backend_model>Amasty\ThankYouPage\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">thankyoupage</upload_dir>
+                    <base_url type="media" scope_info="1">thankyoupage</base_url>
+                    <comment><![CDATA[Allowed file types: 'png', 'jpg', 'jpe', 'jpeg', 'gif']]></comment>
+                </field>
+            </group>
+
+            <group id="block_custom2" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Block Configuration - Custom 2</label>
+                <field id="display" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="use_cms_block" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_class>separator-top</frontend_class>
+                    <label>Use CMS Block</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="cms_block" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select CMS Block</label>
+                    <source_model>\Amasty\ThankYouPage\Model\Config\Source\CmsBlock</source_model>
+                    <comment>You can create new CMS block in "Content > Elements > Blocks"</comment>
+                    <depends>
+                        <field id="use_cms_block">1</field>
+                    </depends>
+                    <validate>validate-greater-than-zero-for-static-block</validate>
+                </field>
+
+                <field id="title" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="sub_title" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sub Title</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="text" translate="label" type="textarea" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="background_image" translate="label comment" type="image" sortOrder="75" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Image</label>
+                    <backend_model>Amasty\ThankYouPage\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">thankyoupage</upload_dir>
+                    <base_url type="media" scope_info="1">thankyoupage</base_url>
+                    <comment><![CDATA[Allowed file types: 'png', 'jpg', 'jpe', 'jpeg', 'gif']]></comment>
+                </field>
+            </group>
+
+            <group id="block_custom3" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Block Configuration - Custom 3</label>
+                <field id="display" translate="label" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="use_cms_block" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_class>separator-top</frontend_class>
+                    <label>Use CMS Block</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="cms_block" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select CMS Block</label>
+                    <source_model>\Amasty\ThankYouPage\Model\Config\Source\CmsBlock</source_model>
+                    <comment>You can create new CMS block in "Content > Elements > Blocks"</comment>
+                    <depends>
+                        <field id="use_cms_block">1</field>
+                    </depends>
+                    <validate>validate-greater-than-zero-for-static-block</validate>
+                </field>
+
+                <field id="title" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Title</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="sub_title" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sub Title</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="text" translate="label" type="textarea" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="background_image" translate="label comment" type="image" sortOrder="75" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Image</label>
+                    <backend_model>Amasty\ThankYouPage\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">thankyoupage</upload_dir>
+                    <base_url type="media" scope_info="1">thankyoupage</base_url>
+                    <comment><![CDATA[Allowed file types: 'png', 'jpg', 'jpe', 'jpeg', 'gif']]></comment>
+                </field>
+            </group>
+
+            <group id="block_newsletter" translate="label" type="text" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Block Configuration - Newsletter</label>
+                <field id="display" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>To show for guests newsletter should be enabled for guests in Newsletter settings</comment>
+                </field>
+
+                <field id="title" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                </field>
+
+                <field id="sub_title" translate="label" type="text" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sub Title</label>
+                </field>
+
+                <field id="confirmation_message" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Confirmation Message</label>
+                </field>
+
+                <field id="text_subscribed" translate="label" type="textarea" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Text For Already Subscribed</label>
+                </field>
+            </group>
+
+            <group id="block_crosssell" translate="label" type="text" sortOrder="75" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Block Configuration - Cross-Sell</label>
+                <field id="display" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="limit" translate="label" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Products Limit</label>
+                    <validate>validate-digits validate-digits-range digits-range-1-</validate>
+                </field>
+
+                <field id="show_out_of_stock" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Out Of Stock</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="block_create_account" translate="label" type="text" sortOrder="85" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Block Configuration - Create Account</label>
+                <field id="display" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Display</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="use_cms_block" translate="label" type="select" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <frontend_class>separator-top</frontend_class>
+                    <label>Use CMS Block</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="cms_block" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Select CMS Block</label>
+                    <source_model>\Amasty\ThankYouPage\Model\Config\Source\CmsBlock</source_model>
+                    <comment>You can create new CMS block in "Content > Elements > Blocks"</comment>
+                    <depends>
+                        <field id="use_cms_block">1</field>
+                    </depends>
+                    <validate>validate-greater-than-zero-for-static-block</validate>
+                </field>
+
+                <field id="title" translate="label" type="text" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Title</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="sub_title" translate="label" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sub Title</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="text" translate="label" type="textarea" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Text</label>
+                    <depends>
+                        <field id="use_cms_block">0</field>
+                    </depends>
+                </field>
+
+                <field id="background_image" translate="label comment" type="image" sortOrder="75" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Background Image</label>
+                    <backend_model>Amasty\ThankYouPage\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">thankyoupage</upload_dir>
+                    <base_url type="media" scope_info="1">thankyoupage</base_url>
+                    <comment><![CDATA[Allowed file types: 'png', 'jpg', 'jpe', 'jpeg', 'gif']]></comment>
+                </field>
+
+<!--                <field id="auto_generate_password" translate="label" type="select" sortOrder="85" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">-->
+<!--                    <label>Auto-Generate Password</label>-->
+<!--                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>-->
+<!--                </field>-->
+
+                <field id="show_email_field" translate="label" type="select" sortOrder="95" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Email Field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="show_terms_and_conditions" translate="label" type="select" sortOrder="105" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Show Terms And Conditions</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+
+                <field id="terms_text" translate="label" type="textarea" sortOrder="115" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Terms Text</label>
+                    <depends>
+                        <field id="show_terms_and_conditions">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="advanced_layout_management" translate="label comment" type="text" sortOrder="95" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Advanced Layout Management</label>
+                <field id="display" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Thank You Page Markup Editor</label>
+                    <comment>Enabling this option overrides blocks sorting order set in General Settings.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+
+                <field id="markup_editor" translate="label" type="textarea" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Thank You Page Markup Editor</label>
+                    <frontend_model>Amasty\ThankYouPage\Block\Adminhtml\System\Config\Field\MarkupEditor</frontend_model>
+                    <validate>validate-no-empty</validate>
+                    <depends>
+                        <field id="display">1</field>
+                    </depends>
+                </field>
+                <field id="mobile_view" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Force Single Column Layout for Mobile View</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip>Allows using wide blocks placed side by side for Desktop while keeping compact design for Mobile.</tooltip>
+                    <depends>
+                        <field id="display">1</field>
+                    </depends>
+                </field>
+            </group>
+
+            <group id="preview_settings" translate="label" type="text" sortOrder="105" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Preview Settings</label>
+                <field id="increment_id" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Test Order ID</label>
+                    <comment>Preview will be generated based on the provided order id or, if left empty, the most recent order in the system. If there are no orders or if provided id is incorrect, the page will be blank. Remember to save your config first to see a relevant preview of Thank You page.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

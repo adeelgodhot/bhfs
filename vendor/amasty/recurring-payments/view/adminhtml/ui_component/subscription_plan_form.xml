@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd" component="Amasty_RecurringPayments/js/form/components/form">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">subscription_plan_form.subscription_plan_form_data_source</item>
+            <item name="deps" xsi:type="string">subscription_plan_form.subscription_plan_form_data_source</item>
+        </item>
+        <item name="label" xsi:type="string" translate="true">Subscription Plan</item>
+        <item name="config" xsi:type="array">
+            <item name="dataScope" xsi:type="string">data</item>
+            <item name="namespace" xsi:type="string">subscription_plan_form</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="array">
+                <item name="name" xsi:type="string">back</item>
+                <item name="label" xsi:type="string" translate="true">Back</item>
+                <item name="class" xsi:type="string">back</item>
+                <item name="url" xsi:type="string">*/*/</item>
+            </item>
+            <item name="save" xsi:type="string">Amasty\RecurringPayments\Block\Adminhtml\Plan\Edit\SaveButton</item>
+            <item name="reset" xsi:type="string">Amasty\RecurringPayments\Block\Adminhtml\Plan\Edit\ResetButton</item>
+            <item name="save_and_continue" xsi:type="string">Amasty\RecurringPayments\Block\Adminhtml\Plan\Edit\SaveAndContinueButton</item>
+            <item name="delete" xsi:type="string">Amasty\RecurringPayments\Block\Adminhtml\Plan\Edit\DeleteButton</item>
+        </item>
+    </argument>
+    <dataSource name="subscription_plan_form_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Amasty\RecurringPayments\Model\SubscriptionPlan\DataProvider\SubscriptionPlanDataProvider</argument>
+            <argument name="name" xsi:type="string">subscription_plan_form_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">plan_id</argument>
+            <argument name="requestFieldName" xsi:type="string">plan_id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="submit_url" xsi:type="url" path="amasty_recurring/plan/save"/>
+                </item>
+            </argument>
+        </argument>
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+    </dataSource>
+    <fieldset name="general">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Plan Settings</item>
+                <item name="collapsible" xsi:type="boolean">true</item>
+                <item name="sortOrder" xsi:type="number">10</item>
+                <item name="opened" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <field name="plan_id">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">plan_id</item>
+                </item>
+            </argument>
+        </field>
+        <field name="name">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Subscription Plan Name</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">name</item>
+                    <item name="notice" xsi:type="string" translate="true">Name your plan to easily identify it among other plans. Your customers won't see it. Only you will see this plan name.</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="status">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Status</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">status</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+                <item name="options" xsi:type="object">Amasty\RecurringPayments\Model\Config\Source\PlanStatus</item>
+            </argument>
+        </field>
+        <field name="frequency">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Billing Frequency</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">frequency</item>
+                    <item name="notice" xsi:type="string" translate="true">Positive integers only. Required for billing your customers every N days/weeks/months/years depending on the selected frequency unit.</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-digits" xsi:type="boolean">true</item>
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="frequency_unit">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Billing Frequency Unit</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">string</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">frequency_unit</item>
+                    <item name="notice" xsi:type="string" translate="true">This is used in combination with billing frequency to define the interval of time from the end of one billing, or invoice, statement date to the next billing statement date.</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+                <item name="options" xsi:type="object">Amasty\RecurringPayments\Model\Config\Source\BillingFrequencyUnit</item>
+            </argument>
+        </field>
+        <field name="enable_trial">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Enable Free Trials</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">enable_trial</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Enable this option if you want your customers to test the product for free prior charging them a normal subscription price.
+                    </item>
+                    <item name="switcherConfig" xsi:type="array">
+                        <item name="enabled" xsi:type="boolean">true</item>
+                        <item name="rules" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="value" xsi:type="string">0</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.trial_days</item>
+                                        <item name="callback" xsi:type="string">hide</item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">1</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.trial_days</item>
+                                        <item name="callback" xsi:type="string">show</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+                <item name="options" xsi:type="object">Amasty\RecurringPayments\Model\Config\Source\TrialEnableDisable</item>
+            </argument>
+        </field>
+        <field name="trial_days">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Number of Trial Days</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">trial_days</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Positive integers only. Your customer will not be charged a regular subscription fee for using the product in a matter of first N days from the subscription start date.
+                    </item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-digits" xsi:type="boolean">true</item>
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="enable_initial_fee">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                    <item name="label" xsi:type="string" translate="true">Charge Initial Fee</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">enable_initial_fee</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Choose whether you want to charge your customers initial (one-time) subscription fee or not. This will be charged only once at the moment of first purchase not affecting future billing cycles.
+                    </item>
+                    <item name="switcherConfig" xsi:type="array">
+                        <item name="enabled" xsi:type="boolean">true</item>
+                        <item name="rules" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="value" xsi:type="string">0</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.initial_fee_type</item>
+                                        <item name="callback" xsi:type="string">hide</item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.initial_fee_amount</item>
+                                        <item name="callback" xsi:type="string">hide</item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">1</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.initial_fee_type</item>
+                                        <item name="callback" xsi:type="string">show</item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.initial_fee_amount</item>
+                                        <item name="callback" xsi:type="string">show</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+            </argument>
+        </field>
+        <field name="initial_fee_type">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Initial Fee Type</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">initial_fee_type</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Fee can be either a fixed amount in the base store currency or a percent of the regular price of the product.
+                    </item>
+                </item>
+                <item name="options" xsi:type="object">Amasty\RecurringPayments\Model\Config\Source\AmountType</item>
+            </argument>
+        </field>
+        <field name="initial_fee_amount">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Initial Fee Amount</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">initial_fee_amount</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Positive floating point numbers only. If there are multiple different subscription products in a single order, initial fee will be calculated as a sum of individual fees.
+                    </item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-decimal" xsi:type="boolean">true</item>
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="enable_discount">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                    <item name="label" xsi:type="string" translate="true">Offer Discounted Prices to Subscribers</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">enable_discount</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Customers would be able to save money when subscribing to the product instead of making a regular purchase.
+                    </item>
+
+                    <item name="switcherConfig" xsi:type="array">
+                        <item name="enabled" xsi:type="boolean">true</item>
+                        <item name="rules" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="value" xsi:type="string">0</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.discount_type</item>
+                                        <item name="callback" xsi:type="string">hide</item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.discount_amount</item>
+                                        <item name="callback" xsi:type="string">hide</item>
+                                    </item>
+                                    <item name="2" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.enable_discount_limit</item>
+                                        <item name="callback" xsi:type="string">hide</item>
+                                    </item>
+                                    <item name="3" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.enable_discount_limit</item>
+                                        <item name="callback" xsi:type="string">value</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="string">0</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">1</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.discount_type</item>
+                                        <item name="callback" xsi:type="string">show</item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.discount_amount</item>
+                                        <item name="callback" xsi:type="string">show</item>
+                                    </item>
+                                    <item name="2" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.enable_discount_limit</item>
+                                        <item name="callback" xsi:type="string">show</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+            </argument>
+        </field>
+        <field name="discount_type">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Discount Type</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">discount_type</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Discount can be either a fixed amount in the base store currency or a percent of the regular price of the product.
+                    </item>
+                </item>
+                <item name="options" xsi:type="object">Amasty\RecurringPayments\Model\Config\Source\AmountType</item>
+            </argument>
+        </field>
+        <field name="discount_amount">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Discount Amount</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">discount_amount</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Positive floating point numbers only. This amount will be deducted from the regular price of the product.
+                    </item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-decimal" xsi:type="boolean">true</item>
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="enable_discount_limit">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                    <item name="label" xsi:type="string" translate="true">Limit the Number of Discounted Cycles</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">number</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">enable_discount_limit</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        You can choose whether to always apply discount to the amount your customer pays for the subscription or limit the number of billing cycles with discounted pricing.
+                    </item>
+                    <item name="switcherConfig" xsi:type="array">
+                        <item name="enabled" xsi:type="boolean">true</item>
+                        <item name="rules" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="value" xsi:type="string">0</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.number_discounted_cycles</item>
+                                        <item name="callback" xsi:type="string">hide</item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="value" xsi:type="string">1</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">subscription_plan_form.subscription_plan_form.general.number_discounted_cycles</item>
+                                        <item name="callback" xsi:type="string">show</item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+                <item name="options" xsi:type="object">Magento\Config\Model\Config\Source\Yesno</item>
+            </argument>
+        </field>
+        <field name="number_discounted_cycles">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string" translate="true">Number of Discounted Cycles</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">amrec_subscription_plan</item>
+                    <item name="dataScope" xsi:type="string">number_discounted_cycles</item>
+                    <item name="notice" xsi:type="string" translate="true">
+                        Positive integers only. Your customer will have discount on payments for the subscription only in a matter of first N billing cycles.
+                    </item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                        <item name="validate-digits" xsi:type="boolean">true</item>
+                        <item name="validate-greater-than-zero" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

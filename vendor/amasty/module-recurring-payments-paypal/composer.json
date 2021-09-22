@@ -1,0 +1,26 @@
+{
+    "name": "amasty/module-recurring-payments-paypal",
+    "description": "Amasty Subscriptions & Recurring Payments: Paypal",
+    "require": {
+        "php": "^7.1.0",
+        "amasty/recurring-payments": ">=1.6.5",
+        "amasty/base": ">=1.12.1",
+        "paypal/rest-api-sdk-php": "^1.14"
+    },
+    "provide": {
+        "amasty/recurring-payments-gateway": "1.0.0"
+    },
+    "type": "magento2-module",
+    "version": "1.6.2",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\RecurringPaypal\\": ""
+        }
+    }
+}

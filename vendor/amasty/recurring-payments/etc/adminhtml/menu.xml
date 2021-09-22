@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_RecurringPayments::recurring_payments" title="Amasty Subscriptions" module="Amasty_RecurringPayments" parent="Magento_Sales::sales" sortOrder="100" resource="Amasty_RecurringPayments::recurring_payments"/>
+        <add id="Amasty_RecurringPayments::recurring_payments_subscription_plans" title="Subscription Plans" module="Amasty_RecurringPayments" parent="Amasty_RecurringPayments::recurring_payments" sortOrder="10" action="amasty_recurring/plan/index" resource="Amasty_RecurringPayments::recurring_payments_subscription_plans"/>
+        <add id="Amasty_RecurringPayments::recurring_payments_transaction_log" title="Transactions Log" module="Amasty_RecurringPayments" parent="Amasty_RecurringPayments::recurring_payments" sortOrder="20" action="amasty_recurring/transaction/grid" resource="Amasty_RecurringPayments::recurring_payments_transaction_log"/>
+    </menu>
+</config>

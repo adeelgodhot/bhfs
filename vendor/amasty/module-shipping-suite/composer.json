@@ -1,0 +1,16 @@
+{
+    "name": "amasty/module-shipping-suite",
+    "description": "Shipping Suite By Amasty",
+    "require": {
+        "php": "~5.6.5|7.0.2|7.0.4|~7.0.6|^7.1.0",
+        "amasty/shiprestriction": ">=2.5.4",
+        "amasty/shiprules": ">=2.6.6",
+        "amasty/shippingtablerates": ">=1.7.4",
+        "amasty/base": ">=1.10.9"
+    },
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "Commercial"
+    ]
+}

@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amasty_followup_rule_grid_data_source" xsi:type="string">Amasty\Followup\Model\ResourceModel\Rule\Grid\Collection</item>
+                <item name="amasty_followup_queue_grid_data_source" xsi:type="string">Amasty\Followup\Model\ResourceModel\Queue\Grid\Collection</item>
+                <item name="amasty_followup_history_grid_data_source" xsi:type="string">Amasty\Followup\Model\ResourceModel\History\Grid\Collection</item>
+                <item name="amasty_followup_blacklist_grid_data_source" xsi:type="string">Amasty\Followup\Model\ResourceModel\Blacklist\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Amasty\Followup\Model\ResourceModel\Rule\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_amfollowup_rule</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Followup\Model\ResourceModel\Rule</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\Followup\Model\ResourceModel\Queue\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_amfollowup_history</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Followup\Model\ResourceModel\History</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\Followup\Model\ResourceModel\History\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_amfollowup_history</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Followup\Model\ResourceModel\History</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\Followup\Model\ResourceModel\Blacklist\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_amfollowup_blacklist</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\Followup\Model\ResourceModel\Blacklist</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Followup\Model\SalesRule">
+        <arguments>
+            <argument name="condCombineFactory" xsi:type="object">Amasty\Followup\Model\SalesRule\Condition\CombineFactory</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Quote\Model\Quote\Config">
+        <plugin name="Amasty_Followup::ProductAttributes" type="Amasty\Followup\Plugin\ProductAttributes" />
+    </type>
+
+    <type name="Magento\Catalog\Model\Product">
+        <plugin name="Amasty_Followup::SaveProduct" type="Amasty\Followup\Plugin\SaveProduct" />
+    </type>
+
+    <type name="Magento\SalesRule\Setup\UpgradeData">
+        <plugin name="Amasty_Followup::UpgradeData" type="Amasty\Followup\Plugin\Setup\UpgradeData" />
+    </type>
+
+    <type name="Amasty\Followup\Model\EventCreator">
+        <arguments>
+            <argument name="events" xsi:type="array">
+                <item name="basic" xsi:type="string">Amasty\Followup\Model\Event\Basic</item>
+                <item name="order_new" xsi:type="string">Amasty\Followup\Model\Event\Order\NewOrder</item>
+                <item name="order_ship" xsi:type="string">Amasty\Followup\Model\Event\Order\Ship</item>
+                <item name="order_invoice" xsi:type="string">Amasty\Followup\Model\Event\Order\Invoice</item>
+                <item name="order_complete" xsi:type="string">Amasty\Followup\Model\Event\Order\Complete</item>
+                <item name="order_cancel" xsi:type="string">Amasty\Followup\Model\Event\Order\Cancel</item>
+                <item name="customer_group" xsi:type="string">Amasty\Followup\Model\Event\Customer\Group</item>
+                <item name="customer_birthday" xsi:type="string">\Amasty\Followup\Model\Event\Customer\Birthday</item>
+                <item name="customer_new" xsi:type="string">Amasty\Followup\Model\Event\Customer\NewCustomer</item>
+                <item name="customer_subscription" xsi:type="string">Amasty\Followup\Model\Event\Customer\Subscription</item>
+                <item name="customer_activity" xsi:type="string">Amasty\Followup\Model\Event\Customer\Activity</item>
+                <item name="customer_wishlist" xsi:type="string">Amasty\Followup\Model\Event\Customer\Wishlist</item>
+                <item name="customer_wishlist_shared" xsi:type="string">Amasty\Followup\Model\Event\Customer\Wishlist\Shared</item>
+                <item name="customer_wishlist_sale" xsi:type="string">Amasty\Followup\Model\Event\Customer\Wishlist\Sale</item>
+                <item name="customer_wishlist_back_instock" xsi:type="string">Amasty\Followup\Model\Event\Customer\Wishlist\Instock</item>
+                <item name="customer_date" xsi:type="string">Amasty\Followup\Model\Event\Customer\Date</item>
+                <item name="cancel_order_complete" xsi:type="string">Amasty\Followup\Model\Event\Cancel\Order\Complete</item>
+                <item name="cancel_order_status" xsi:type="string">Amasty\Followup\Model\Event\Cancel\Order\Status</item>
+                <item name="cancel_customer_loggedin" xsi:type="string">Amasty\Followup\Model\Event\Cancel\Customer\Loggedin</item>
+                <item name="cancel_customer_clicklink" xsi:type="string">Amasty\Followup\Model\Event\Cancel\Customer\Clicklink</item>
+                <item name="cancel_customer_wishlist_shared" xsi:type="string">Amasty\Followup\Model\Event\Cancel\Customer\Wishlist\Shared</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

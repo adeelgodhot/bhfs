@@ -1,0 +1,84 @@
+<?php
+/** @var \Amasty\Storelocator\Block\Location $block */
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
+
+$stockItem = $objectManager->get('\Magento\CatalogInventory\Api\StockRegistryInterface');
+$productStock = $stockItem->getStockItem($block->getProduct()->getId());
+
+
+$stocksta = ($productStock->getIsInStock()=="1") ? "In Stock":"Out of Stock";
+$pickup_only = $block->getProduct()->getPickupOnly();
+
+if ($block->getProduct()) {
+    if (!$block->getRequest()->getParam("product")) {
+        $productId = $block->getProduct()->getId();
+    }
+    $locationCollection = $block->getLocationCollection();
+
+    if (count($locationCollection) > 0 && $block->isNeedToShowLink($locationCollection, $block->getProduct())) {
+        $target = $block->getTarget();
+        $linkText = $block->getLinkText();
+
+        $stock_qty = $StockState->getStockQty($productId, $block->getProduct()->getStore()->getWebsiteId());
+
+        if ( $stock_qty > 5 ) {
+            // hide stock qty information where 5 or more stock available
+            $stock_qty = '';
+        }
+        ?>
+        <div class="product_custom_deliver" style="clear: both">
+            <a href="<?php echo $block->escapeHtml($block->getLinkToMap()) ?>"<?php echo $block->escapeHtml($target) ?> >
+                in store collection (<span style="text-decoration: underline;">find nearest store</span>)
+            </a>
+            <p class="stock_right">
+                <?php echo $stock_qty . ' ' . $stocksta ?> 
+                <i class="pe-7s-info" id="product_stock_info"></i>
+            </p>
+            
+            
+            
+        </div>
+        <?php
+        
+    }
+}
+?>
+
+<div class="custom_pad_section">
+    <?php 
+    if ( !$pickup_only ):
+    ?>
+        <p class='del_left_ok'> for delivery </p>  
+    <?php else: ?>
+        <p class='del_left'> for delivery </p>  
+    <?php endif; ?>
+</div>
+
+<div class="please_note"></div>
+
+
+<?php echo $block->getChildHtml('product_info_stock_info') ?>
+
+<script type="text/javascript">
+
+    require(['jquery', 'jquery/ui'], function($){ 
+
+    //jQuery('.block.upsell').hide();
+
+    jQuery('.table-caption').bind('click', function(){
+        jQuery(this).closest('table').children('tbody').toggle();
+    });
+
+    jQuery('#tab-label-staticbest_seller_product_detail-title').bind('click', function(){
+        jQuery('.block.upsell').hide();
+    });
+
+    jQuery('#tab-label-staticyou_may_also_like-title').bind('click', function(){
+        jQuery('.block.upsell').show();
+    });
+
+
+});
+
+</script>

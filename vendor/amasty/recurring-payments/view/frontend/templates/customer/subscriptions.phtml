@@ -1,0 +1,24 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+?>
+<?php /** @var \Amasty\RecurringPayments\Block\Customer\Subscriptions $block */ ?>
+<div class="amrec-subscriptions-notice">
+    <?= $block->escapeHtml(__('Please mind that we do not store some of the subscriptions data (i.e., Trial Start Date,'
+        . ' Trial End Date, etc). It’s being dynamically retrieved from the payment gateways you made your'
+        . ' payments with, such as PayPal and others. If you notice some sort of data discrepancy,'
+        . ' simply try to refresh this page.')) ?>
+</div>
+<div data-bind="scope: 'amasty-recurring-subscriptions'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+    <script type="text/x-magento-init">
+        {
+            "*": {
+                "Magento_Ui/js/core/app": <?= /** @escapeNotVerified */ $block->getJsLayout();?>
+            }
+        }
+    </script>
+</div>

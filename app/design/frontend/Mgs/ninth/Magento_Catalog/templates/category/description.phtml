@@ -1,0 +1,59 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+// phpcs:disable Magento2.Templates.ThisInTemplate.FoundThis
+
+/**
+ * Category view template
+ *
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php if ($_description = $block->getCurrentCategory()->getDescription()) :?>
+<div class="category-description">
+	<?= /* @noEscape */ $this->helper(Magento\Catalog\Helper\Output::class)->categoryAttribute(
+		$block->getCurrentCategory(),
+		$_description,
+		'description'
+	) ?>
+</div>
+<?php endif; ?>
+
+
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$category = $objectManager->get('Magento\Framework\Registry')->registry('current_category'); //Get Current Category
+$subcats = $category->getChildrenCategories();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+?>
+<div class="row d-block">
+	<?php
+	foreach ($subcats as $subcat) {
+		$_category = $objectManager->create('Magento\Catalog\Model\Category')->load($subcat->getId());
+		$_outputhelper = $this->helper('Magento\Catalog\Helper\Output');
+		$subcaturl = $subcat->getUrl();
+		$_imgHtml = '';
+		if ($_imgUrl = $_category->getImageUrl()) {
+			$_imgHtml = '<img class="img-responsive" src="' . $_imgUrl . '" alt="' . $subcat->getName() . '" />';
+			$_imgHtml = $_outputhelper->categoryAttribute($_category, $_imgHtml, 'image');
+		/* @escapeNotVerified */} ?>
+			<div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mb-8">
+				<div class="discover-block">
+					<a class="link" href="<?php echo $subcaturl ?>">
+						<?php if ($_imgUrl = $_category->getImageUrl()): ?>
+							<div class="thumb">
+								<?php echo $_imgHtml;?>
+							</div>
+						<?php endif; ?>
+						<div class="sec-hd">
+							<h3 class="cat_title"><?php echo $subcat->getName(); ?></h3>
+						</div>
+					</a>
+				</div>
+			</div>
+		<?php } ?>
+	</div>

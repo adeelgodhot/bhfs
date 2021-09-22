@@ -1,0 +1,223 @@
+//
+//  Amasty Recurring Payments Customer View
+//  ____________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amrec-subscriptions-notice {
+        margin-bottom: 10px;
+    }
+
+    .amrec-subscriptions-grid {
+        & {
+            overflow-x: auto;
+        }
+
+        .amrec-item:not(:last-of-type) {
+            border-bottom: 1px solid @amrec-border__color ;
+        }
+
+        .amrec-cell {
+            padding: 11px 10px;
+        }
+
+        .amrec-cell,
+        .amrec-th {
+            vertical-align: top;
+        }
+
+        .amrec-name {
+            & {
+                cursor: pointer;
+            }
+
+            &:after {
+                content: "";
+                display: inline-block;
+                width: 0;
+                height: 0;
+                border: 5px solid transparent;
+                border-top: 6px solid;
+                margin: 0px 0 -3px 5px;
+                transform-origin: 50% 26%;
+            }
+        }
+
+        .amrec-name.-up:after {
+            transform: rotate(180deg);
+        }
+
+        .amrec-label {
+            font-weight: bold;
+        }
+
+        .amrec-info {
+            min-width: 200px;
+        }
+
+        .amrec-shipping {
+            margin-top: 10px;
+        }
+
+        .amrec-details {
+            margin-bottom: 10px;
+        }
+
+        .amrec-value {
+            margin-left: 5px;
+        }
+
+        .amrec-button {
+            & {
+                padding: 10px 15px;
+                color: #fff;
+                .lib-css(background, @amrec-subscriptions-grid-button__background);
+                border-radius: 5px;
+                box-shadow: none;
+            }
+
+            &:hover {
+                .lib-css(background, lighten(@amrec-subscriptions-grid-button__background, 5%));
+            }
+        }
+    }
+
+    .amrec-cancel-confirmation {
+        & {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .amrec-overlay {
+            position: absolute;
+            z-index: 999;
+            width: 100vw;
+            height: 100vh;
+            background: #efefef;
+            opacity: .4;
+        }
+
+        .amrec-popup {
+            z-index: 9999;
+        }
+    }
+
+    .amrec-subscription-cancel {
+        & {
+            position: relative;
+            box-sizing: border-box;
+            padding: 35px;
+            max-width: 90vw;
+            width: 540px;
+            border-radius: 3px;
+            background: #fff;
+            box-shadow: 0 2px 6px rgba(157, 157, 157, .25);
+        }
+
+        .amrec-close {
+            & {
+                position: absolute;
+                top: 5px;
+                right: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+            }
+
+            &:hover {
+                background: #f1f1f1;
+            }
+
+            &:before,
+            &:after {
+                position: absolute;
+                width: 11px;
+                height: 2px;
+                background: #c4c4c4;
+                content: '';
+            }
+
+            &:before {
+                transform: rotate(45deg);
+            }
+
+            &:after {
+                transform: rotate(135deg);
+            }
+
+            &:hover:before,
+            &:hover:after {
+                background: #363636;
+            }
+        }
+
+        .amrec-header {
+            margin: 5px 0 0;
+            font-size: @amrec-main__font-size;
+        }
+
+        .amrec-text {
+            margin-top: 15px;
+        }
+
+        .amrec-wrapper {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .amrec-button {
+            padding: 15px;
+            outline: none;
+            border: none;
+            background: none;
+            box-shadow: none;
+        }
+
+        .amrec-button.-confirm {
+            & {
+                background: #1787e0;
+                color: #fff;
+            }
+
+            &:hover {
+                background: lighten(#1787e0, 10%);
+            }
+        }
+    }
+}
+
+//
+//  Mobile
+//  ----------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .amrec-subscriptions-grid {
+        .amrec-cell {
+            & {
+                display: block;
+                padding: 3px 5px;
+            }
+
+            &:before {
+                display: inline-block;
+                padding-right: 10px;
+                color: #111;
+                content: attr(data-th) ': ';
+                font-weight: 700;
+            }
+        }
+    }
+}

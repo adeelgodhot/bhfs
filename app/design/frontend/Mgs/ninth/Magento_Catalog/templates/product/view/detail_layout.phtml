@@ -1,0 +1,17 @@
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+
+<div class="product-detail-container">
+    <div class="row">
+        <?php echo $this->getChildHtml('product.info.media.image'); ?>
+        <?php echo $this->getChildHtml('product.info.main'); ?>
+    </div>
+</div>
+
+<?php echo $this->getChildHtml('product.sticky'); ?>
+

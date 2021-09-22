@@ -1,0 +1,61 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+?>
+<?php
+$mpanelHelper = $this->helper('MGS\Mpanel\Helper\Data');
+if($mpanelHelper->getStoreConfig('instantsearch/general/result') == 1){
+    $action = $block->getBaseUrl().'/instantsearch/result/';
+}else{
+    $action = $helper->getResultUrl();
+}
+?>
+<div class="block block-search">
+    <div class="block block-title"><strong><?php echo /* @escapeNotVerified */ __('Search') ?></strong></div>
+    <div class="block block-content">
+        <form class="form minisearch" id="search_mini_form" action="<?php echo /* @escapeNotVerified */ $action; ?>" method="get">
+            <div class="field search">
+                <label class="label" for="search" data-role="minisearch-label">
+                    <span><?php echo /* @escapeNotVerified */ __('Search') ?></span>
+                </label>
+                <div class="control">
+                    <input id="search"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form",
+                                "url":"<?php echo /* @escapeNotVerified */ $helper->getSuggestUrl()?>",
+                                "destinationSelector":"#search_autocomplete"}
+                           }'
+                           type="text"
+                           name="<?php echo /* @escapeNotVerified */ $helper->getQueryParamName() ?>"
+                           value="<?php echo /* @escapeNotVerified */ $helper->getEscapedQueryText() ?>"
+                           placeholder="<?php echo /* @escapeNotVerified */ __('Search entire store here...') ?>"
+                           class="input-text"
+                           maxlength="<?php echo /* @escapeNotVerified */ $helper->getMaxQueryLength() ?>"
+                           role="combobox"
+						   aria-expanded="true"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+                    <div id="search_autocomplete" class="search-autocomplete"></div>
+                    <?php echo $block->getChildHtml() ?>
+                </div>
+            </div>
+            <div class="actions">
+                <button type="submit"
+                        title="<?php echo $block->escapeHtml(__('Search')) ?>"
+                        class="action search">
+                    <span><?php echo /* @escapeNotVerified */ __('Search') ?></span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

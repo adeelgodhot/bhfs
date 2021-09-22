@@ -1,0 +1,138 @@
+<?php if ($block->getConfig('general_settings/enabled') && $block->getConfig('product_page_settings/show_related_products_by_brand')): ?>
+
+    <?php
+        $brand = $block->getBrand();
+        $_helper = $this->helper('Magento\Catalog\Helper\Output');
+        $themeHelper = $this->helper('MGS\Mpanel\Helper\Data');
+        $settings = $themeHelper->getThemeSettings();
+        $_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+        $quickViewHelper = $this->helper('MGS\QuickView\Helper\Data');
+    ?>
+    
+    <?php
+        // Backend Config
+        $ratio = $themeHelper->getStoreConfig('mpanel/catalog/picture_ratio');
+        $ct_attr = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/attribute_text');
+        $display_overlay = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/display_overlay');
+        $change_img = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/change_img');
+        $grid_tp = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/grid_type');
+        if($grid_tp == ""){ $grid_tp = 1; }
+        $lazyLoad = $themeHelper->getStoreConfig('mgstheme/general/lazy_load');
+        $onePr = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/one_product');
+        $mbItem = $onePr ? 1 : 2;
+    ?>
+    
+    <?php $size = $themeHelper->getImageSize($ratio); ?>
+    <?php $padding = $themeHelper->getImagePadding($ratio); ?>
+    <?php $baseImage = $this->getViewFileUrl('MGS_Mpanel::images/blank'.$ratio.'.png'); ?>
+    <?php $fk = $block->getBlockHtml('formkey'); ?>
+
+    <?php
+        $showCompare = $settings['catalog']['compare_button'] ? false : true;
+        $showWishList = $settings['catalog']['wishlist_button'] && $this->helper('Magento\Wishlist\Helper\Data')->isAllow() ? false : true;
+    ?>
+    
+	<?php if ($brand): ?>
+		<?php if($block->getConfig('product_page_settings/title_related_products')): ?>
+			<?php $blockTitle = $block->getConfig('product_page_settings/title_related_products'); ?>
+		<?php else: ?>
+			<?php $blockTitle = __('Related Products By Brand') ?>
+		<?php endif ?>
+		
+		<?php $_productCollection = $block->getProductCollection(); ?>
+		
+		<?php if (count($_productCollection)): ?>
+			<div class="brand-related-products detail-page-grid-products">
+				<div class="content-heading">
+					<h3 class="title"><?php echo $blockTitle; ?></h3>
+				</div>
+				
+				<div class="block-content content" aria-labelledby="block-heading">
+					<div class="products wrapper grid products-grid <?php echo $display_overlay ? ' display_overlay' : '' ?><?php echo $onePr ? ' mobile-1-product' : '' ?> slider-1-row products-related row">
+						<div id="brand-related-products" class="items product-items owl-carousel">
+							<?php foreach ($_productCollection as $_product): ?>
+                            
+                                <?php $swatches = $block->getProductDetailsHtml($_product); ?>
+                                <?php $wlDataPost = $block->getAddToWishlistParams($_product); ?>
+                                <?php $fk = $block->getBlockHtml('formkey')?>
+                                <?php //$postParams = $block->getAddToCartPostParams($_product); ?>
+                                <?php $postDataHelper = $this->helper('Magento\Framework\Data\Helper\PostHelper');
+                                $postParams = $postDataHelper->getPostData($block->getAddToCartUrl($_product), ['product' => $_product->getEntityId()]);
+                                $postParams = json_decode($postParams, TRUE);
+                                ?>
+                                <?php $review = $block->getReviewsSummaryHtml($_product, \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW); ?>
+                                <?php $prdPrice = $block->getProductPrice($_product) ?>
+                                <?php $pos = $block->getPositioned(); ?>
+                                
+								<div class="item grid-template-<?php echo $grid_tp ?> product product-item">
+                                    <?php echo $this->getLayout()
+                                                    ->createBlock('Magento\Framework\View\Element\Template')
+                                                    ->setProduct($_product)
+                                                    ->setThemeHelper($themeHelper)
+                                                    ->setImageHelper($_imagehelper)
+                                                    ->setCatalogHelperOutput($_helper)
+                                                    ->setQuickViewHelper($quickViewHelper)
+                                                    ->setRatio($ratio)
+                                                    ->setSize($size)
+                                                    ->setCustomAttribute($ct_attr)
+                                                    ->setPadding($padding)
+                                                    ->setLazyLoadBaseImage($baseImage)
+                                                    ->setCompare($showCompare)
+                                                    ->setFk($fk)
+                                                    ->setPostParams($postParams)
+                                                    ->setReview($review)
+                                                    ->setPrdPrice($prdPrice)
+                                                    ->setWishList($showWishList)
+                                                    ->setLazyLoad($lazyLoad)
+                                                    ->setHoverChange($change_img)
+                                                    ->setWishListPost($wlDataPost)
+                                                    ->setTemplate('MGS_Mpanel::products/grid_item/grid_item_'.$grid_tp.'.phtml')
+                                                    ->setSwatches($swatches)
+                                                    ->setPos($pos)
+                                                    ->toHtml(); ?>
+								</div>
+							<?php endforeach ?>
+						</div>
+						<?php $perRow = $block->getConfig('product_page_settings/perrow_related_products'); ?>
+						<script type="text/javascript">
+							require([
+								'jquery',
+								'mgs/owlcarousel'
+							], function ($) {
+								var brandrelatedproducts = $('#brand-related-products').owlCarousel({
+									items: <?php echo $perRow; ?>,
+									autoplay: false,
+									autoplayHoverPause: false,
+									<?php if($lazyLoad): ?>lazyLoad: true,<?php endif ?>
+									nav: true,
+									dots: false,
+                                    rtl: RTL,
+									navText: ["<i class='lnr lnr-arrow-left'></i>","<i class='lnr lnr-arrow-right'></i>"],
+									responsive:{
+										0:{
+											items: <?php echo $mbItem ?>,
+                                            nav: false,
+                                            dots: true,
+										},
+										768:{
+											items: 3,
+                                            nav: true,
+                                            dots: false,
+										},
+										1200:{
+											items:<?php echo $perRow; ?>,
+                                            nav: true,
+                                            dots: false,
+										}
+									}
+								});
+							});
+						</script>
+					</div>
+				</div>
+			</div>
+		<?php endif; ?>
+		
+	<?php endif; ?>
+	
+<?php endif; ?>

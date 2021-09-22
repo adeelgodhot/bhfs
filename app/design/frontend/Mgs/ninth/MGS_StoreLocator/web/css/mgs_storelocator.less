@@ -1,0 +1,175 @@
+.store-list-container {
+    .search-form {
+        border: 1px solid #eee;
+        margin-bottom: 30px;
+        border-radius: 0 0 5px 5px;
+        h3.title {
+            border-bottom: 1px solid #eee;
+            padding: 11px 15px;
+            margin: 0;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .row {
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+        .col-xs-6 {
+            padding: 0 5px;
+        }
+        .content-block {
+            padding: 10px 15px 15px;
+        }
+    }
+    .store-list {
+        border: 1px solid #eee;
+        border-radius: 0 0 5px 5px;
+        overflow: hidden;
+        h3 {
+            border-bottom: 1px solid #eee;
+            padding: 11px 15px;
+            margin: 0;
+            text-transform: uppercase;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        .items {
+            padding: 15px;
+            max-height: 615px;
+            overflow: auto;
+            .alert {
+                margin: 0;
+            }
+            li {
+                border: 1px solid #ccc;
+                padding: 10px;
+                border-radius: 5px;
+                margin: 0 0 10px 0;
+            }
+            .store-infor .store-content {
+                display: table;
+                .store-logo {
+                    display: table-cell;
+                    vertical-align: top;
+                    width: 100px;
+                }
+                .description {
+                    padding-left: 15px;
+                    display: table-cell;
+                    vertical-align: top;
+                    h4 {
+                        font-size: 16px;
+                        margin: 0 0 8px;
+                    }
+                    .btn-primary { font-size: 12px; }
+                }
+            }
+        }
+    }
+    &.store-items.items {
+        border: 1px solid #eee;
+        overflow: hidden;
+        .store-list {
+            border: 0;
+            border-radius: 0;
+            overflow: visible;
+        }
+        > .row {
+            margin: 0;
+            > .col-xs-12 { padding: 0; }
+        }
+    }
+    .bottom-action {
+        border-top: 1px solid #eee;
+        padding: 15px;
+        &:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        > .pager {
+            margin: 0;
+            float: left;
+            vertical-align: top;
+            .toolbar-amount {
+                display: none;
+            }
+        }
+        .show-all-store {
+            float: right;
+            vertical-align: top;
+        }
+        .btn {
+            padding-top: 11px;
+            padding-bottom: 11px;
+        }
+        @media (max-width: 767px){
+            > .pager {
+                float: none;
+                display: table;
+                margin: 0 auto 15px;
+            }
+            .show-all-store { width: 100%; }
+            .btn { width: 100%; }
+        }
+    }
+}
+
+#store-list-map {
+    height: 660px;
+    width: 100%;
+    @media (max-width: 991px){ margin-top: 30px; }
+    @media (max-width: 767px){ height: 400px; }
+}
+#map-detail {
+    height: 500px;
+    margin-bottom: 30px;
+    @media (max-width: 767px){ height: 400px; }
+}
+
+.map-short-info {
+    font-size: 12px;
+    max-width: 180px;
+    border-radius: 5px;
+    h3 {
+        font-size: 14px;
+        font-weight: 700;
+        color: #212121;
+        margin: 5px 0 10px;
+    }
+    p { margin-bottom: 5px; }
+    a {
+        color: #ff000;
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+.box-store {
+    border: 1px solid #eee;
+    border-radius: 0 0 5px 5px;
+    h3 {
+        border-bottom: 1px solid #eee;
+        padding: 11px 15px;
+        margin: 0;
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    .box-store-content {
+        padding: 15px;
+        table {
+            width: 100%;
+            margin-bottom: 0;
+            tr td, tr th {
+                border: 1px solid #eee;
+                padding: 10px;
+            }
+        }
+    }
+    .store-image {
+        margin-bottom: 20px;
+        img { margin: 0 auto; }
+    }
+}

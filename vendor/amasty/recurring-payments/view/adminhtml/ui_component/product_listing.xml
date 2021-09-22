@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <listingToolbar name="listing_top">
+        <massaction name="listing_massaction">
+            <action name="enable_recurring">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Make Selected Products Available via Subscription</item>
+                            <item name="message" xsi:type="string" translate="true">Make Selected Products Available via Subscription?</item>
+                        </item>
+                        <item name="type" xsi:type="string">enable_recurring</item>
+                        <item name="label" xsi:type="string" translate="true">Make Selected Products Available via Subscription</item>
+                        <item name="url" xsi:type="url" path="amasty_recurring/product/changeRecurring">
+                            <param name="status_of_recurring">\Amasty\RecurringPayments\Model\Product\Source\AvailableSubscription::GLOBAL_SETTING</param>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+            <action name="disable_recurring">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="confirm" xsi:type="array">
+                            <item name="title" xsi:type="string" translate="true">Make Selected Products Unavailable via Subscription</item>
+                            <item name="message" xsi:type="string" translate="true">Make Selected Products Unavailable via Subscription?</item>
+                        </item>
+                        <item name="type" xsi:type="string">disable_recurring</item>
+                        <item name="label" xsi:type="string" translate="true">Make Selected Products Unavailable via Subscription</item>
+                        <item name="url" xsi:type="url" path="amasty_recurring/product/changeRecurring">
+                            <param name="status_of_recurring">\Amasty\RecurringPayments\Model\Product\Source\AvailableSubscription::NO</param>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
+    </listingToolbar>
+    <columns name="product_columns">
+        <column name="am_recurring_enable" class="Amasty\RecurringPayments\Ui\Component\Listing\Column\RecurringStatus">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="string">Subscription Product</item>
+                    <item name="sortOrder" xsi:type="string">55</item>
+                    <item name="filter" xsi:type="boolean">false</item>
+                    <item name="sortable" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+        </column>
+    </columns>
+</listing>

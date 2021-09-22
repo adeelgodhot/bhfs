@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Amasty_Followup::css/schedule.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Amasty\Followup\Block\Adminhtml\Rule\Edit" name="rule_edit"/>
+            <block class="Amasty\Followup\Block\Adminhtml\Rule\Test" name="amasty.followup.js.test" template="Amasty_Followup::rule/js/test.phtml"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+                <block class="Amasty\Followup\Block\Adminhtml\Rule\Edit\Tabs" name="rule_tabs">
+                    <block class="Amasty\Followup\Block\Adminhtml\Rule\Edit\Tab\General" name="amasty_followup_rule_edit_tab_general" />
+                    <block class="Amasty\Followup\Block\Adminhtml\Rule\Edit\Tab\Store" name="amasty_followup_rule_edit_tab_store" />
+                    <block class="Amasty\Followup\Block\Adminhtml\Rule\Edit\Tab\Sender" name="amasty_followup_rule_edit_tab_sender" />
+                    <block class="Amasty\Followup\Block\Adminhtml\Rule\Edit\Tab\Analytics" name="amasty_followup_rule_edit_tab_analytics" />
+                    <block class="Amasty\Followup\Block\Adminhtml\Rule\Edit\Tab\Segments" name="amasty_followup_rule_edit_tab_segments" />
+                    <block class="Amasty\Followup\Block\Adminhtml\Rule\Edit\Tab\Schedule" name="amasty_followup_rule_edit_tab_schedule" />
+                    <block class="Amasty\Followup\Block\Adminhtml\Rule\Edit\Tab\Conditions" name="amasty_followup_rule_edit_tab_conditions" />
+                    <block class="Amasty\Followup\Block\Adminhtml\Rule\Edit\Tab\Test" name="amasty_followup_rule_edit_tab_test" />
+
+                    <action method="addTab">
+                        <argument name="name" xsi:type="string">amasty_followup_rule_edit_tab_general</argument>
+                        <argument name="block" xsi:type="string">amasty_followup_rule_edit_tab_general</argument>
+                    </action>
+
+                    <action method="addTab">
+                        <argument name="name" xsi:type="string">amasty_followup_rule_edit_tab_store</argument>
+                        <argument name="block" xsi:type="string">amasty_followup_rule_edit_tab_store</argument>
+                    </action>
+
+                    <action method="addTab">
+                        <argument name="name" xsi:type="string">amasty_followup_rule_edit_tab_sender</argument>
+                        <argument name="block" xsi:type="string">amasty_followup_rule_edit_tab_sender</argument>
+                    </action>
+
+                    <action method="addTab">
+                        <argument name="name" xsi:type="string">amasty_followup_rule_edit_tab_analytics</argument>
+                        <argument name="block" xsi:type="string">amasty_followup_rule_edit_tab_analytics</argument>
+                    </action>
+
+                    <action method="addTab">
+                        <argument name="name" xsi:type="string">amasty_followup_rule_edit_tab_segments</argument>
+                        <argument name="block" xsi:type="string">amasty_followup_rule_edit_tab_segments</argument>
+                    </action>
+
+                    <action method="addTab">
+                        <argument name="name" xsi:type="string">amasty_followup_rule_edit_tab_schedule</argument>
+                        <argument name="block" xsi:type="string">amasty_followup_rule_edit_tab_schedule</argument>
+                    </action>
+
+                    <action method="addTab">
+                        <argument name="name" xsi:type="string">amasty_followup_rule_edit_tab_conditions</argument>
+                        <argument name="block" xsi:type="string">amasty_followup_rule_edit_tab_conditions</argument>
+                    </action>
+
+                    <action method="addTab">
+                        <argument name="name" xsi:type="string">amasty_followup_rule_edit_tab_test</argument>
+                        <argument name="block" xsi:type="string">amasty_followup_rule_edit_tab_test</argument>
+                    </action>
+                </block>
+        </referenceContainer>
+
+    </body>
+</page>

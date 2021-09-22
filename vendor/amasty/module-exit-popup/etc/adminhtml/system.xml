@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_ExitPopup
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_exit_popup" type="text" sortOrder="151620" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label><![CDATA[Exit Intent Popup]]></label>
+            <tab>amasty</tab>
+            <resource>Amasty_ExitPopup::config_exit_popup</resource>
+            <group id="amasty_information" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Information</label>
+                <frontend_model>Amasty\ExitPopup\Block\Adminhtml\System\Config\Information</frontend_model>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Settings</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Enable Exit Intent Popup</label>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="title" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Header Text</label>
+                    <validate>validate-length maximum-length-200</validate>
+                </field>
+                <field id="text" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Message</label>
+                    <validate>validate-length maximum-length-2000</validate>
+                </field>
+                <field id="pages" translate="label" type="multiselect" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show on Pages</label>
+                    <source_model>Amasty\ExitPopup\Model\Config\Source\PagesSource</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="recovery_time" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Recovery Time</label>
+                    <source_model>Amasty\ExitPopup\Model\Config\Source\TimeSource</source_model>
+                    <comment><![CDATA[Do not annoy your customers!
+                    Set proper recovery time to prevent exit popup from showing to the same visitor too often.]]></comment>
+                </field>
+                <field id="custom_time" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Popup Recovery Time in Minutes</label>
+                    <backend_model>Amasty\ExitPopup\Model\Config\Backend\RoundRecoveryTime</backend_model>
+                    <validate>required-entry validate-number validate-greater-than-zero</validate>
+                    <depends>
+                        <field id="recovery_time">8</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="promo_settings" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Promo Settings</label>
+                <field id="promo_type" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Promo Item Type</label>
+                    <source_model>Amasty\ExitPopup\Model\Config\Source\PromoSource</source_model>
+                </field>
+                <field id="rule_id" translate="label comment" type="hidden" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Search for Rule</label>
+                    <frontend_model>Amasty\ExitPopup\Block\Adminhtml\System\Config\Field\AbstractHtmlElement</frontend_model>
+                    <comment><![CDATA[Please select a shopping cart rule to add the coupon to.
+                    <br />Important: the rule should be set to "Use Auto Generation=Yes".]]></comment>
+                    <depends>
+                        <field id="promo_type">0</field>
+                    </depends>
+                </field>
+                <field id="downloadable_product_id" translate="label comment" type="hidden" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Search for Product</label>
+                    <frontend_model>Amasty\ExitPopup\Block\Adminhtml\System\Config\Field\AbstractHtmlElement</frontend_model>
+                    <comment><![CDATA[Please enter SKU to search for a downloadable product.]]></comment>
+                    <depends>
+                        <field id="promo_type">1</field>
+                    </depends>
+                </field>
+                <field id="enable_ask" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Explicitly Ask for Email Content</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="consent_message" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Consent Message</label>
+                    <validate>validate-length maximum-length-200</validate>
+                    <depends>
+                        <field id="enable_ask">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="email_settings" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Settings</label>
+                <field id="email_sender" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Email as</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="template" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

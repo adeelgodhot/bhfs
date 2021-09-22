@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amfollowup" translate="label" type="text" sortOrder="61521" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Follow Up Email</label>
+            <tab>amasty</tab>
+            <resource>Amasty_Followup::amasty_followup</resource>
+
+            <group id="general" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="customer_coupon" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>The Coupon is Available Only for Particular Customer</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If the option is disabled the coupon can be used by all customers.]]></comment>
+                </field>
+                <field id="winback_period" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Winback Period</label>
+                    <comment><![CDATA[in days]]></comment>
+                </field>
+                <field id="clear_history" translate="label" type="select" sortOrder="3" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Automatically Remove Sent Emails from History</label>
+                    <source_model>Amasty\Followup\Model\Source\History\ClearPeriod</source_model>
+                </field>
+                <field id="birthday_offset" translate="label comment" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Birthday Offset</label>
+                    <comment><![CDATA[Change this to trigger Customer Birthday Start Event before actual birthday date]]></comment>
+                </field>
+            </group>
+
+            <group id="template" translate="label" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Sender Details</label>
+                <field id="name" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sender Name</label>
+                </field>
+                <field id="email" translate="label comment" type="text" sortOrder="2" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sender Email</label>
+                    <validate>validate-email required-entry</validate>
+                </field>
+                <field id="cc" translate="label comment" type="text" sortOrder="3" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sends Copy of Emails to</label>
+                    <comment><![CDATA[Comma-separated]]></comment>
+                </field>
+            </group>
+
+            <group id="import" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Import Blacklist</label>
+                <field id="blacklist" translate="label comment" type="file" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>CSV File</label>
+                    <backend_model>Amasty\Followup\Model\Source\Import</backend_model>
+                </field>
+            </group>
+
+            <group id="test" translate="label" type="text" sortOrder="5" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Testing</label>
+                <field id="safe_mode" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Safe Mode</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[When safe mode is activated, the extension sends emails only to the test email, <b>nothing will be sent to customers</b>]]></comment>
+                </field>
+                <field id="recipient" translate="label comment" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Recipient Email</label>
+                    <validate>validate-email</validate>
+                </field>
+            </group>
+
+            <group id="emails" translate="label" type="text" sortOrder="6" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Emails</label>
+                <field id="header_template" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Header Template</label>
+                    <source_model>Amasty\Followup\Model\Source\Email\Template</source_model>
+                </field>
+                <field id="footer_template" translate="label comment" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Footer Template</label>
+                    <source_model>Amasty\Followup\Model\Source\Email\Template</source_model>
+                </field>
+            </group>
+            <group id="information" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>Cronjob Information</label>
+                <frontend_model>Amasty\Followup\Block\Adminhtml\Info</frontend_model>
+            </group>
+        </section>
+    </system>
+</config>

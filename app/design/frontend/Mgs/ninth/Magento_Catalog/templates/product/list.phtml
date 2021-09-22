@@ -1,0 +1,156 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Framework\App\Action\Action;
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Product list template
+ *
+ * @var $block \Magento\Catalog\Block\Product\ListProduct
+ */
+?>
+<?php
+$_productCollection = $block->getLoadedProductCollection();
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$themeHelper = $this->helper('MGS\Mpanel\Helper\Data');
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$quickViewHelper = $this->helper('MGS\QuickView\Helper\Data');
+
+// Backend Config
+$ct_attr = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/attribute_text');
+$display_overlay = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/display_overlay');
+$change_img = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/change_img');
+$grid_tp = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/grid_type');
+$lazyLoad = $themeHelper->getStoreConfig('mgstheme/general/lazy_load');
+$onePr = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/one_product');
+
+$size = $themeHelper->getImageSize();
+$ratio = $themeHelper->getRatioCate();
+$baseImage = $this->getViewFileUrl('MGS_Mpanel::images/blank'.$ratio.'.png');
+if($grid_tp == ""){ $grid_tp = 1; }
+$padding = $themeHelper->getImagePadding();
+
+$settings = $themeHelper->getThemeSettings();
+$perrow = $settings['catalog']['per_row'];
+$pageType = 'catalog';
+if($this->hasData('page_type')){
+	$pageType = $this->getData('page_type');
+}
+if($pageType == 'catalog'){
+	$category = $themeHelper->getCurrentCategory();
+	if($category->getPerRow()){
+		$perrow = $category->getPerRow();
+	}
+}elseif($pageType == 'catalogsearch') {
+	if($settings['catalogsearch']['per_row']){
+		$perrow = $settings['catalogsearch']['per_row'];
+	}
+}elseif($pageType == 'catalog_brand') {
+	if($settings['catalog_brand']['per_row']){
+		$perrow = $settings['catalog_brand']['per_row'];
+	}
+}
+$colCheck = $themeHelper->convertPerRowtoCol($perrow);
+$colClass = $themeHelper->convertColClass($colCheck, 'col');
+?>
+
+<?php
+    $showCompare = $settings['catalog']['compare_button'] ? false : true;
+    $showWishList = $settings['catalog']['wishlist_button'] && $this->helper('Magento\Wishlist\Helper\Data')->isAllow() ? false : true;
+?>
+
+<?php if (!$_productCollection->count()): ?>
+    <div class="message info empty"><div><?php /* @escapeNotVerified */ echo __('We can\'t find products matching the selection.') ?></div></div>
+<?php else: ?>
+    <div class="category-actions">
+        <?php echo $block->getAdditionalHtml() ?>
+        <?php echo $block->getToolbarHtml() ?>
+    </div>
+    <?php
+    if ($block->getMode() == 'grid') {
+        $viewMode = 'grid';
+        $templateFile = 'MGS_Mpanel::products/grid_item/grid_item_'.$grid_tp.'.phtml';
+        $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    } else {
+        $viewMode = 'list';
+        $templateFile = 'MGS_Mpanel::products/list_item/list_item.phtml';
+        $templateType = \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW;
+    }
+    /**
+     * Position for actions regarding image size changing in vde if needed
+     */
+    $pos = $block->getPositioned();
+    ?>
+    <div id="product-wrapper" class="products wrapper <?php echo$viewMode; ?> products-<?php echo $viewMode; ?><?php echo $display_overlay ? ' display_overlay' : '' ?><?php echo $onePr ? ' mobile-1-product' : '' ?>">
+        <?php $iterator = 1; ?>
+        <ol class="products items product-items<?php if($viewMode == 'grid'): ?> row<?php endif ?>">
+            <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
+            <?php $i=0; foreach ($_productCollection as $_product): $i++ ?>
+                <?php $clearClass = $themeHelper->getClearClass($perrow, $i) ?>
+                <li class="item product product-item <?php if($viewMode == 'grid'): ?> grid-template-<?php echo $grid_tp ?> <?php echo $colClass ?> <?php echo $clearClass ?><?php endif ?>">
+                    <?php $swatches = $block->getProductDetailsHtml($_product); ?>
+                    <?php $wlDataPost = $block->getAddToWishlistParams($_product); ?>
+                    <?php $fk = $block->getBlockHtml('formkey') ?>
+                    <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+                    <?php $review = $block->getReviewsSummaryHtml($_product, $templateType); ?>
+                    <?php $prdPrice = $block->getProductPrice($_product) ?>
+                    
+                    <?php echo $this->getLayout()
+                                    ->createBlock('Magento\Framework\View\Element\Template')
+                                    ->setProduct($_product)
+                                    ->setThemeHelper($themeHelper)
+                                    ->setImageHelper($_imagehelper)
+                                    ->setCatalogHelperOutput($_helper)
+                                    ->setQuickViewHelper($quickViewHelper)
+                                    ->setRatio($ratio)
+                                    ->setSize($size)
+                                    ->setCustomAttribute($ct_attr)
+                                    ->setPadding($padding)
+                                    ->setLazyLoadBaseImage($baseImage)
+                                    ->setCompare($showCompare)
+                                    ->setFk($fk)
+                                    ->setPostParams($postParams)
+                                    ->setReview($review)
+                                    ->setPrdPrice($prdPrice)
+                                    ->setWishList($showWishList)
+                                    ->setLazyLoad($lazyLoad)
+                                    ->setHoverChange($change_img)
+                                    ->setWishListPost($wlDataPost)
+                                    ->setTemplate($templateFile)
+                                    ->setSwatches($swatches)
+                                    ->setPos($pos)
+                                    ->toHtml(); ?>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+    </div>
+    <?php echo $block->getToolbarHtml() ?>
+    
+    <script type="text/javascript">
+        require([ 'jquery' ], function($){
+            $(document).ready(function(){
+                if(!$('.products.wrapper  + .toolbar-products .pages').length){
+                    $('.products.wrapper + .toolbar-products').hide();
+                }else{
+                    $('.products.wrapper + .toolbar-products').show();
+                }
+            });
+        });
+    </script>
+
+    <?php if (!$block->isRedirectToCartEnabled()) : ?>
+        <script type="text/x-magento-init">
+        {
+            "[data-role=tocart-form], .form.map.checkout": {
+                "catalogAddToCart": {}
+            }
+        }
+        </script>
+    <?php endif; ?>
+<?php endif; ?>

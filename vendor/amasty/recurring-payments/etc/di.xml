@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\RecurringPayments\Api\Data\FeeInterface" type="Amasty\RecurringPayments\Model\Fee" />
+    <preference for="Amasty\RecurringPayments\Api\FeeRepositoryInterface" type="Amasty\RecurringPayments\Model\Repository\FeeRepository" />
+    <preference for="Amasty\RecurringPayments\Api\Data\TransactionInterface" type="Amasty\RecurringPayments\Model\Transaction" />
+    <preference for="Amasty\RecurringPayments\Api\TransactionRepositoryInterface" type="Amasty\RecurringPayments\Model\Repository\TransactionRepository" />
+    <preference for="Amasty\RecurringPayments\Api\Subscription\SubscriptionInterface" type="Amasty\RecurringPayments\Model\Subscription" />
+    <preference for="Amasty\RecurringPayments\Api\Subscription\RepositoryInterface" type="Amasty\RecurringPayments\Model\Repository\SubscriptionRepository" />
+    <preference for="Amasty\RecurringPayments\Api\Data\DiscountInterface" type="Amasty\RecurringPayments\Model\Discount" />
+    <preference for="Amasty\RecurringPayments\Api\DiscountRepositoryInterface" type="Amasty\RecurringPayments\Model\Repository\DiscountRepository" />
+    <preference for="Amasty\RecurringPayments\Api\Subscription\AddressInterface" type="Amasty\RecurringPayments\Model\Address" />
+    <preference for="Amasty\RecurringPayments\Api\Subscription\AddressRepositoryInterface" type="Amasty\RecurringPayments\Model\Repository\AddressRepository" />
+    <preference for="Amasty\RecurringPayments\Api\Subscription\SubscriptionInfoInterface" type="Amasty\RecurringPayments\Model\Subscription\Info" />
+    <preference for="Amasty\RecurringPayments\Api\SubscriptionPlanRepositoryInterface" type="Amasty\RecurringPayments\Model\Repository\SubscriptionPlanRepository" />
+    <preference for="Amasty\RecurringPayments\Api\Data\SubscriptionPlanInterface" type="Amasty\RecurringPayments\Model\SubscriptionPlan" />
+
+    <preference for="Amasty\RecurringPayments\Api\Generators\InvoiceGeneratorInterface" type="Amasty\RecurringPayments\Model\Generators\InvoiceGenerator" />
+    <preference for="Amasty\RecurringPayments\Api\Generators\QuoteGeneratorInterface" type="Amasty\RecurringPayments\Model\Generators\QuoteGenerator" />
+    <preference for="Amasty\RecurringPayments\Api\Generators\OrderGeneratorInterface" type="Amasty\RecurringPayments\Model\Generators\OrderGenerator" />
+    <preference for="Amasty\RecurringPayments\Api\Generators\TransactionGeneratorInterface" type="Amasty\RecurringPayments\Model\Generators\TransactionGenerator" />
+    <preference for="Amasty\RecurringPayments\Api\Generators\RecurringTransactionGeneratorInterface" type="Amasty\RecurringPayments\Model\Generators\RecurringTransactionGenerator" />
+    <preference for="Amasty\RecurringPayments\Api\EstimateRecurringPaymentInterface" type="Amasty\RecurringPayments\Model\Subscription\Estimation\EstimateRecurringPayment" />
+    <preference for="Amasty\RecurringPayments\Api\Data\EstimationItemInterface" type="Amasty\RecurringPayments\Model\Subscription\Estimation\EstimationItem" />
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="transaction_grid_data_source" xsi:type="string">Amasty\RecurringPayments\Model\ResourceModel\Transaction\Grid\Collection</item>
+                <item name="subscription_plan_grid_data_source" xsi:type="string">Amasty\RecurringPayments\Model\ResourceModel\SubscriptionPlan\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Amasty\RecurringPayments\Model\ResourceModel\Transaction\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_recurring_payments_transaction_log</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\RecurringPayments\Model\ResourceModel\Transaction</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\RecurringPayments\Model\ResourceModel\SubscriptionPlan\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">amasty_recurring_payments_subscription_plan</argument>
+            <argument name="resourceModel" xsi:type="string">Amasty\RecurringPayments\Model\ResourceModel\SubscriptionPlan</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- get custom options to show on checkout, cart, minicart  -->
+    <type name="Magento\Catalog\Helper\Product\Configuration">
+        <plugin name="Amasty_RecurringPayments::HelperProductConfiguration" type="Amasty\RecurringPayments\Plugin\Helper\Product\ConfigurationPlugin"/>
+    </type>
+    <!-- need to validate product before add because we use custom options for subscribing products   -->
+    <type name="Magento\Quote\Model\Quote\Item">
+        <plugin name="Amasty_RecurringPayments::ModelQuoteItem" type="Amasty\RecurringPayments\Plugin\Model\Quote\ItemPlugin"/>
+    </type>
+    <!-- need to apply free shipping on subscribing products   -->
+    <type name="Magento\OfflineShipping\Model\SalesRule\Calculator">
+        <plugin name="Amasty_RecurringPayments::ModelSalesRuleCalculator" type="Amasty\RecurringPayments\Plugin\Model\SalesRule\CalculatorPlugin"/>
+    </type>
+    <!-- need to apply discount when order created after payment invoice (remote payment such as Stripe)   -->
+    <type name="Magento\SalesRule\Model\RulesApplier">
+        <plugin name="Amasty_RecurringPayments::ModelRulesApplier" type="Amasty\RecurringPayments\Plugin\Model\SalesRule\RulesApplierPlugin"/>
+    </type>
+    <!-- need to disable amazon payment on checkout for subscribing products  -->
+    <type name="Amazon\Payment\Plugin\CheckoutProcessor">
+        <plugin name="Amasty_RecurringPayments::AmazonCheckoutProcessor" type="Amasty\RecurringPayments\Plugin\Amazon\CheckoutProcessorPlugin"/>
+    </type>
+    <!-- need to disable amazon payment on minicart for subscribing products  -->
+    <type name="Amazon\Payment\Gateway\Config\Config">
+        <plugin name="Amasty_RecurringPayments::GatewayConfig" type="Amasty\RecurringPayments\Plugin\Amazon\Gateway\ConfigPlugin"/>
+    </type>
+    <!-- need to apply free shipping to subscription products  -->
+    <type name="Magento\Shipping\Model\Shipping">
+        <plugin name="Amasty_RecurringPayments::ModelShipping" type="Amasty\RecurringPayments\Plugin\Model\ShippingPlugin"/>
+    </type>
+    <!-- need to collect tax on original price for subscription products  -->
+    <type name="Magento\Tax\Model\Sales\Total\Quote\CommonTaxCollector">
+        <plugin name="Amasty_RecurringPayments::ModelSalesTotalQuoteCommonTaxCollector" type="Amasty\RecurringPayments\Plugin\Model\Sales\Total\Quote\CommonTaxCollectorPlugin"/>
+    </type>
+    <!-- need to collect tax on original price for subscription products  -->
+    <type name="Magento\Tax\Helper\Data">
+        <plugin name="Amasty_RecurringPayments::TaxHelperData" type="Amasty\RecurringPayments\Plugin\Helper\DataPlugin"/>
+    </type>
+    <!-- compatibility with klarna  -->
+    <type name="Klarna\Core\Model\Checkout\Orderline\OrderLineFactory">
+        <plugin name="Amasty_RecurringPayments::ModelCheckoutOrderlineOrderLineFactory" type="Amasty\RecurringPayments\Plugin\Model\Checkout\Orderline\OrderLineFactoryPlugin"/>
+    </type>
+    <!-- get final price  -->
+    <type name="Magento\CatalogRule\Observer\ProcessFrontFinalPriceObserver">
+        <plugin name="Amasty_RecurringPayments::ObserverProcessFrontFinalPriceObserver" type="Amasty\RecurringPayments\Plugin\Observer\ProcessFinalPricePlugin"/>
+    </type>
+    <!-- get final price  -->
+    <type name="Magento\CatalogRule\Observer\ProcessAdminFinalPriceObserver">
+        <plugin name="Amasty_RecurringPayments::ObserverProcessAdminFinalPriceObserver" type="Amasty\RecurringPayments\Plugin\Observer\ProcessFinalPricePlugin"/>
+    </type>
+    <type name="Magento\Quote\Api\CartTotalRepositoryInterface">
+        <plugin name="Amasty_RecurringPayments::CartTotalRepository" type="Amasty\RecurringPayments\Plugin\Model\Quote\Cart\CartTotalRepositoryPlugin"/>
+    </type>
+    <type name="Magento\Payment\Model\Checks\ZeroTotal">
+        <plugin name="Amasty_RecurringPayments::ZeroTotalCheck" type="Amasty\RecurringPayments\Plugin\Payment\Model\Checks\ZeroTotal"/>
+    </type>
+    <type name="Amasty\RecurringPayments\Model\Subscription\Scheduler\Handler">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="subscription_charge" xsi:type="object">Amasty\RecurringPayments\Model\Subscription\Scheduler\Handler\SubscriptionCharge\Proxy</item>
+                <item name="trial_end" xsi:type="object">Amasty\RecurringPayments\Model\Subscription\Scheduler\Handler\TrialWillEnd\Proxy</item>
+                <item name="cancel_subscription" xsi:type="object">Amasty\RecurringPayments\Model\Subscription\Scheduler\Handler\SubscriptionCancel\Proxy</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Quote\Model\Quote\Item\Processor">
+        <plugin name="Amasty_RecurringPayments::validateStartEndDate" type="Amasty\RecurringPayments\Plugin\Model\Quote\Item\ProcessorPlugin"/>
+    </type>
+
+    <!-- Amasty OSC disable editing -->
+    <type name="Amasty\Checkout\Helper\Item">
+        <plugin name="Amasty_RecurringPayments::DisableEditingItem" type="Amasty\RecurringPayments\Plugin\Helper\OSC\ItemHelperPlugin"/>
+    </type>
+
+    <type name="Amasty\RecurringPayments\Model\Subscription\HandleOrder\HandlerPartsOrderedList">
+        <arguments>
+            <argument name="handlerParts" xsi:type="array">
+                <item name="quote" xsi:type="object">Amasty\RecurringPayments\Model\Subscription\HandleOrder\HandlerPart\QuoteHandlerPart</item>
+                <item name="order" xsi:type="object">Amasty\RecurringPayments\Model\Subscription\HandleOrder\HandlerPart\OrderHandlerPart</item>
+                <item name="payment_data" xsi:type="object">Amasty\RecurringPayments\Model\Subscription\HandleOrder\HandlerPart\PaymentDataHandlerPart</item>
+                <item name="invoice" xsi:type="object">Amasty\RecurringPayments\Model\Subscription\HandleOrder\HandlerPart\InvoiceHandlerPart</item>
+                <item name="transaction" xsi:type="object">Amasty\RecurringPayments\Model\Subscription\HandleOrder\HandlerPart\TransactionHandlerPart</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

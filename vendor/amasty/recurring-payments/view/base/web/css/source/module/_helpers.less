@@ -1,0 +1,116 @@
+//
+//  Amasty Recurring Payments Helpers
+//  _____________________________________________
+
+._amrec-title {
+    display: block;
+    margin-bottom: 20px;
+    width: 100%;
+    font-weight: 600;
+    font-size: @amrec-main__font-size;
+}
+
+._amrec-panel {
+    padding: 25px;
+    background: #f7f7f7;
+}
+
+._amrec-input {
+    height: @amrec-input__height;
+    border: 1px solid @amrec-border__color;
+    border-radius: 2px;
+    font-size: @amrec-main__font-size;
+}
+
+._amrec-datepicker {
+    & {
+        &:extend(._amrec-input);
+    }
+
+    & ~ .ui-datepicker-trigger {
+        & {
+            position: absolute;
+            right: 10px;
+            bottom: 9px;
+        }
+
+        &:before {
+            font-size: 25px;
+        }
+    }
+}
+
+._amrec-radio-input {
+    & {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        width: 0;
+        height: 0;
+        line-height: 0;
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    & + .amrec-label {
+        display: flex;
+        align-items: center;
+    }
+
+    & + .amrec-label:before {
+        display: inline-block;
+        flex: 0 0 auto;
+        box-sizing: border-box;
+        margin-right: 11px;
+        width: 18px;
+        height: 18px;
+        border: 2px solid #ccc;
+        border-radius: 50%;
+        background: #fff;
+        content: '';
+        transition: all .2s ease;
+    }
+
+    &:checked + .amrec-label {
+        & {
+            text-shadow: 0 0 .9px #000;
+        }
+
+        &:before {
+            border: 5px solid @amrec-main__color;
+            box-shadow: 0 2px 4px rgba(63, 156, 215, .4);
+        }
+    }
+
+    &:checked + .amrec-label:before {
+        border: 5px solid @amrec-main__color;
+        box-shadow: 0 2px 4px rgba(63, 156, 215, .4);
+    }
+}
+
+._amrec-radio-input.-plate {
+    &:extend(._amrec-radio-input all);
+
+    & + .amrec-label {
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        padding: 10px 15px;
+        min-width: 175px;
+        width: 100%;
+        border: @amrec-radio-input-label__border;
+        border-radius: 4px;
+        background: #fff;
+        font-size: @amrec-main__font-size;
+        cursor: pointer;
+    }
+
+    &:checked + .amrec-label {
+        border: @amrec-radio-input-label__checked__border;
+    }
+
+    &:checked + .amrec-label,
+    & + .amrec-label:hover,
+    &:focus + .amrec-label {
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
+    }
+}

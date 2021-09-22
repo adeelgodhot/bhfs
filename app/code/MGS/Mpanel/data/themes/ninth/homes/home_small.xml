@@ -1,0 +1,192 @@
+<home>
+	<section>
+		<name><![CDATA[block464]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[1]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block467]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[3,9]]></block_cols>
+		<tablet_cols><![CDATA[["3","9"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12","12"]]]></mobile_cols>
+		<block_class><![CDATA[["",""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[3]]></block_position>
+	</section>
+	<block>
+		<block_name><![CDATA[block464-0]]></block_name>
+		<type><![CDATA[owl_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"block_link":"","animation":"","animation_delay":"","removeimg":["","","","","","","","",""],"html_slider":"<div data-text-position=\"bottom_left\" data-text-animate=\"slideInLeft\" class=\"item slideInLeft\"><a class=\"item-image\" href=\"\" style=\"background-image:url(http:\/\/mgs.arrowhitech.net\/ninth2\/pub\/media\/wysiwyg\/slider\/slider1_2.jpg)\"><img class=\"img-responsive\" src=\"http:\/\/mgs.arrowhitech.net\/ninth2\/pub\/media\/wysiwyg\/slider\/slider1_2.jpg\" alt=\"\"><\/a><div class=\"container slide-text bottom_left\"><div class=\"inner-text\"><div class=\"content-heading text-left padding70\">\r\n\t<div class=\"sub-title\">NOW TRENDING<\/div>\r\n\t<h2 class=\"title\">SWEATSHIRT WITH<br>\r\n\t\tBACK BOW<\/h2>\r\n\t<p><span>Sweatshirt with contrasting ribbed neckline. Features drop-shoulder design with full sleeves...<\/span><\/p>\r\n\t<button class=\"action-shop-now\"><span>SHOP NOW<\/span><\/button>\r\n<\/div><\/div><\/div><\/div><div data-text-position=\"bottom_left\" data-text-animate=\"slideInLeft\" class=\"item slideInLeft\"><a class=\"item-image\" href=\"\" style=\"background-image:url(http:\/\/mgs.arrowhitech.net\/ninth2\/pub\/media\/wysiwyg\/slider\/slider1_2.jpg)\"><img class=\"img-responsive\" src=\"http:\/\/mgs.arrowhitech.net\/ninth2\/pub\/media\/wysiwyg\/slider\/slider1_2.jpg\" alt=\"\"><\/a><div class=\"container slide-text bottom_left\"><div class=\"inner-text\"><div class=\"content-heading text-left padding70\">\r\n\t<div class=\"sub-title\">NOW TRENDING<\/div>\r\n\t<h2 class=\"title\">SWEATSHIRT WITH<br>\r\n\t\tBACK BOW<\/h2>\r\n\t<p><span>Sweatshirt with contrasting ribbed neckline. Features drop-shoulder design with full sleeves...<\/span><\/p>\r\n\t<button class=\"action-shop-now\"><span>SHOP NOW<\/span><\/button>\r\n<\/div><\/div><\/div><\/div>","offset":"","effect":"1","speed":"","navigation":"1","pagination":"1","navtemple":"3","loop":"1","fullscreen":0,"autoplay":0,"stop_auto":0,"fullheight":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Widget\OwlCarousel" fullscreen="0" autoplay="0" stop_auto="0" navigation="1" offset="" fullheight="0" pagination="1" loop="1" speed="" html_slider="&lt;div data-text-position=&quot;bottom_left&quot; data-text-animate=&quot;slideInLeft&quot; class=&quot;item slideInLeft&quot;&gt;&lt;a class=&quot;item-image&quot; href=&quot;&quot; style=&quot;background-image:url(http://mgs.arrowhitech.net/ninth2/pub/media/wysiwyg/slider/slider1_2.jpg)&quot;&gt;&lt;img class=&quot;img-responsive&quot; src=&quot;http://mgs.arrowhitech.net/ninth2/pub/media/wysiwyg/slider/slider1_2.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;div class=&quot;container slide-text bottom_left&quot;&gt;&lt;div class=&quot;inner-text&quot;&gt;&lt;div class=&quot;content-heading text-left padding70&quot;&gt;
+	&lt;div class=&quot;sub-title&quot;&gt;NOW TRENDING&lt;/div&gt;
+	&lt;h2 class=&quot;title&quot;&gt;SWEATSHIRT WITH&lt;br&gt;
+		BACK BOW&lt;/h2&gt;
+	&lt;p&gt;&lt;span&gt;Sweatshirt with contrasting ribbed neckline. Features drop-shoulder design with full sleeves...&lt;/span&gt;&lt;/p&gt;
+	&lt;button class=&quot;action-shop-now&quot;&gt;&lt;span&gt;SHOP NOW&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div data-text-position=&quot;bottom_left&quot; data-text-animate=&quot;slideInLeft&quot; class=&quot;item slideInLeft&quot;&gt;&lt;a class=&quot;item-image&quot; href=&quot;&quot; style=&quot;background-image:url(http://mgs.arrowhitech.net/ninth2/pub/media/wysiwyg/slider/slider1_2.jpg)&quot;&gt;&lt;img class=&quot;img-responsive&quot; src=&quot;http://mgs.arrowhitech.net/ninth2/pub/media/wysiwyg/slider/slider1_2.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;div class=&quot;container slide-text bottom_left&quot;&gt;&lt;div class=&quot;inner-text&quot;&gt;&lt;div class=&quot;content-heading text-left padding70&quot;&gt;
+	&lt;div class=&quot;sub-title&quot;&gt;NOW TRENDING&lt;/div&gt;
+	&lt;h2 class=&quot;title&quot;&gt;SWEATSHIRT WITH&lt;br&gt;
+		BACK BOW&lt;/h2&gt;
+	&lt;p&gt;&lt;span&gt;Sweatshirt with contrasting ribbed neckline. Features drop-shoulder design with full sleeves...&lt;/span&gt;&lt;/p&gt;
+	&lt;button class=&quot;action-shop-now&quot;&gt;&lt;span&gt;SHOP NOW&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" navtemple="3" effect="1" template="widget/owl_slider.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block467-0]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"home_small_5"}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[no-padding special-banner]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="home_small_5" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block467-1]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"home_small_1"}]]></setting>
+		<col><![CDATA[8]]></col>
+		<class><![CDATA[col-sm-8 col-xs-12 no-padding]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="home_small_1" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block467-1]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[2]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"home_small_2"}]]></setting>
+		<col><![CDATA[4]]></col>
+		<class><![CDATA[col-sm-4 col-xs-12 no-padding]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="home_small_2" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block467-1]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[3]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"home_small_3"}]]></setting>
+		<col><![CDATA[4]]></col>
+		<class><![CDATA[col-sm-4 col-xs-12 no-padding]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="home_small_3" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block467-1]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[4]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"home_small_4"}]]></setting>
+		<col><![CDATA[8]]></col>
+		<class><![CDATA[col-sm-8 col-xs-12 no-padding]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="home_small_4" template="banner.phtml"}}]]></block_content>
+	</block>
+	<promo_banner>
+		<item>
+			<title><![CDATA[Home small 1]]></title>
+			<filename><![CDATA[/u/n/untitled-6.jpg]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[bottom-left]]></text_align>
+			<content><![CDATA[<div class="content-heading text-left">
+	<div class="sub-title">NOW TRENDING</div>
+	<h2 class="title">BEACH COLLECTION</h2>
+	<button class="action-shop-now"><span>DISCOVER NOW</span></button>
+</div>]]></content>
+			<effect><![CDATA[zoom]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[home_small_1]]></identifier>
+		</item>
+		<item>
+			<title><![CDATA[Home small 2]]></title>
+			<filename><![CDATA[/u/n/untitled-4.jpg]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[middle-center]]></text_align>
+			<content><![CDATA[<div class="content-heading text-uppercase">
+	<div class="sub-title">Get notification</div>
+	<h2 class="title">JOIN THE NEWSLETTER</h2>
+</div>]]></content>
+			<effect><![CDATA[zoom]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[home_small_2]]></identifier>
+		</item>
+		<item>
+			<title><![CDATA[Home small 3]]></title>
+			<filename><![CDATA[/u/n/untitled-3.jpg]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[top-left]]></text_align>
+			<content><![CDATA[<div class="content-heading text-uppercase text-left">
+	<div class="sub-title">lovely</div>
+	<h2 class="title">must have<br/> hat</h2>
+</div>]]></content>
+			<effect><![CDATA[zoom]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[home_small_3]]></identifier>
+		</item>
+		<item>
+			<title><![CDATA[Home small 4]]></title>
+			<filename><![CDATA[/u/n/untitled-5.jpg]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[middle-right]]></text_align>
+			<content><![CDATA[<div class="content-heading text-left text-uppercase">
+	<div class="sub-title">on sale</div>
+	<h2 class="title">women Shoes</h2>
+	<button class="action-shop-now"><span>DISCOVER NOW</span></button>
+</div>]]></content>
+			<effect><![CDATA[zoom]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[home_small_4]]></identifier>
+		</item>
+		<item>
+			<title><![CDATA[Home small 5]]></title>
+			<filename><![CDATA[/a/a/aa.jpg]]></filename>
+			<url><![CDATA[opening-pencil-skirt-1.html]]></url>
+			<button><![CDATA[OPENING PENCIL SKIRT<span>$84</span>]]></button>
+			<text_align><![CDATA[top-middle]]></text_align>
+			<content><![CDATA[<div class="content-heading text-center">
+	<div class="sub-title">STORE</div>
+	<h2 class="title">FEATURED</h2>
+	<p><span>Come & Discover our store with featured products. I will love it!</span></p>
+	<span class="bottom-line"></span>
+</div>]]></content>
+			<effect><![CDATA[]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[home_small_5]]></identifier>
+		</item>
+	</promo_banner>
+	<theme_setting>
+		<general>
+			<layout>boxed</layout>
+			<width>fullwidth</width>
+		</general>
+	</theme_setting>
+
+</home>

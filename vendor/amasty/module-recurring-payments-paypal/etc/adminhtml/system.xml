@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPaypal
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_recurring_payments">
+            <group id="paypal" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Paypal</label>
+                <field id="client_id" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Client ID</label>
+                    <comment><![CDATA[Please find more information regarding Client ID and Client Secret in PayPal documentation which is available
+                        <a href="https://developer.paypal.com/developer/applications" target="_blank">here</a>]]></comment>
+                </field>
+                <field id="client_secret" translate="label" type="obscure" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Client Secret</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="webhook_id" translate="label comment" type="text" sortOrder="30" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Webhook ID</label>
+                    <frontend_model>Amasty\RecurringPaypal\Block\Adminhtml\System\Config\CreateWebhook</frontend_model>
+                    <comment><![CDATA[Please ensure that your webhook works. You can check whether it functions properly by going to
+                     <a href="https://developer.paypal.com/developer/dashboard/webhooks/sandbox/" target="_blank">
+                     https://developer.paypal.com/developer/dashboard/webhooks/sandbox/</a> and monitoring its status.]]></comment>
+                </field>
+            </group>
+            <group id="email_notification">
+                <field id="email_template_paypal_renewal" translate="label" type="select" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>PayPal Subscription Terms Change Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <tooltip>Unlike Stripe, PayPal requires your customer to explicitly agree to subscription terms each
+                        time they change. For instance, in case you set a given number of discounted billing cycles,
+                        once it comes to an end, your customer will need to click the PayPal link in the email and
+                        accept new terms to keep his or her subscription active (even though, full price, discounted
+                        price and the number of discounted cycles are clearly stated on the product page, shopping cart
+                        and checkout page and acknowledged by the customer upon order placement). Please keep that in
+                        mind.
+                    </tooltip>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

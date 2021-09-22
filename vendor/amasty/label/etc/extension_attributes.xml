@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Label
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Amasty\Label\Api\Data\LabelInterface">
+        <attribute code="frontend_settings" type="Amasty\Label\Api\Data\LabelFrontendSettingsInterface" >
+            <join reference_table="amasty_label_catalog_parts" reference_field="label_id" join_on_field="label_id">
+                <field>type</field>
+                <field>label_text</field>
+                <field>image</field>
+                <field>image_size</field>
+                <field>position</field>
+                <field>style</field>
+            </join>
+        </attribute>
+
+        <attribute code="render_settings" type="Amasty\Label\Api\Data\RenderSettingsInterface"/>
+
+        <attribute code="label_tooltip" type="Amasty\Label\Api\Data\LabelTooltipInterface" >
+            <join reference_table="amasty_label_tooltip" reference_field="label_id" join_on_field="label_id">
+                <field>status</field>
+                <field>color</field>
+                <field>text_color</field>
+                <field>text</field>
+            </join>
+        </attribute>
+    </extension_attributes>
+</config>

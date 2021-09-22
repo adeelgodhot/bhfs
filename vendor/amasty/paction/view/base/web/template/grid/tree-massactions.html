@@ -1,0 +1,30 @@
+<div class="action-select-wrap ampaction-select-container"
+    data-bind="css: {'_active': opened}, outerClick: close.bind($data)">
+    <button class="action-select"
+            data-bind="
+                click: toggleOpened,
+                i18n: 'Actions',
+                attr: {title: $t('Select Items'), 'aria-label': $t('Select Items')}">
+    </button>
+    <div class="action-menu-items">
+        <ul class="action-menu"
+            data-bind="css: {'_active': opened}, foreach: {data: actions, as: 'action'}">
+            <li data-bind="css: {
+                        '_visible': $data.visible,
+                        '_parent': $data.actions,
+                        'ampaction-line' : $data.amasty_actions && !$data.confirm.title}">
+                <span class="action-menu-item"
+                      data-bind="text: label, click: $parent.applyAction.bind($parent, type)">
+                </span>
+                <!-- ko if: ($data.actions && $data.amasty_actions) -->
+                    <!-- ko template: {name: $parent.amastysubmenuTemplate, data: $parent} -->
+                    <!-- /ko -->
+                <!-- /ko-->
+                <!-- ko if: ($data.actions && !$data.amasty_actions) -->
+                    <!-- ko template: {name: $parent.submenuTemplate, data: $parent} -->
+                    <!-- /ko -->
+                <!-- /ko -->
+            </li>
+        </ul>
+    </div>
+</div>

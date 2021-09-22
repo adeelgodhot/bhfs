@@ -1,0 +1,98 @@
+//
+//  Base Styles
+//  ______________________________________________
+
+//
+//  Imports
+//  ----------------------------------------------
+
+@import '_mixins';
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amasty-label-container:not(.-preview) {
+        max-width: 300px !important;
+        max-height: 300px !important;
+    }
+
+    .fotorama--fullscreen .amasty-label-container {
+        display: none;
+    }
+
+    // Override magento styles
+    .products-upsell .product-item .amlabel-text {
+        padding: 0 !important;
+        font-size: 12px !important;
+    }
+
+    .fotorama .amlabel-text.-am-centered {
+        top: 50%;
+        left: 50%;
+        width: auto !important; // override js
+        transform: translate(-50%, -50%);
+    }
+
+    .admin__field.-amlabel-hidden {
+        & {
+            margin: 0;
+        }
+
+        > .admin__field-label {
+            .lib-visually-hidden();
+        }
+    }
+
+    .amlabel-image-preview {
+        & {
+            position: absolute;
+            right: 0;
+            z-index: 99;
+            display: flex;
+            width: ~'calc(100% * .25 - 30px)';
+            border: 1px solid #ccc;
+        }
+
+        .amlabel-text {
+            .am-word-break;
+        }
+
+        > .amlabel-image {
+            width: 100%;
+            height: 100%;
+        }
+
+        .amlabel-position-wrapper {
+            position: absolute;
+            display: flex;
+        }
+
+        .amasty-label-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            margin: auto;
+            max-width: 100%;
+        }
+
+        .amlabel-preview-image + .amlabel-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            text-align: center;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    .amlabel-position-wrapper {
+        & {
+            z-index: 995;
+        }
+
+        .block-viewed-products-grid & {
+            z-index: 2;
+        }
+    }
+}

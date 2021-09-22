@@ -1,0 +1,55 @@
+<?php
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<!doctype html>
+
+<?php 
+	$helper =  $this->getBuilderHelper();
+	$canUsePanel = $helper->acceptToUsePanel();
+	
+	$hAbs = $helper->getStoreConfig('mgstheme/header/absolute_header');
+	$lzl = $helper->getStoreConfig('mgstheme/general/lazy_load');
+	$htmlCl = 'use-'. $helper->getHeaderClass();
+	if($hAbs){ $htmlCl .= ' absolute_header'; }
+	if($lzl){ $htmlCl .= ' atv_lazyload'; }
+?>
+
+<html class="<?php echo $htmlCl; ?>" <?php /* @escapeNotVerified */ echo $htmlAttributes ?>>
+    <head <?php /* @escapeNotVerified */ echo $headAttributes ?>>
+        <?php /* @escapeNotVerified */ echo $requireJs ?>
+        <?php /* @escapeNotVerified */ echo $headContent ?>
+        <?php /* @escapeNotVerified */ echo $headAdditional ?>
+		<?php //echo $helper->getLinksFont() ?>
+		<link  rel="stylesheet" type="text/css"  media="all" href="<?php echo $helper->getMediaUrl() ?>mgs/css/<?php echo $helper->getStore()->getId() ?>/custom_config.css" /> 
+		<?php if($helper->showButton()): ?>
+		<link  rel="stylesheet" type="text/css"  media="all" href="<?php echo $helper->getPanelCssUrl() ?>" /> 
+		<?php endif ?>
+		
+    </head>
+    <body data-ratio="<?php echo $helper->getStoreConfig('mpanel/catalog/picture_ratio') ?>" data-container="body" data-mage-init='{"loaderAjax": {}, "loader": { "icon": "<?php /* @escapeNotVerified */ echo $loaderIcon; ?>"}}' <?php /* @escapeNotVerified */ echo $bodyAttributes ?>>
+
+        
+		<?php if($helper->showButton() && !$helper->isPopup()): ?>
+			<?php echo $this->getLayout()->createBlock('MGS\Mpanel\Block\Panel\Toppanel')->setTemplate('panel/toppanel.phtml')->setCacheable(false)->toHtml() ?>
+		<?php endif ?>
+		
+		<?php if($helper->acceptToUsePanel() && ($helper->isHomepage() || $helper->isCmsPage())): ?>
+            <div class="main-wrapper">
+                <?php echo $helper->convertContent($layoutContent, $this->getLayout()->createBlock('MGS\Mpanel\Block\Panel\HomeContent')->setTemplate('panel/homecontent.phtml')->toHtml()) ?>
+            </div>
+        <?php else: ?>
+            <div class="main-wrapper">
+                <?php echo $helper->convertContent($layoutContent) ?>
+            </div>    
+        <?php endif ?>
+        
+		<?php if($canUsePanel): ?>
+			<script  type="text/javascript" src="<?php echo $this->getViewFileUrl('MGS_Mpanel::js/panel.js') ?>"></script>
+		<?php endif ?>
+    </body>
+</html>

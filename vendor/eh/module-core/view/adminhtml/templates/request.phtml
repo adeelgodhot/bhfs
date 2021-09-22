@@ -1,0 +1,9 @@
+<script>
+    require(['jquery'], function($){
+        $.ajax({
+            type: "GET",
+            async: true,
+            url: '<?=$block->getUrl('extensionhut/action/validate')?>'
+        });
+    });
+</script>

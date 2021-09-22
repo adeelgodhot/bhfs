@@ -1,0 +1,171 @@
+//
+//  Amasty Recurring Payments Email Templates
+//  ____________________________________________
+
+//
+//  Variables
+//  ----------------------------------------------
+@amrec-email-product-image__width: 135px;
+@amrec-email-product-info__margin-left: 20px;
+
+.amrec-main-container {
+    color: #363636;
+}
+
+.amrec-header-container {
+    & {
+        font-size: 0;
+    }
+
+    .amrec-title {
+        min-width: 250px;
+        font-weight: bold;
+        font-size: 38px;
+        line-height: 40px;
+    }
+
+    .amrec-title,
+    .amrec-image-wrapper {
+        display: inline-block;
+        width: 50%;
+        vertical-align: middle;
+    }
+
+    .amrec-image-wrapper {
+        min-width: 215px;
+        text-align: right;
+    }
+}
+
+.amrec-text-container .amrec-name {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.amrec-button-wrapper {
+    & {
+        margin-top: 60px;
+        text-align: center;
+    }
+
+    .amrec-button {
+        display: inline-block;
+        padding: 12px 15px;
+        background: #f58836;
+        color: #fff;
+        font-weight: bold;
+        font-size: 14px;
+    }
+}
+
+.amrec-confirm-wrapper {
+    & {
+        margin-top: 25px;
+        text-align: right;
+    }
+
+    .amrec-confirm {
+        color: #fff;
+        background-color: #337ab7;
+        border: 1px solid #2e6da4;
+        display: inline-block;
+        padding: 6px 22px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        border-radius: 4px;
+    }
+}
+
+.amrec-regards-wrapper {
+    & {
+        margin-top: 70px;
+        text-align: right;
+    }
+
+    .amrec-regards {
+        color: #5f5f5f;
+        font-style: italic;
+        font-size: 16px;
+    }
+}
+
+.amrec-product-container {
+    & {
+        margin-top: 40px;
+        font-size: 0;
+    }
+
+    > .amrec-image {
+        & {
+            text-align: center;
+        }
+
+        > .amrec-image {
+            .lib-css(max-width, @amrec-email-product-image__width);
+        }
+    }
+
+    > .amrec-info {
+        margin-top: 20px;
+        max-width: inherit;
+    }
+}
+
+.amrec-subscription-info {
+    & {
+        font-size: 14px;
+    }
+
+    .amrec-name {
+        color: #1787e0;
+    }
+
+    .amrec-cell {
+        padding: 5px;
+    }
+
+    .amrec-status {
+        display: block;
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.email-non-inline() {
+    .amrec-button-wrapper .amrec-button:hover,
+    .amrec-button-wrapper .amrec-button:active {
+        background: #da8443 !important;
+        color: #fff !important;
+        text-decoration: none !important;
+    }
+
+    .amrec-subscription-info .amrec-row .amrec-cell:first-of-type {
+        font-weight: 600;
+    }
+
+    .amrec-confirm-wrapper .amrec-confirm:hover,
+    .amrec-confirm-wrapper .amrec-confirm:visited {
+        color: #fff !important;
+    }
+
+    .amrec-confirm-wrapper .amrec-confirm:hover {
+        background-color: #286090 !important;
+        border-color: #204d74 !important;
+        text-decoration: none !important;
+    }
+
+    @media all and (min-width: 480px) {
+        .amrec-product-container {
+            > .amrec-image,
+            > .amrec-info {
+                display: inline-block;
+                vertical-align: top;
+            }
+
+            > .amrec-info {
+                margin: 0 0 0 @amrec-email-product-info__margin-left !important;
+                max-width: ~"calc(100% - (@{amrec-email-product-image__width} + @{amrec-email-product-info__margin-left}))" !important;
+            }
+        }
+    }
+}

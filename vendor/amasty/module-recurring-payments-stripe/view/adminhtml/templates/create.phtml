@@ -1,0 +1,20 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringStripe
+ */
+?>
+<?php /** @var \Amasty\RecurringPayments\Block\Adminhtml\Config $block */ ?>
+<script>
+require([
+    'jquery',
+    'Amasty_RecurringStripe/js/config/create'
+], function($) {
+    $('[data-role="amrecurring-create-button"]').amrecCreateHook({
+        create_url: "<?= $block->escapeUrl(
+            $block->getUrl('amasty_recurring/config_stripe/createWebhook', $block->getParams())
+        ) ?>",
+    });
+});
+</script>

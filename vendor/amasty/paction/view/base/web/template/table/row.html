@@ -1,0 +1,48 @@
+<!-- ko foreach: elems -->
+<tr data-ampaction-js="row">
+    <td class="col-websites">
+        <select data-bind="
+                    attr: {name: $parent.htmlName + '[' + $index() + '][website_id]'}, css: $parent.htmlClass">
+            <!-- ko foreach: $parent.websites -->
+            <option data-bind="value: $index(), text: $parents[1].getWebsite(name, currency)"></option>
+            <!-- /ko -->
+        </select>
+    </td>
+    <td class="col-customer-group">
+        <select class="requried-entry input-text admin__control-text custgroup required-entry"
+                data-bind="attr: {name: $parent.htmlName + '[' + $index() + '][cust_group]'}, css: $parent.htmlClass">
+            <!-- ko foreach: { data: Object.keys($parent.groups), as: 'groupKey' }  -->
+            <option data-bind="value: groupKey, text: $parents[1].groups[groupKey]"></option>
+            <!-- /ko -->
+        </select>
+    </td>
+    <td class="col-qty">
+        <input class="qty required-entry validate-greater-than-zero"
+               type="text"
+               data-bind="attr: {name: $parent.htmlName + '[' + $index() + '][price_qty]'}, css: $parent.htmlClass"
+        />
+    </td>
+    <td class="col-price-value-type">
+        <select class="value-type required-entry"
+                data-bind="
+                    attr: {name: $parent.htmlName + '[' + $index() + '][value_type]'},
+                    css: $parent.htmlClass,
+                    options: $parent.priceTypes,
+                    optionsText: 'label',
+                    optionsValue: 'value',">
+        </select>
+    </td>
+    <td class="col-price">
+        <input type="text"
+               data-bind="
+                attr: {name: $parent.htmlName + '[' + $index() + '][price]'},
+                css: $parent.htmlClass + ' ' + $parent.priceValueValidationClass"/>
+    </td>
+    <td class="col-delete">
+        <button data-bind="
+            attr: {title: $t('Delete Tier'), 'aria-label': $t('Delete Tier')},
+            i18n: 'Delete',
+            click: $parent.deleteRow.bind($parent, $data)"></button>
+    </td>
+</tr>
+<!-- /ko -->

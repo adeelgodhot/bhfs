@@ -1,0 +1,53 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+?>
+<?php
+/** @var \Amasty\Fpc\Block\Status $block */
+/** @var \Magento\Framework\Escaper $escaper */
+
+$notCacheable = $block->getNotCacheableBlocks();
+$showContextData = $block->isContextDataDebug();
+?>
+
+<div class="amasty-fpc-crawler-status status-<?= $escaper->escapeHtmlAttr($block->getStatusCode()) ?>">
+    <div class="status-header">Full Page Cache</div>
+    <div class="status"><?= $escaper->escapeHtml($block->getStatusTitle()) ?></div>
+    <?php if ($notCacheable): ?>
+        <div class="not-cacheable">
+            <div class="not-cacheable-header"><?= $escaper->escapeHtml(__('Not cacheable blocks')) ?></div>
+            <div class="blocks">
+                <?php foreach ($notCacheable as $blockData): ?>
+                    <div class="not-cacheable-block">
+                        <div class="name"><?= $escaper->escapeHtml($blockData['name']) ?></div>
+                        <div class="class"><?= $escaper->escapeHtml($blockData['class']) ?></div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    <?php endif ?>
+    <?php if ($showContextData): ?>
+        <div data-bind="scope: 'context-debug'" data-role="amasty-fpc-debug-container">
+            <div id="debug-toggle" class="debug-status-toggle">Toggle Context Debug</div>
+            <!-- ko template: getTemplate() --><!-- /ko -->
+        </div>
+        <script type="text/x-magento-init">
+        {
+            "[data-role=amasty-fpc-debug-container]": {
+                "Magento_Ui/js/core/app": {
+                    "components": {
+                        "context-debug": {
+                            "component": "Amasty_Fpc/js/debug/context",
+                            "template": "Amasty_Fpc/debug/context",
+                            "debugDataUrl" : "<?= $escaper->escapeUrl($block->getDebugContextUrl()) ?>"
+                        }
+                    }
+                }
+            }
+        }
+        </script>
+    <?php endif ?>
+</div>

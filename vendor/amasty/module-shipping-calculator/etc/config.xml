@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_ShippingCalculator
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amasty_shipping_calculator>
+            <general>
+                <enabled>1</enabled>
+            </general>
+            <display_options>
+                <places>additional_tab</places>
+                <tab_name>Shipping Calculator</tab_name>
+                <description><![CDATA[Fill in your delivery details to check available shipping options and calculate rates for this product]]></description>
+                <show_country_field>1</show_country_field>
+                <show_region_field>1</show_region_field>
+                <show_postcode_field>1</show_postcode_field>
+                <not_found_message><![CDATA[Sorry, we don't ship to this area]]></not_found_message>
+            </display_options>
+        </amasty_shipping_calculator>
+    </default>
+</config>

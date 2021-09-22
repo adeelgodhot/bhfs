@@ -1,0 +1,22 @@
+<products>
+<product>
+  <id>24-MB01</id>
+  <status>in stock</status>
+  <qty>3</qty>
+</product>
+<product>
+  <id>24-MB04</id>
+  <status>in stock</status>
+  <qty>58</qty>
+</product>
+<product>
+  <id>24-MB03</id>
+  <status>in stock</status>
+  <qty>74</qty>
+</product>
+<product>
+  <id>24-MB05</id>
+  <status>in stock</status>
+  <qty>40</qty>
+</product>
+</products>

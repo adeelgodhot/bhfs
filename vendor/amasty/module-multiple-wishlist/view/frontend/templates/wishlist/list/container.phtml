@@ -1,0 +1,19 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_MWishlist
+ */
+?>
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+
+<div data-amwishlist-js="tabs-block">
+    <?= $block->getChildHtml('tabs') ?>
+</div>
+<?= $block->getChildHtml('new') ?>
+<div data-amwishlist-js="content-tabs-block">
+    <?= $block->getChildHtml('list') ?>
+</div>

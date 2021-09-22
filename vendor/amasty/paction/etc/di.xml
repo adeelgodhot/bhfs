@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Paction
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Ui\Model\Manager">
+        <plugin name="Amasty_Paction::checkEnabled" type="Amasty\Paction\Plugin\Ui\Model\Manager"/>
+    </type>
+    <type name="Magento\Ui\Config\Reader">
+        <plugin name="Amasty_Paction::checkEnabledM2" type="Amasty\Paction\Plugin\Ui\Model\Reader"/>
+    </type>
+
+    <type name="Amasty\Paction\Block\Adminhtml\Product\Edit\Action\Attribute\Tab\TierPrice\Content">
+        <arguments>
+            <argument name="tierPriceValueType" xsi:type="object">Amasty\Paction\Model\Source\TierPrice</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Paction\Model\CommandResolver">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="addcategory" xsi:type="object">Amasty\Paction\Model\Command\Addcategory\Proxy</item>
+                <item name="addprice" xsi:type="object">Amasty\Paction\Model\Command\Addprice\Proxy</item>
+                <item name="addspecial" xsi:type="object">Amasty\Paction\Model\Command\Addspecial\Proxy</item>
+                <item name="addspecialbycost" xsi:type="object">Amasty\Paction\Model\Command\Addspecialbycost\Proxy</item>
+                <item name="amdelete" xsi:type="object">Amasty\Paction\Model\Command\Amdelete\Proxy</item>
+                <item name="appendtext" xsi:type="object">Amasty\Paction\Model\Command\Appendtext\Proxy</item>
+                <item name="changeattributeset" xsi:type="object">Amasty\Paction\Model\Command\Changeattributeset\Proxy</item>
+                <item name="changevisibility" xsi:type="object">Amasty\Paction\Model\Command\Changevisibility\Proxy</item>
+                <item name="copyattr" xsi:type="object">Amasty\Paction\Model\Command\Copyattr\Proxy</item>
+                <item name="copycrosssell" xsi:type="object">Amasty\Paction\Model\Command\Copycrosssell\Proxy</item>
+                <item name="copyimg" xsi:type="object">Amasty\Paction\Model\Command\Copyimg\Proxy</item>
+                <item name="copyoptions" xsi:type="object">Amasty\Paction\Model\Command\Copyoptions\Proxy</item>
+                <item name="copyrelate" xsi:type="object">Amasty\Paction\Model\Command\Copyrelate\Proxy</item>
+                <item name="copyupsell" xsi:type="object">Amasty\Paction\Model\Command\Copyupsell\Proxy</item>
+                <item name="crosssell" xsi:type="object">Amasty\Paction\Model\Command\Crosssell\Proxy</item>
+                <item name="modifycost" xsi:type="object">Amasty\Paction\Model\Command\Modifycost\Proxy</item>
+                <item name="modifyprice" xsi:type="object">Amasty\Paction\Model\Command\Modifyprice\Proxy</item>
+                <item name="modifyspecial" xsi:type="object">Amasty\Paction\Model\Command\Modifyspecial\Proxy</item>
+                <item name="modifyallprices" xsi:type="object">Amasty\Paction\Model\Command\Modifyallprices\Proxy</item>
+                <item name="related" xsi:type="object">Amasty\Paction\Model\Command\Relate\Proxy</item>
+                <item name="removecategory" xsi:type="object">Amasty\Paction\Model\Command\Removecategory\Proxy</item>
+                <item name="removeimg" xsi:type="object">Amasty\Paction\Model\Command\Removeimg\Proxy</item>
+                <item name="removeoptions" xsi:type="object">Amasty\Paction\Model\Command\Removeoptions\Proxy</item>
+                <item name="replacecategory" xsi:type="object">Amasty\Paction\Model\Command\Replacecategory\Proxy</item>
+                <item name="replacetext" xsi:type="object">Amasty\Paction\Model\Command\Replacetext\Proxy</item>
+                <item name="uncrosssell" xsi:type="object">Amasty\Paction\Model\Command\Uncrosssell\Proxy</item>
+                <item name="unrelated" xsi:type="object">Amasty\Paction\Model\Command\Unrelate\Proxy</item>
+                <item name="unupsell" xsi:type="object">Amasty\Paction\Model\Command\Unupsell\Proxy</item>
+                <item name="updateadvancedprices" xsi:type="object">Amasty\Paction\Model\Command\Updateadvancedprices\Proxy</item>
+                <item name="upsell" xsi:type="object">Amasty\Paction\Model\Command\Upsell\Proxy</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

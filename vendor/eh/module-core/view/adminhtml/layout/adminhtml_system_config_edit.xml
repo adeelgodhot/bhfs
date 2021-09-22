@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author ExtensionHut Team
+ * @copyright Copyright (c) 2019 ExtensionHut (https://www.extensionhut.com/)
+ * @package EH_Core
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="EH_Core::css/styles.css"/>
+    </head>
+</page>

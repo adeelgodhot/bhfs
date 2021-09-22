@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<css src="MGS_Mpanel::css/margin-padding.css"/>
+		<css src="MGS_Mpanel::css/owl.carousel.css"/>
+		<css src="MGS_Mpanel::css/owl.theme.min.css"/>
+        <css src="MGS_Mpanel::css/magnific-popup.css" />
+		<css src="MGS_Mpanel::css/animate.css"/>
+		<css src="MGS_Mpanel::css/color.css"/>
+        <css src="Magento_Swatches::css/swatches.css"/>
+		<script src="MGS_Mpanel::js/timer.js"/>
+	</head>
+	
+	<body>
+        <referenceContainer name="content">
+            <block class="Magento\Framework\View\Element\Template" name="toggle_button_sidebar" before="-" template="MGS_Mpanel::sidebar/toggle_button.phtml" />
+        </referenceContainer>
+        
+        <referenceContainer name="div.sidebar.main">
+            <block class="Magento\Framework\View\Element\Template" name="title_sidebar" before="-" template="MGS_Mpanel::sidebar/title_sidebar.phtml" />
+        </referenceContainer>
+        
+        <referenceContainer name="sidebar.additional">
+            <block class="Magento\Framework\View\Element\Template" name="custom.sidebar.content" after="-" template="MGS_Mpanel::custom_sidebar.phtml" >
+				<block class="Magento\Cms\Block\Block" name="custom.sidebar.static.block">
+					<arguments>
+						<argument name="block_id" xsi:type="string">mpanel_default_sidebar_block</argument>
+						<argument name="enabled_builder" xsi:type="string">1</argument>
+					</arguments>
+				</block>
+            </block>
+        </referenceContainer>
+        
+		<referenceContainer name="page.bottom">
+            <block class="Magento\Framework\View\Element\Template" name="mgs.lazy.load" template="MGS_Mpanel::script.phtml" />
+        </referenceContainer>
+    </body>
+</page>

@@ -1,0 +1,275 @@
+"Delete Plan","Delete Plan"
+"Are you sure you want to do this?","Are you sure you want to do this?"
+Reset,Reset
+"Save and Continue Edit","Save and Continue Edit"
+Save,Save
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"If your customer adds any subscription product to the cart, only gateway specific payment methods will be available at checkout. Make sure selected payment gateways are properly configured by going to <a href='%1' target='_blank'>Stores > Configuration > Sales > Payment Methods.</a>","If your customer adds any subscription product to the cart, only gateway specific payment methods will be available at checkout. Make sure selected payment gateways are properly configured by going to <a href='%1' target='_blank'>Stores > Configuration > Sales > Payment Methods.</a>"
+"Select one or multiple plans your customers would be able to choose from when subscribing to products. If you need to add more plans or modify existing ones, please visit <a href='%1' target='_blank'>Sales > Amasty Subscriptions > Subscription Plans</a>","Select one or multiple plans your customers would be able to choose from when subscribing to products. If you need to add more plans or modify existing ones, please visit <a href='%1' target='_blank'>Sales > Amasty Subscriptions > Subscription Plans</a>"
+"Initial Subscription Fee","Initial Subscription Fee"
+"Subscription Plan has been deleted.","Subscription Plan has been deleted."
+"This Subscription Plan does not exist.","This Subscription Plan does not exist."
+"Edit Subscription Plan ""%1""","Edit Subscription Plan ""%1"""
+"New Subscription Plan","New Subscription Plan"
+"Subscription Plans","Subscription Plans"
+"The Subscription Plan has been saved.","The Subscription Plan has been saved."
+"The Subscription Plan has not been saved. Please review the error log for the details.","The Subscription Plan has not been saved. Please review the error log for the details."
+"A total of %1 record(s) have been updated.","A total of %1 record(s) have been updated."
+"Something went wrong while updating the product(s) status.","Something went wrong while updating the product(s) status."
+"Transactions Log","Transactions Log"
+"My Subscriptions","My Subscriptions"
+"Payment method adapter is not enabled","Payment method adapter is not enabled"
+"Fixed Amount","Fixed Amount"
+"Percent of Product Price","Percent of Product Price"
+Custom,Custom
+"Once a day","Once a day"
+"Once a week","Once a week"
+"Once a month","Once a month"
+"Once a year","Once a year"
+"Let your customer decide","Let your customer decide"
+Day,Day
+Week,Week
+Month,Month
+Year,Year
+Disable,Disable
+Enable,Enable
+Suspended,Suspended
+Active,Active
+Failed,Failed
+Success,Success
+"Additional Action Required","Additional Action Required"
+"Do Nothing","Do Nothing"
+"Pause Subscription","Pause Subscription"
+"Cancel Subscription","Cancel Subscription"
+"Billing Cycle & Delivery","Billing Cycle & Delivery"
+Yes,Yes
+No,No
+"Free Trials","Free Trials"
+"Number of Trial Days","Number of Trial Days"
+"Initial Fee (excl. tax)","Initial Fee (excl. tax)"
+"Discounted Cycles","Discounted Cycles"
+"Free Shipping on This Product","Free Shipping on This Product"
+"Subscription Start Date","Subscription Start Date"
+"N/A (until failed or canceled)","N/A (until failed or canceled)"
+"Subscription End Date","Subscription End Date"
+"A server error stopped your order from being placed. Please try to place your order again.","A server error stopped your order from being placed. Please try to place your order again."
+"Yes, use global subscription settings","Yes, use global subscription settings"
+"Yes, use custom subscription settings","Yes, use custom subscription settings"
+"Subscription Start Date incorrect","Subscription Start Date incorrect"
+"Some of the product options are invalid","Some of the product options are invalid"
+"Subscription End Date incorrect","Subscription End Date incorrect"
+"End by a cycle should be greater than 1","End by a cycle should be greater than 1"
+"Unable to save address with ID %1. Error: %2","Unable to save address with ID %1. Error: %2"
+"Unable to save new address. Error: %1","Unable to save new address. Error: %1"
+"Address with specified ID ""%1"" not found.","Address with specified ID ""%1"" not found."
+"Address with specified subscription id ""%1"" not found.","Address with specified subscription id ""%1"" not found."
+"Unable to remove address with ID %1. Error: %2","Unable to remove address with ID %1. Error: %2"
+"Unable to remove address. Error: %1","Unable to remove address. Error: %1"
+"Unable to save discount with ID %1. Error: %2","Unable to save discount with ID %1. Error: %2"
+"Unable to save new discount. Error: %1","Unable to save new discount. Error: %1"
+"Discount with specified ID ""%1"" not found.","Discount with specified ID ""%1"" not found."
+"Unable to remove discount with ID %1. Error: %2","Unable to remove discount with ID %1. Error: %2"
+"Unable to remove discount. Error: %1","Unable to remove discount. Error: %1"
+"Unable to save fee with ID %1. Error: %2","Unable to save fee with ID %1. Error: %2"
+"Unable to save new fee. Error: %1","Unable to save new fee. Error: %1"
+"Fee with specified ID ""%1"" not found.","Fee with specified ID ""%1"" not found."
+"Unable to remove fee with ID %1. Error: %2","Unable to remove fee with ID %1. Error: %2"
+"Unable to remove fee. Error: %1","Unable to remove fee. Error: %1"
+"Unable to save subscription plan with ID %1. Error: %2","Unable to save subscription plan with ID %1. Error: %2"
+"Unable to save subscription plan. Error: %1","Unable to save subscription plan. Error: %1"
+"Subscription plan with specified ID ""%1"" not found.","Subscription plan with specified ID ""%1"" not found."
+"Unable to remove subscription plan with ID %1. Error: %2","Unable to remove subscription plan with ID %1. Error: %2"
+"Unable to remove subscription plan. Error: %1","Unable to remove subscription plan. Error: %1"
+"Unable to save subscription with ID %1. Error: %2","Unable to save subscription with ID %1. Error: %2"
+"Unable to save new subscription. Error: %1","Unable to save new subscription. Error: %1"
+"Subscription with specified ID ""%1"" not found.","Subscription with specified ID ""%1"" not found."
+"Unable to remove subscription with ID %1. Error: %2","Unable to remove subscription with ID %1. Error: %2"
+"Unable to remove subscription. Error: %1","Unable to remove subscription. Error: %1"
+"Unable to save transaction with ID %1. Error: %2","Unable to save transaction with ID %1. Error: %2"
+"Unable to save new transaction. Error: %1","Unable to save new transaction. Error: %1"
+"Transaction with specified ID ""%1"" not found.","Transaction with specified ID ""%1"" not found."
+"Unable to remove transaction with ID %1. Error: %2","Unable to remove transaction with ID %1. Error: %2"
+"Unable to remove transaction. Error: %1","Unable to remove transaction. Error: %1"
+"Every %1 days","Every %1 days"
+"Every %1 weeks","Every %1 weeks"
+"Every %1 months","Every %1 months"
+"Every %1 years","Every %1 years"
+"Every %1 %2","Every %1 %2"
+"Subscription not active","Subscription not active"
+"Yes, subscription only","Yes, subscription only"
+"Go to <a href='%1' target='_blank'>Stores > Configuration</a> to check other subscription settings.","Go to <a href='%1' target='_blank'>Stores > Configuration</a> to check other subscription settings."
+"Select one or multiple plans your customers would be able to choose from when subscribing to the product. If you need to add more plans or modify existing ones, please visit <a href='%1' target='_blank'>Sales > Amasty Subscriptions > Subscription Plans</a>.","Select one or multiple plans your customers would be able to choose from when subscribing to the product. If you need to add more plans or modify existing ones, please visit <a href='%1' target='_blank'>Sales > Amasty Subscriptions > Subscription Plans</a>."
+"There are configurations issues with one or more payment methods that may preventSubscriptions & Recurring Payments extension from working as expected.","There are configurations issues with one or more payment methods that may preventSubscriptions & Recurring Payments extension from working as expected."
+"This is Subscriptional Product","This is Subscriptional Product"
+"Please mind that we do not store some of the subscriptions data (i.e., Trial Start Date, Trial End Date, etc). It’s being dynamically retrieved from the payment gateways you made your payments with, such as PayPal and others. If you notice some sort of data discrepancy, simply try to refresh this page.","Please mind that we do not store some of the subscriptions data (i.e., Trial Start Date, Trial End Date, etc). It’s being dynamically retrieved from the payment gateways you made your payments with, such as PayPal and others. If you notice some sort of data discrepancy, simply try to refresh this page."
+"Delivery & Billing Cycle","Delivery & Billing Cycle"
+"Initial Fee","Initial Fee"
+"Regular Payment","Regular Payment"
+"(After the first %1 cycle(s) you will be paying <span>%2</span> per delivery)","(After the first %1 cycle(s) you will be paying <span>%2</span> per delivery)"
+"Subscription Start","Subscription Start"
+"Order #","Order #"
+Subscription,Subscription
+Delivery,Delivery
+"Last Billing Date","Last Billing Date"
+"Amount Billed","Amount Billed"
+"Next Billing Date","Next Billing Date"
+"Amount to Bill","Amount to Bill"
+Status,Status
+Actions,Actions
+Quantity:,Quantity:
+"Trial Start Date:","Trial Start Date:"
+"Trial End Date:","Trial End Date:"
+"Subscription Start Date:","Subscription Start Date:"
+"Shipping Address","Shipping Address"
+Cancel,Cancel
+"Are you sure you want to cancel this subscription?","Are you sure you want to cancel this subscription?"
+"In case you cancel it by mistake, you will have to place a new order to purchase the same subscription again, since it is currently not possible to automatically renew any subscription after cancellation.","In case you cancel it by mistake, you will have to place a new order to purchase the same subscription again, since it is currently not possible to automatically renew any subscription after cancellation."
+"No, keep subscription active","No, keep subscription active"
+"Yes, cancel this subscription","Yes, cancel this subscription"
+"IMPORTANT: 3D Secure Authentication","IMPORTANT: 3D Secure Authentication"
+"3D Secure Authentication","3D Secure Authentication"
+"Required 3D Secure V2","Required 3D Secure V2"
+"Dear %customer_name,","Dear %customer_name,"
+"Please undergo the 3D Secure authentication procedure in order to confirm that you are the owner of credit/debit cart provided and allow for recurring payments. You can find more information <a href=""%authenticate_url"">here</a>.","Please undergo the 3D Secure authentication procedure in order to confirm that you are the owner of credit/debit cart provided and allow for recurring payments. You can find more information <a href=""%authenticate_url"">here</a>."
+"Kindest Regards","Kindest Regards"
+Team,Team
+" Subscription Canceled at %store_name"," Subscription Canceled at %store_name"
+"Subscription Cancelled","Subscription Cancelled"
+"Your subscription has been canceled.","Your subscription has been canceled."
+"View Details","View Details"
+" Subscription Paused at %store_name"," Subscription Paused at %store_name"
+"Subscription Paused","Subscription Paused"
+"Your subscription has been paused.","Your subscription has been paused."
+" Subscription Purchased at %store_name"," Subscription Purchased at %store_name"
+"Subscription Purchased","Subscription Purchased"
+"Thanks for your order!","Thanks for your order!"
+"Your subscription details are listed below.","Your subscription details are listed below."
+" Trial will end at %store_name"," Trial will end at %store_name"
+"Trial Period Ending Soon","Trial Period Ending Soon"
+"Your trial is ending soon. Cancel your subscription if you don't need the product and don't want to be charged for it. If you want to keep your subscription active, ignore this email and do nothing. Your subscription details are listed below.","Your trial is ending soon. Cancel your subscription if you don't need the product and don't want to be charged for it. If you want to keep your subscription active, ignore this email and do nothing. Your subscription details are listed below."
+"Next Billing Amount:","Next Billing Amount:"
+"Subscription product","Subscription product"
+"Please enter a valid floating point number in this field.","Please enter a valid floating point number in this field."
+"After the first %1  cycle(s) you will be paying %2 per delivery","After the first %1  cycle(s) you will be paying %2 per delivery"
+"Regular subscription fee (do not confuse it with initial or one-time fee which is paid at checkout) will be charged for the first time after trial period ends. In your case, this will happen in %1 days, %2","Regular subscription fee (do not confuse it with initial or one-time fee which is paid at checkout) will be charged for the first time after trial period ends. In your case, this will happen in %1 days, %2"
+"Subscriptions & Recurring Payments","Subscriptions & Recurring Payments"
+Information,Information
+General,General
+"Supported Payment Gateways","Supported Payment Gateways"
+"Out of Stock Action","Out of Stock Action"
+"Choose what to automatically do with a customer's subscription in case the product went out of stock.","Choose what to automatically do with a customer's subscription in case the product went out of stock."
+"Number of Failed Transactions to Automatically Cancel Subscription","Number of Failed Transactions to Automatically Cancel Subscription"
+"Once this number is reached, the subscription of a non-paying customer will be cancelled right away. Since payments can fail for various reasons, we recommend to contact this person in order to know if any assistance is needed.","Once this number is reached, the subscription of a non-paying customer will be cancelled right away. Since payments can fail for various reasons, we recommend to contact this person in order to know if any assistance is needed."
+"Allow for Specifying Subscription Start and End","Allow for Specifying Subscription Start and End"
+"Let your customers choose when to start and end their subscriptions for extra convenience or restrict this ability to instantly start an infinite subscription after the order is placed and keep it active until failed or canceled.","Let your customers choose when to start and end their subscriptions for extra convenience or restrict this ability to instantly start an infinite subscription after the order is placed and keep it active until failed or canceled."
+"Apply Free Shipping to Subscription Products","Apply Free Shipping to Subscription Products"
+"You may want to offer free shipping on subscription products to make it more appealing to your customers and encourage long-lasting relationships with them.","You may want to offer free shipping on subscription products to make it more appealing to your customers and encourage long-lasting relationships with them."
+"Enable ‘Next Billing Date’ Explanation Tooltip","Enable ‘Next Billing Date’ Explanation Tooltip"
+"The option is applicable for the stores having the only Website for several time zones. <br/>
+                            If enabled, It displays the '?' icon with the tooltip in the Subscriptions grid on the customer's Storefront.<br/>
+                            <img src='/media/amasty/recurring_payments/stores_config/next-billing-date-tooltip.png' alt='Place' title='Place'/>","The option is applicable for the stores having the only Website for several time zones. <br/>
+                            If enabled, It displays the '?' icon with the tooltip in the Subscriptions grid on the customer's Storefront.<br/>
+                            <img src='/media/amasty/recurring_payments/stores_config/next-billing-date-tooltip.png' alt='Place' title='Place'/>"
+"Message Text","Message Text"
+"Global Subscription Settings","Global Subscription Settings"
+"Subscription only","Subscription only"
+"Select 'No' to make products available as either regular purchase or subscription. Select 'Yes' to make products subscription only.","Select 'No' to make products available as either regular purchase or subscription. Select 'Yes' to make products subscription only."
+"Subscription Plans Available to Customers","Subscription Plans Available to Customers"
+"Labels & Comments","Labels & Comments"
+"Label for the Single Purchase Option","Label for the Single Purchase Option"
+"This text will be displayed next to the radiobutton for adding a product to the cart as a single purchase (displayed on the subscription product page).","This text will be displayed next to the radiobutton for adding a product to the cart as a single purchase (displayed on the subscription product page)."
+"Label for the Recurring Purchase Option","Label for the Recurring Purchase Option"
+"This text will be displayed next to the radiobutton for adding a product to the cart as a subscription (displayed on the subscription product page).","This text will be displayed next to the radiobutton for adding a product to the cart as a subscription (displayed on the subscription product page)."
+"Email Notifications","Email Notifications"
+"Send Emails as","Send Emails as"
+"Notify Customers When Subscription Is Purchased","Notify Customers When Subscription Is Purchased"
+"Email Template","Email Template"
+"Notify Customers When Trial Period Ends","Notify Customers When Trial Period Ends"
+"Send the Notification About Remaining Trial Period (days)","Send the Notification About Remaining Trial Period (days)"
+"For Trial Periods initiated with Offline payment methods (such as Cash on Delivery) only. Online payment methods' notifications should be configured at payment gateway's side.","For Trial Periods initiated with Offline payment methods (such as Cash on Delivery) only. Online payment methods' notifications should be configured at payment gateway's side."
+"Notify Customers When Subscription Is Paused","Notify Customers When Subscription Is Paused"
+"Notify Customers When Subscription Is Canceled","Notify Customers When Subscription Is Canceled"
+"3D Secure Authentication Email Template","3D Secure Authentication Email Template"
+"Make Selected Products Available via Subscription","Make Selected Products Available via Subscription"
+"Make Selected Products Available via Subscription?","Make Selected Products Available via Subscription?"
+"Make Selected Products Unavailable via Subscription","Make Selected Products Unavailable via Subscription"
+"Make Selected Products Unavailable via Subscription?","Make Selected Products Unavailable via Subscription?"
+"Subscription Plan","Subscription Plan"
+Back,Back
+"Plan Settings","Plan Settings"
+"Subscription Plan Name","Subscription Plan Name"
+"Name your plan to easily identify it among other plans. Your customers won't see it. Only you will see this plan name.","Name your plan to easily identify it among other plans. Your customers won't see it. Only you will see this plan name."
+"Billing Frequency","Billing Frequency"
+"Positive integers only. Required for billing your customers every N days/weeks/months/years depending on the selected frequency unit.","Positive integers only. Required for billing your customers every N days/weeks/months/years depending on the selected frequency unit."
+"Billing Frequency Unit","Billing Frequency Unit"
+"This is used in combination with billing frequency to define the interval of time from the end of one billing, or invoice, statement date to the next billing statement date.","This is used in combination with billing frequency to define the interval of time from the end of one billing, or invoice, statement date to the next billing statement date."
+"Enable Free Trials","Enable Free Trials"
+"
+                        Enable this option if you want your customers to test the product for free prior charging them a normal subscription price.
+                    ","
+                        Enable this option if you want your customers to test the product for free prior charging them a normal subscription price.
+                    "
+"
+                        Positive integers only. Your customer will not be charged a regular subscription fee for using the product in a matter of first N days from the subscription start date.
+                    ","
+                        Positive integers only. Your customer will not be charged a regular subscription fee for using the product in a matter of first N days from the subscription start date.
+                    "
+"Charge Initial Fee","Charge Initial Fee"
+"
+                        Choose whether you want to charge your customers initial (one-time) subscription fee or not. This will be charged only once at the moment of first purchase not affecting future billing cycles.
+                    ","
+                        Choose whether you want to charge your customers initial (one-time) subscription fee or not. This will be charged only once at the moment of first purchase not affecting future billing cycles.
+                    "
+"Initial Fee Type","Initial Fee Type"
+"
+                        Fee can be either a fixed amount in the base store currency or a percent of the regular price of the product.
+                    ","
+                        Fee can be either a fixed amount in the base store currency or a percent of the regular price of the product.
+                    "
+"Initial Fee Amount","Initial Fee Amount"
+"
+                        Positive floating point numbers only. If there are multiple different subscription products in a single order, initial fee will be calculated as a sum of individual fees.
+                    ","
+                        Positive floating point numbers only. If there are multiple different subscription products in a single order, initial fee will be calculated as a sum of individual fees.
+                    "
+"Offer Discounted Prices to Subscribers","Offer Discounted Prices to Subscribers"
+"
+                        Customers would be able to save money when subscribing to the product instead of making a regular purchase.
+                    ","
+                        Customers would be able to save money when subscribing to the product instead of making a regular purchase.
+                    "
+"Discount Type","Discount Type"
+"
+                        Discount can be either a fixed amount in the base store currency or a percent of the regular price of the product.
+                    ","
+                        Discount can be either a fixed amount in the base store currency or a percent of the regular price of the product.
+                    "
+"Discount Amount","Discount Amount"
+"
+                        Positive floating point numbers only. This amount will be deducted from the regular price of the product.
+                    ","
+                        Positive floating point numbers only. This amount will be deducted from the regular price of the product.
+                    "
+"Limit the Number of Discounted Cycles","Limit the Number of Discounted Cycles"
+"
+                        You can choose whether to always apply discount to the amount your customer pays for the subscription or limit the number of billing cycles with discounted pricing.
+                    ","
+                        You can choose whether to always apply discount to the amount your customer pays for the subscription or limit the number of billing cycles with discounted pricing.
+                    "
+"Number of Discounted Cycles","Number of Discounted Cycles"
+"
+                        Positive integers only. Your customer will have discount on payments for the subscription only in a matter of first N billing cycles.
+                    ","
+                        Positive integers only. Your customer will have discount on payments for the subscription only in a matter of first N billing cycles.
+                    "
+"Add New Plan","Add New Plan"
+ID,ID
+"Plan Name","Plan Name"
+"Billing Cycle","Billing Cycle"
+"Trial Period","Trial Period"
+Discount,Discount
+Edit,Edit
+Transaction,Transaction
+"Billing Amount","Billing Amount"
+"Billing Date and time","Billing Date and time"
+Subscriptions,Subscriptions

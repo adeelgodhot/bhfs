@@ -1,0 +1,113 @@
+/* Variable */
+.border-radius (@radius) {
+    border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+}
+.transform (@translate) {
+    transform: @translate;
+    -webkit-transform: @translate;
+    -moz-transform: @translate;
+    -o-transform: @translate;
+}
+.transition  (@transition) {
+    transition: @transition;
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+}
+
+.transform-origin(@transform-origin) {
+	transform-origin: @transform-origin;
+	-webkit-transform-origin: @transform-origin;
+	-ms-transform-origin: @transform-origin;
+	-moz-transform-origin: @transform-origin;
+	-o-transform-origin: @transform-origin;
+}
+
+.transition-delay(@transition-delay) {
+	transition-delay: @transition-delay;
+	-webkit-transition-delay: @transition-delay;
+	-moz-transition-delay: @transition-delay;
+	-o-transition-delay: @transition-delay;
+}
+
+.transform-style(@transform-style) {
+	transform-style: @transform-style;
+	-webkit-transform-style: @transform-style;
+	-moz-transform-style: @transform-style;
+}
+
+/* Key Frame - Create Animation */
+@-webkit-keyframes dot-amimation {
+    0% {
+        -webkit-transform: translateY(-2px)
+    }
+    50% {
+        -webkit-transform: translateY(2px)
+    }
+    100% {
+        -webkit-transform: translateY(-2px)
+    }
+}
+
+@keyframes dot-amimation {
+    0% {
+        transform: translateY(-2px)
+    }
+    50% {
+        transform: translateY(2px)
+    }
+    100% {
+        transform: translateY(-2px)
+    }
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg)
+    }
+    100% {
+        -webkit-transform: rotate(360deg)
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+    100% {
+        transform: rotate(360deg)
+    }
+}
+
+@-webkit-keyframes sk-bounce{
+    0%,100%{
+        -webkit-transform:scale(0)
+    }
+    50%{
+        -webkit-transform:scale(1)
+    }
+}
+
+@keyframes sk-bounce{
+    0%,100%{
+        transform:scale(0);
+        -webkit-transform:scale(0)
+    }
+    50%{
+        transform:scale(1);
+        -webkit-transform:scale(1)
+    }
+}
+
+@-webkit-keyframes fadeIn { 
+    from { 
+        opacity: 0.4; 
+    } 
+}
+@keyframes fadeIn { 
+    from { 
+        opacity: 0.4; 
+    } 
+}

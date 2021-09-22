@@ -1,0 +1,22 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+?>
+<?php /** @var \Amasty\RecurringPayments\Block\Adminhtml\System\Config\PaymentsComment $block */ ?>
+<?php if ($messages = $block->getErrorMessages()): ?>
+    <div class="message message-warning amrecurring-gateway-messages">
+        <?= $block->escapeHtml(__('There are configurations issues with one or more payment methods that may prevent' .
+            'Subscriptions & Recurring Payments extension from working as expected.')) ?><br/>
+        <?php foreach ($messages as $methodMessages): ?>
+            <?= $block->escapeHtml($methodMessages['method_name']) ?>:
+            <ol class="amrecurring-list">
+                <?php foreach ($methodMessages['issues'] as $issue): ?>
+                    <li><?= $block->escapeHtml($issue) ?></li>
+                <?php endforeach; ?>
+            </ol>
+        <?php endforeach; ?>
+    </div>
+<?php endif ?>

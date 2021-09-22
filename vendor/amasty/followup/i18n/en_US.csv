@@ -1,0 +1,362 @@
+"Save and Continue Edit","Save and Continue Edit"
+"Blacklist Item Information","Blacklist Item Information"
+General,General
+Email,Email
+"Blacklist View","Blacklist View"
+"Current Time","Current Time"
+"No cron jobs found","No cron jobs found"
+"Learn more","Learn more"
+"Cron (Last 5)","Cron (Last 5)"
+Continue,Continue
+"Rule Information","Rule Information"
+Name,Name
+"Start Event","Start Event"
+"New Rule","New Rule"
+"Queue Item Information","Queue Item Information"
+Subject,Subject
+Body,Body
+"Queue View","Queue View"
+"Google Analytics","Google Analytics"
+"Campaign Source","Campaign Source"
+"<b>Required.</b> Use <b>utm_source</b>
+                to identify a search engine, newsletter name, or other source.<br/>
+                <i>Example:</i> utm_source=google","<b>Required.</b> Use <b>utm_source</b>
+                to identify a search engine, newsletter name, or other source.<br/>
+                <i>Example:</i> utm_source=google"
+"Campaign Medium","Campaign Medium"
+"<b>Required.</b> Use <b>utm_medium</b>
+                to identify a medium such as email or cost-per- click<br/>
+                <i>Example:</i> utm_medium=cpc","<b>Required.</b> Use <b>utm_medium</b>
+                to identify a medium such as email or cost-per- click<br/>
+                <i>Example:</i> utm_medium=cpc"
+"Campaign Name","Campaign Name"
+"<b>Required.</b> Used for keyword analysis.
+                Use <b>utm_campaign</b> to identify a specific product promotion or strategic campaign.<br/>
+                <i>Example:</i> utm_campaign=spring_sale","<b>Required.</b> Used for keyword analysis.
+                Use <b>utm_campaign</b> to identify a specific product promotion or strategic campaign.<br/>
+                <i>Example:</i> utm_campaign=spring_sale"
+"Campaign Term","Campaign Term"
+"Used for paid search. Use <b>utm_term</b>
+                to note the keywords for this ad.<br/>
+                <i>Example:</i> utm_term=running+shoes","Used for paid search. Use <b>utm_term</b>
+                to note the keywords for this ad.<br/>
+                <i>Example:</i> utm_term=running+shoes"
+"Campaign Content","Campaign Content"
+"Used for A/B testing and content-targeted ads.
+                Use <b>utm_content</b> to differentiate ads or links that point to the same URL.<br/>
+                <i>Example:</i> utm_content=logolink <i>or</i> utm_content=textlink","Used for A/B testing and content-targeted ads.
+                Use <b>utm_content</b> to differentiate ads or links that point to the same URL.<br/>
+                <i>Example:</i> utm_content=logolink <i>or</i> utm_content=textlink"
+Conditions,Conditions
+"Apply the rule only if the following conditions are met (leave blank for all products)","Apply the rule only if the following conditions are met (leave blank for all products)"
+Date,Date
+"Cancel Event","Cancel Event"
+"Send to Newsletter Subscribers Only","Send to Newsletter Subscribers Only"
+Status,Status
+Schedule,Schedule
+"Add Record","Add Record"
+Segments,Segments
+"Sender Details","Sender Details"
+"Sends copy of emails to","Sends copy of emails to"
+"Stores & Customer Groups","Stores & Customer Groups"
+"Apply In","Apply In"
+Stores,Stores
+"Leave empty or select all to apply the rule to any store","Leave empty or select all to apply the rule to any store"
+"Apply For","Apply For"
+"Customer Groups","Customer Groups"
+"Leave empty or select all to apply the rule to any group","Leave empty or select all to apply the rule to any group"
+Test,Test
+"test email","test email"
+"Before sending test messages, please fill in the %1 in the extension configuration section","Before sending test messages, please fill in the %1 in the extension configuration section"
+ID,ID
+"First Name","First Name"
+"Last Name","Last Name"
+Group,Group
+Telephone,Telephone
+ZIP,ZIP
+Country,Country
+State/Province,State/Province
+"Customer Since","Customer Since"
+Website,Website
+"Order #","Order #"
+"Purchased From (Store)","Purchased From (Store)"
+"Purchased On","Purchased On"
+"Bill to Name","Bill to Name"
+"Ship to Name","Ship to Name"
+"G.T. (Base)","G.T. (Base)"
+"G.T. (Purchased)","G.T. (Purchased)"
+Send,Send
+"Rule View","Rule View"
+Marketing,Marketing
+Blacklist,Blacklist
+"You deleted the blacklist.","You deleted the blacklist."
+"We can't delete the blacklist right now. Please review the log and try again.","We can't delete the blacklist right now. Please review the log and try again."
+"We can't find a blacklist to delete.","We can't find a blacklist to delete."
+"Something went wrong while editing the blacklist.","Something went wrong while editing the blacklist."
+"New Blacklist Email","New Blacklist Email"
+"Something went wrong while export feed data. Please review the error log.","Something went wrong while export feed data. Please review the error log."
+"The wrong blacklist is specified.","The wrong blacklist is specified."
+"You saved the blacklist item.","You saved the blacklist item."
+"Something went wrong while saving the blacklist data. Please review the error log.","Something went wrong while saving the blacklist data. Please review the error log."
+History,History
+Queue,Queue
+"Something went wrong while editing the queue.","Something went wrong while editing the queue."
+"Edit queue item #%1","Edit queue item #%1"
+"Something went wrong while cancel item(s). Please review the error log.","Something went wrong while cancel item(s). Please review the error log."
+"The wrong queue is specified.","The wrong queue is specified."
+"You saved the queue item.","You saved the queue item."
+"Something went wrong while saving the queue data. Please review the error log.","Something went wrong while saving the queue data. Please review the error log."
+Rules,Rules
+"You deleted the rule.","You deleted the rule."
+"We can't delete the rule right now. Please review the log and try again.","We can't delete the rule right now. Please review the log and try again."
+"We can't find a rule to delete.","We can't find a rule to delete."
+"Something went wrong while editing the rule.","Something went wrong while editing the rule."
+"Something went wrong while delete rule. Please review the error log.","Something went wrong while delete rule. Please review the error log."
+"The wrong rule is specified.","The wrong rule is specified."
+"Please set Schedule.","Please set Schedule."
+"You saved the rule.","You saved the rule."
+"Something went wrong while saving the rule data. Please review the error log.","Something went wrong while saving the rule data. Please review the error log."
+"You have been unsubscribed","You have been unsubscribed"
+Order,Order
+Created,Created
+Shipped,Shipped
+Invoiced,Invoiced
+Completed,Completed
+Cancelled,Cancelled
+Customer,Customer
+"No Activity","No Activity"
+"Changed Group","Changed Group"
+"Subscribed to Newsletter","Subscribed to Newsletter"
+Birthday,Birthday
+Registration,Registration
+Wishlist,Wishlist
+"Product Added","Product Added"
+Shared,Shared
+"Wishlist on sale","Wishlist on sale"
+"Wishlist back in stock","Wishlist back in stock"
+"Customer logged in","Customer logged in"
+"New Order Placed","New Order Placed"
+"Customer clicked on a link in the email ","Customer clicked on a link in the email "
+"Customer wishlist shared","Customer wishlist shared"
+"Order Becomes: %1","Order Becomes: %1"
+"'Invalid transactional email code: ' .","'Invalid transactional email code: ' ."
+"%1 (Default)","%1 (Default)"
+"%1 Modern (Default)","%1 Modern (Default)"
+No,No
+"In 30 days","In 30 days"
+"In 90 days","In 90 days"
+"In 180 days","In 180 days"
+"In 360 days","In 360 days"
+"Black List","Black List"
+"Stop Event","Stop Event"
+"Removed by Admin","Removed by Admin"
+"Customer not subscribed","Customer not subscribed"
+Processing,Processing
+Sent,Sent
+Cancel,Cancel
+"No Product","No Product"
+"No Crossel Products","No Crossel Products"
+Active,Active
+Inactive,Inactive
+Edit,Edit
+"Transactional Email","Transactional Email"
+"Delivery Time","Delivery Time"
+Coupon,Coupon
+Days,Days
+Hours,Hours
+Minutes,Minutes
+Type,Type
+None,None
+"Percent of product price discount","Percent of product price discount"
+"Fixed amount discount","Fixed amount discount"
+"Fixed amount discount for whole cart","Fixed amount discount for whole cart"
+"Discount Amount","Discount Amount"
+"Expired in (days)","Expired in (days)"
+"Maximum Qty Discount is Applied To","Maximum Qty Discount is Applied To"
+"Discount Qty Step (Buy X)","Discount Qty Step (Buy X)"
+More,More
+Less,Less
+"Use Shopping Cart Rule","Use Shopping Cart Rule"
+"Rule ID","Rule ID"
+"Rule option `Use Auto Generation` should be turned on","Rule option `Use Auto Generation` should be turned on"
+Delete,Delete
+Price:,Price:
+"Discount Price","Discount Price"
+"Special Price","Special Price"
+"Offer ends","Offer ends"
+"View Item","View Item"
+Banner,Banner
+"Hello %customer_name,","Hello %customer_name,"
+"Since you visited our store on %date_of_visit  we've
+                            dramatically broadened our product range. Come to our website and check out
+                            New Arrivals section.","Since you visited our store on %date_of_visit  we've
+                            dramatically broadened our product range. Come to our website and check out
+                            New Arrivals section."
+"Best Regards, <br/>
+                            %store_name","Best Regards, <br/>
+                            %store_name"
+Phone,Phone
+Mail,Mail
+Reply,Reply
+"Dear %customer_name,","Dear %customer_name,"
+"Happy Birthday! Please accept our warmest congratulations and get any product in our store with
+                        discount using the <span class=""am-coupon"">%coupon_code</span>
+                        promo-code. Have a nice day!","Happy Birthday! Please accept our warmest congratulations and get any product in our store with
+                        discount using the <span class=""am-coupon"">%coupon_code</span>
+                        promo-code. Have a nice day!"
+"Regards,<br/>
+                        %store_name Team","Regards,<br/>
+                        %store_name Team"
+"reply to this mail","reply to this mail"
+"Merry Christmas! Please accept our warmest congratulations and get any product
+                        in our store with discount using the <span
+                            class=""am-coupon"">%coupon_code</span>
+                        promo-code. Have a nice day!","Merry Christmas! Please accept our warmest congratulations and get any product
+                        in our store with discount using the <span
+                            class=""am-coupon"">%coupon_code</span>
+                        promo-code. Have a nice day!"
+"Regards,<br/>
+                            %store_name Team","Regards,<br/>
+                            %store_name Team"
+"Dear %customer_name !","Dear %customer_name !"
+"Autumn has come bringing our AUTUMN SALE!<br/>
+                            Now’s a good time to have a fresh start with new products by Our Company without skimping on your budget.<br/>
+                            As always, thank you for your business and the confidence you have placed in us!","Autumn has come bringing our AUTUMN SALE!<br/>
+                            Now’s a good time to have a fresh start with new products by Our Company without skimping on your budget.<br/>
+                            As always, thank you for your business and the confidence you have placed in us!"
+"We know this is a busy time of year, but let us draw your mind from the fuss for a second.<br/>
+                            We’ve just launched our CHRISTMAS SALE!<br/>
+                            So, hurry up to spoil yourself with new purchases in the year ending.<br/>
+                            And good luck in the coming year!<br/>
+                            As always, thank you for your business and the confidence you have placed in us!","We know this is a busy time of year, but let us draw your mind from the fuss for a second.<br/>
+                            We’ve just launched our CHRISTMAS SALE!<br/>
+                            So, hurry up to spoil yourself with new purchases in the year ending.<br/>
+                            And good luck in the coming year!<br/>
+                            As always, thank you for your business and the confidence you have placed in us!"
+"We know this is a busy time of year, but let us draw your mind from the fuss for a second.<br/>
+                                We’ve just launched our CHRISTMAS SALE!<br/>
+                                So, hurry up to spoil yourself with new purchases in the year ending.<br/>
+                                And good luck in the coming year!<br/>
+                                As always, thank you for your business and the confidence you have placed in us!","We know this is a busy time of year, but let us draw your mind from the fuss for a second.<br/>
+                                We’ve just launched our CHRISTMAS SALE!<br/>
+                                So, hurry up to spoil yourself with new purchases in the year ending.<br/>
+                                And good luck in the coming year!<br/>
+                                As always, thank you for your business and the confidence you have placed in us!"
+"We were so anxious for the spring to come, but even more, we were waiting to impress you with our SPRING SALE!<br/>
+                            Don’t push your luck, it's a once-a-year opportunity we don't want you to miss.<br/>
+                            Acquire desired products at a knock-down price. Your cart is waiting.<br/>","We were so anxious for the spring to come, but even more, we were waiting to impress you with our SPRING SALE!<br/>
+                            Don’t push your luck, it's a once-a-year opportunity we don't want you to miss.<br/>
+                            Acquire desired products at a knock-down price. Your cart is waiting.<br/>"
+"We got good news for you. Our SUMMER SALE is already started!<br/>
+                            Seize a chance to buy our products at a right price.<br/>
+                            As always, thank you for your business and the confidence you have placed in us!","We got good news for you. Our SUMMER SALE is already started!<br/>
+                            Seize a chance to buy our products at a right price.<br/>
+                            As always, thank you for your business and the confidence you have placed in us!"
+"We hasten to share that our HOT WINTER SALE is already running! <br/>
+                            Don’t miss a chance to acquire desired products at a knock-down price.<br/>
+                            As always, thank you for your business and the confidence you have placed in us!","We hasten to share that our HOT WINTER SALE is already running! <br/>
+                            Don’t miss a chance to acquire desired products at a knock-down price.<br/>
+                            As always, thank you for your business and the confidence you have placed in us!"
+"We are glad to inform you, that your customer group has been recently
+                            changed to %customer_group_code. Now you can
+                            purchase any %store_frontend_name items with a 5%
+                            discount!</p>
+                        <p>
+                            Please log in to <a
+                                href=""%login_link"">%store_frontend_name</a> to find out more details.","We are glad to inform you, that your customer group has been recently
+                            changed to %customer_group_code. Now you can
+                            purchase any %store_frontend_name items with a 5%
+                            discount!</p>
+                        <p>
+                            Please log in to <a
+                                href=""%login_link"">%store_frontend_name</a> to find out more details."
+"Best Regards, <br/>
+                            %store_name Team","Best Regards, <br/>
+                            %store_name Team"
+"Since you registered with %store_frontend_name on %customer_reg_date you haven't
+                            purchased
+                            any products yet. We invite you to visit our store and choose any items you
+                            like with discount. To get the discount use the <span
+                                    class=""am-coupon"">%coupon_code</span>
+                            promo-code.","Since you registered with %store_frontend_name on %customer_reg_date you haven't
+                            purchased
+                            any products yet. We invite you to visit our store and choose any items you
+                            like with discount. To get the discount use the <span
+                                    class=""am-coupon"">%coupon_code</span>
+                            promo-code."
+"Happy shopping!","Happy shopping!"
+"We are sending you this email as you subscribed to our
+                                                newsletter. We
+                                                highly appreciate your interest to our store and would like provide you
+                                                with a discount coupon code as a gift. Use <span class=""am-coupon"">%coupon_code</span>
+                                                code to get a 10% discount on any %store_frontend_name
+                                                products.","We are sending you this email as you subscribed to our
+                                                newsletter. We
+                                                highly appreciate your interest to our store and would like provide you
+                                                with a discount coupon code as a gift. Use <span class=""am-coupon"">%coupon_code</span>
+                                                code to get a 10% discount on any %store_frontend_name
+                                                products."
+"Best Regards, <br/>
+                                                %store_name","Best Regards, <br/>
+                                                %store_name"
+"The items you added to your wishlist are still waiting for you! We invite you to
+                                            visit %store_name and get any items from your wishlist.","The items you added to your wishlist are still waiting for you! We invite you to
+                                            visit %store_name and get any items from your wishlist."
+"Happy Shopping!","Happy Shopping!"
+"The following items on your wishlist are now back in stock<br/>","The following items on your wishlist are now back in stock<br/>"
+"The following items on your wishlist are on sale<br/>","The following items on your wishlist are on sale<br/>"
+"The items you added to your wishlist are still waiting for you! We invite you to
+                        visit %store_name and get any items from your wishlist.","The items you added to your wishlist are still waiting for you! We invite you to
+                        visit %store_name and get any items from your wishlist."
+"Thank you, %store_name","Thank you, %store_name"
+Unsubscribe,Unsubscribe
+"If you don't want to receive<br/>
+                                        this notifications, feel free to","If you don't want to receive<br/>
+                                        this notifications, feel free to"
+unsubscribe,unsubscribe
+"Reply to this mail","Reply to this mail"
+"We've selected these bestselling items tailored to your taste based on your previous order
+                            %previous_order_id. We hope this will help you to find the products you really
+                            need.","We've selected these bestselling items tailored to your taste based on your previous order
+                            %previous_order_id. We hope this will help you to find the products you really
+                            need."
+"You have reached several products on our company’s site recently, have
+                            a look at others - there’s lots to scope out.","You have reached several products on our company’s site recently, have
+                            a look at others - there’s lots to scope out."
+"Follow Up Email","Follow Up Email"
+"The Coupon is Available Only for Particular Customer","The Coupon is Available Only for Particular Customer"
+"If the option is disabled the coupon can be used by all customers.","If the option is disabled the coupon can be used by all customers."
+"Winback Period","Winback Period"
+"in days","in days"
+"Automatically Remove Sent Emails from History","Automatically Remove Sent Emails from History"
+"Birthday Offset","Birthday Offset"
+"Change this to trigger Customer Birthday Start Event before actual birthday date","Change this to trigger Customer Birthday Start Event before actual birthday date"
+"Sender Name","Sender Name"
+"Sender Email","Sender Email"
+"Sends Copy of Emails to","Sends Copy of Emails to"
+Comma-separated,Comma-separated
+"Import Blacklist","Import Blacklist"
+"CSV File","CSV File"
+Testing,Testing
+"Safe Mode","Safe Mode"
+"When safe mode is activated, the extension sends emails only to the test email, <b>nothing will be sent to customers</b>","When safe mode is activated, the extension sends emails only to the test email, <b>nothing will be sent to customers</b>"
+"Recipient Email","Recipient Email"
+Emails,Emails
+"Header Template","Header Template"
+"Footer Template","Footer Template"
+"Cronjob Information","Cronjob Information"
+"Add Email","Add Email"
+"Delete items","Delete items"
+"Delete selected items?","Delete selected items?"
+Rule,Rule
+"Order ID","Order ID"
+"Customer Name","Customer Name"
+"Customer Email","Customer Email"
+"Cancellation Reason","Cancellation Reason"
+"Sent At","Sent At"
+"Cancel items","Cancel items"
+"Cancel selected items?","Cancel selected items?"
+Delay,Delay
+Scheduled,Scheduled
+"Create New Rule","Create New Rule"
+"Delete rules","Delete rules"

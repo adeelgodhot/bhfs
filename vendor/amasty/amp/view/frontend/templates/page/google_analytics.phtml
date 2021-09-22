@@ -1,0 +1,28 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Amp
+ */
+?>
+<?php
+/** @var $block \Magento\GoogleAnalytics\Block\Ga */
+
+$accountId = $block->getConfig(\Magento\GoogleAnalytics\Helper\Data::XML_PATH_ACCOUNT);
+?>
+
+<amp-analytics type="googleanalytics" id="googleanalytics">
+    <script type="application/json">
+        {
+            "vars": {
+              "account": "<?= $block->escapeHtml($accountId); ?>"
+            },
+            "triggers": {
+                "trackPageview": {
+                    "on": "visible",
+                    "request": "pageview"
+                }
+            }
+        }
+    </script>
+</amp-analytics>

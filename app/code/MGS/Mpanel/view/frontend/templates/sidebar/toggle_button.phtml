@@ -1,0 +1,28 @@
+<button class="visible-xs visible-sm sidebar-reponsive-btn" type="button"><span class="icon pe-7s-edit"></span></button>
+
+<script type="text/javascript">
+	require([
+		'jquery'
+	], function(jQuery){
+		(function($) {
+            $(document).ready(function() {
+               /* Merge 2 columns right and left to one sidebar */
+               $('.page-layout-3columns .sidebar-additional').clone().removeClass('col-lg-3 col-md-3 col-sm-3 col-xs-12').addClass('visible-xs visible-sm').appendTo('.sidebar-main');
+               /* Toggle sidebar */
+               $(document).on("click",".sidebar-reponsive-btn",function() {
+                   $('body').addClass('enable-sidebar');
+               });
+               $(document).on("click",".title-topabs .nav-close",function() {
+                   $('body').removeClass('enable-sidebar');
+               });
+               
+                $(document).mouseup(function(e) {
+                    var containerSearch = $(".sidebar");
+                    if (!containerSearch.is(e.target) && containerSearch.has(e.target).length === 0) {
+                        $('body').removeClass('enable-sidebar');
+                    }
+                });
+            });
+		})(jQuery);
+	});
+</script>

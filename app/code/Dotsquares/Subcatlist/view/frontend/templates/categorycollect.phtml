@@ -1,0 +1,26 @@
+<?php
+
+
+
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$category = $objectManager->get('Magento\Framework\Registry')->registry('current_category');//get current category
+$subcats = $category->getChildrenCategories();
+
+
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+?>
+<ul>
+    <?php
+    foreach ($subcats as $subcat) {
+        if ($subcat->getIsActive()) {
+            $_category = $objectManager->create('Magento\Catalog\Model\Category')->load($subcat->getId());
+            $_outputhelper = $this->helper('Magento\Catalog\Helper\Output');
+            $subcaturl = $subcat->getName();
+
+   
+
+             
+            
+        }
+    } ?>
+</ul>

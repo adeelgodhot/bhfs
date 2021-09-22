@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPaypal
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\RecurringPaypal\Api\Data\ProductInterface" type="Amasty\RecurringPaypal\Model\PaypalProduct" />
+    <preference for="Amasty\RecurringPaypal\Api\ProductRepositoryInterface" type="Amasty\RecurringPaypal\Model\Repository\PaypalProductRepository" />
+    <type name="Amasty\RecurringPaypal\Model\Method\Paypal">
+        <arguments>
+            <argument name="code" xsi:type="const">Amasty\RecurringPaypal\Model\Method\Paypal::CODE</argument>
+            <argument name="valueHandlerPool" xsi:type="object">AmastyPaypalFreeValueHandlerPool</argument>
+            <argument name="formBlockType" xsi:type="string">Magento\Payment\Block\Form</argument>
+            <argument name="infoBlockType" xsi:type="string">Magento\Payment\Block\Info</argument>
+        </arguments>
+    </type>
+    <virtualType name="AmastyPaypalFreeValueHandlerPool" type="Magento\Payment\Gateway\Config\ValueHandlerPool">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="default" xsi:type="string">AmastyPaypalFreeConfigValueHandler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AmastyPaypalFreeConfigValueHandler" type="Magento\Payment\Gateway\Config\ConfigValueHandler">
+        <arguments>
+            <argument name="configInterface" xsi:type="object">AmastyPaypalFreeConfigInterface</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="AmastyPaypalFreeConfigInterface" type="Magento\Payment\Gateway\Config\Config">
+        <arguments>
+            <argument name="methodCode" xsi:type="const">Amasty\RecurringPaypal\Model\Method\Paypal::CODE</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Checkout\Controller\Onepage\Success">
+        <plugin name="amasty_recurring_paypal" type="Amasty\RecurringPaypal\Plugin\App\Action\Action" />
+    </type>
+    <type name="Amasty\RecurringPayments\Controller\Customer\Subscriptions">
+        <plugin name="amasty_recurring_paypal" type="Amasty\RecurringPaypal\Plugin\App\Action\Action" />
+    </type>
+    <type name="Amasty\RecurringPayments\Model\SubscriptionManagement">
+        <arguments>
+            <argument name="subscriptionProcessors" xsi:type="array">
+                <item name="paypal.subscription_processors" xsi:type="object">Amasty\RecurringPaypal\Model\Subscription\Grid\Proxy</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\RecurringPayments\Model\Subscription\Operation\SubscriptionCancelOperation">
+        <arguments>
+            <argument name="cancelHandlers" xsi:type="array">
+                <item name="paypal_express" xsi:type="object">Amasty\RecurringPaypal\Model\Subscription\Processors\Cancel\Proxy</item>
+                <item name="amasty_recurring_paypal" xsi:type="object">Amasty\RecurringPaypal\Model\Subscription\Processors\Cancel\Proxy</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Amasty\RecurringPaypal\Api\WebHook\ProcessorInterface" type="Amasty\RecurringPaypal\Model\WebHook\Processor" />
+    <type name="Amasty\RecurringPaypal\Api\WebHook\ProcessorInterface">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="PAYMENT.SALE.COMPLETED" xsi:type="object">Amasty\RecurringPaypal\Model\WebHook\Handler\Payment\Sale\Completed\Proxy</item>
+                <item name="BILLING.SUBSCRIPTION.CREATED" xsi:type="object">Amasty\RecurringPaypal\Model\WebHook\Handler\Billing\Subscription\Created\Proxy</item>
+                <item name="BILLING.SUBSCRIPTION.CANCELLED" xsi:type="object">Amasty\RecurringPaypal\Model\WebHook\Handler\Billing\Subscription\Cancelled\Proxy</item>
+                <item name="BILLING.SUBSCRIPTION.EXPIRED" xsi:type="object">Amasty\RecurringPaypal\Model\WebHook\Handler\Billing\Subscription\Cancelled\Proxy</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\RecurringPaypal\Model\Subscription\Confirmation\LinksPersistor">
+        <arguments>
+            <argument name="sessionManager" xsi:type="object">Magento\Framework\Session\Generic\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\RecurringPayments\Model\Config\ConfigurationValidator">
+        <arguments>
+            <argument name="methodValidators" xsi:type="array">
+                <item name="paypal_express" xsi:type="object">Amasty\RecurringPaypal\Model\Config\ConfigurationValidator</item>
+                <item name="amasty_recurring_paypal" xsi:type="object">Amasty\RecurringPaypal\Model\Config\ConfigurationValidator</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,230 @@
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"Enable amasty/product-labels-graphql module to activate GraphQl and Product Labels. Please, run the following command in the SSH: composer require amasty/product-labels-graphql","Enable amasty/product-labels-graphql module to activate GraphQl and Product Labels. Please, run the following command in the SSH: composer require amasty/product-labels-graphql"
+"You deleted the label.","You deleted the label."
+"We can't find a item to delete.","We can't find a item to delete."
+"We can't delete item right now. Please review the log and try again.","We can't delete item right now. Please review the log and try again."
+"You have duplicated the label.","You have duplicated the label."
+"We can't find a item to duplicate.","We can't find a item to duplicate."
+"We can't duplicate item right now. Please review the log and try again.","We can't duplicate item right now. Please review the log and try again."
+"Edit Label `%1`","Edit Label `%1`"
+"This label no longer exists...","This label no longer exists..."
+"Create New Label","Create New Label"
+"Amasty Product Labels","Amasty Product Labels"
+Amasty,Amasty
+"Product Labels","Product Labels"
+"Something went wrong while saving the label.","Something went wrong while saving the label."
+"Please correct the data sent.","Please correct the data sent."
+"We can't change item right now. Please review the log and try again.","We can't change item right now. Please review the log and try again."
+"A total of %1 record(s) have been changed.","A total of %1 record(s) have been changed."
+"No records have been changed.","No records have been changed."
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"A total of %1 record(s) have been duplicated.","A total of %1 record(s) have been duplicated."
+"You saved the label","You saved the label"
+"Something went wrong while saving the item data. Please review the error log.","Something went wrong while saving the item data. Please review the error log."
+"Provided argument is not in PSR-0 or underscore notation.","Provided argument is not in PSR-0 or underscore notation."
+"Amasty label indexing failed. See details in exception log.","Amasty label indexing failed. See details in exception log."
+"We can't rebuild the index for an undefined product.","We can't rebuild the index for an undefined product."
+"Label meta provider configuration error or invalid provided part code","Label meta provider configuration error or invalid provided part code"
+"DI config is outdated or invalid. Try execute php bin/magento setup:di:compile","DI config is outdated or invalid. Try execute php bin/magento setup:di:compile"
+"Invalid DI configuration. Required parameter %1 for label part %2 wasn't passed","Invalid DI configuration. Required parameter %1 for label part %2 wasn't passed"
+"Please, recheck tooltip colors settings","Please, recheck tooltip colors settings"
+"Provided shape doesn't exist","Provided shape doesn't exist"
+Circle,Circle
+"Right Quarter","Right Quarter"
+"Right Bottom Quarter","Right Bottom Quarter"
+"Left Quarter","Left Quarter"
+"Left Bottom Quarter","Left Bottom Quarter"
+List,List
+Note,Note
+Flag,Flag
+Banner,Banner
+Tag,Tag
+"Transparent Rectangle","Transparent Rectangle"
+"Transparent Circle","Transparent Circle"
+"Shape 1","Shape 1"
+"Shape 2","Shape 2"
+"Shape 3","Shape 3"
+"Shape 4","Shape 4"
+"Shape 5","Shape 5"
+"Shape 6","Shape 6"
+"Shape 7","Shape 7"
+"Shape 8","Shape 8"
+"Shape 9","Shape 9"
+"Shape 10","Shape 10"
+"Failed to load shape %1 as XML.  It probably contains malformed data.","Failed to load shape %1 as XML.  It probably contains malformed data."
+"The passed variable could not be processed","The passed variable could not be processed"
+"Label wasn't initialized...","Label wasn't initialized..."
+"Registry key ""%1"" already exists","Registry key ""%1"" already exists"
+"Unable to save label with ID %1. Error: %2","Unable to save label with ID %1. Error: %2"
+"Unable to save new labels. Error: %1","Unable to save new labels. Error: %1"
+"Labels with specified ID ""%1"" not found.","Labels with specified ID ""%1"" not found."
+"Unable to remove labels with ID %1. Error: %2","Unable to remove labels with ID %1. Error: %2"
+"Unable to remove labels. Error: %1","Unable to remove labels. Error: %1"
+"Bestseller Position","Bestseller Position"
+"Conditions Combination","Conditions Combination"
+"Custom conditions","Custom conditions"
+"Product Attribute","Product Attribute"
+"Improved Sorting (not installed)","Improved Sorting (not installed)"
+"Improved Sorting","Improved Sorting"
+"Object must be an instance of %1","Object must be an instance of %1"
+"Is New","Is New"
+Sale,Sale
+Qty,Qty
+"Stock Status","Stock Status"
+Vertical,Vertical
+Horizontal,Horizontal
+"-- Please select --","-- Please select --"
+"Set 'Yes' to show only 'Out of Stock' label and hide all other active labels if the item is Out of Stock. Please click <a target=""_blank"" href=""%1"">here</a> to manage the 'Out of Stock' label display.","Set 'Yes' to show only 'Out of Stock' label and hide all other active labels if the item is Out of Stock. Please click <a target=""_blank"" href=""%1"">here</a> to manage the 'Out of Stock' label display."
+"Top Left","Top Left"
+"Top Center","Top Center"
+"Top Right","Top Right"
+"Middle Left","Middle Left"
+"Middle Center","Middle Center"
+"Middle Right","Middle Right"
+"Bottom Left","Bottom Left"
+"Bottom Center","Bottom Center"
+"Bottom Right","Bottom Right"
+"The next lowest integer value","The next lowest integer value"
+"By rules of mathematical rounding","By rules of mathematical rounding"
+"The next highest integer value","The next highest integer value"
+is,is
+"is not","is not"
+"for special price only","for special price only"
+"equals or greater than","equals or greater than"
+"equals or less than","equals or less than"
+"greater than","greater than"
+"less than","less than"
+"In Stock","In Stock"
+"Out of Stock","Out of Stock"
+Inactive,Inactive
+Active,Active
+"Invalid label data","Invalid label data"
+"Label examples file name invalid","Label examples file name invalid"
+"Invalid examples content.","Invalid examples content."
+"To continue the update, you need to delete the folder with the module files and upload a new one from the downloaded package.","To continue the update, you need to delete the folder with the module files and upload a new one from the downloaded package."
+Delete,Delete
+"Are you sure you want to do this?","Are you sure you want to do this?"
+Duplicate,Duplicate
+"Save and Continue Edit","Save and Continue Edit"
+Edit,Edit
+"Delete image","Delete image"
+"Value can be only integer number or percent.","Value can be only integer number or percent."
+"Field must have valid hex color code.","Field must have valid hex color code."
+Information,Information
+"Display Settings","Display Settings"
+"Product Page Label Container","Product Page Label Container"
+"DOM-selector for Container","DOM-selector for Container"
+"Category Page Label Container","Category Page Label Container"
+"Max Number of Labels on One Product","Max Number of Labels on One Product"
+"Show Several Labels on the Same Place","Show Several Labels on the Same Place"
+"Hide Label with Zero Value","Hide Label with Zero Value"
+"Choose «Yes» to hide labels, which contain text with variables equal to zero or not specified variables.","Choose «Yes» to hide labels, which contain text with variables equal to zero or not specified variables."
+"Labels Alignment","Labels Alignment"
+"Select how the labels should line up","Select how the labels should line up"
+"Margin between Labels, px","Margin between Labels, px"
+"Set the margin between labels in pixel","Set the margin between labels in pixel"
+"`On Sale` Condition","`On Sale` Condition"
+"Minimal Discount Amount","Minimal Discount Amount"
+"Minimal Discount Percentage","Minimal Discount Percentage"
+"Rounding of Discount Percentage","Rounding of Discount Percentage"
+"`Is New` Condition","`Is New` Condition"
+"Use `New from Date` and `New to Date`","Use `New from Date` and `New to Date`"
+"Use `Creation Date`","Use `Creation Date`"
+"It will not be used if previous setting set to `Yes` and product have `New from Date` or `New to Date` attributes.","It will not be used if previous setting set to `Yes` and product have `New from Date` or `New to Date` attributes."
+"Product is New Threshold","Product is New Threshold"
+"In days","In days"
+"`Stock Status` Condition","`Stock Status` Condition"
+"If the Item is Out of Stock Show Only 'Out of Stock' Label","If the Item is Out of Stock Show Only 'Out of Stock' Label"
+"Choose Default Out of Stock Label","Choose Default Out of Stock Label"
+"Amasty Product Label","Amasty Product Label"
+"Indexed product/label association","Indexed product/label association"
+"Indexed label/product association","Indexed label/product association"
+Save,Save
+Back,Back
+General,General
+Status,Status
+"Show From","Show From"
+To,To
+Name,Name
+Priority,Priority
+"Use 0 to show label first, and 99 to show it last","Use 0 to show label first, and 99 to show it last"
+"Hide if Label with Higher Priority is Already Applied","Hide if Label with Higher Priority is Already Applied"
+"Use for Parent","Use for Parent"
+"Display child`s label for parent (configurable and grouped products only)","Display child`s label for parent (configurable and grouped products only)"
+"Store View","Store View"
+"Customer Group","Customer Group"
+"Product Page","Product Page"
+"Text Only","Text Only"
+"Select Shape","Select Shape"
+"Upload Image","Upload Image"
+"Label Type","Label Type"
+"
+                        Click <a href=""https://amasty.com/media/downloads/labels/labels-images.zip"">here</a> to download the packs of label images.
+                        
+                ","
+                        Click <a href=""https://amasty.com/media/downloads/labels/labels-images.zip"">here</a> to download the packs of label images.
+                        
+                "
+"Select Shape Color","Select Shape Color"
+"Label Position","Label Position"
+"Label Size","Label Size"
+"Percent of the product image.","Percent of the product image."
+"Label Text","Label Text"
+"
+                Variables: {PRICE} - regular price; {BR} - new line;
+                {SAVE_PERCENT} - save percent; {SAVE_AMOUNT} - save amount;
+                {SPECIAL_PRICE} - special price; {ATTR:code} - attribute value, e.g. {ATTR:color};
+                {SPDL} - days left for special price; {SPHL} - hours left for special price;
+                {NEW_FOR} - days ago the product was added; {SKU} - product SKU; {STOCK} - product qty (for product view page).
+                ","
+                Variables: {PRICE} - regular price; {BR} - new line;
+                {SAVE_PERCENT} - save percent; {SAVE_AMOUNT} - save amount;
+                {SPECIAL_PRICE} - special price; {ATTR:code} - attribute value, e.g. {ATTR:color};
+                {SPDL} - days left for special price; {SPHL} - hours left for special price;
+                {NEW_FOR} - days ago the product was added; {SKU} - product SKU; {STOCK} - product qty (for product view page).
+                "
+"Text Color","Text Color"
+"Text Size","Text Size"
+"Example: 12px;","Example: 12px;"
+"Advanced Settings/CSS","Advanced Settings/CSS"
+"Customize label and text styles with CSS parameters. Ex.: text-align: center; line-height: 20px; transform: rotate(-90deg);","Customize label and text styles with CSS parameters. Ex.: text-align: center; line-height: 20px; transform: rotate(-90deg);"
+"Category Page","Category Page"
+"Product Conditions","Product Conditions"
+"Preview Products","Preview Products"
+"Hide Products","Hide Products"
+"Please click here to preview the product list.","Please click here to preview the product list."
+Tooltip,Tooltip
+Enabled,Enabled
+"Tooltip Color","Tooltip Color"
+"Tooltip Text Color","Tooltip Text Color"
+"Tooltip Text","Tooltip Text"
+"
+                Variables: {PRICE} - regular price; {BR} - new line;{SAVE_PERCENT} - save percent;
+                {SAVE_AMOUNT} - save amount; {SPECIAL_PRICE} - special price; {ATTR:code} - attribute value, e.g.
+                {ATTR:color};{SPDL} - days left for special price; {SPHL} - hours left for special price;
+                {NEW_FOR} - days ago the product was added; {SKU} - product SKU;
+                {STOCK} - product qty (for product view page).
+                ","
+                Variables: {PRICE} - regular price; {BR} - new line;{SAVE_PERCENT} - save percent;
+                {SAVE_AMOUNT} - save amount; {SPECIAL_PRICE} - special price; {ATTR:code} - attribute value, e.g.
+                {ATTR:color};{SPDL} - days left for special price; {SPHL} - hours left for special price;
+                {NEW_FOR} - days ago the product was added; {SKU} - product SKU;
+                {STOCK} - product qty (for product view page).
+                "
+"Add New Label","Add New Label"
+"Delete labels","Delete labels"
+"Are you sure you want to delete the selected labels?","Are you sure you want to delete the selected labels?"
+Enable,Enable
+Disable,Disable
+"Label ID","Label ID"
+"Product Page Image","Product Page Image"
+"Product Page Label Position","Product Page Label Position"
+"Category Page Image","Category Page Image"
+"Category Page Label Position","Category Page Label Position"
+ID,ID
+Thumbnail,Thumbnail
+Type,Type
+"Attribute Set","Attribute Set"
+SKU,SKU
+Price,Price
+Visibility,Visibility

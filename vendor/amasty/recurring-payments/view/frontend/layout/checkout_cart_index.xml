@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.cart.totals">
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="block-totals" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="amasty_recurring_payments_fee" xsi:type="array">
+                                    <item name="component"  xsi:type="string">Amasty_RecurringPayments/js/view/summary/fee</item>
+                                    <item name="config" xsi:type="array">
+                                        <item name="title" xsi:type="string" translate="true">Initial Subscription Fee</item>
+                                        <item name="template" xsi:type="string">Amasty_RecurringPayments/summary/fee</item>
+                                    </item>
+                                    <item name="sortOrder" xsi:type="string">50</item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+        <referenceBlock name="additional.product.info">
+            <block class="Amasty\RecurringPayments\Block\Cart\Additional\Info" name="additional.product.info.label" template="Amasty_RecurringPayments::cart/additional/info.phtml" before="-"/>
+        </referenceBlock>
+    </body>
+</page>
+

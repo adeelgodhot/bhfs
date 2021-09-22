@@ -1,0 +1,26 @@
+<div class="amfpc-context-container">
+    <!-- ko if: debugCurrentContextData().length -->
+    <p class="context-type-description">Current context parameters:</p>
+    <div class="amfpc-context-item">
+        <!-- ko foreach: debugCurrentContextData() -->
+        <span class="context-row" data-bind="
+            text: $data.contextKey + ' = ' + $data.contextValue,
+            css: {'-unique-entry': !$data.isDefault, '-vary-entry': $data.isVary}">
+        </span>
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+    <!-- ko if: debugContextData().length -->
+        <p class="context-type-description">This page was crawled with following context parameters:</p>
+        <!-- ko foreach: debugContextData() -->
+        <div class="amfpc-context-item">
+            <!-- ko foreach: $data -->
+                <span class="context-row" data-bind="
+                    text: $data.contextKey + ' = ' + $data.contextValue,
+                    css: {'-unique-entry': !$data.isDefault, '-vary-entry': $data.isVary}">
+                </span>
+            <!-- /ko -->
+        </div>
+        <!-- /ko -->
+    <!-- /ko -->
+</div>

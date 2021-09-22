@@ -1,0 +1,7 @@
+<span class="amrec-subtotal subtotal" data-bind="visible: isVisible($parents[1])">
+    <span class="amrec-label" data-bind="i18n: 'Next Billing Amount:'"></span>
+    <span data-bind="text: getValue($parents[1])"></span>
+    <span class="amrec-tooltip"
+          data-amrec-js="tooltip"
+          data-bind="attr:{title: $t('Next billing amount is calculated based on the subscription price of the product and estimated shipping cost and is charged as soon as your subscription starts.')} "></span>
+</span>

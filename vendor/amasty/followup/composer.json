@@ -1,0 +1,21 @@
+{
+    "name": "amasty/followup",
+    "description": "Follow Up Email by Amasty",
+    "require": {
+        "php": "^7.1.0",
+        "amasty/base": ">=1.12.4"
+    },
+    "type": "magento2-module",
+    "version": "1.2.13",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\Followup\\": ""
+        }
+    }
+}

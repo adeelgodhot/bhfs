@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ProductData>
+  
+  <Product>
+    <sku>A10</sku>
+    <brand>Alana</brand>
+    <description>Pink Rose &amp; Vanilla Nat Body</description>
+    <size>400ml</size>
+    <weight>410</weight>
+    <barcode>5055177534914</barcode>
+    <masterpackquantity>6</masterpackquantity>
+    <taxcode>STD</taxcode>
+    <price>2.86</price>
+    <msrp>5.69</msrp>
+    <minimumorderquantity>1</minimumorderquantity>
+  </Product>
+  
+</ProductData>

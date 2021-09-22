@@ -1,0 +1,56 @@
+//
+//  JetTheme compatibility
+//  ____________________________________
+
+//
+//  Variables
+//  ------------------------------------
+
+@subscribe-input__max-width: 220px;
+
+//
+//  Common
+//  ------------------------------------
+
+& when (@media-common = true) {
+    .amasty-jet-theme .thankyoupage-customer-create-form .field.choice {
+        & {
+            margin-bottom: 10px;
+        }
+
+        > .mage-error {
+            width: 100%;
+        }
+
+        > .label {
+            margin-bottom: 0;
+        }
+    }
+
+    .amasty-jet-theme .amtyblock-newsletter .subtitle {
+        font-size: 1.6rem;
+    }
+
+    .amtyblock-newsletter .container-form {
+        & {
+            display: flex;
+            align-items: center;
+        }
+
+        .field > .label {
+            .am-visually-hidden;
+        }
+
+        .field.newsletter {
+            margin: 0 15px 0 0;
+            max-width: @subscribe-input__max-width;
+        }
+
+        .action.subscribe {
+            .lib-button();
+            .lib-button-s();
+
+            border-radius: @button__border-radius;
+        }
+    }
+}

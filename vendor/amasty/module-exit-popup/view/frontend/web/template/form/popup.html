@@ -1,0 +1,34 @@
+<div class="amexit-popup-container" data-amexit-js="exit-popup" data-bind="fadeVisible: isFormPopUpVisible">
+    <div class="amexit-popup">
+        <p class="amexit-title" data-bind="text: getTitle()"></p>
+        <p class="amexit-message" data-bind="text: getText()"></p>
+        <form class="amexit-email" data-amexit-js="email-form" method="post">
+            <input class="input-text"
+                   autocomplete="off"
+                   type="email"
+                   data-bind="attr : {placeholder: $t('Email')}, value: customerEmail"
+                   data-validate="{required:true, 'validate-email':true}"/>
+            <button type="submit"
+                    class="amexit-button"
+                    data-bind="click: sendEmail, enable: !isCheckboxRender() || isButtonEnabled">
+                <span data-bind="i18n: 'Send'"></span>
+            </button>
+        </form>
+
+        <div data-amexit-js="error-container"></div>
+
+        <!-- ko if: isCheckboxRender() -->
+        <input id="agree-checkbox"
+               type="checkbox"
+               class="amexit-checkbox"
+               value="1"
+               data-bind="checked: isButtonEnabled"/>
+        <label for="agree-checkbox" data-bind="i18n: getConsentMessage()"></label>
+        <!--/ko-->
+        <div class="amexit-close" data-amexit-js="close-popup" data-bind="click: togglePopup(false)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 212.982 212.982" class="amexit-icon">
+                <path d="M131.804 106.491l75.936-75.936c6.99-6.99 6.99-18.323 0-25.312-6.99-6.99-18.322-6.99-25.312 0L106.491 81.18 30.554 5.242c-6.99-6.99-18.322-6.99-25.312 0-6.989 6.99-6.989 18.323 0 25.312l75.937 75.936-75.937 75.937c-6.989 6.99-6.989 18.323 0 25.312 6.99 6.99 18.322 6.99 25.312 0l75.937-75.937 75.937 75.937c6.989 6.99 18.322 6.99 25.312 0 6.99-6.99 6.99-18.322 0-25.312l-75.936-75.936z" />
+            </svg>
+        </div>
+    </div>
+</div>

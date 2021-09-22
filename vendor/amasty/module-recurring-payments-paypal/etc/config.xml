@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPaypal
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <paypal_express>
+                <supports_amasty_subscriptions>1</supports_amasty_subscriptions>
+                <zero_total_method>amasty_recurring_paypal</zero_total_method>
+            </paypal_express>
+            <amasty_recurring_paypal>
+                <active>1</active>
+                <model>Amasty\RecurringPaypal\Model\Method\Paypal</model>
+                <order_status>pending</order_status>
+                <title>PayPal Express Checkout</title>
+                <payment_action>authorize</payment_action>
+                <allowspecific>0</allowspecific>
+                <can_use_checkout>1</can_use_checkout>
+                <sort_order>1</sort_order>
+            </amasty_recurring_paypal>
+        </payment>
+    </default>
+</config>

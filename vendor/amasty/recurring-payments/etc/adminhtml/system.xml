@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_recurring_payments" translate="label" type="text" sortOrder="1511419" showInDefault="1" showInWebsite="1" showInStore="1">
+            <resource>Amasty_RecurringPayments::config_recurring_payments</resource>
+            <class>separator-top</class>
+            <label><![CDATA[Subscriptions & Recurring Payments]]></label>
+            <tab>amasty</tab>
+            <group id="amasty_information" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Information</label>
+                <frontend_model>Amasty\RecurringPayments\Block\Adminhtml\System\Config\Information</frontend_model>
+            </group>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>General</label>
+                <field id="supported_payments" translate="label" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Supported Payment Gateways</label>
+                    <source_model>Amasty\RecurringPayments\Model\Config\Source\SupportedPayments</source_model>
+                    <frontend_model>Amasty\RecurringPayments\Block\Adminhtml\System\Config\PaymentsComment</frontend_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="out_of_stock_action" translate="label comment" type="select" sortOrder="20" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label>Out of Stock Action</label>
+                    <comment>Choose what to automatically do with a customer's subscription in case the product went out of stock.</comment>
+                    <source_model>Amasty\RecurringPayments\Model\Config\Source\StockActions</source_model>
+                </field>
+                <field id="number_of_failed_transactions" translate="label comment" type="text" sortOrder="30" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label>Number of Failed Transactions to Automatically Cancel Subscription</label>
+                    <validate>validate-greater-than-zero validate-digits</validate>
+                    <comment>Once this number is reached, the subscription of a non-paying customer will be cancelled right away. Since payments can fail for various reasons, we recommend to contact this person in order to know if any assistance is needed.</comment>
+                </field>
+                <field id="allow_specify_start_end_date" translate="label tooltip" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Allow for Specifying Subscription Start and End</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip>Let your customers choose when to start and end their subscriptions for extra convenience or restrict this ability to instantly start an infinite subscription after the order is placed and keep it active until failed or canceled.</tooltip>
+                </field>
+                <field id="apply_free_shipping" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Apply Free Shipping to Subscription Products</label>
+                    <comment>You may want to offer free shipping on subscription products to make it more appealing to your customers and encourage long-lasting relationships with them.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="enable_next_billing_date_tooltip" translate="label tooltip" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable ‘Next Billing Date’ Explanation Tooltip</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <tooltip>
+                        <![CDATA[
+                            The option is applicable for the stores having the only Website for several time zones. <br/>
+                            If enabled, It displays the '?' icon with the tooltip in the Subscriptions grid on the customer's Storefront.<br/>
+                            <img src='/media/amasty/recurring_payments/stores_config/next-billing-date-tooltip.png' alt='Place' title='Place'/>
+                        ]]>
+                    </tooltip>
+                </field>
+                <field id="next_billing_date_tooltip_text" translate="label" type="textarea" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Message Text</label>
+                    <depends>
+                        <field id="enable_next_billing_date_tooltip">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="global" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Global Subscription Settings</label>
+                <field id="global_notification" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <frontend_model>Amasty\RecurringPayments\Block\Adminhtml\System\Config\GlobalNotification</frontend_model>
+                </field>
+                <field id="subscription_only" translate="label comment" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Subscription only</label>
+                    <comment>Select 'No' to make products available as either regular purchase or subscription. Select 'Yes' to make products subscription only.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="subscription_plans" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0">
+                    <label>Subscription Plans Available to Customers</label>
+                    <source_model>Amasty\RecurringPayments\Model\Config\Source\SubscriptionPlan</source_model>
+                    <frontend_model>Amasty\RecurringPayments\Block\Adminhtml\System\Config\SubscriptionPlans</frontend_model>
+                </field>
+            </group>
+            <group id="label_comment" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label><![CDATA[Labels & Comments]]></label>
+                <field id="single_purchase_label" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label for the Single Purchase Option</label>
+                    <comment>This text will be displayed next to the radiobutton for adding a product to the cart as a single purchase (displayed on the subscription product page).</comment>
+                </field>
+                <field id="single_recurring_label" translate="label comment" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Label for the Recurring Purchase Option</label>
+                    <comment>This text will be displayed next to the radiobutton for adding a product to the cart as a subscription (displayed on the subscription product page).</comment>
+                </field>
+            </group>
+            <group id="email_notification" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Email Notifications</label>
+                <field id="email_sender" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send Emails as</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field>
+                <field id="notify_subscription_purchased" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Notify Customers When Subscription Is Purchased</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="email_template_subscription_purchased" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <source_model>\Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="notify_subscription_purchased">1</field>
+                    </depends>
+                </field>
+                <field id="notify_trial_end" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Notify Customers When Trial Period Ends</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="email_template_trial_end" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="notify_trial_end">1</field>
+                    </depends>
+                </field>
+                <field id="trial_end_days_before_notification" translate="label comment" type="text" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Send the Notification About Remaining Trial Period (days)</label>
+                    <comment>For Trial Periods initiated with Offline payment methods (such as Cash on Delivery) only. Online payment methods' notifications should be configured at payment gateway's side.</comment>
+                    <validate>validate-greater-than-zero validate-digits required-entry</validate>
+                    <depends>
+                        <field id="notify_trial_end">1</field>
+                    </depends>
+                </field>
+                <field id="notify_subscription_paused" translate="label" type="select" sortOrder="60" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label>Notify Customers When Subscription Is Paused</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="email_template_subscription_paused" translate="label" type="select" sortOrder="70" showInDefault="0" showInWebsite="0" showInStore="0">
+                    <label>Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="notify_subscription_paused">1</field>
+                    </depends>
+                </field>
+                <field id="notify_subscription_canceled" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Notify Customers When Subscription Is Canceled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="email_template_subscription_canceled" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="notify_subscription_canceled">1</field>
+                    </depends>
+                </field>
+                <field id="email_template_authenticate" translate="label" type="select" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>3D Secure Authentication Email Template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <depends>
+                        <field id="notify_authenticate">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

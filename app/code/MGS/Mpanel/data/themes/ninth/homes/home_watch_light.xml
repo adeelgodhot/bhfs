@@ -1,0 +1,269 @@
+<home>
+	<section>
+		<name><![CDATA[block37]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[0]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block38]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[4,4,4]]></block_cols>
+		<tablet_cols><![CDATA[["4","4","4"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12","12","12"]]]></mobile_cols>
+		<block_class><![CDATA[["margin-bottom30","margin-bottom30","margin-bottom30"]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[60]]></padding_top>
+		<padding_bottom><![CDATA[30]]></padding_bottom>
+		<block_position><![CDATA[1]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block39]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[bg-center]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[/b/g/bg_watch_light.jpg]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[1]]></background_cover>
+		<parallax><![CDATA[1]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[300]]></padding_top>
+		<padding_bottom><![CDATA[300]]></padding_bottom>
+		<block_position><![CDATA[2]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block40]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[6,6]]></block_cols>
+		<tablet_cols><![CDATA[["6","6"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12","12"]]]></mobile_cols>
+		<block_class><![CDATA[["margin-bottom30","margin-bottom30"]]]></block_class>
+		<class><![CDATA[ct-padding-70]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[4]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block41]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[60]]></padding_bottom>
+		<block_position><![CDATA[5]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block42]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[0]]></parallax>
+		<fullwidth><![CDATA[0]]></fullwidth>
+		<padding_top><![CDATA[93]]></padding_top>
+		<padding_bottom><![CDATA[70]]></padding_bottom>
+		<block_position><![CDATA[3]]></block_position>
+	</section>
+	<block>
+		<block_name><![CDATA[block38-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[col-xs-12]]></class>
+		<block_content><![CDATA[<div class="service-icon">
+<div class="icon">&nbsp;<span style="color: #e5bd00;" class="pe-7s-back-2">&nbsp;</span></div>
+<h4>FREE DELIVERY FOR</h4>
+<h5>ODERS OVER $50</h5>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block38-1]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[col-xs-12]]></class>
+		<block_content><![CDATA[<div class="service-icon">
+<div class="icon"> <span style="color: #4f67b7;" class="pe-7s-piggy"> </span></div>
+<h4>10% DISCOUNT FOR</h4>
+<h5>FIRST ORDER</h5>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block38-2]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="service-icon">
+<div class="icon">&nbsp;<span style="color: #ff006c;" class="pe-7s-gift">&nbsp;</span></div>
+<h4>AWESOME GIFT</h4>
+<h5>EVERY MONTH</h5>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block39-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[col-xs-12]]></class>
+		<block_content><![CDATA[<div class="text-banner-clt">
+<h2><strong>We made<br />perfect watches<br />with love &amp; passion</strong></h2>
+<div class="margin-top30">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non dignissim elit. Mauris congue massa nec eros vehicula, ut sollicitudin nulla congue.</div>
+<button class="action-shop-now"><span>SHOP NOW</span></button></div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block41-0]]></block_name>
+		<type><![CDATA[instagram]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"title":"","additional_content":"","animation":"","animation_delay":"","hastag":"#NINTHINSTAGRAM","limit":"6","perrow":"3","resolution":"low_resolution","link":"1","number_row":"1","like":0,"use_slider":0,"autoplay":0,"stop_auto":0,"navigation":0,"pagination":0,"comment":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[no-padding title-v2]]></class>
+		<block_content><![CDATA[{{block class="MGS\Social\Block\Panel\Widget" instagram_hashtag="#NINTHINSTAGRAM" mgs_panel_title="" mgs_panel_note="" limit="6" resolution="low_resolution" link="1" perrow="3" use_slider="0" like="0" comment="0" template="widget/instagram.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block40-0]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"ninth_watch_light_banner_1"}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[col-xs-12 watch-banner1]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="ninth_watch_light_banner_1" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block40-1]]></block_name>
+		<type><![CDATA[promo_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":"","text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","banner_id":"ninth_watch_light_banner_2"}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[col-xs-12 watch-banner2]]></class>
+		<block_content><![CDATA[{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="ninth_watch_light_banner_2" template="banner.phtml"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block42-0]]></block_name>
+		<type><![CDATA[attribute_products]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"title":"MOST POPULAR","additional_content":"SWEET THINGS","animation":"","animation_delay":"","attribute":"best_selling","limit":"8","perrow":"4","numbercol":"1","percol":"","template":"grid.phtml","ratio":"4","number_row":"1","category_id":["8","41"],"text_colour":"","link_colour":"","link_hover_colour":"","button_colour":"","button_hover_colour":"","button_text_colour":"","button_text_hover_colour":"","button_border_colour":"","button_border_hover_colour":"","use_slider":0,"autoplay":0,"stop_auto":0,"navigation":0,"pagination":0,"use_tabs":0,"loadmore":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[col-xs-12]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Products\Attributes" mgs_panel_title="MOST POPULAR" mgs_panel_note="SWEET THINGS" limit="8" ratio="4" category_ids="8,41" attribute="best_selling" use_slider="0" loadmore="0" template="products/attribute/grid.phtml" perrow="4"}}]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block37-0]]></block_name>
+		<type><![CDATA[owl_banner]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"block_link":"","animation":"","animation_delay":"","removeimg":["","","","","","","","","","","","","","","","","","","","","",""],"html_slider":"<div data-text-position=\"middle_right\" data-text-animate=\"slideInRight\" class=\"item slideInRight\"><a style=\"background-image:url(http:\/\/themes.magesolution.com\/ninth\/m2\/pub\/media\/wysiwyg\/slider\/slider_home_8_1.jpg)\" class=\"item-image\" href=\"#\"><img class=\"img-responsive\" src=\"http:\/\/themes.magesolution.com\/ninth\/m2\/pub\/media\/wysiwyg\/slider\/slider_home_8_1.jpg\" alt=\"\"><\/a><div class=\"slide-text middle_right\"><div class=\"inner-text\"><div class=\"content-heading text-left\">\r\n\t<div class=\"sub-title\">NEW COMMING<\/div>\r\n\t<h2 class=\"title\">PICK A WATCH<br>\r\n\t\tOF THE YEAR 2018<br>\r\n\t<\/h2>\r\n\t<p><span>Made from 316L stainless steel, this classic is intended to stay as such, and is designed to withstand hard knocks and the inevitable potential demise of everyday use.<\/span><\/p>\r\n\t<button class=\"action-shop-now\"><span>DISCOVER NOW<\/span><\/button>\r\n<\/div><\/div><\/div><\/div><div data-text-position=\"middle_right\" data-text-animate=\"slideInRight\" class=\"item slideInRight\"><a style=\"background-image:url(http:\/\/themes.magesolution.com\/ninth\/m2\/pub\/media\/wysiwyg\/slider\/slider_home_8_3.jpg)\" class=\"item-image\" href=\"#\"><img class=\"img-responsive\" src=\"http:\/\/themes.magesolution.com\/ninth\/m2\/pub\/media\/wysiwyg\/slider\/slider_home_8_3.jpg\" alt=\"\"><\/a><div class=\"slide-text middle_right\"><div class=\"inner-text\"><div class=\"content-heading text-left\">\r\n\t<div class=\"sub-title\">NEW COMMING<\/div>\r\n\t<h2 class=\"title\">PICK A WATCH<br>\r\n\t\tOF THE YEAR 2018<br>\r\n\t<\/h2>\r\n\t<p><span>Made from 316L stainless steel, this classic is intended to stay as such, and is designed to withstand hard knocks and the inevitable potential demise of everyday use.<\/span><\/p>\r\n\t<button class=\"action-shop-now\"><span>DISCOVER NOW<\/span><\/button>\r\n<\/div><\/div><\/div><\/div><div data-text-position=\"middle_right\" data-text-animate=\"slideInRight\" class=\"item slideInRight\"><a style=\"background-image:url(http:\/\/themes.magesolution.com\/ninth\/m2\/pub\/media\/wysiwyg\/slider\/slider_home_8_2.jpg)\" class=\"item-image\" href=\"#\"><img class=\"img-responsive\" src=\"http:\/\/themes.magesolution.com\/ninth\/m2\/pub\/media\/wysiwyg\/slider\/slider_home_8_2.jpg\" alt=\"\"><\/a><div class=\"slide-text middle_right\"><div class=\"inner-text\"><div class=\"content-heading text-left\">\r\n\t<div class=\"sub-title\">NEW COMMING<\/div>\r\n\t<h2 class=\"title\">PICK A WATCH<br>\r\n\t\tOF THE YEAR 2018<br>\r\n\t<\/h2>\r\n\t<p><span>Made from 316L stainless steel, this classic is intended to stay as such, and is designed to withstand hard knocks and the inevitable potential demise of everyday use.<\/span><\/p>\r\n\t<button class=\"action-shop-now\"><span>DISCOVER NOW<\/span><\/button>\r\n<\/div><\/div><\/div><\/div>","offset":"","effect":"1","speed":"","navigation":"1","navtemple":"1","loop":"1","fullscreen":0,"autoplay":0,"stop_auto":0,"pagination":0,"fullheight":0}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[no-padding]]></class>
+		<block_content><![CDATA[{{block class="MGS\Mpanel\Block\Widget\OwlCarousel" fullscreen="0" autoplay="0" stop_auto="0" navigation="1" offset="" fullheight="0" pagination="0" loop="1" speed="" html_slider="&lt;div data-text-position=&quot;middle_right&quot; data-text-animate=&quot;slideInRight&quot; class=&quot;item slideInRight&quot;&gt;&lt;a style=&quot;background-image:url(http://themes.magesolution.com/ninth/m2/pub/media/wysiwyg/slider/slider_home_8_1.jpg)&quot; class=&quot;item-image&quot; href=&quot;#&quot;&gt;&lt;img class=&quot;img-responsive&quot; src=&quot;http://themes.magesolution.com/ninth/m2/pub/media/wysiwyg/slider/slider_home_8_1.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;div class=&quot;slide-text middle_right&quot;&gt;&lt;div class=&quot;inner-text&quot;&gt;&lt;div class=&quot;content-heading text-left&quot;&gt;
+	&lt;div class=&quot;sub-title&quot;&gt;NEW COMMING&lt;/div&gt;
+	&lt;h2 class=&quot;title&quot;&gt;PICK A WATCH&lt;br&gt;
+		OF THE YEAR 2018&lt;br&gt;
+	&lt;/h2&gt;
+	&lt;p&gt;&lt;span&gt;Made from 316L stainless steel, this classic is intended to stay as such, and is designed to withstand hard knocks and the inevitable potential demise of everyday use.&lt;/span&gt;&lt;/p&gt;
+	&lt;button class=&quot;action-shop-now&quot;&gt;&lt;span&gt;DISCOVER NOW&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div data-text-position=&quot;middle_right&quot; data-text-animate=&quot;slideInRight&quot; class=&quot;item slideInRight&quot;&gt;&lt;a style=&quot;background-image:url(http://themes.magesolution.com/ninth/m2/pub/media/wysiwyg/slider/slider_home_8_3.jpg)&quot; class=&quot;item-image&quot; href=&quot;#&quot;&gt;&lt;img class=&quot;img-responsive&quot; src=&quot;http://themes.magesolution.com/ninth/m2/pub/media/wysiwyg/slider/slider_home_8_3.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;div class=&quot;slide-text middle_right&quot;&gt;&lt;div class=&quot;inner-text&quot;&gt;&lt;div class=&quot;content-heading text-left&quot;&gt;
+	&lt;div class=&quot;sub-title&quot;&gt;NEW COMMING&lt;/div&gt;
+	&lt;h2 class=&quot;title&quot;&gt;PICK A WATCH&lt;br&gt;
+		OF THE YEAR 2018&lt;br&gt;
+	&lt;/h2&gt;
+	&lt;p&gt;&lt;span&gt;Made from 316L stainless steel, this classic is intended to stay as such, and is designed to withstand hard knocks and the inevitable potential demise of everyday use.&lt;/span&gt;&lt;/p&gt;
+	&lt;button class=&quot;action-shop-now&quot;&gt;&lt;span&gt;DISCOVER NOW&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div data-text-position=&quot;middle_right&quot; data-text-animate=&quot;slideInRight&quot; class=&quot;item slideInRight&quot;&gt;&lt;a style=&quot;background-image:url(http://themes.magesolution.com/ninth/m2/pub/media/wysiwyg/slider/slider_home_8_2.jpg)&quot; class=&quot;item-image&quot; href=&quot;#&quot;&gt;&lt;img class=&quot;img-responsive&quot; src=&quot;http://themes.magesolution.com/ninth/m2/pub/media/wysiwyg/slider/slider_home_8_2.jpg&quot; alt=&quot;&quot;&gt;&lt;/a&gt;&lt;div class=&quot;slide-text middle_right&quot;&gt;&lt;div class=&quot;inner-text&quot;&gt;&lt;div class=&quot;content-heading text-left&quot;&gt;
+	&lt;div class=&quot;sub-title&quot;&gt;NEW COMMING&lt;/div&gt;
+	&lt;h2 class=&quot;title&quot;&gt;PICK A WATCH&lt;br&gt;
+		OF THE YEAR 2018&lt;br&gt;
+	&lt;/h2&gt;
+	&lt;p&gt;&lt;span&gt;Made from 316L stainless steel, this classic is intended to stay as such, and is designed to withstand hard knocks and the inevitable potential demise of everyday use.&lt;/span&gt;&lt;/p&gt;
+	&lt;button class=&quot;action-shop-now&quot;&gt;&lt;span&gt;DISCOVER NOW&lt;/span&gt;&lt;/button&gt;
+&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;" navtemple="1" effect="1" template="widget/owl_slider.phtml"}}]]></block_content>
+	</block>
+	<promo_banner>
+		<item>
+			<title><![CDATA[Ninth Watch Light Banner 1]]></title>
+			<filename><![CDATA[/s/l/slider_light_watch_bl.jpg]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[middle-center]]></text_align>
+			<content><![CDATA[<div class="text-center">
+    <div class="h3"><em class="text-colour-white">Introduction</em></div>
+    <div class="h1"><strong class="text-colour-white">#NINTH THE MOMENT</strong></div>
+    <div class="h5"><span class="text-colour-white">Experience . Capture . Share</span></div>
+    <div class="actions"><button class="btn btn-white">Discover all moment</action></div>
+</div>]]></content>
+			<effect><![CDATA[zoom]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[ninth_watch_light_banner_1]]></identifier>
+		</item>
+		<item>
+			<title><![CDATA[Ninth Watch Light Banner 2]]></title>
+			<filename><![CDATA[/b/a/banner_watch_light_2.jpg]]></filename>
+			<url><![CDATA[]]></url>
+			<button><![CDATA[]]></button>
+			<text_align><![CDATA[bottom-left]]></text_align>
+			<content><![CDATA[<div>
+    <div class="h5"><span class="text-colour-white">FROM SHARA.</span></div>
+    <div class="h1"><strong class="text-colour-white">TAJ MAHAL</strong></div>
+    <div class="h1"><strong class="text-colour-white">HONEYMOON WITH #NINTH</strong></div>
+</div>]]></content>
+			<effect><![CDATA[zoom]]></effect>
+			<custom_class><![CDATA[]]></custom_class>
+			<status><![CDATA[1]]></status>
+			<identifier><![CDATA[ninth_watch_light_banner_2]]></identifier>
+		</item>
+	</promo_banner>
+	<theme_setting>
+		<general>
+			<footer>footer_6</footer>
+			<header>header_6</header>
+		</general>
+	</theme_setting>
+
+</home>

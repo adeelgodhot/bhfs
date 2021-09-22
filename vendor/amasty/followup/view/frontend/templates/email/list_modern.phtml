@@ -1,0 +1,140 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+?>
+<?php /** @var $block \Amasty\Followup\Block\Email\Items */ ?>
+<?php $quoteItems = $this->getItems(); ?>
+<?php $itemsCount = count($quoteItems); ?>
+<tr class="email-body">
+    <td class="am-products-container" <?= ($itemsCount > 0) ? : 'style="display: none"' ?>>
+        <div class="am-list-modern">
+        <?php foreach ($quoteItems as $_item): ?>
+            <?php $_product = $this->loadProduct($_item); ?>
+            <?php if (!$_product) continue; ?>
+
+            <?php
+            $price = $this->getProductPrice($_product);
+            $productDescription = $this->getDescription($_product);
+
+            $discountPrice = $this->getDiscountPrice($price);
+            $showDiscount = $price != $discountPrice && $this->showDiscount();
+            ?>
+            <table class="product" cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                <tr>
+                    <td class="am-product-wrapper">
+                        <div class="am-product-left">
+                            <table class="am-fullwidth am-product-left-table" cellpadding="0" cellspacing="0" border="0">
+                                <tbody>
+                                <tr>
+                                    <?php if ($this->showImage()): ?>
+                                        <?php $block->initProductImageHelper($_product, 'amasty_followup_item_list_modern'); ?>
+                                        <?php $_imageHelper = $block->getProductImageHelper(); ?>
+                                        <td class="am-product-image" valign="top">
+                                            <a href="<?php echo $this->getProductUrl($_product) ?>">
+                                                <img src="<?php echo $_imageHelper->getUrl() ?>"
+                                                     class="am-product-image"
+                                                     alt="<?php echo $block->escapeHtml($_imageHelper->getLabel()) ?>"
+                                                     width="<?php echo $_imageHelper->getWidth() ?>"
+                                                     height="<?php echo $_imageHelper->getHeight() ?>"/>
+                                            </a>
+                                        </td>
+                                    <?php endif; ?>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="am-product-right">
+                            <div class="am-product-right-desc" style="height: <?= $productDescription ? "auto;" : "104px;"; ?>">
+                                <table class="am-fullwidth am-product-desc-table" cellpadding="0" cellspacing="0" border="0">
+                                    <tbody>
+                                    <tr>
+                                        <td class="am-product-text-container">
+                                            <table class="am-product-text" cellpadding="0" cellspacing="0" border="0">
+                                                <tbody>
+                                                <tr class="am-product-name">
+                                                    <td>
+                                                        <a href="<?= $this->getProductUrl($_product) ?>">
+                                                            <?= $this->escapeHtml($_product->getName()) ?>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr class="am-product-description">
+                                                    <td>
+                                                        <?= $productDescription ?>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                                <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <?php if ($this->showPrice()): ?>
+                                                            <div class="am-product-price<?= $showDiscount ? "" : " am-final-price" ?>">
+                                                                <?= $this->getFormatedProductPrice($price); ?>
+                                                                <?= $this->displayFormatQty($_item->getQty()); ?>
+                                                            </div>
+
+                                                            <?php if ($showDiscount): ?>
+                                                                <div class="am-product-price am-final-price">
+                                                                    <?= $this->formatPrice($discountPrice); ?>
+                                                                    <?= $this->displayFormatQty($_item->getQty()); ?>
+                                                                </div>
+                                                            <?php endif; ?>
+
+                                                            <?php if ($this->showSpecialPrice()): ?>
+                                                                <div>
+                                                                    <?= __('Special Price') . ":&nbsp;"; ?>
+                                                                    <?= $this->formatPrice($_product->getSpecialPrice()); ?>
+                                                                    <?= $this->displayFormatQty($_item->getQty()); ?>
+                                                                    <?php if ($_product->getSpecialToDate()): ?>
+                                                                        <div>
+                                                                            <?= __('Offer ends') . ' '; ?>
+                                                                            <?= $this->getDate($_product->getSpecialToDate(), false);?>
+                                                                        </div>
+                                                                    <?php endif; ?>
+                                                                </div>
+                                                            <?php endif; ?>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="am-product-right-button">
+                                <table class="am-fullwidth am-product-button-table" cellpadding="0" cellspacing="0" border="0">
+                                    <tbody>
+                                    <tr>
+                                        <td class="am-view">
+                                            <table class="am-viewlink-container">
+                                                <tbody>
+                                                <tr>
+                                                    <td align="right">
+                                                        <a class="am-view-link" href="<?= $this->getProductUrl($_product) ?>">
+                                                            <?= __('View Item') ?>
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <hr class="am-list-wrapper"/>
+        <?php endforeach; ?>
+        </div>
+    </td>
+</tr>

@@ -1,0 +1,19 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_MWishlist
+ */
+?>
+<?php
+/** @var \Magento\Framework\View\Element\Template $block */
+?>
+
+<?= $block->escapeHtml(
+    __(
+        '<a href="%1">%2</a> has been created.',
+        $block->getData('wishlist_url'),
+        $block->getData('wishlist_name')
+    ),
+    ['a']
+);

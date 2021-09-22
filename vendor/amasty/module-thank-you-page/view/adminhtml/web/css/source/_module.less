@@ -1,0 +1,49 @@
+/*
+ * @author Amasty Team
+ * @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+ * @package Amasty_ThankYouPage
+ */
+
+#amthankyoublocks-sort-order {
+  tr td, tr th {
+    background: #efefef;
+    border-bottom: 1px solid #fff;
+
+    .draggable {
+      color: #adadad
+    }
+  }
+
+  tr td {
+    &:hover {
+      cursor: move
+    }
+
+    &:before {
+      content: @icon-grid__content;
+      font-family: @icons-admin__font-name
+    }
+
+    &.item-position {
+      padding: 1rem;
+      max-width: 87px;
+    }
+  }
+}
+
+.amtypage-tooltip {
+    width:  inherit;
+    margin: 0 16px 0 .2em;
+}
+
+.amtypage-tooltip .action-help {
+    margin: 11px 0 0 0;
+}
+
+.amtypage-tooltip .action-help:before {
+    font-size: 15px;
+}
+
+.page-actions-buttons #amasty_success_preview.amtypage-preview-button {
+    padding-right:  0;
+}

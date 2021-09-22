@@ -1,0 +1,106 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+<?php
+/**
+ * Category layered navigation
+ *
+ * @var $block \Magento\LayeredNavigation\Block\Navigation
+ */
+?>
+
+<?php if ($block->canShowBlock()): ?>
+    <?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+    <?php $toggleFilter = $themeHelper->getStoreConfig('mpanel/catalog/toggle_filter'); ?>
+
+    <div class="block filter <?php echo $toggleFilter ? 'filter-toggle' : '' ?>">
+        <!--- <div class="block-title filter-title">
+            <strong><?php // echo /* @escapeNotVerified */ __('Shop By') ?></strong>
+        </div> --->
+
+        <div class="block-content filter-content">
+            <?php echo $block->getChildHtml('state') ?>
+
+            <?php if ($block->getLayer()->getState()->getFilters()): ?>
+                <div class="block-actions filter-actions">
+                    <a href="<?php echo /* @escapeNotVerified */ $block->getClearUrl() ?>" class="action clear filter-clear"><span><?php echo /* @escapeNotVerified */ __('Clear All') ?></span></a>
+                </div>
+            <?php endif; ?>
+            <?php $wrapOptions = false; ?>
+            <?php $i=0; foreach ($block->getFilters() as $filter): $i++; ?>
+                <?php if (!$wrapOptions): ?>
+                    <strong role="heading" aria-level="2" class="block-subtitle filter-subtitle"><?php echo /* @escapeNotVerified */ __('Shopping Options') ?></strong>
+                    <dl class="filter-options _filter_<?php echo $i; ?>" id="narrow-by-list">
+                <?php $wrapOptions = true; endif; ?>
+                    <?php if ($filter->getItemsCount()): ?>
+                        <dt data-togle="#filter-options-<?php echo $i ?>" role="heading" aria-level="3" class="filter-options-title"><?php echo $block->escapeHtml(__($filter->getName())) ?></dt>
+                        <dd id="filter-options-<?php echo $i ?>" class="filter-options-content">
+                            <?php echo /* @escapeNotVerified */ $block->getChildBlock('renderer')->render($filter) ?>
+                                
+                                <?php if ($filter->getItemsCount()): ?>
+                                <div class="show-more" data-togle="#filter-options-<?php echo $i ?>">Show More...</div>
+                             <?php endif; ?>
+                            </dd>
+                    <?php endif; ?>
+                   
+            <?php endforeach; ?>
+
+
+            <?php if ($wrapOptions): ?>
+                </dl>
+            <?php endif; ?>
+
+        </div>
+    </div>
+    <?php if($toggleFilter): ?>
+        <script type="text/javascript">
+            require([
+                'jquery'
+            ], function ($) {
+                $(document).on("click", ".filter-options-title", function(){
+                    var elm = $(this).attr('data-togle');
+                    $(this).toggleClass('active');
+                    $(elm).toggleClass('active');
+                    $(elm).slideToggle();
+                });
+
+            });
+        </script>
+    <?php endif ?>
+
+    <script type="text/javascript">
+            require([
+                'jquery'
+            ], function ($) {
+
+                $('.filter-options-content').each(function(i, obj) {
+                    if ( $(this).find("ol.items li.item").length > 8 ) {
+                        $(this).find("ol.items li.item").slice(8).hide();
+                        $(this).find(".show-more").show();
+                    }
+                });
+
+                $(document).on("click", ".show-more", function(){
+                    var elm = $(this).attr('data-togle');
+                    console.log( "Show more clicked " + elm );
+
+                    $(elm).find("ol.items li.item").slice(8).slideToggle();
+
+                    if ( $(this).text() === 'Show More...' ) {
+                        $(this).text('Show Less...');
+                    } else {
+                        $(this).text('Show More...');
+                    }
+
+                });
+
+
+            });
+    </script>
+<?php endif; ?>

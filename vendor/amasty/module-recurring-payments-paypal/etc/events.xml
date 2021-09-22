@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPaypal
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="amasty_recurring_order_placed_paypal_express">
+        <observer name="amasty_recurring_paypal_paypal_express"
+                  instance="Amasty\RecurringPaypal\Observer\Order\CreateSubscriptions" />
+    </event>
+    <!-- Zero total-->
+    <event name="amasty_recurring_order_placed_amasty_recurring_paypal">
+        <observer name="amasty_recurring_paypal_amasty_recurring_paypal"
+                  instance="Amasty\RecurringPaypal\Observer\Order\CreateSubscriptions" />
+    </event>
+</config>

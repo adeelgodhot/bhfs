@@ -1,0 +1,19 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Fpc
+ */
+?>
+<?php
+/** @var \Amasty\Fpc\Block\Adminhtml\Form\Field\LazyLoadCompatInfo $block */
+/** @var \Magento\Framework\Escaper $escaper */
+?>
+<div class="amasty-page-code">
+    <?= $escaper->escapeHtml(
+        __(
+            'Please, install Lazy Load or Google Page Speed Optimizer to warm pages according to user '
+            . 'agents with or without webp support.'
+        )
+    ); ?>
+</div>

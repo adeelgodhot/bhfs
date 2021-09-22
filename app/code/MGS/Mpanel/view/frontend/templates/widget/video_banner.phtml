@@ -1,0 +1,110 @@
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<?php $video = $this->getVideoBackground(); ?>
+<?php $videoId = $this->getVideoUrl(); ?>
+<?php $poster = $this->getPosterImage(); ?>
+<?php $preload = $this->getPreload() ? 'auto' : 'none'; ?>
+
+<?php if($this->getVideoType() == 'youtube'): ?>
+
+    <?php $videoUrl = 'https://www.youtube.com/embed/'. $videoId . '?'; ?>
+    <?php if($this->getLoop()): ?>
+        <?php $videoUrl .= '&loop=1&playlist='.$videoId ?>
+    <?php else: ?>
+        <?php $videoUrl .= '&loop=0' ?>
+    <?php endif ?> 
+    <?php if($this->getAutoplay()): ?>
+        <?php $videoUrl .= '&autoplay=1' ?>
+    <?php endif ?>
+    <?php if($this->getControls()): ?>
+        <?php $videoUrl .= '&controls=1' ?>
+    <?php else: ?>
+        <?php $videoUrl .= '&controls=0' ?>
+    <?php endif ?>
+    <?php if($this->getMuted()): ?> 
+        <?php $videoUrl .= '&mute=1' ?>
+    <?php endif ?>
+    
+<?php elseif($this->getVideoType() == 'vimeo'): ?>
+
+    <?php $videoUrl = 'https://player.vimeo.com/video/'. $videoId . '?background=1&title=0&byline=0&portrait=0'; ?>
+    <?php if($this->getLoop()): ?>
+        <?php $videoUrl .= '&loop=1' ?>
+    <?php else: ?>
+        <?php $videoUrl .= '&loop=0' ?>
+    <?php endif ?> 
+    <?php if($this->getAutoplay()): ?>
+        <?php $videoUrl .= '&autoplay=1' ?>
+    <?php else: ?>
+        <?php $videoUrl .= '&autoplay=0' ?>
+    <?php endif ?>
+    <?php if($this->getMuted()): ?>
+        <?php $videoUrl .= '&mute=1' ?>
+    <?php else: ?>
+        <?php $videoUrl .= '&mute=0' ?>
+    <?php endif ?>
+    
+<?php else: ?>
+
+    <?php $videoUrl = $themeHelper->getPanelUploadFolder('video') . $video; ?>
+    <?php $videoExtention = substr($video, strrpos($video, '.')+1); ?>
+    
+<?php endif ?>
+
+<div class="video-banner-wrapper">
+    <?php if($this->getVideoType() == 'youtube' || $this->getVideoType() == 'vimeo'): ?>
+        <div class="videobg">
+            <img class="img-responsive" src="<?php echo $themeHelper->getPanelUploadFolder('postervideo') ?><?php echo $poster ?>" alt="poster-video" />
+              <div class="videobg-width">
+                    <div class="videobg-aspect">
+                          <div class="videobg-make-height">
+                                <div class="videobg-hide-controls">
+                                    <iframe src="<?php echo $videoUrl ?>" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                                </div>
+                          </div>
+                    </div>
+              </div>
+        </div>
+        <script type="text/javascript">
+            require([
+                'jquery'
+            ], function(jQuery){
+                (function($) {
+                    var timeoutId;
+                    var $videoBgAspect = $(".videobg-aspect");
+                    var $videoBgWidth = $(".videobg-width");
+                    var videoAspect = $videoBgAspect.outerHeight() / $videoBgAspect.outerWidth();
+
+                    function videobgEnlarge() {
+                      console.log('resize');
+                      windowAspect = ($(window).height() / $(window).width());
+                      if (windowAspect > videoAspect) {
+                        $videoBgWidth.width((windowAspect / videoAspect) * 100 + '%');
+                      } else {
+                        $videoBgWidth.width(100 + "%")
+                      }
+                    }
+
+                    $(document).ready(function() {
+                        videobgEnlarge();
+                    });
+                })(jQuery);
+            });
+            
+        </script>
+    <?php else: ?>
+        <video preload="<?php echo $preload ?>" src="<?php echo $videoUrl ?>"
+            <?php if($poster): ?> poster="<?php echo $themeHelper->getPanelUploadFolder('postervideo') ?><?php echo $poster ?>"<?php endif ?>
+            <?php if($this->getHeight()): ?> height="<?php echo $this->getHeight() ?>"<?php endif ?>
+            <?php if($this->getLoop()): ?> loop<?php endif ?> 
+            <?php if($this->getAutoplay()): ?> autoplay<?php endif ?>
+            <?php if($this->getControls()): ?> controls<?php endif ?>
+            <?php if($this->getMuted()): ?> muted<?php endif ?>> 
+            <source src="<?php echo $videoUrl ?>" type="video/<?php echo $videoExtention ?>">
+        </video>
+    <?php endif ?>
+    <?php if($this->getHtmlContent()): ?>
+        <div class="video-banner-content">
+            <?php echo htmlspecialchars_decode($this->getHtmlContent()); ?>
+        </div>
+    <?php endif ?>
+</div>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author ExtensionHut Team
+ * @copyright Copyright (c) 2019 ExtensionHut (https://www.extensionhut.com/)
+ * @package EH_CategoryCustomUrl
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Catalog\Helper\Category">
+        <plugin name="EH_CategoryCustomUrl::Category" type="EH\CategoryCustomUrl\Plugin\Catalog\Helper\Category"/>
+    </type>
+    <preference for="Magento\Catalog\Plugin\Block\Topmenu" type="EH\CategoryCustomUrl\Rewrite\Catalog\Plugin\Block\Topmenu" />
+</config>

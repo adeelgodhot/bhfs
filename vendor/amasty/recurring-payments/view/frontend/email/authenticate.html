@@ -1,0 +1,33 @@
+<!--@subject {{trans "IMPORTANT: 3D Secure Authentication"}} @-->
+
+<!--@vars {
+"var customer.getFirstName()|escape":"Customer Name",
+"var store.getFrontendName()":"Store Name",
+"store url=\"\"":"Store URL"
+} @-->
+
+
+{{template config_path="design/email/header_template"}}
+
+<div class="amrec-main-container">
+    <div class="amrec-header-container">
+        <span class="amrec-title">{{trans "3D Secure Authentication"}}</span>
+        <div class="amrec-image-wrapper">
+            <img class="amrec-image"
+                 src="{{view url='Amasty_RecurringPayments/images/email/trial_ended.png'}}"
+                 alt="{{trans 'Required 3D Secure V2'}}">
+        </div>
+    </div>
+
+    <div class="amrec-text-container">
+        <p class="amrec-message"><strong class="amrec-name">{{trans 'Dear %customer_name,' customer_name=$customer.getFirstName()}}</strong>
+            {{trans 'Please undergo the 3D Secure authentication procedure in order to confirm that you are the owner of credit/debit cart provided and allow for recurring payments. You can find more information <a href="%authenticate_url">here</a>.' authenticate_url=$linkauth |raw}}
+        </p>
+    </div>
+
+    <div class="amrec-regards-wrapper" >
+        <span class="amrec-regards">{{trans "Kindest Regards"}}, {{var store.getFrontendName()}} {{trans "Team"}}</span>
+    </div>
+</div>
+
+{{template config_path="design/email/footer_template"}}

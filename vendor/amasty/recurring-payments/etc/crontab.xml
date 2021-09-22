@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="amasty_recurring_payments_generate_schedule" instance="Amasty\RecurringPayments\Cron\GenerateSchedule" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+        <job name="amasty_recurring_payments_run_schedule" instance="Amasty\RecurringPayments\Cron\RunSchedule" method="execute">
+            <schedule>* * * * *</schedule>
+        </job>
+    </group>
+</config>

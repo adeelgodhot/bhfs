@@ -1,0 +1,33 @@
+//
+//  Visual Chooser Component
+//  ______________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amlabel-position-chooser.amlabel-visual-chooser {
+        & {
+            border-spacing: 6px;
+        }
+
+        td {
+            & {
+                padding: 5px;
+            }
+
+            &[data-amlabel-position-selected='1'] {
+                border-color: #007bdb;
+                background-color: #007bdb;
+                color: #fff;
+            }
+
+            &:hover:not([data-amlabel-position-enabled='0']):not([data-amlabel-position-selected='1']) {
+                border-color: #000;
+                background-color: #e8f5ff;
+                color: #000;
+            }
+        }
+    }
+}

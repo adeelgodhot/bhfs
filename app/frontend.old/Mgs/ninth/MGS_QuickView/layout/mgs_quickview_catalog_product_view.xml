@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">    
+    <body>
+        <move element="page.main.title" destination="product.info.main" before="-"/>
+        <referenceBlock name="breadcrumbs" remove="true" />
+        
+        <referenceBlock name="product.info.media.image">
+            <arguments>
+                <argument name="view_type" xsi:type="string">quickview</argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

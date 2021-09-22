@@ -1,0 +1,48 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_ThankYouPage
+ */
+?>
+
+<?php
+/**
+ * @var \Amasty\ThankYouPage\Block\Onepage\Success\Types\CustomAbstract $block
+ * @var Magento\Framework\Escaper $escaper
+ */
+
+try {
+    $background = $escaper->escapeHtml($block->getBackgroundImage());
+} catch (\Magento\Framework\Exception\NoSuchEntityException $e) {
+    return;
+}
+$background = $background ? " background-image:url(" . $background . ")" : '';
+?>
+
+<div class="amtypage-background" style="width: <?= $escaper->escapeHtml($block->getWidth()) . '%' . ';' ?><?= $escaper->escapeHtml($background); ?>">
+    <?php if (!$block->useCmsBlock()): ?>
+        <div>
+            <h1 class="page-title">
+            <span class="base">
+                <?= $escaper->escapeHtml($block->getTitle()); ?>
+            </span></h1>
+        </div>
+
+        <table>
+            <tr>
+                <td><?= $escaper->escapeHtml($block->getSubTitle()); ?></td>
+            </tr>
+
+            <tr>
+                <td><?= $escaper->escapeHtml($block->getText()); ?></td>
+            </tr>
+        </table>
+    <?php else: ?>
+        <table>
+            <tr>
+                <td><?= $block->getCmsBlockContentHtml(); ?></td>
+            </tr>
+        </table>
+    <?php endif; ?>
+</div>

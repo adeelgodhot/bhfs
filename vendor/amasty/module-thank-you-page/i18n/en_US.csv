@@ -1,0 +1,76 @@
+"Selected Rule: ","Selected Rule: "
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"Customer is already registered","Customer is already registered"
+"Your session has expired","Your session has expired"
+"A letter with further instructions will be sent to your email.","A letter with further instructions will be sent to your email."
+"The confirmation request has been sent.","The confirmation request has been sent."
+"Please enter a valid email address.","Please enter a valid email address."
+"Sorry, but the administrator denied subscription for guests. Please <a href=""%1"">register</a>.","Sorry, but the administrator denied subscription for guests. Please <a href=""%1"">register</a>."
+"This email address is already assigned to another user.","This email address is already assigned to another user."
+"Please, select a static block","Please, select a static block"
+"Use existing rule","Use existing rule"
+"This order already has associated customer account","This order already has associated customer account"
+Preview,Preview
+"Due to safety concerns, the link has a short lifetime and can be used only once. If you need to see this page once more, go to the extension configuration page and press the Preview button again.","Due to safety concerns, the link has a short lifetime and can be used only once. If you need to see this page once more, go to the extension configuration page and press the Preview button again."
+"To access simplified block sorting, please disable Thank You Page Markup Editor in the Advanced Layout Management section.","To access simplified block sorting, please disable Thank You Page Markup Editor in the Advanced Layout Management section."
+"You need to save your config first to see a relevant preview of Thank You page.
+Preview will be generated based on the most recent order in the system. If there are no orders, the page will be blank.
+Preview generation may take some time.","You need to save your config first to see a relevant preview of Thank You page.
+Preview will be generated based on the most recent order in the system. If there are no orders, the page will be blank.
+Preview generation may take some time."
+Email:,Email:
+"Enter your email address","Enter your email address"
+Password,Password
+"Password Strength","Password Strength"
+"No Password","No Password"
+"Confirm Password","Confirm Password"
+"Date of Birth","Date of Birth"
+"I accept terms & conditions","I accept terms & conditions"
+"Create Account","Create Account"
+Newsletter,Newsletter
+"Sign Up for Our Newsletter:","Sign Up for Our Newsletter:"
+Subscribe,Subscribe
+"Please, select a static block.","Please, select a static block."
+"Select Date","Select Date"
+"Preview Thank You page","Preview Thank You page"
+"Thank You Page","Thank You Page"
+Information,Information
+"General Settings","General Settings"
+"Enable Thank You Page","Enable Thank You Page"
+"Blocks Sorting Order","Blocks Sorting Order"
+Coupons,Coupons
+"You can configure a coupon here to use it in blocks as {{coupon}}.","You can configure a coupon here to use it in blocks as {{coupon}}."
+"Search for Rule","Search for Rule"
+"Block Configuration - Header","Block Configuration - Header"
+Display,Display
+"Use CMS Block","Use CMS Block"
+"Select CMS Block","Select CMS Block"
+"You can create new CMS block in ""Content > Elements > Blocks""","You can create new CMS block in ""Content > Elements > Blocks"""
+Title,Title
+"Sub Title","Sub Title"
+Text,Text
+"Background Image","Background Image"
+"Allowed file types: 'png', 'jpg', 'jpe', 'jpeg', 'gif'","Allowed file types: 'png', 'jpg', 'jpe', 'jpeg', 'gif'"
+"Block Configuration - Order Review","Block Configuration - Order Review"
+"Block Configuration - Custom 1","Block Configuration - Custom 1"
+"Block Configuration - Custom 2","Block Configuration - Custom 2"
+"Block Configuration - Custom 3","Block Configuration - Custom 3"
+"Block Configuration - Newsletter","Block Configuration - Newsletter"
+"To show for guests newsletter should be enabled for guests in Newsletter settings","To show for guests newsletter should be enabled for guests in Newsletter settings"
+"Confirmation Message","Confirmation Message"
+"Text For Already Subscribed","Text For Already Subscribed"
+"Block Configuration - Cross-Sell","Block Configuration - Cross-Sell"
+"Products Limit","Products Limit"
+"Show Out Of Stock","Show Out Of Stock"
+"Block Configuration - Create Account","Block Configuration - Create Account"
+"Show Email Field","Show Email Field"
+"Show Terms And Conditions","Show Terms And Conditions"
+"Terms Text","Terms Text"
+"Advanced Layout Management","Advanced Layout Management"
+"Enable Thank You Page Markup Editor","Enable Thank You Page Markup Editor"
+"Enabling this option overrides blocks sorting order set in General Settings.","Enabling this option overrides blocks sorting order set in General Settings."
+"Thank You Page Markup Editor","Thank You Page Markup Editor"
+"Force Single Column Layout for Mobile View","Force Single Column Layout for Mobile View"
+"Preview Settings","Preview Settings"
+"Test Order ID","Test Order ID"
+"Preview will be generated based on the provided order id or, if left empty, the most recent order in the system. If there are no orders or if provided id is incorrect, the page will be blank. Remember to save your config first to see a relevant preview of Thank You page.","Preview will be generated based on the provided order id or, if left empty, the most recent order in the system. If there are no orders or if provided id is incorrect, the page will be blank. Remember to save your config first to see a relevant preview of Thank You page."

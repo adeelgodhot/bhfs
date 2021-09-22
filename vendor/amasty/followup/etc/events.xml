@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="customer_save_before">
+        <observer name="amasty_followup" instance="Amasty\Followup\Observer\CustomerSaveBefore" />
+    </event>
+    <event name="newsletter_subscriber_save_after">
+        <observer name="amasty_followup" instance="Amasty\Followup\Observer\NewsletterSubscriber" />
+    </event>
+    <event name="newsletter_subscriber_save_before">
+        <observer name="amasty_followup_save_before" instance="Amasty\Followup\Observer\NewsletterSubscriberSaveBefore" />
+    </event>
+    <event name="wishlist_share">
+        <observer name="amasty_followup" instance="Amasty\Followup\Observer\WishlistShare" />
+    </event>
+    <event name="salesrule_validator_process">
+        <observer name="amasty_followup" instance="Amasty\Followup\Observer\SalesruleValidatorProcess" />
+    </event>
+</config>

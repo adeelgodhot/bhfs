@@ -1,0 +1,41 @@
+"Selected ' . . ': ","Selected ' . . ': "
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+"Shopping Cart","Shopping Cart"
+Checkout,Checkout
+"PayPal Express Checkout (Review Page)","PayPal Express Checkout (Review Page)"
+"Coupon Code","Coupon Code"
+"Downloadable Product","Downloadable Product"
+"15 minutes","15 minutes"
+"30 minutes","30 minutes"
+"1 hour","1 hour"
+"2 hours","2 hours"
+"4 hours","4 hours"
+"8 hours","8 hours"
+"1 day","1 day"
+"1 week","1 week"
+Custom,Custom
+Send,Send
+Information,Information
+"General Settings","General Settings"
+"Enable Exit Intent Popup","Enable Exit Intent Popup"
+"Popup Header Text","Popup Header Text"
+"Popup Message","Popup Message"
+"Show on Pages","Show on Pages"
+"Popup Recovery Time","Popup Recovery Time"
+"Do not annoy your customers!
+                    Set proper recovery time to prevent exit popup from showing to the same visitor too often.","Do not annoy your customers!
+                    Set proper recovery time to prevent exit popup from showing to the same visitor too often."
+"Popup Recovery Time in Minutes","Popup Recovery Time in Minutes"
+"Promo Settings","Promo Settings"
+"Promo Item Type","Promo Item Type"
+"Search for Rule","Search for Rule"
+"Please select a shopping cart rule to add the coupon to.
+                    <br />Important: the rule should be set to ""Use Auto Generation=Yes"".","Please select a shopping cart rule to add the coupon to.
+                    <br />Important: the rule should be set to ""Use Auto Generation=Yes""."
+"Search for Product","Search for Product"
+"Please enter SKU to search for a downloadable product.","Please enter SKU to search for a downloadable product."
+"Explicitly Ask for Email Content","Explicitly Ask for Email Content"
+"Email Consent Message","Email Consent Message"
+"Email Settings","Email Settings"
+"Send Email as","Send Email as"
+"Email Template","Email Template"

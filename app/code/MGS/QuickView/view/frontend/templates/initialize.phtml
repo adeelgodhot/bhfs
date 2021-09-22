@@ -1,0 +1,19 @@
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<?php $ratio_image = $themeHelper->getStoreConfig('mpanel/catalog/picture_ratio'); ?>
+
+<script type="text/javascript">
+    requirejs(['jquery', 'mgs_quickview'],
+            function ($, quickview) {
+                $(document).ready(function () {
+                    var ratioImage = $('body').attr('data-ratio');
+                    $('.mgs-quickview').bind('click', function () {
+                        var prodUrl = $(this).attr('data-quickview-url');
+                        var dataRatio = $(this).attr('data-ratio');
+                        if(dataRatio != ""){ ratioImage = dataRatio; }
+                        if (prodUrl.length) {
+                            quickview.displayContent(prodUrl, ratioImage);
+                        }
+                    });
+                });
+            });
+</script>

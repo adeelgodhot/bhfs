@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author ExtensionHut Team
+ * @copyright Copyright (c) 2020 ExtensionHut (https://www.extensionhut.com/)
+ * @package EH_Core
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="extensionhut" frontName="extensionhut">
+            <module name="EH_Core" before="Magento_Backend"/>
+        </route>
+    </router>
+</config>

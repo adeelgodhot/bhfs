@@ -1,0 +1,74 @@
+<!--@subject Bestselling products tailored to your taste  @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"var store_name":"Store Name",
+"var couponCode":"Coupon Code",
+"var unsubscribeUrl":"Unsubscribe Url",
+"var orderIncrementId":"Order: ID",
+"var orderCreatedAt":"Order: Created",
+"var grandTotal":"Order: Grand Total",
+"var orderStatus":"Order Status",
+"var shippingMethod":"Order: Shipping Method",
+"var paymentMethod":"Order: Payment Method",
+"var customerName":"Customer Name",
+"var customerGroupCode":"Customer: Group",
+"var dateOfBirth":"Customer: Date Of Birth",
+"var registrationDate":"Customer: Registration Date",
+"var lastLoginDate":"Customer: Last Login",
+"layout handle=\"amfollowup_email_crosssell\" quote=$quote history=$history mode=list image=yes price=yes priceFormat=exculdeTax descriptionFormat=short discount=yes":"Return Cross-sell Product Grid",
+"layout handle=\"amfollowup_email_wishlist\" customer=$customer history=$history mode=table image=yes price=yes priceFormat=exculdeTax descriptionFormat=short discount=yes":"Return Wishlist Product Grid",
+"layout handle=\"amfollowup_email_quote\" quote=$quote history=$history mode=table image=yes price=yes priceFormat=exculdeTax descriptionFormat=short discount=yes":"Return Quote Product Grid"
+}
+@-->
+{{template config_path="amfollowup/emails/header_template"}}
+<table class="container bord_color am-old-style" cellpadding="0" cellspacing="0" border="0">
+    <tr class="email-head">
+        <td align="center" valign="top">
+            <table class="table-head am-fullwidth" cellspacing="0" cellpadding="0" border="0">
+                <tr class="am-fullwidth">
+                    <td class="banner backgr-color contact  am-fullwidth" align="center" valign="top">
+                        <div>
+                            <img src="{{view url='Amasty_Followup/images/pic1.png'}}"  alt="{{trans 'Banner'}}" title="{{trans 'Banner'}}" />
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="head">
+                        <p class="am-name-18pt">{{trans "Dear %customer_name," customer_name=$customerName}}</p>
+                        <p>{{trans "We've selected these bestselling items tailored to your taste based on your previous order
+                            %previous_order_id. We hope this will help you to find the products you really
+                            need." previous_order_id=$orderIncrementId}}</p>
+                        <p>{{trans "Happy Shopping!"}}</p>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td align="center" valign="top" class="head" >
+                        <table class="contact  am-fullwidth" >
+                            <tr>
+                                <td align="left" ><img src="{{view url='Amasty_Followup/images/phone.png'}}" class="contact-img" alt="{{trans 'Phone'}}" title="{{trans 'Phone'}}" /> {{config path="general/store_information/phone"}}</td>
+                                <td align="center"><img src="{{view url='Amasty_Followup/images/mail.png'}}" class="contact-img" alt="{{trans 'Mail'}}" title="{{trans 'Mail'}}" /> {{config path="trans_email/ident_general/email"}}</td>
+                                <td align="right"><img src="{{view url='Amasty_Followup/images/reply.png'}}" class="contact-img" alt="{{trans 'Reply'}}" title="{{trans 'Reply'}}" /> <a href="mailto:{{config path="trans_email/ident_general/email"}}">reply to this mail</a></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+        {{layout
+            handle="amfollowup_email_crosssell"
+            quote=$quote
+            history=$history
+            mode=list
+            image=yes
+            price=yes
+            priceFormat=exculdeTax
+            descriptionFormat=short
+            discount=yes
+        }}<br/>
+</table>
+{{template config_path="amfollowup/emails/footer_template"}}

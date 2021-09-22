@@ -1,0 +1,35 @@
+"Clear Mobile Images Folder","Clear Mobile Images Folder"
+"Clear Tablet Images Folder","Clear Tablet Images Folder"
+"Clear WebP Folder","Clear WebP Folder"
+"Couldn't clear `%1` folder","Couldn't clear `%1` folder"
+"Mobile Images Folder was successful cleaned.","Mobile Images Folder was successful cleaned."
+"Tablet Images Folder was successful cleaned.","Tablet Images Folder was successful cleaned."
+"WebP Images Folder was successful cleaned.","WebP Images Folder was successful cleaned."
+"Tool `%1` doesn't exist","Tool `%1` doesn't exist"
+Cwebp,Cwebp
+Gifsicle,Gifsicle
+"Jpegoptim 100% quality","Jpegoptim 100% quality"
+"Jpegoptim 80% quality","Jpegoptim 80% quality"
+"Jpegoptim 90% quality","Jpegoptim 90% quality"
+Optipng,Optipng
+"exec function is disabled.","exec function is disabled."
+"Image Optimization Tool ""%1"" is not installed","Image Optimization Tool ""%1"" is not installed"
+Resize,Resize
+Crop,Crop
+Disabled,Disabled
+Enabled,Enabled
+"Yes (Recommended)","Yes (Recommended)"
+No,No
+"Automatic Optimization of the Newly Uploaded Images","Automatic Optimization of the Newly Uploaded Images"
+"Automatically Optimize Newly Uploaded Images in Catalog and Wysiwyg folders","Automatically Optimize Newly Uploaded Images in Catalog and Wysiwyg folders"
+"JPEG Optimization Tool","JPEG Optimization Tool"
+"PNG Optimization Tool","PNG Optimization Tool"
+"GIF Optimization Tool","GIF Optimization Tool"
+"Create Webp Copy","Create Webp Copy"
+"Create Images in Smaller Resolutions","Create Images in Smaller Resolutions"
+"Resize Algorithm","Resize Algorithm"
+"Dump Original Images","Dump Original Images"
+"Delete Previously Generated WebP & Resized Images","Delete Previously Generated WebP & Resized Images"
+"Clear WebP Images Folder","Clear WebP Images Folder"
+"Do not Optimize","Do not Optimize"
+"Do not Convert","Do not Convert"

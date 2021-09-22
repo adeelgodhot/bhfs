@@ -1,0 +1,468 @@
+<?php $helper = $this->getHelper() ?>
+<?php $params = $this->getParams() ?>
+<?php $exist = false ?>
+<div class="edit-static-form">
+	
+	<div class="row">
+		<div class="col-md-12 builder-title">
+			<h2><?php echo __('Video Banner') ?></h2>
+		</div>
+	</div>
+	<form id="section-form" enctype="multipart/form-data" method="POST" action="<?php echo $this->getUrl('mpanel/element/save') ?>" data-hasrequired="<?php echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}'>
+		<input type="hidden" name="page_id" value="<?php echo $this->getRequest()->getParam('page_id') ?>">
+		<input id="block_type" type="hidden" name="type" value="video_banner">
+		<input id="block_block_name" type="hidden" name="block_name" value="<?php echo $params['block'] ?>">
+		<?php if(isset($params['id'])): ?>
+			<?php 
+				$child =  $this->getModel('MGS\Mpanel\Model\Childs')->load($params['id']);
+				$exist = true;
+				$settings = json_decode($child->getSetting(), true);
+			?>
+			<input type="hidden" name="child_id" value="<?php echo $params['id'] ?>">
+		<?php endif ?>
+		
+		
+		<div class="form-horizontal">
+			<div id="form_tabs" class="tabbable">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a data-toggle="tab" href="#general"><?php echo __('General') ?></a>
+					</li>
+					<li class="">
+						<a data-toggle="tab" href="#video"><?php echo __('Video & Image') ?></a>
+					</li>
+					<li class="">
+						<a data-toggle="tab" href="#video_config"><?php echo __('Config Video') ?></a>
+					</li>
+					
+					<?php if($exist): ?>
+						<li class="">
+							<a id="code-tab-nav" data-toggle="tab" href="#code"><?php echo __('Embed Code') ?></a>
+						</li>
+					<?php endif ?>
+				</ul>
+				<div class="tab-content">
+					<div id="general" class="tab-pane active">
+						<div class="form-group">
+							<label for="col" class="col-sm-4 control-label"><?php echo __('Block col (12 to full)') ?></label>
+							<div class="col-sm-8">
+								<select id="col" class="required-entry input-text" name="col">
+									<?php for($i=12; $i>=1; $i--): ?>
+										<option value="<?php echo $i ?>"<?php if($exist && ($child->getCol()==$i)): ?> selected="selected"<?php endif ?>><?php echo $i ?></option>
+									<?php endfor ?>
+								</select>
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="class" class="col-sm-4 control-label"><?php echo __('Custom Class') ?></label>
+							<div class="col-sm-8">
+								<input type="text" id="class" class="input-text" name="class"<?php if($exist): ?> value="<?php echo $child->getClass() ?>"<?php endif ?> />
+							</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="animation" class="col-sm-4 control-label"><?php echo __('Block Animation') ?></label>
+							<div class="col-sm-4">
+								<select onchange="changeAnimationClass(this.value)" id="animation" class="input-text" name="setting[animation]">
+									<option value=""><?php echo __('Choose Animation Effect') ?></option>
+									<?php foreach($helper->getAnimationEffect() as $animation=>$label): ?>
+										<option value="<?php echo $animation ?>"<?php if($exist && ($settings['animation']==$animation)): ?> selected="selected"<?php endif ?>><?php echo $label ?></option>
+									<?php endforeach ?>
+								</select>
+							</div>
+							
+							<div class="col-sm-4 text-center animated<?php if($exist && ($settings['animation']!='')): ?> <?php echo $settings['animation'] ?><?php endif ?>" id="animation-test">Animation Preview</div>
+						</div>
+						
+						<div class="form-group">
+							<label for="animation_delay" class="col-sm-4 control-label"><?php echo __('Animation Delay') ?></label>
+							<div class="col-sm-8">
+								<input type="text" placeholder="ms" id="animation_delay" class="input-text validate-number" name="setting[animation_delay]" <?php if($exist): ?> value="<?php echo $settings['animation_delay'] ?>"<?php endif ?>>
+							</div>
+						</div>
+						
+					</div>
+					<div id="video" class="tab-pane">
+						<div class="form-group">
+							<label for="height" class="col-sm-2 control-label"><?php echo __('Video Type') ?></label>
+							<div class="col-sm-10">
+								<select id="video_type" class="input-text required-entry" onchange="changeVideoType(this.value)" name="setting[video_type]">
+									<option <?php if($exist && isset($settings['video_type']) && $settings['video_type'] == 'upload'): ?> selected="selected"<?php endif ?> value="upload"><?php echo __('Upload Video') ?></option>
+                                    <option <?php if($exist && isset($settings['video_type']) && $settings['video_type'] == 'youtube'): ?> selected="selected"<?php endif ?> value="youtube"><?php echo __('Youtube') ?></option>
+                                    <option <?php if($exist && isset($settings['video_type']) && $settings['video_type'] == 'vimeo'): ?> selected="selected"<?php endif ?> value="vimeo"><?php echo __('Vimeo') ?></option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group" id="insert_video_url">
+							<label for="video_url" class="col-sm-2 control-label"><?php echo __('Video ID') ?></label>
+							<div class="col-sm-10">
+								<input type="text" id="video_url" class="input-text" name="setting[video_url]"<?php if($exist): ?> value="<?php if(isset($settings['video_type'])){ echo htmlspecialchars($settings['video_url']); } ?>"<?php endif ?> />
+							</div>
+						</div>
+                        <?php $videos = $helper->getPanelUploadVideo('video') ?>
+                        <div id="upload_video_server" class="form-group">
+							<label for="video_background" class="col-sm-2 control-label"><?php echo __('Video') ?></label>
+							<div class="col-sm-10">
+								<select id="video_background" class="input-text required-entry" onchange="updateVideoReview(this.value)" name="setting[video_background]">
+									<option value=""><?php echo __('Choose Video') ?></option>
+                                    <?php if(count($videos)>0): ?>
+										<?php foreach($videos as $_video): ?>
+                                            <option <?php if($exist && isset($settings['video_background']) && ($_video == $settings['video_background'])): ?> selected="selected"<?php endif ?> value="<?php echo $_video ?>"><?php echo $_video ?></option>
+                                        <?php endforeach ?>
+                                    <?php endif ?>
+								</select>
+							</div>
+                            <div class="clearfix"></div>
+							<div class="col-sm-12 margin-top10">
+                                <div class="row">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-4 choose-file-upload" style="height: 40px;">
+                                        <input id="video_upload" name="video_upload" type="file" onchange="chooseVideoAction(this.id)">
+                                        <span class="choose-label" style="height: 40px; line-height: 38px;"><span class="fa fa-folder-o"> </span> &nbsp;<?php echo __('Choose File to Upload') ?></span>
+                                    </div>
+                                    <div class="col-sm-4" id="upload_video_action"></div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+							<div class="col-sm-8 col-sm-push-2 margin-top10">
+                                <div id="alert_success"></div>
+                            </div>
+						</div>
+                        <?php $images = $helper->getPanelUploadImages('postervideo') ?>
+                        <div class="form-group">
+							<label for="poster_image" class="col-sm-2 control-label"><?php echo __('Poster Image') ?></label>
+							<div class="col-sm-10">
+								<select id="poster_image" onchange="updateImageVideoReview(this.value)" class="input-text" name="setting[poster_image]">
+									<option value=""><?php echo __('Choose Image') ?></option>
+                                    <?php if(count($images)>0): ?>
+										<?php foreach($images as $_image): ?>
+                                            <option <?php if($exist && isset($settings['poster_image']) && ($_image == $settings['poster_image'])): ?> selected="selected"<?php endif ?> value="<?php echo $_image ?>"><?php echo $_image ?></option>
+                                        <?php endforeach ?>
+                                    <?php endif ?>
+								</select>
+							</div>
+                            <div class="clearfix"></div>
+							<div class="col-sm-12 margin-top10">
+                                <div class="row">
+                                    <div class="col-sm-2"></div>
+                                    <div class="col-sm-4 choose-file-upload" style="height: 40px;">
+                                        <input id="image_upload" name="image_upload" type="file" onchange="chooseImageAction(this.id)">
+                                        <span class="choose-label" style="height: 40px; line-height: 38px;"><span class="fa fa-folder-o"> </span> &nbsp;<?php echo __('Choose File to Upload') ?></span>
+                                    </div>
+                                    <div class="col-sm-4" id="upload_image_action"></div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+							<div class="col-sm-8 col-sm-push-2 margin-top10">
+                                <div id="alert_img_success"></div>
+                            </div>
+						</div>
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-push-2">
+                                <div id="video-placeholder" class="video-placeholder no-display">
+                                    <video width="400" controls preload="auto" poster=""></video>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+					<div id="video_config" class="tab-pane">
+                        <div class="form-group">
+                            <label for="autoplay" class="col-sm-4 control-label"><?php echo __('Auto play') ?></label>
+                            <div class="col-sm-8">
+                                <div class="admin__actions-switch" data-role="switcher">
+                                    <input type="checkbox"<?php if($exist && $settings['autoplay']): ?> checked="checked"<?php endif ?> value="1" name="setting[autoplay]" id="autoplay" class="admin__actions-switch-checkbox">
+                                    <label for="autoplay" class="admin__actions-switch-label">
+                                        <span data-text-off="<?php echo __('No') ?>" data-text-on="<?php echo __('Yes') ?>" class="admin__actions-switch-text"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="controls" class="col-sm-4 control-label"><?php echo __('Controls') ?></label>
+                            <div class="col-sm-8">
+                                <div class="admin__actions-switch" data-role="switcher">
+                                    <input type="checkbox"<?php if($exist && $settings['controls']): ?> checked="checked"<?php endif ?> value="1" name="setting[controls]" id="controls" class="admin__actions-switch-checkbox">
+                                    <label for="controls" class="admin__actions-switch-label">
+                                        <span data-text-off="<?php echo __('No') ?>" data-text-on="<?php echo __('Yes') ?>" class="admin__actions-switch-text"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="loop" class="col-sm-4 control-label"><?php echo __('Loop') ?></label>
+                            <div class="col-sm-8">
+                                <div class="admin__actions-switch" data-role="switcher">
+                                    <input type="checkbox"<?php if($exist && $settings['loop']): ?> checked="checked"<?php endif ?> value="1" name="setting[loop]" id="loop" class="admin__actions-switch-checkbox">
+                                    <label for="loop" class="admin__actions-switch-label">
+                                        <span data-text-off="<?php echo __('No') ?>" data-text-on="<?php echo __('Yes') ?>" class="admin__actions-switch-text"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="muted" class="col-sm-4 control-label"><?php echo __('Muted') ?></label>
+                            <div class="col-sm-8">
+                                <div class="admin__actions-switch" data-role="switcher">
+                                    <input type="checkbox"<?php if($exist && $settings['muted']): ?> checked="checked"<?php endif ?> value="1" name="setting[muted]" id="muted" class="admin__actions-switch-checkbox">
+                                    <label for="muted" class="admin__actions-switch-label">
+                                        <span data-text-off="<?php echo __('No') ?>" data-text-on="<?php echo __('Yes') ?>" class="admin__actions-switch-text"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="preload" class="col-sm-4 control-label"><?php echo __('Preload') ?></label>
+                            <div class="col-sm-8">
+                                <div class="admin__actions-switch" data-role="switcher">
+                                    <input type="checkbox"<?php if($exist && $settings['preload']): ?> checked="checked"<?php endif ?> value="1" name="setting[preload]" id="preload" class="admin__actions-switch-checkbox">
+                                    <label for="preload" class="admin__actions-switch-label">
+                                        <span data-text-off="<?php echo __('No') ?>" data-text-on="<?php echo __('Yes') ?>" class="admin__actions-switch-text"></span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+						<div class="form-group">
+							<label for="height" class="col-sm-4 control-label"><?php echo __('Height') ?></label>
+							<div class="col-sm-8">
+								<input type="text" id="height" class="input-text" name="setting[height]"<?php if($exist): ?> value="<?php echo htmlspecialchars($settings['height']) ?>"<?php endif ?> />
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-4 control-label" for="html_content"><?php echo __('Html content') ?></label>
+							<div class="col-sm-8">
+								<textarea name="setting[html_content]" id="html_content" class="input-text"><?php if($exist): ?><?php echo $settings['html_content'] ?><?php endif ?></textarea>
+                                <p><em><?php echo __('Only use double quotes ( " ) for html attribute'); ?></em></p>
+							</div>
+						</div>
+					</div>
+				
+					<?php if($exist): ?>
+						<div id="code" class="tab-pane">
+							<div class="form-group">
+								<h4 class="col-sm-12"><?php echo __('For CMS:') ?></h4>
+								<div class="col-sm-12">
+									<pre><?php echo htmlspecialchars($child->getBlockContent()) ?></pre>
+								</div>
+							</div>
+						</div>
+					<?php endif ?>
+				</div>
+			</div>
+			<div class="row">
+				<div class="form-group">
+					<div class="col-md-12 builder-action">
+						<div class="buttons">
+							<?php if(!$exist): ?>
+								<button type="button" class="btn btn-back" onclick="history.go(-1)"><span><span><?php echo __('Back') ?></span></span></button>
+							<?php endif ?>
+							<input type="submit" value="<?php echo __('Submit') ?>" class="btn btn-primary"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+
+<script type="text/javascript">
+	var currentAnimate = '';
+	<?php if($exist): ?>
+		currentAnimate = '<?php echo $settings['animation'] ?>';
+	<?php endif ?>
+	require([
+        'jquery',
+    ], function(jQuery){
+        (function($) {
+            $(document).ready(function(){
+                if($('#video_background').val() != ''){
+                    updateVideoReview($('#video_background').val());
+                    if($('#poster_image').val() != ''){
+                        updateImageVideoReview($('#poster_image').val());
+                    }
+                }
+                changeVideoType($('#video_type').val());
+            });
+        })(jQuery);
+    });
+    
+	function updateVideoReview(videoName){
+		require([
+			'jquery',
+		], function(jQuery){
+			(function($) {
+                if(videoName != ''){
+                    $("#video-placeholder video").html('');
+                    var extension = videoName.substr( (videoName.lastIndexOf('.') +1) );
+                    html = '<source src="<?php echo $helper->getPanelUploadFolder('video') ?>'+videoName+'" type="video/'+extension+'">';
+                    $("#video-placeholder video").html(html);
+                    $("#video-placeholder").removeClass('no-display');
+                    $("#video-placeholder video").load();
+                }else {
+                    $("#video-placeholder video").html('');
+                    $("#video-placeholder").addClass('no-display');
+                }
+			})(jQuery);
+		});
+	}
+    
+    function changeVideoType(videoType){
+		require([
+			'jquery',
+		], function(jQuery){
+			(function($) {
+                if(videoType == 'upload'){
+                    $("#upload_video_server").show();
+                    $("#insert_video_url").hide();
+                }else {
+                    $("#insert_video_url").show();
+                    $("#upload_video_server").hide();
+                }
+			})(jQuery);
+		});
+	}
+    
+	function updateImageVideoReview(imgName){
+		require([
+			'jquery',
+		], function(jQuery){
+			(function($) {
+                urlImage = '<?php echo $helper->getPanelUploadFolder('postervideo') ?>'+imgName+'';
+                $('<img src="'+ urlImage +'">').load(function() {
+                    $("#video-placeholder video").attr("poster",urlImage);
+                    if($('#video_background').val() != ''){
+                        $("#video-placeholder video").load();
+                    }
+                });
+			})(jQuery);
+		});
+	}
+
+	function changeAnimationClass(animate){
+		require([
+			'jquery',
+		], function(jQuery){
+			(function($) {
+				if(currentAnimate!=''){
+					$('#animation-test').removeClass(currentAnimate);
+				}
+				$('#animation-test').addClass(animate);
+				currentAnimate = animate;
+			})(jQuery);
+		});
+	}
+    
+    function chooseVideoAction(elId){
+		require([
+			'jquery',
+		], function(jQuery){
+			(function($) {
+				fileName = $('#'+elId).val();
+				arrName = fileName.split(".");
+				extensionName = arrName[arrName.length - 1];
+				extensionName = extensionName.toLowerCase();
+				if((extensionName=='ogg') || (extensionName=='mp4')){
+					html = fileName + ' <button type="button" class="btn btn-default" id="upload_video_button" onclick="uploadVideo()"><img src="<?php echo $this->getViewFileUrl('MGS_Mpanel::images/small-ajax-loader.gif') ?>" id="upload-loading" style="display:none"/> <span class="fa fa-upload" id="upload-icon"></span> <?php echo __('Upload') ?></button>';
+					$('#upload_video_action').html(html);
+				}
+			})(jQuery);
+		});
+	}
+    
+    function chooseImageAction(elId){
+		require([
+			'jquery',
+		], function(jQuery){
+			(function($) {
+				fileName = $('#'+elId).val();
+				arrName = fileName.split(".");
+				extensionName = arrName[arrName.length - 1];
+				extensionName = extensionName.toLowerCase();
+				if((extensionName=='jpg') || (extensionName=='jpeg') || (extensionName=='png') || (extensionName=='gif')){
+					html = fileName + ' <button type="button" class="btn btn-default" id="upload_image_button" onclick="uploadImage()"><img src="<?php echo $this->getViewFileUrl('MGS_Mpanel::images/small-ajax-loader.gif') ?>" id="upload-loading-img" style="display:none"/> <span class="fa fa-upload" id="upload-icon-img"></span> <?php echo __('Upload') ?></button>';
+					$('#upload_image_action').html(html);
+				}
+			})(jQuery);
+		});
+	}
+    
+    function uploadImage(){
+		require([
+			'jquery',
+		], function(jQuery){
+			(function($) {
+				if($('#alert_img_success .alert-image-success').length){
+					$('#alert_img_success .alert-image-success').remove();
+				}
+				$('#upload-loading-img').show();
+				$('#upload-icon-img').hide();
+				var formData = new FormData();
+				formData.append('file', $('#image_upload')[0].files[0]);
+				$.ajax({
+					url: "<?php echo $this->getUrl('mpanel/post/upload', ['type'=>'postervideo']) ?>",
+					type: "POST",
+					data: formData,
+					contentType: false,
+					cache: false,
+					processData:false,
+					success: function(data){
+						var result = jQuery.parseJSON(data);
+						if(result.result=='success'){
+							html = '<div class="alert alert-success alert-image-success"><?php echo __('The image was successfully uploaded.') ?></div>';
+							$('#alert_img_success').append(html);
+                            $('#poster_image').append($('<option>', {
+                                value: result.data,
+                                text: result.data
+                            }));
+						}else{
+							alert(result.data);
+						}
+						
+						$('#upload_image_action').html('');
+					}
+				});
+			})(jQuery);
+		});
+	}
+    
+    function uploadVideo(){
+		require([
+			'jquery',
+		], function(jQuery){
+			(function($) {
+				if($('#alert_success .alert-image-success').length){
+					$('#alert_success .alert-image-success').remove();
+				}
+				$('#upload-loading').show();
+				$('#upload-icon').hide();
+				var formData = new FormData();
+				formData.append('file', $('#video_upload')[0].files[0]);
+                
+				$.ajax({
+					url: "<?php echo $this->getUrl('mpanel/post/upload', ['type'=>'video']) ?>",
+					type: "POST",
+					data: formData,
+					contentType: false,
+					cache: false,
+					processData:false,
+					success: function(data){
+						var result = jQuery.parseJSON(data);
+						if(result.result=='success'){
+                            html = '<div class="alert alert-success alert-image-success"><?php echo __('The video was successfully uploaded.') ?></div>';
+							$('#alert_success').append(html);
+                            $('#video_background').append($('<option>', {
+                                value: result.data,
+                                text: result.data
+                            }));
+						}else{
+							alert(result.data);
+						}
+						
+						$('#upload_video_action').html('');
+					}
+				});
+			})(jQuery);
+		});
+	}
+	
+</script>

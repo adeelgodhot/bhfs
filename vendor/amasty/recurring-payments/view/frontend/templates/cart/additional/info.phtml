@@ -1,0 +1,15 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+?>
+<?php
+/** @var \Amasty\RecurringPayments\Block\Cart\Additional\Info $block */
+
+if ($block->validate()) : ?>
+    <div class="amrec-product-label">
+        <span class="amrec-text"><?= $block->escapeHtml(__('This is Subscriptional Product'))?></span>
+    </div>
+<?php endif?>

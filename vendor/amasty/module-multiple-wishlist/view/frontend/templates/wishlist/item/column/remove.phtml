@@ -1,0 +1,16 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_MWishlist
+ */
+
+/* @var \Amasty\MWishlist\Block\Account\Wishlist\Item\Column\Remove $block */
+?>
+
+<a class="amwishlist-button -clear"
+   title="<?= $block->escapeHtmlAttr(__('Delete Item')) ?>"
+   data-mwishlist-ajax='<?= /** @noEscape */ $block->getPostData() ?>'
+   data-amwishlist-js="item-remove">
+    <?= $block->escapeHtml(__('Delete')) ?>
+</a>

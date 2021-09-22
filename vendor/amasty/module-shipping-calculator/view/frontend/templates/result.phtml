@@ -1,0 +1,38 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_ShippingCalculator
+ */
+?>
+<?php
+/** @var $block \Amasty\ShippingCalculator\Block\EstimateResult */
+$shippingRates = $block->getShippingRates();
+$carrier = '';
+?>
+<?php if($shippingRates): ?>
+    <?php if (!isset($shippingRates['error'])): ?>
+        <table class="items methods">
+            <?php foreach ($shippingRates as $shippingRate): ?>
+                <?php $isSameCarrier = $carrier === $shippingRate->getCarrierCode(); ?>
+                <?php if (!$isSameCarrier): ?>
+                    <tr class="item-title"><th colspan="2"><span><?= $shippingRate->getCarrierTitle() ?></th></span></tr>
+                <?php endif; ?>
+
+                <tr class="item-options">
+                    <?php if ($shippingRate->getAvailable()): ?>
+                        <td class="method-title"><?= $shippingRate->getMethodTitle() ?></td>
+                        <td><?= $block->formatPrice($shippingRate->getAmount()) ?></td>
+                    <?php else: ?>
+                        <td colspan="2" class="message error"><div><?=$shippingRate->getErrorMessage()?></div></td>
+                    <?php endif; ?>
+                </tr>
+                <?php $carrier = $shippingRate->getCarrierCode()?>
+            <?php endforeach; ?>
+        </table>
+    <?php else: ?>
+        <div><?= __($shippingRates['error']) ?></div>
+    <?php endif; ?>
+<?php else: ?>
+    <div><?= __($block->getNotFoundMessage()) ?></div>
+<?php endif; ?>

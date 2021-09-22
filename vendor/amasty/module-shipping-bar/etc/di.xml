@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_ShippingBar
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\ShippingBar\Api\Data\ProfileInterface" type="Amasty\ShippingBar\Model\Profile" />
+    <preference for="Amasty\ShippingBar\Api\ProfileRepositoryInterface" type="Amasty\ShippingBar\Model\Repository\ProfileRepository" />
+    <preference for="Amasty\ShippingBar\Api\BarManagementInterface" type="Amasty\ShippingBar\Model\BarManagement" />
+
+    <type name="Magento\Checkout\CustomerData\Cart">
+        <plugin sortOrder="1" name="amastyShippingBarCart" type="Amasty\ShippingBar\Plugin\CustomerData\CartPlugin"/>
+    </type>
+
+    <type name="Amasty\ShippingBar\Setup\UpgradeSchema">
+        <arguments>
+            <argument name="addColumns110" xsi:type="object">Amasty\ShippingBar\Setup\Operation\AddColumns110\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\ShippingBar\Plugin\CustomerData\CartPlugin">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\ShippingBar\Block\Frontend\Bar">
+        <arguments>
+            <argument name="customerSession" xsi:type="object">Magento\Customer\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\ShippingBar\Model\BarManagement">
+        <arguments>
+            <argument name="profileRepository" xsi:type="object">Amasty\ShippingBar\Api\ProfileRepositoryInterface\Proxy</argument>
+        </arguments>
+    </type>
+</config>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd" label="Amasty Recurring Email" design_abstraction="custom">
+    <body>
+        <block class="Amasty\RecurringPayments\Block\Email\Info"
+               name="amasty.recurring.email.info"
+               template="Amasty_RecurringPayments::email/info.phtml"
+               cacheable="false"/>
+    </body>
+</page>

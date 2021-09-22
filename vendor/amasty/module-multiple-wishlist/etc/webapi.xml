@@ -1,0 +1,32 @@
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/amasty_mWishlist/wishlist" method="POST">
+        <service class="Amasty\MWishlist\Api\WishlistRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <route url="/V1/amasty_mWishlist/wishlist/:wishlistId" method="PUT">
+        <service class="Amasty\MWishlist\Api\WishlistRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <route url="/V1/amasty_mWishlist/wishlist/:wishlistId" method="DELETE">
+        <service class="Amasty\MWishlist\Api\WishlistRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <route url="/V1/amasty_mWishlist/wishlist" method="GET">
+        <service class="Amasty\MWishlist\Api\WishlistRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+    <route url="/V1/amasty_mWishlist/wishlist/all" method="GET">
+        <service class="Amasty\MWishlist\Api\WishlistRepositoryInterface" method="getList" />
+        <resources>
+            <resource ref="self" />
+        </resources>
+    </route>
+</routes>

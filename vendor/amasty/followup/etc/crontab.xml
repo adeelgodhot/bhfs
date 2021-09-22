@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="default">
+        <job name="amasty_amfollowup_history" instance="Amasty\Followup\Cron\RefreshHistory" method="execute">
+            <schedule>*/5 * * * *</schedule>
+        </job>
+        <job name="amasty_amfollowup_coupons" instance="Amasty\Followup\Cron\ClearCoupons" method="execute">
+            <schedule>0 0 * * *</schedule>
+        </job>
+        <job name="amasty_amfollowup_clear_history" instance="Amasty\Followup\Cron\ClearHistory" method="execute">
+            <schedule>0 0 * * *</schedule>
+        </job>
+    </group>
+</config>

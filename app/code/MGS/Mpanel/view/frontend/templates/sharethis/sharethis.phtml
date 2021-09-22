@@ -1,0 +1,7 @@
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<?php if($themeHelper->getStoreConfig('mpanel/share_config/enabel_share')): ?>
+    <div class="share-this-wrapper">
+        <div class="title"><?= __('Share this') ?>:</div>
+        <div class="sharethis-inline-share-buttons"></div>
+    </div>
+<?php endif ?>

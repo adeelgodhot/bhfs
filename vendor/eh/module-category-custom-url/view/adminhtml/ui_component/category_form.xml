@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author ExtensionHut Team
+ * @copyright Copyright (c) 2019 ExtensionHut (https://www.extensionhut.com/)
+ * @package EH_CategoryCustomUrl
+ */
+-->
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <fieldset name="general">
+        <field name="custom_link" sortOrder="40" formElement="input">
+            <settings>
+				<notice translate="true">
+					Example values of this field: "http://www.example.com" (absolute link) or "contact/" (relative link - without leading slash). If blank, default category link will work.
+                </notice>
+                <dataType>string</dataType>
+                <label translate="true">Custom Link</label>
+            </settings>
+        </field>
+    </fieldset>
+</form>

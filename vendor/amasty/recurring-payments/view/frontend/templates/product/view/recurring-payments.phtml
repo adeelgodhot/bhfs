@@ -1,0 +1,62 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+?>
+<?php
+/** @var $block \Amasty\RecurringPayments\Block\Product\View\RecurringPayments */
+
+$product = $block->getProduct();
+?>
+
+<?php if ($product->isSaleable() && $block->isRecurringEnable($product)): ?>
+<div class="amrec-product-view">
+    <?php if (!$block->isSubscriptionOnly($product)): ?>
+        <div class="amrec-purchase-option">
+            <input type="radio"
+                   class="amrec-input -radio"
+                   name="subscribe"
+                   id="radio_purchase_once"
+                   value="not_subscribe"
+                   data-amrec-js="purchase-type"
+                   data-validate="{'validate-one-required-by-name':true}"
+                   data-errors-message-box="[data-amrec-js='validation-error']">
+            <label for="radio_purchase_once"
+                   class="amrec-label">
+                <?= $block->escapeHtml($block->getSinglePurchaseLabel()) ?>
+            </label>
+        </div>
+    <?php endif ?>
+    <div class="amrec-purchase-option">
+        <input type="radio"
+               class="amrec-input -radio"
+               name="subscribe"
+               id="radio_subscribe_product"
+               value="subscribe"
+               data-amrec-js="purchase-type"
+               data-validate="{'validate-one-required-by-name':true}"
+               data-errors-message-box="[data-amrec-js='validation-error']"
+               <?= $block->escapeHtml($block->isSubscriptionOnly($product) ? 'checked' : '') ?>>
+        <label for="radio_subscribe_product"
+               class="amrec-label">
+            <?= $block->escapeHtml($block->getSingleRecurringLabel()) ?>
+        </label>
+        <div
+            <?= !$block->isSubscriptionOnly($product) ? ' class="hidden"' : '' ?>
+            data-amrec-js="recurring-settings"
+            data-bind="scope: 'amasty-recurring-payments'" >
+            <!-- ko template: getTemplate() --><!-- /ko-->
+        </div>
+    </div>
+    <div data-amrec-js="validation-error"></div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app":  <?= /* @noEscape */ $block->getJsLayout() ?>
+        }
+    }
+</script>
+<?php endif ?>

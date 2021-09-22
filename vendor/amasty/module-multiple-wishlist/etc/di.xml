@@ -1,0 +1,47 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\MWishlist\Api\Data\WishlistInterface" type="Amasty\MWishlist\Model\Wishlist" />
+    <preference for="Amasty\MWishlist\Api\WishlistRepositoryInterface" type="Amasty\MWishlist\Model\Repository\WishlistRepository" />
+    <preference for="Amasty\MWishlist\Api\WishlistProviderInterface" type="Amasty\MWishlist\Controller\WishlistProvider" />
+
+    <type name="Magento\MultipleWishlist\Helper\Data">
+        <plugin name="Amasty_MWishlist::disable-magento-multiple" type="Amasty\MWishlist\Plugin\MultipleWishlist\Helper\DataPlugin" />
+    </type>
+
+    <!-- add childs sku in parent index for search. work for MySQL & elastic engines -->
+    <type name="Magento\CatalogSearch\Model\Indexer\Fulltext\Action\DataProvider">
+        <plugin name="Amasty_MWishlist::IndexChildsSku" type="Amasty\MWishlist\Plugin\CatalogSearch\Model\Indexer\Fulltext\Action\DataProviderPlugin" />
+    </type>
+
+    <virtualType name="mwishlistItemCollectionFactory" type="Magento\Wishlist\Model\ResourceModel\Item\CollectionFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Amasty\MWishlist\Model\ResourceModel\Wishlist\Item\Collection</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\MWishlist\Model\Wishlist">
+        <arguments>
+            <argument name="wishlistCollectionFactory" xsi:type="object">mwishlistItemCollectionFactory</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amasty_mwishlist_purchased_listing_data_source"
+                      xsi:type="string">Amasty\MWishlist\Model\ResourceModel\Purchased\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\MWishlist\Model\ResourceModel\Purchased\Grid\Collection">
+        <arguments>
+            <argument name="resourceModel" xsi:type="string">Amasty\MWishlist\Model\ResourceModel\Purchased\Collection</argument>
+            <argument name="mainTable" xsi:type="string">amasty_wishlist_most_purchased</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\GroupedProduct\Model\Product\Type\Grouped">
+        <plugin name="Amasty_MWishlist::grouped_from_wishlist"
+                type="Amasty\MWishlist\Plugin\GroupedProduct\Model\Product\Type\GroupedPlugin" />
+    </type>
+</config>

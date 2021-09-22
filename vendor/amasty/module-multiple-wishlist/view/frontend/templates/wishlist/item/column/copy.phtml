@@ -1,0 +1,17 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_MWishlist
+ */
+?>
+<?php
+/** @var \Amasty\MWishlist\Block\Account\Wishlist\Item\Column\Copy $block */
+?>
+
+<a class="amwishlist-button -clear"
+   title="<?= $block->escapeHtmlAttr(__('Copy Item')) ?>"
+   data-mwishlist-ajax='<?= /** @noEscape */ $block->getPostData() ?>'
+   data-amwishlist-js="item-copy">
+    <?= $block->escapeHtml(__('Copy')) ?>
+</a>

@@ -1,0 +1,33 @@
+//
+//  Amasty Recurring Payments Checkout
+//  ____________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amrec-subscriptional-label {
+        & {
+            margin-bottom: 20px;
+            padding: 6px;
+            border-radius: 4px;
+            background: #fff;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        &:before {
+            display: inline-block;
+            margin-right: 5px;
+            width: 13px;
+            height: 13px;
+            background: @amrec-pin-icon__background;
+            content: '';
+        }
+
+        .am-checkout.-modern & {
+            background: #efefef;
+        }
+    }
+}

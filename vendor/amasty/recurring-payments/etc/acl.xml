@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Sales::sales">
+                    <resource id="Amasty_RecurringPayments::recurring_payments" title="Amasty Subscriptions" sortOrder="100" >
+                        <resource id="Amasty_RecurringPayments::recurring_payments_subscription_plans" title="Subscription Plans" sortOrder="10" />
+                        <resource id="Amasty_RecurringPayments::recurring_payments_transaction_log" title="Transactions Log" sortOrder="20" />
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Magento_Backend::stores_settings">
+                        <resource id="Magento_Config::config">
+                            <resource id="Amasty_RecurringPayments::config_recurring_payments" title="Amasty Recurring Payments Settings" sortOrder="11519" />
+                        </resource>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

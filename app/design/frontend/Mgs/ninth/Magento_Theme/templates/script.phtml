@@ -1,0 +1,130 @@
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+
+<?php // Scroll To Top Function ?>
+<?php if($themeHelper->getStoreConfig('mgstheme/general/back_to_top')): ?>
+	<a href="" class="scroll-to-top"><i class="pe-7s-angle-up"></i></a>
+	<script type="text/javascript">
+		require([
+			'jquery'
+		], function($){
+            $(window).scroll(function(){
+                if ($(this).scrollTop() > 1) {
+                    $('.scroll-to-top').css({'opacity':"1"});
+                } else {
+                    $('.scroll-to-top').css({'opacity':"0"});
+                }
+            });
+
+            $('.scroll-to-top').click(function(){
+                $('html, body').animate({scrollTop: '0px'}, 800);
+                return false;
+            });
+		});
+	</script>
+<?php endif ?>
+
+<?php // Sticky Menu Function ?>
+<?php if($themeHelper->getStoreConfig('mgstheme/header/sticky_menu')): ?>
+    <?php $stickyLogo = $themeHelper->getStoreConfig('mgstheme/header/sticky_logo'); ?>
+	<script type="text/javascript">
+		require([
+			'jquery'
+		], function($){
+            if($('body').height() > $(window).height()){
+                $(window).scroll(function(){
+                    <?php if($stickyLogo): ?>
+                        var stklg = '<?php echo $themeHelper->getMediaUrl().'sticky_logo/'.$stickyLogo; ?>';
+                        var stklgw = <?php echo $themeHelper->getStoreConfig('mgstheme/header/sticky_logo_w'); ?>;
+                        var stklgh = <?php echo $themeHelper->getStoreConfig('mgstheme/header/sticky_logo_h'); ?>;
+                        if($(this).scrollTop() > 100){
+                            $('header.header').addClass('header-sticky');
+                            $('header.header .logo img').attr('src', stklg);
+                            $('header.header .logo img').attr('width', stklgw);
+                            $('header.header .logo img').attr('height', stklgh);
+                        }else{
+                            $('header.header').removeClass('header-sticky');
+                            $('header.header .logo img').attr('src', $('header.header .logo img').attr('data-src'));
+                            $('header.header .logo img').attr('width', $('header.header .logo img').attr('data-width'));
+                            $('header.header .logo img').attr('height', $('header.header .logo img').attr('data-height'));
+                        }
+                    <?php else: ?>
+                        if($(this).scrollTop() > 100){
+                            $('header.header').addClass('header-sticky');
+                        }else{
+                            $('header.header').removeClass('header-sticky');
+                        }
+                    <?php endif ?>
+                });
+            }	
+		});
+	</script>
+<?php endif ?>
+
+<?php // Loadmore Function ?>
+<script type="text/javascript">
+require([
+	'jquery', 'mgs_quickview', 'mgs/lazyload'
+], function(jQuery){
+	(function($) {
+		$(document).ready(function(){
+			$('.btn-loadmore').click(function(){
+				var el = $(this);
+				el.find('span').addClass('loading');
+				url = $(this).attr('href');
+				$.ajax({
+					url: url,
+					success: function(data,textStatus,jqXHR ){
+						var result = $.parseJSON(data);
+						if(result.content!=''){
+							$('#'+result.element_id).append(result.content);
+							$('.mgs-quickview').bind('click', function () {
+								var prodUrl = $(this).attr('data-quickview-url');
+								if (prodUrl.length) {
+									reInitQuickview($,prodUrl);
+								}
+							});
+						}
+						if(result.url){
+							el.attr('href', result.url);
+						}else{
+							el.parent().remove();
+						}
+						
+						el.find('span').removeClass('loading');
+                        
+						$("img.lazy").unveil(25, function(){
+                            var self = $(this);
+                            setTimeout(function(){
+                                self.removeClass('lazy');
+                            }, 0);
+                        });
+					}
+				});
+				return false;
+			});
+		});
+		
+	})(jQuery);
+});
+</script>
+
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "addToWishlist": {"productType":["viture","simple","bundle","grouped","downloadable","configurable"]}        }
+    }
+</script>
+
+<?php //Ajax cart ?>
+<?php if (!$themeHelper->getStoreConfig('checkout/cart/redirect_to_cart')) : ?>
+	<script type="text/x-magento-init">
+	{
+		"[data-role=tocart-form], .form.map.checkout": {
+			"catalogAddToCart": {}
+		}
+	}
+	</script>
+<?php endif; ?>	
+
+<div class="mfp-loading-fullscreen" id="mgs-ajax-loading" style="display: none;"></div>
+

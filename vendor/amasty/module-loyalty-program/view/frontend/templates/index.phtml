@@ -1,0 +1,43 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_RulesLoyalty
+ */
+?>
+<?php
+/** @var \Amasty\RulesLoyalty\Block\Index $block */
+?>
+
+<div class="page-head">
+    <h2><?= $block->escapeHtml($block->getHeader()); ?></h2>
+</div>
+<p><?= /* @noEscape */ $block->getDescription(); ?></p>
+
+<div class="fieldset">
+    <h2 class="legend"><?= $block->escapeHtml($block->getStatsHeader()); ?></h2>
+    <?php if (1 < $block->getMembership() || 0 == $block->getMembership()): ?>
+        <p><?= /* @noEscape */ __('You are with us for <b>%1</b> days', $block->getMembership()); ?></p>
+    <?php else: ?>
+        <p><?= /* @noEscape */ __('You are with us for <b>%1</b> day', $block->getMembership()); ?></p>
+    <?php endif; ?>
+
+    <p><strong><?= $block->escapeHtml(__('Total:')) ?></strong><br/>
+        <?= /* @noEscape */ __('Number of completed orders is <b>%1</b>', $block->getOrdersCount()); ?><br>
+        <?= /* @noEscape */ __('Average order value is <b>%1</b>', $block->getOrdersAve()); ?><br>
+        <?= /* @noEscape */ __('Order amount is <b>%1</b>', $block->getOrdersAmount()); ?>
+    </p>
+
+    <p>
+        <strong><?= $block->escapeHtml(__('This Month:')) ?></strong><br/>
+        <?= /* @noEscape */ __('Number of completed orders is <b>%1</b>', $block->getThisMonthCount()); ?><br>
+        <?= /* @noEscape */ __('Average order value is <b>%1</b>', $block->getThisMonthAve()); ?><br>
+        <?= /* @noEscape */ __('Order amount is <b>%1</b>', $block->getThisMonthAmount()); ?>
+    </p>
+    <p>
+        <strong><?= $block->escapeHtml(__('Last Month:')) ?></strong><br/>
+        <?= /* @noEscape */ __('Number of completed orders was <b>%1</b>', $block->getLastMonthCount()); ?><br>
+        <?= /* @noEscape */ __('Average order value was <b>%1</b>', $block->getLastMonthAve()); ?><br>
+        <?= /* @noEscape */ __('Order amount was <b>%1</b>', $block->getLastMonthAmount()); ?>
+    </p>
+</div>

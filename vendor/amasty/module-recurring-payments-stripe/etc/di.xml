@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringStripe
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\RecurringStripe\Api\Data\ProductInterface" type="Amasty\RecurringStripe\Model\StripeProduct" />
+    <preference for="Amasty\RecurringStripe\Api\ProductRepositoryInterface" type="Amasty\RecurringStripe\Model\Repository\StripeProductRepository" />
+    <preference for="Amasty\RecurringStripe\Api\CustomerRepositoryInterface" type="Amasty\RecurringStripe\Model\CustomerRepository" />
+    <preference for="Amasty\RecurringStripe\Api\IpnInterface" type="Amasty\RecurringStripe\Model\Ipn" />
+    <!--  add here your custom handlers to handle stripe response  -->
+    <type name="Amasty\RecurringStripe\Model\Ipn">
+        <arguments>
+            <argument name="ipnHandlers" xsi:type="array">
+                <item name="invoice.payment_succeeded" xsi:type="object">Amasty\RecurringStripe\Model\IpnHandlers\Invoice\PaymentSucceeded\Proxy</item>
+                <item name="invoice.payment_failed" xsi:type="object">Amasty\RecurringStripe\Model\IpnHandlers\Invoice\PaymentFailed\Proxy</item>
+                <item name="invoice.payment_action_required" xsi:type="object">Amasty\RecurringStripe\Model\IpnHandlers\Invoice\PaymentActionRequired\Proxy</item>
+                <item name="customer.subscription.created" xsi:type="object">Amasty\RecurringStripe\Model\IpnHandlers\Customer\Subscription\Created\Proxy</item>
+                <item name="customer.subscription.trial_will_end" xsi:type="object">Amasty\RecurringStripe\Model\IpnHandlers\Customer\Subscription\TrialWillEnd\Proxy</item>
+                <item name="customer.subscription.deleted" xsi:type="object">Amasty\RecurringStripe\Model\IpnHandlers\Customer\Subscription\Deleted\Proxy</item>
+            </argument>
+        </arguments>
+    </type>
+    <!--  add here your custom processors to show subscriptions in customer account  -->
+    <type name="Amasty\RecurringPayments\Model\SubscriptionManagement">
+        <arguments>
+            <argument name="subscriptionProcessors" xsi:type="array">
+                <item name="stripe.subscription_processors" xsi:type="object">Amasty\RecurringStripe\Model\Subscription\Grid\Proxy</item>
+            </argument>
+        </arguments>
+    </type>
+    <!--  add here your custom cancel subscription processors  -->
+    <type name="Amasty\RecurringPayments\Model\Subscription\Operation\SubscriptionCancelOperation">
+        <arguments>
+            <argument name="cancelHandlers" xsi:type="array">
+                <item name="amasty_stripe" xsi:type="object">Amasty\RecurringStripe\Model\Subscription\Processors\Cancel\Proxy</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Amasty\RecurringStripe\Plugin\Gateway\Helper\AmountHelper">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+        </arguments>
+    </type>
+    <!-- need to apply discount after tax because we get discount from payment  -->
+    <type name="Magento\Tax\Model\Config">
+        <plugin name="Amasty_RecurringStripe::ModelTaxConfig" type="Amasty\RecurringStripe\Plugin\Model\Tax\ConfigPlugin"/>
+    </type>
+    <!-- Charge minimal amount ($0.50) if Grand Total = 0 to save credit card -->
+    <type name="Amasty\Stripe\Gateway\Http\Client\AbstractClient">
+        <plugin name="Amasty_RecurringStripe::GatewayHttpClientAbstractClient" type="Amasty\RecurringStripe\Plugin\Gateway\Http\Client\AbstractClientPlugin"/>
+    </type>
+    <type name="Amasty\Stripe\Gateway\Helper\AmountHelper">
+        <plugin name="Amasty_RecurringStripe::StripeAmountHelper" type="Amasty\RecurringStripe\Plugin\Gateway\Helper\AmountHelper"/>
+    </type>
+    <type name="Amasty\RecurringPayments\Model\Config\ConfigurationValidator">
+        <arguments>
+            <argument name="methodValidators" xsi:type="array">
+                <item name="amasty_stripe" xsi:type="object">Amasty\RecurringStripe\Model\Config\ConfigurationValidator</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

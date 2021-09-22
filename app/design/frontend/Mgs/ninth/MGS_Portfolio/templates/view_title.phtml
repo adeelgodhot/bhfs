@@ -1,0 +1,28 @@
+<?php $portfolio = $this->getPortfolio() ?>
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<?php $galleryArray = $this->getBaseImage($portfolio); ?>
+<?php if ($galleryArray): ?><?php $_img = $galleryArray[0]; ?><?php endif ?>
+
+<div class="full-width-boxed style-2">
+    <div class="container-fluid">
+        <?php if(isset($_img) && $_img): ?>
+        <div class="portfolio-image" style="background-image: url('<?php echo $_img ?>');">
+        <?php else: ?>
+        <div class="portfolio-image no-images">
+        <?php endif ?>
+            <div class="portfolio_title">
+                <div class="page-header-content">
+                    <h1><?php echo $portfolio->getName(); ?></h1>
+                    <?php $categoryLinks = $this->getCategoriesLink($portfolio) ?>
+                    <?php if ($categoryLinks != ''): ?>
+                        <div class="category-links"><?php echo $categoryLinks ?></div>
+                    <?php endif ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

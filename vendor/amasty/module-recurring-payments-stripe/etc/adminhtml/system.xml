@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringStripe
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_recurring_payments">
+            <group id="stripe" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Stripe</label>
+                <field id="webhook_secret" translate="label comment" type="obscure" sortOrder="51" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Webhook Secret</label>
+                    <comment>Required for Recurring Payments.</comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <frontend_model>Amasty\RecurringStripe\Block\Adminhtml\System\Config\CreateWebhook</frontend_model>
+                    <config_path>payment/amasty_stripe/webhook_secret</config_path>
+                </field>
+            </group>
+        </section>
+        <!-- Duplicate the same setting for usability -->
+        <section id="payment">
+            <group id="amasty_stripe">
+                <field id="webhook_secret" translate="label comment" type="obscure" sortOrder="51" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Webhook Secret</label>
+                    <comment>Required for Recurring Payments.</comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                    <frontend_model>Amasty\RecurringStripe\Block\Adminhtml\System\Config\CreateWebhook</frontend_model>
+                    <depends>
+                        <field id="active">1</field>
+                    </depends>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

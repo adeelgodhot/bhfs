@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPaypal
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="amasty_recurring_payments_email_notification_email_template_paypal_renewal"
+              label="Your Subscription Needs Attention"
+              file="renewal.html"
+              type="html"
+              module="Amasty_RecurringPaypal"
+              area="frontend"/>
+</config>

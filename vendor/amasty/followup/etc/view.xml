@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+-->
+
+<view xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Config/etc/view.xsd">
+    <media>
+        <images module="Magento_Catalog">
+            <image id="amasty_followup_item_list" type="thumbnail">
+                <width>100</width>
+                <height>100</height>
+            </image>
+            <image id="amasty_followup_item_table" type="thumbnail">
+                <width>150</width>
+                <height>150</height>
+            </image>
+            <image id="amasty_followup_item_table_modern" type="thumbnail">
+                <width>115</width>
+                <height>115</height>
+            </image>
+            <image id="amasty_followup_item_list_modern" type="thumbnail">
+                <width>104</width>
+                <height>104</height>
+            </image>
+        </images>
+    </media>
+</view>

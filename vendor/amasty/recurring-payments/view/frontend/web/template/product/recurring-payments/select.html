@@ -1,0 +1,21 @@
+<if args="data.length > 1">
+    <div class="amrec-cycle-container amrec-block">
+        <span class="amrec-title" translate="'Billing Cycle & Delivery'"></span>
+        <each args="data: data, as: '$item'">
+            <input type="radio"
+                   class="amrec-input -radio"
+                   name="am_rec_subscription_plan_id"
+                   data-validate="{'validate-one-required-by-name':true}"
+                   data-errors-message-box="[data-amrec-js='subscription-plan-id-error']"
+                   attr="{id: 'subscription_plan_' + $item.plan_id}"
+                   ko-value="$item.plan_id"
+                   ko-checked="$parent.checkedValue" >
+            <label class="amrec-label" attr="{for: 'subscription_plan_' + $item.plan_id}" text="$item.plan_name"></label>
+        </each>
+        <div class="amrec-error" data-amrec-js="subscription-plan-id-error"></div>
+    </div>
+</if>
+
+<if args="data.length === 1">
+    <input type="hidden" name="am_rec_subscription_plan_id" ko-value="data[0].plan_id">
+</if>

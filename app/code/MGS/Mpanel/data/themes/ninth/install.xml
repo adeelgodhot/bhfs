@@ -1,0 +1,470 @@
+<install>
+	<static_block>
+		<item>
+			<title>Mpanel Default Sidebar Block</title>
+			<identifier>mpanel_default_sidebar_block</identifier>
+			<content><![CDATA[<div>{{widget type="MGS\Promobanners\Block\Widget\Banner" banner_id="ninth_sidebar_banner" template="banner.phtml"}}</div>]]></content>
+		</item>
+		<item>
+			<title>Ninth Footer 5 Social</title>
+			<identifier>ninth_footer_5_social</identifier>
+			<content><![CDATA[<div class="ft-social instagram"><a href="#"><span class="icon fa fa-instagram"> </span><span class="text">Instagram</span></a></div>
+<div class="ft-social facebook"><a href="#"><span class="icon fa fa-facebook"> </span><span class="text">Facebook</span></a></div>
+<div class="ft-social twitter"><a href="#"><span class="icon fa fa-twitter"> </span><span class="text">Twitter</span></a></div>
+<div class="ft-social pinterest"><a href="#"><span class="icon fa fa-pinterest"> </span><span class="text">Pinterest</span></a></div>
+<div class="ft-social youtube"><a href="#"><span class="icon fa fa-youtube"> </span><span class="text">Youtube</span></a></div>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 5 Menu 3</title>
+			<identifier>ninth_middle_footer_5_menu_3</identifier>
+			<content><![CDATA[<ul>
+<li><a href="#">SHIPPING</a></li>
+<li><a href="#">OUR LOCATION</a></li>
+<li><a href="#">FAQ</a></li>
+<li><a href="#">CONTACT</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 5 Menu 3</title>
+			<identifier>ninth_middle_footer_5_menu_3</identifier>
+			<content><![CDATA[<ul>
+<li><a href="#">SHIPPING</a></li>
+<li><a href="#">OUR LOCATION</a></li>
+<li><a href="#">FAQ</a></li>
+<li><a href="#">CONTACT</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 5 Menu 1</title>
+			<identifier>ninth_middle_footer_5_menu_1</identifier>
+			<content><![CDATA[<ul>
+<li><a href="#">NEW ARRIVALS</a></li>
+<li><a href="#">BEST SELLERS</a></li>
+<li><a href="#">ON SALE</a></li>
+<li><a href="#">COMING SOON</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+		<title>Ninth Middle Footer 5 Block Contact</title>
+			<identifier>ninth_middle_footer_5_block_contact</identifier>
+			<content><![CDATA[<div class="margin-bottom15"><img src="{{media url="wysiwyg/footer_logo.png"}}" alt="Nine Theme" /></div>
+<ul class="list-icon">
+<li><i class="fa fa-map-o"> </i>121 King Street, Melbourne Victoria 3000 Australia</li>
+<li><i class="fa fa-phone"> </i><a href="tel:+61388766284">+61 3 8876 6284</a></li>
+<li><i class="fa fa-envelope-o"> </i><a href="mailto:contact@company.com">contact@company.com</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 5 Menu 2</title>
+			<identifier>ninth_middle_footer_5_menu_2</identifier>
+			<content><![CDATA[<ul>
+<li><a href="#">TERM &amp; CONDITIONS</a></li>
+<li><a href="#">PRIVACY POLICY</a></li>
+<li><a href="#">HELP</a></li>
+<li><a href="#">PRODUCTS RETURN</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Footer 5 Newsletter</title>
+			<identifier>ninth_footer_5_newsletter</identifier>
+			<content><![CDATA[<div class="home-newsletter text-center">
+<h2>Join our newsletter</h2>
+{{block class="Magento\\Newsletter\\Block\\Subscribe" template="Magento_Newsletter::subscribe.phtml"}}</div>]]></content>
+		</item>
+		<item>
+			<title>Contact Page Custom Block</title>
+			<identifier>contact_page_custom_block</identifier>
+			<content><![CDATA[<!-- Static block contact_page_custom_block -->
+<h3 class="margin-bottom15"><strong>GET OFFICE INFO</strong></h3>
+<p class="margin-bottom30"><em>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan.</em></p>
+<ul class="list-icon">
+<li><span class="icon pe-7s-map-marker"> </span>184 Main Rd E, St Albans <br />VIC 3021, Australia</li>
+<li><span class="icon pe-7s-mail"> </span><a href="mailto:contact@company.com">contact@company.com</a><br /><a href="mailto:contact@claue.com">contact@claue.com</a></li>
+<li><span class="icon pe-7s-call"> </span> <a href="tel:+0123456789">+01 23456789</a><br /><a href="tel:+0012233456">+001 2233 456</a></li>
+<li><span class="icon pe-7s-timer"> </span>
+<p>Monday: 13:00-18:00 (shops open later than usual)</p>
+<p>Tuesday, Wednesday, Friday &amp; Saturday: 09:00-18:00</p>
+<p>Thursday: 09:00-21:00 (late-night shopping)</p>
+<p>Sunday: 12:00-17:00 (This primarily applies to the shops on and near the Nieuwendijk and Kalverstraat. In some of the other shopping streets, you may find that only a selection of the shops are open on Sundays).</p>
+</li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Bottom Footer 4 Logo</title>
+			<identifier>ninth_bottom_footer_4_logo</identifier>
+			<content><![CDATA[<div><img src="{{media url="wysiwyg/ninth_logo_white.png"}}" alt="" /></div>]]></content>
+		</item>
+		<item>
+			<title>Ninth Bottom Footer 4 Social Links</title>
+			<identifier>ninth_bottom_footer_4_social_links</identifier>
+			<content><![CDATA[<ul>
+<li><a href="#"><strong>Facebook</strong></a></li>
+<li><a href="#"><strong>Instagram</strong></a></li>
+<li><a href="#"><strong>Pinterest</strong></a></li>
+<li><a href="#"><strong>Youtube</strong></a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Bottom Footer 4 Menu Links</title>
+			<identifier>ninth_bottom_footer_4_menu_links</identifier>
+			<content><![CDATA[<ul>
+<li><a href="#"><strong>Home</strong></a></li>
+<li><a href="#"><strong>Shop</strong></a></li>
+<li><a href="#"><strong>Pages</strong></a></li>
+<li><a href="#"><strong>Portfolio</strong></a></li>
+<li><a href="#"><strong>Blog</strong></a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Custom Tab Block</title>
+			<identifier>ninth_custom_tab_block</identifier>
+			<content><![CDATA[<p>Classic charm combines with edgy femininity in this pair of black trousers from MANGO, exhibiting glossy texture and designed with tapered-leg silhouette. Neatly tailored with a snug-fit zipper closure on the sides and zipper opening on the sides of the hems that render extended opening, this pair of trousers will go well with a ruffled top and stiletto boots.</p>
+<ul>
+<li>Fitted waist</li>
+<li>Zipper closure on the side</li>
+<li>Panelled design on the back knees</li>
+<li>Glossy texture</li>
+<li>Ankle length</li>
+<li>Straight hems</li>
+<li>Zipper opening on the sides of the hems </li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Bottom Footer 6 Logo</title>
+			<identifier>ninth_bottom_footer_6_logo</identifier>
+			<content><![CDATA[<div><img src="{{media url="logo/default/ninth_logo.png"}}" alt="" /></div>]]></content>
+		</item>
+		<item>
+			<title>Ninth Bottom Footer 6 Logo</title>
+			<identifier>ninth_bottom_footer_6_logo</identifier>
+			<content><![CDATA[<div><img src="{{media url="logo/default/ninth_logo.png"}}" alt="" /></div>]]></content>
+		</item>
+		<item>
+			<title>Ninth Bottom Footer 6 Social Links</title>
+			<identifier>ninth_bottom_footer_6_social_links</identifier>
+			<content><![CDATA[<ul>
+<li><a href="#">Facebook</a></li>
+<li><a href="#">Instagram</a></li>
+<li><a href="#">Pinterest</a></li>
+<li><a href="#">Youtube</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Bottom Footer 6 Menu Links</title>
+			<identifier>ninth_bottom_footer_6_menu_links</identifier>
+			<content><![CDATA[<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Shop</a></li>
+<li><a href="#">Pages</a></li>
+<li><a href="#">Portfolio</a></li>
+<li><a href="#">Blog</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Top Header 9 Static Content Left</title>
+			<identifier>ninth_top_header_9_static_left</identifier>
+			<content><![CDATA[<div><span style="color: #ff0000;"><span class="fa fa-angle-right"> </span>50%</span> off for Summer collection. Hurry up - this week only!</div>]]></content>
+		</item>
+		<item>
+			<title>Ninth Top Header 5 Static Content Right</title>
+			<identifier>ninth_top_header_5_static_right</identifier>
+			<content><![CDATA[<ul class="social-link">
+<li><a href="#"> <span class="fa fa-twitter"> </span></a></li>
+<li><a href="#"> <span class="fa fa-linkedin"> </span></a></li>
+<li><a href="#"> <span class="fa fa-behance"> </span></a></li>
+<li><a href="#"> <span class="fa fa-dribbble"> </span></a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Top Header 5 Static Content Left</title>
+			<identifier>ninth_top_header_5_static_left</identifier>
+			<content><![CDATA[<div><span style="color: #ff0000;"><span class="fa fa-angle-right"> </span>50%</span> off for Summer collection. Hurry up - this week only!</div>]]></content>
+		</item>
+		<item>
+			<title>Ninth Top Header 4 Static Content</title>
+			<identifier>ninth_top_header_4_static</identifier>
+			<content><![CDATA[<div><span style="color: #ff0000;"><span class="fa fa-angle-right"> </span>50%</span> off for Summer collection. Hurry up - this week only!</div>]]></content>
+		</item>
+		<item>
+			<title>Footer3 Instagram Block</title>
+			<identifier>footer_3_instagram_block</identifier>
+			<content><![CDATA[<div>{{block class="MGS\Social\Block\Panel\Widget" instagram_hashtag="#NineTheTop" mgs_panel_title="" mgs_panel_note="" limit="12" resolution="low_resolution" link="1" perrow="8" use_slider="1" like="0" comment="0" autoplay="1" stop_auto="1" navigation="0" pagination="0" number_row="1" template="widget/instagram.phtml"}}</div>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 3 Block Address</title>
+			<identifier>ninth_middle_footer_3_block_address</identifier>
+			<content><![CDATA[<h5 class="title"><strong>QUICK LINKS</strong></h5>
+<ul class="list-icon content">
+<li><i class="fa fa-map-o"> </i>121 King Street, Melbourne Victoria 3000 Australia</li>
+<li><i class="fa fa-phone"> </i><a href="tel:+61388766284">+61 3 8876 6284</a></li>
+<li><i class="fa fa-envelope-o"> </i><a href="mailto:contact@company.com">contact@company.com</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Top Footer 3 Block About Us</title>
+			<identifier>ninth_top_footer_3_block_about_us</identifier>
+			<content><![CDATA[<div class="margin-bottom15"><img src="{{media url="wysiwyg/footer_logo.png"}}" alt="Nine Theme" /></div>
+<p style="max-width: 755px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non dignissim elit. Mauris congue massa nec eros vehicula, ut sollicitudin nulla congue.</p>
+<ul class="social-link">
+<li><a href="#"> <span class="fa fa-twitter"> </span></a></li>
+<li><a href="#"> <span class="fa fa-linkedin"> </span></a></li>
+<li><a href="#"> <span class="fa fa-behance"> </span></a></li>
+<li><a href="#"> <span class="fa fa-dribbble"> </span></a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 3 Block Quick links</title>
+			<identifier>ninth_middle_footer_3_block_quicklinks</identifier>
+			<content><![CDATA[<h5 class="title"><strong>QUICK LINKS</strong></h5>
+<ul class="content">
+<li><a href="#">Support Center</a></li>
+<li><a href="#">Term &amp; Conditions</a></li>
+<li><a href="#">Shipping</a></li>
+<li><a href="#">Privacy Policy</a></li>
+<li><a href="#">Help</a></li>
+<li><a href="#">Products Return</a></li>
+<li><a href="#">FAQS</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 3 Block Company</title>
+			<identifier>ninth_middle_footer_3_block_company</identifier>
+			<content><![CDATA[<h5 class="title"><strong>COMPANY</strong></h5>
+<ul class="content">
+<li><a href="#">About Us</a></li>
+<li><a href="#">Team Member</a></li>
+<li><a href="#">Carrer</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">Affilate</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 3 Block Categories</title>
+			<identifier>ninth_middle_footer_3_block_categories</identifier>
+			<content><![CDATA[<h5 class="title"><strong>CATEGORIES</strong></h5>
+<ul class="content">
+<li><a href="#">New in</a></li>
+<li><a href="#">Timeless New</a></li>
+<li><a href="#">Best Sellers</a></li>
+<li><a href="#">Outwear</a></li>
+<li><a href="#">Trench Coats</a></li>
+<li><a href="#">Accessories</a></li>
+<li><a href="#">Sutis</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Bottom Footer 2 Social Icons</title>
+			<identifier>ninth_bottom_footer_2_social_icons</identifier>
+			<content><![CDATA[<ul class="social-link">
+<li><a href="#"> <span class="fa fa-twitter"> </span></a></li>
+<li><a href="#"> <span class="fa fa-linkedin"> </span></a></li>
+<li><a href="#"> <span class="fa fa-behance"> </span></a></li>
+<li><a href="#"> <span class="fa fa-dribbble"> </span></a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Bottom Footer 1 Payment Icons</title>
+			<identifier>ninth_bottom_footer_1_payment_icons</identifier>
+			<content><![CDATA[<ul class="payment-icons">
+<li><i class="fa fa-cc-visa"> </i></li>
+<li><i class="fa fa-cc-paypal"> </i></li>
+<li><i class="fa fa-cc-mastercard"> </i></li>
+<li><i class="fa fa-cc-discover"> </i></li>
+<li><i class="fa fa-cc-amex"> </i></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 1 Block Quick links</title>
+			<identifier>ninth_middle_footer_1_block_quicklinks</identifier>
+			<content><![CDATA[<h5 class="title"><strong>QUICK LINKS</strong></h5>
+<ul class="content">
+<li><a href="#">Support Center</a></li>
+<li><a href="#">Term &amp; Conditions</a></li>
+<li><a href="#">Shipping</a></li>
+<li><a href="#">Privacy Policy</a></li>
+<li><a href="#">Help</a></li>
+<li><a href="#">Products Return</a></li>
+<li><a href="#">FAQS</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 1 Block Company</title>
+			<identifier>ninth_middle_footer_1_block_company</identifier>
+			<content><![CDATA[<h5 class="title"><strong>COMPANY</strong></h5>
+<ul class="content">
+<li><a href="#">About Us</a></li>
+<li><a href="#">Team Member</a></li>
+<li><a href="#">Carrer</a></li>
+<li><a href="#">Contact</a></li>
+<li><a href="#">Affilate</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 1 Block Categories</title>
+			<identifier>ninth_middle_footer_1_block_categories</identifier>
+			<content><![CDATA[<h5 class="title"><strong>CATEGORIES</strong></h5>
+<ul class="content">
+<li><a href="#">New in</a></li>
+<li><a href="#">Timeless New</a></li>
+<li><a href="#">Best Sellers</a></li>
+<li><a href="#">Outwear</a></li>
+<li><a href="#">Trench Coats</a></li>
+<li><a href="#">Accessories</a></li>
+<li><a href="#">Sutis</a></li>
+</ul>]]></content>
+		</item>
+		<item>
+			<title>Ninth Middle Footer 1 Block Contact</title>
+			<identifier>ninth_middle_footer_1_block_contact</identifier>
+			<content><![CDATA[<div class="margin-bottom15"><img src="{{media url="wysiwyg/footer_logo.png"}}" alt="Nine Theme" /></div>
+<p style="max-width: 355px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non dignissim elit.</p>
+<ul class="social-link">
+<li><a href="#"> <span class="fa fa-twitter"> </span></a></li>
+<li><a href="#"> <span class="fa fa-linkedin"> </span></a></li>
+<li><a href="#"> <span class="fa fa-behance"> </span></a></li>
+<li><a href="#"> <span class="fa fa-dribbble"> </span></a></li>
+</ul>
+<ul class="list-icon">
+<li><i class="fa fa-map-o"> </i>121 King Street, Melbourne Victoria 3000 Australia</li>
+<li><i class="fa fa-phone"> </i><a href="tel:+61388766284">+61 3 8876 6284</a></li>
+<li><i class="fa fa-envelope-o"> </i><a href="mailto:contact@company.com">contact@company.com</a></li>
+</ul>]]></content>
+		</item>
+    </static_block>
+	
+	<cms_page>
+		<item>
+			<title>About Us</title>
+			<identifier>about-us</identifier>
+			<content_heading><![CDATA[About Us]]></content_heading>
+			<page_layout>1column</page_layout>
+			<content><![CDATA[<div style="padding-bottom: 50px;">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12">
+<div class="row">
+<div class="panel-block-row col-md-12 col-xs-12">
+<div class="about-cms-block">
+<div class="dp-table">
+<div class="dp-row">
+<div class="dp-table-cell">
+<div class="content-heading">
+<div class="text-left">
+<div class="sub-title">THE LEADER.</div>
+<h3 class="title text-uppercase">Behind our beautiful design for women</h3>
+<div class="margin-top35">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non dignissim elit. Mauris congue massa nec eros vehicula, ut sollicitudin nulla congue. Pellentesque quis efficitur felis. Etiam pellentesque convallis tortor, vitae bibendum nibh euismod at. In mattis metus mauris, at pretium neque lacinia sit amet. Proin sodales suscipit dui, eu elementum massa molestie vel. In a quam eu nibh tincidunt semper id id justo. Ut facilisis finibus mattis. Phasellus id egestas erat, vel dignissim orci.</div>
+<div class="margin-top20"><img src="{{media url="wysiwyg/panel/signture.jpg"}}" alt="" /></div>
+</div>
+</div>
+<div class="action"><button class="action-shop-now">VIEW OUR COLLECTIONS</button></div>
+</div>
+<div class="dp-table-cell">
+<div><img class="img-responsive" src="{{media url="wysiwyg/panel/about_img.png"}}" alt="" /></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="padding-top: 50px; padding-bottom: 50px;">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12">
+<div class="row">
+<div class="panel-block-row col-md-12 col-xs-12">
+<div class="clt-video" style="background-image: url('{{media url='wysiwyg/panel/bg_clt_video.jpg'}}');">
+<div class="clt-video--text" style="background-image: url('{{media url='wysiwyg/panel/bg_clt_video_cmt.jpg'}}');">
+<h2 class="margin-bottom50"><strong class="text-colour-white">O &amp; P Collection</strong></h2>
+<p class="text-colour-white">Aliquam tempor volutpat laoreet. Quisque non tellus eleifend arcu gravida aliquam. Vivamus quis consequat nisl, nec luctus libero. Nam sodales sem egestas sem blandit volutpat. Donec blandit, sem vel ullamcorper aliquet, augue sapien pulvinar ipsum, vel egestas metus justo a tellus.</p>
+<a class="popup-youtube video-popup-link" href="https://www.youtube.com/watch?v=j6h_mYulg_w"><span>New Collection</span><strong>On The Show</strong></a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="padding-top: 50px;">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12">
+<div class="row">
+<div class="panel-block-row col-md-12">{{widget type="MGS\Blog\Block\Widget\Latest" mgs_panel_title="FROM BLOG" post_category="1" number_of_posts="3" items="3" show_thumbnail="1" mgs_panel_note="THE LATEST" template="widget/default.phtml" show_short_content="1" limit_characters_short_content="150"}}</div>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+		</item>
+		
+		<item>
+		<title>Sale Off</title>
+			<identifier>sale-off</identifier>
+			<content_heading><![CDATA[Sale Off]]></content_heading>
+			<page_layout>1column</page_layout>
+			<content><![CDATA[<div>
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12">
+<div class="row">
+<div class="panel-block-row col-md-12">{{block class="MGS\Mpanel\Block\Products\Sale" mgs_panel_title="" mgs_panel_note="" limit="12" ratio="1" category_ids="18" use_slider="0" loadmore="1" template="products/sale/grid.phtml" perrow="4"}}</div>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+		</item>
+		
+		<item>
+			<title>Ninth 404 Not Found</title>
+			<identifier>no-route</identifier>
+			<content_heading><![CDATA[Whoops, our bad...]]></content_heading>
+			<page_layout>1column</page_layout>
+			<content><![CDATA[<div style="padding-top: 70px;">
+<div class="container">
+<div class="row">
+<div class="col-lg-12 col-md-12">
+<div class="row">
+<div class="panel-block-row col-md-12 col-xs-12">
+<div class="text-center">
+<div class="margin-bottom70"><img class="margin-auto img-responsive" src="{{media url="wysiwyg/41_404.png"}}" alt="" /></div>
+<h3 class="margin-bottom20"><strong>PAGE NOT FOUND</strong></h3>
+<p class="margin-bottom30">The page you are looking for doest not exist or has been deleted</p>
+<div></div>
+<p></p>
+<a class="btn btn-secondary" href="{{store url=""}}">Back to Home Page</a></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>]]></content>
+		</item>
+    </cms_page>
+	<theme_setting>
+		<general>
+			<width>width1200</width>
+			<layout>wide</layout>
+			<header>header_1</header>
+			<footer>footer_1</footer>
+			<sticky_menu>1</sticky_menu>
+			<back_to_top>1</back_to_top>
+		</general>
+		<fonts>
+			<default_font><![CDATA[Poppins]]></default_font>
+			<h1><![CDATA[Poppins]]></h1>
+			<h2><![CDATA[Poppins]]></h2>
+			<h3><![CDATA[Poppins]]></h3>
+			<h4><![CDATA[Poppins]]></h4>
+			<h5><![CDATA[Poppins]]></h5>
+			<h6><![CDATA[Poppins]]></h6>
+			<price><![CDATA[Poppins]]></price>
+			<menu><![CDATA[Poppins]]></menu>
+			<btn><![CDATA[Poppins]]></btn>
+		</fonts>
+	</theme_setting>
+</install>

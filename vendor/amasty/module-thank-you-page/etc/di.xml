@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_ThankYouPage
+ */
+-->
+<!--
+  @author Amasty Team
+  @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+  @package Amasty_ThankYouPage
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="AmastyThankYouPageReader" type="Magento\Framework\Config\Reader\Filesystem">
+        <arguments>
+            <argument name="converter" xsi:type="object">Amasty\ThankYouPage\Config\Converter</argument>
+            <argument name="schemaLocator" xsi:type="object">Amasty\ThankYouPage\Config\SchemaLocator</argument>
+            <argument name="fileName" xsi:type="string">block_types.xml</argument>
+            <argument name="idAttributes" xsi:type="array">
+                <item name="/config/block_types/block" xsi:type="string">id</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\ThankYouPage\Model\Config\Blocks">
+        <arguments>
+            <argument name="reader" xsi:type="object">AmastyThankYouPageReader</argument>
+            <argument name="cacheId" xsi:type="string">amasty_thankyoupage_block_types_cache</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\ThankYouPage\Plugin\Session\Model\PreviewSuccess">
+        <arguments>
+            <argument name="checkoutSession" xsi:type="object">Magento\Checkout\Model\Session\Proxy</argument>
+            <argument name="authSession" xsi:type="object">Magento\Backend\Model\Auth\Session\Proxy</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\CatalogInventory\Model\Configuration">
+        <plugin name="Amasty_ThankYouPage::InventoryConfiguration" type="Amasty\ThankYouPage\Plugin\CatalogInventory\Model\Configuration"/>
+    </type>
+</config>

@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="amasty_recurring_payments_email_notification_email_template_subscription_purchased"
+              label="Purchase of Subscription"
+              file="purchased.html"
+              type="html"
+              module="Amasty_RecurringPayments"
+              area="frontend"/>
+    <template id="amasty_recurring_payments_email_notification_email_template_trial_end"
+              label="End of Trial Period"
+              file="trial_end.html"
+              type="html"
+              module="Amasty_RecurringPayments"
+              area="frontend"/>
+    <template id="amasty_recurring_payments_email_notification_email_template_subscription_paused"
+              label="Subscription on Pause"
+              file="paused.html"
+              type="html"
+              module="Amasty_RecurringPayments"
+              area="frontend"/>
+    <template id="amasty_recurring_payments_email_notification_email_template_subscription_canceled"
+              label="Subscription Cancellation"
+              file="canceled.html"
+              type="html"
+              module="Amasty_RecurringPayments"
+              area="frontend"/>
+    <template id="amasty_recurring_payments_email_notification_email_template_authenticate"
+              label="Authentication is Required"
+              file="authenticate.html"
+              type="html"
+              module="Amasty_RecurringPayments"
+              area="frontend"/>
+</config>

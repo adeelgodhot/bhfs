@@ -1,0 +1,59 @@
+<!--@subject Autumn is here!  @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"var store_name":"Store Name",
+"var couponCode":"Coupon Code",
+"var unsubscribeUrl":"Unsubscribe Url",
+"var customerName":"Customer Name",
+"var customerGroupCode":"Customer: Group",
+"var dateOfBirth":"Customer: Date Of Birth",
+"var registrationDate":"Customer: Registration Date",
+"var lastLoginDate":"Customer: Last Login"
+}
+@-->
+{{template config_path="amfollowup/emails/header_template"}}
+
+<table class="container bord_color am-autumn-template" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="am-table-header-container">
+            <div class="am-table-header" style="background: url({{view url='Amasty_Followup/images/bg_autumn.png'}}) right;">
+                <p class="am-name">{{trans "Dear %customer_name !" customer_name=$customerName}}</p>
+            </div>
+        </td>
+    </tr>
+    <tr class="email-head">
+        <td align="center" valign="top">
+            <table class="table-head am-fullwidth" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                    <td class="am-head">
+                        <p class="am-email-text">
+                            {{trans "Autumn has come bringing our AUTUMN SALE!<br/>
+                            Now’s a good time to have a fresh start with new products by Our Company without skimping on your budget.<br/>
+                            As always, thank you for your business and the confidence you have placed in us!" |raw}}
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+        {{layout
+            handle="amfollowup_email_crosssell"
+            quote=$quote
+            history=$history
+            mode=list_modern
+            image=yes
+            price=yes
+            priceFormat=exculdeTax
+            descriptionFormat=short
+            discount=yes
+        }}
+
+    <tr>
+        <td class="am-button-box">
+            <a href="{{config path="web/secure/base_url"}}" title="Visit {{config path="web/secure/base_url"}}" class="am-button orange">Visit Our Store</a>
+        </td>
+    </tr>
+</table>
+{{template config_path="amfollowup/emails/footer_template"}}

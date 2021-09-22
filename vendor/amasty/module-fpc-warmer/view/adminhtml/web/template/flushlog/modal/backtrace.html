@@ -1,0 +1,9 @@
+<div>
+    <!-- ko if: $data.backtrace() -->
+    <div class="backtrace" style="margin: 20px 0">
+        <!-- ko foreach: $data.backtrace() -->
+        <span data-bind="text: $data.action"></span><br>
+        <!-- /ko -->
+    </div>
+    <!-- /ko -->
+</div>

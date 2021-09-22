@@ -1,0 +1,65 @@
+<?php if ($block->getConfig('general_settings/enabled')): ?>
+	<?php if ($block->getConfig('product_page_settings/show_brand')): ?>
+		<?php if ($block->getConfig('product_page_settings/show_brand_img')): ?>
+			<?php $brand = $block->getBrand() ?>
+			<?php if($brand): ?>
+				<div class="product-brand">
+					<div class="brand-name">
+						<strong class="type"><?php echo __('Brand'); ?>:</strong>
+
+						<?php echo $block->getBrand()->getName(); ?>
+
+						<!-- <a title="<?php echo $brand->getName(); ?>" href="<?php echo $brand->getUrl(); ?>"><?php echo $block->getBrand()->getName(); ?></a> -->
+					</div>
+				</div>
+			<?php endif ?>
+		<?php endif; ?>
+	<?php endif; ?>
+<?php endif; ?>
+
+<?php
+$_product = $block->getProduct();
+
+?>
+
+<div class="product-dietary-requirements">
+
+	<?php
+    $data = explode(',',$_product->getData('dietary_requirements'));
+    $top_dietary = ["DF", "GF", "O", "V+", "V", "WF" ];
+    foreach($data as $value):            
+    ?>
+        <?php 
+        $attr = $_product->getResource()->getAttribute('dietary_requirements');
+        if ($attr->usesSource()): ?>
+            <?php 
+            $option_value = $attr->getSource()->getOptionText($value);
+
+			$words = explode(' ', $option_value);
+			
+			if( !empty($words[0]) ):
+				$result = $words[0][0];
+
+				if ( count( $words ) > 1 ) {
+					$result .= $words[1][0];
+				}
+
+	            if( $option_value == "Vegan" || $option_value == "Vegetarian" ){
+	            	$result_colour = strtolower($option_value);
+	            	if ( $option_value == "Vegan" ) {
+	            		$result .= "+";
+	            	}
+	            } else {
+	            	$result_colour = strtolower($result);
+	            }
+
+				if( in_array($result, $top_dietary) ):
+	            ?>
+	            	<span class="dietary-colour-<?php echo $result_colour; ?>" title="<?php echo $option_value; ?>"><?php echo $result; ?></span>
+	            <?php 
+	            endif;
+        	endif;
+        	?>
+        <?php endif;?>
+    <?php endforeach;?>
+</div>

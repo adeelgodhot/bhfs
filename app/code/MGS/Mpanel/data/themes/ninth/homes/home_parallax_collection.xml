@@ -1,0 +1,141 @@
+<home>
+	<section>
+		<name><![CDATA[block8]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[parallax-home]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[/f/a/fashion_collection_1_1.jpg]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[1]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[1]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block9]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[parallax-home]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[/f/a/fashion_collection_2.jpg]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[1]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[2]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block10]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[parallax-home]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[/f/a/fashion_collection_3.jpg]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[1]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[3]]></block_position>
+	</section>
+	<section>
+		<name><![CDATA[block11]]></name>
+		<theme_name><![CDATA[]]></theme_name>
+		<block_cols><![CDATA[12]]></block_cols>
+		<tablet_cols><![CDATA[["12"]]]></tablet_cols>
+		<mobile_cols><![CDATA[["12"]]]></mobile_cols>
+		<block_class><![CDATA[[""]]]></block_class>
+		<class><![CDATA[parallax-home]]></class>
+		<background><![CDATA[]]></background>
+		<background_image><![CDATA[/f/a/fashion_collection_4.jpg]]></background_image>
+		<background_repeat><![CDATA[0]]></background_repeat>
+		<background_cover><![CDATA[0]]></background_cover>
+		<parallax><![CDATA[1]]></parallax>
+		<fullwidth><![CDATA[1]]></fullwidth>
+		<padding_top><![CDATA[]]></padding_top>
+		<padding_bottom><![CDATA[]]></padding_bottom>
+		<block_position><![CDATA[4]]></block_position>
+	</section>
+	<block>
+		<block_name><![CDATA[block11-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="content-heading" style="margin: 0;">
+<div class="text-left">
+<div class="sub-title">KNITWEAR</div>
+<h2 class="title">MUSTARD <br />SWEATER WITH <br />PEARLY CUFFS</h2>
+<p>Round neck sweater with long sleeves and faux pearl<br /> appliqués on the cuffs. <br />Bring back the future!</p>
+<button class="action-shop-now"><span>SHOP NOW</span></button></div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block10-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="content-heading" style="margin: 0;">
+<div class="text-left">
+<div class="sub-title">TRENCH COATS</div>
+<h2 class="title">AWESOME <br />SHORT SLEEVE <br />T - SHIRT</h2>
+<p>Prepare for Autumn - Winter 2017 <br />T-shirt with round neckline and short sleeves.<br />Why not?</p>
+<button class="action-shop-now"><span>SHOP NOW</span></button></div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block9-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="content-heading" style="margin: 0;">
+<div class="text-left">
+<div class="sub-title">NEW IN</div>
+<h2 class="title">PERFECT <br />LEATHER EFFECT <br />LEGGINGS</h2>
+<p>Leggings with elastic waistband. <br />The perfect leather efect leggings with purple coast<br />for active women</p>
+<button class="action-shop-now"><span>SHOP NOW</span></button></div>
+</div>]]></block_content>
+	</block>
+	<block>
+		<block_name><![CDATA[block8-0]]></block_name>
+		<type><![CDATA[static]]></type>
+		<position><![CDATA[1]]></position>
+		<setting><![CDATA[{"animation":"","animation_delay":""}]]></setting>
+		<col><![CDATA[12]]></col>
+		<class><![CDATA[]]></class>
+		<block_content><![CDATA[<div class="content-heading" style="margin: 0;">
+<div class="text-left">
+<div class="sub-title">TIMELESS</div>
+<h2 class="title">POPLIN TOP <br />WITH SLEEVE BLOW <br />SKY BLUE</h2>
+<p>Poplin top with roll neckline, long sleeves, <br />cuffs with bow, pleated chestand back opening with button fastening.</p>
+<button class="action-shop-now"><span>SHOP NOW</span></button></div>
+</div>]]></block_content>
+	</block>
+	<theme_setting>
+		<general>
+			<footer>footer_2</footer>
+			<header>header_3</header>
+		</general>
+	</theme_setting>
+
+</home>

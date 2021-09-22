@@ -1,0 +1,101 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ *
+ * @var $block \Magento\Catalog\Block\Product\View
+ */
+?>
+
+<?php $_helper = $this->helper('Magento\Catalog\Helper\Output'); ?>
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<?php $_product = $block->getProduct(); ?>
+<?php $prd_name = $_helper->productAttribute($block->getProduct(), $_product->getName(), 'name') ?>
+<?php $size = $themeHelper->getImageMinSize(); ?>
+<div class="product_sticky" style="display: none;">
+    <div class="container">
+        <div class="product_sticky_container">
+            <div class="product_sticky_info product_sticky_image">
+                <img src="<?php echo $this->helper('Magento\Catalog\Helper\Image')->init($_product, 'product_base_image')->resize($size['width'], $size['height'])->getUrl(); ?>" alt="<?php echo $prd_name ?>" class="img-responsive" />
+            </div>
+            <div class="product_sticky_info product_sticky_detail">
+                <div class="product_sticky_name"><?php echo $prd_name ?></div>
+                <div class="product_sticky_price">
+                    <?php echo $this->getChildHtml('product.sticky.price'); ?>
+                </div>
+            </div>
+            <div class="product_sticky_action box-tocart">
+                <div class="field qty">
+                    <span class="edit-qty minus disable-select-text" onclick="minusStickyQty('sticky_qty')">-</span>
+                    <input name="qty" id="sticky_qty" maxlength="12" value="1" title="Qty" class="input-text qty" data-validate="{&quot;required-number&quot;:true,&quot;validate-item-quantity&quot;:{&quot;minAllowed&quot;:1}}" type="number">
+                    <span class="edit-qty plus disable-select-text" onclick="plusStickyQty('sticky_qty')">+</span>
+                </div>
+            </div>
+            <div class="product_sticky_action">
+                <button type="button" title="Add To Cart" class="action primary tocart">
+                    <span class="text"><?php echo __('Add To Cart'); ?></span>
+                    <span class="icon pe-7s-cart"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	require([
+		'jquery'
+	], function($){
+		$(window).scroll(function(){
+            $('header').addClass('no-sticky');
+            var ost = $('#product-addtocart-button').offset().top;
+            if($(this).scrollTop() > ost){
+                $('.product_sticky').slideDown();
+            }else{
+                $('.product_sticky').slideUp();
+            }
+        });
+        
+        $('.product_sticky_action .action.tocart').click(function(){
+            $('#product-addtocart-button').click();
+        });
+	});
+    
+    function plusStickyQty(qtyInput){
+			require([
+			'jquery'
+			], function(jQuery){
+				(function($) {
+					if($('#'+qtyInput).attr('disabled')!='disabled'){
+						qty = $('#'+qtyInput).attr('value');
+						qty = parseInt(qty);
+						qty++;
+						$('#'+qtyInput).val(qty);
+						$('#qty').val(qty);
+					}
+				})(jQuery);
+			});
+			
+		}
+		function minusStickyQty(qtyInput){
+			require([
+			'jquery'
+			], function(jQuery){
+				(function($) {
+					if($('#'+qtyInput).attr('disabled')!='disabled'){
+						qty = $('#'+qtyInput).attr('value');
+						qty = parseInt(qty);
+						
+						if(qty>1){
+							qty--;
+							$('#'+qtyInput).val(qty);
+                            $('#qty').val(qty);
+						}
+					}
+				})(jQuery);
+			});
+		}
+</script>

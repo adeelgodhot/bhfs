@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_ThankYouPage
+ */
+-->
+<!--
+  @author Amasty Team
+  @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+  @package Amasty_ThankYouPage
+
+  This configuration creates ability to define more block in extensions outside of the current one
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="block_types.xsd">
+    <block_types>
+        <block id="header">
+            <title>Header</title>
+            <class_name>\Amasty\ThankYouPage\Block\Onepage\Success\Types\Custom\Header</class_name>
+            <template>Amasty_ThankYouPage::onepage/success/types/custom.phtml</template>
+        </block>
+
+        <block id="order_review">
+            <title>Order Review</title>
+            <class_name>\Amasty\ThankYouPage\Block\Onepage\Success\Types\OrderReview</class_name>
+        </block>
+
+        <block id="custom1">
+            <title>Custom 1</title>
+            <class_name>\Amasty\ThankYouPage\Block\Onepage\Success\Types\Custom\Custom1</class_name>
+            <template>Amasty_ThankYouPage::onepage/success/types/custom.phtml</template>
+        </block>
+
+        <block id="custom2">
+            <title>Custom 2</title>
+            <class_name>\Amasty\ThankYouPage\Block\Onepage\Success\Types\Custom\Custom2</class_name>
+            <template>Amasty_ThankYouPage::onepage/success/types/custom.phtml</template>
+        </block>
+
+        <block id="custom3">
+            <title>Custom 3</title>
+            <class_name>\Amasty\ThankYouPage\Block\Onepage\Success\Types\Custom\Custom3</class_name>
+            <template>Amasty_ThankYouPage::onepage/success/types/custom.phtml</template>
+        </block>
+
+        <block id="newsletter">
+            <title>Newsletter</title>
+            <class_name>\Amasty\ThankYouPage\Block\Onepage\Success\Types\Newsletter</class_name>
+            <template>Amasty_ThankYouPage::onepage/success/types/newsletter.phtml</template>
+        </block>
+
+        <block id="cross_sell">
+            <title>Cross-Sell</title>
+            <class_name>\Amasty\ThankYouPage\Block\Onepage\Success\Types\Crosssell</class_name>
+            <template>Amasty_ThankYouPage::onepage/success/types/crosssell.phtml</template>
+        </block>
+
+        <block id="create_account">
+            <title>Create Account</title>
+            <class_name>\Amasty\ThankYouPage\Block\Onepage\Success\Types\CreateAccount</class_name>
+            <template>Amasty_ThankYouPage::onepage/success/types/create_account.phtml</template>
+        </block>
+    </block_types>
+</config>

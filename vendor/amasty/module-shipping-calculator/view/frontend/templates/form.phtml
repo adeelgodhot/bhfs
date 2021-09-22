@@ -1,0 +1,125 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_ShippingCalculator
+ */
+?>
+<?php
+/** @var $block \Amasty\ShippingCalculator\Block\Product\ShippingEstimateForm */
+if (!$block->canShowBlock($block->getPlace())) {
+    return;
+}
+if (method_exists($block, 'escapeHtmlAttr')) { // added in magento 2.2.*
+    $escapeHelper = $block;
+} else {
+    // existing in magento 2.1.*
+    // removed from magento 2.2.*
+    /** @var \Magento\Framework\EscapeHelper $escapeHelper */
+    $escapeHelper = $this->helper(\Magento\Framework\EscapeHelper::class);
+}
+
+$uniqid = uniqid();
+?>
+
+<div class="block">
+    <div class="block-content shipping-calculation">
+        <?= $block->escapeHtml($block->getConfigProvider()->getDescription()) ?>
+        <form method="post"
+              id="form-estimation-<?= $uniqid ?>"
+              enctype="multipart/form-data"
+              data-hasrequired="<?= $escapeHelper->escapeHtmlAttr(__('* Required Fields')) ?>"
+              action="<?= $block->getUrl('amshipcalc/estimate/ajax') ?>">
+            <fieldset class="fieldset review-fieldset"
+                      data-hasrequired="<?= $escapeHelper->escapeHtmlAttr(__('* Required Fields')) ?>">
+                <?php if ($block->getConfigProvider()->isShowCountyField()): ?>
+                    <div class="field required">
+                        <label for="country-<?= $uniqid ?>"
+                               class="label"><span><?= $block->escapeHtml(__('Country')) ?></span></label>
+                        <div class="control">
+                            <?= $block->getCountryHtmlSelect(
+                                (string)$block->getConfigProvider()->getDefaultCountry(),
+                                'country_id',
+                                'country-' . $uniqid
+                            ) ?>
+                        </div>
+                    </div>
+                    <?php if ($block->getConfigProvider()->isShowRegionField()): ?>
+                        <div class="field required">
+                            <label for="region_id-<?= $uniqid ?>"
+                                   class="label"><span><?= $block->escapeHtml(__('State/Region')) ?></span></label>
+                            <div class="control">
+                                <select id="region_id-<?= $uniqid ?>" name="region_id"
+                                        title="<?= $block->escapeHtml(__('State/Region')) ?>"
+                                        class="validate-select">
+                                    <option value=""><?= $block->escapeHtml(__('Please select a region, state or province.')) ?></option>
+                                </select>
+                                <input type="text"
+                                       id="region-<?= $uniqid ?>"
+                                       name="region"
+                                       value="<?= $escapeHelper->escapeHtmlAttr($block->getConfigProvider()->getDefaultRegion()) ?>"
+                                       title="<?= $block->escapeHtml(__('State/Region')) ?>"
+                                       class="input-text validate-not-number-first"/>
+                            </div>
+                        </div>
+                        <script type="text/x-magento-init">
+                                {
+                                    "#country-<?= $uniqid ?>": {
+                                        "regionUpdater": {
+                                            "optionalRegionAllowed": true,
+                                            "regionListId": "#region_id-<?= $uniqid ?>",
+                                            "regionInputId": "#region-<?= $uniqid ?>",
+                                            "postcodeId": "#zip-<?= $uniqid ?>",
+                                            "form": "#form-estimation-<?= $uniqid ?>",
+                                            "regionJson": <?= /* @noEscape */
+                            $this->helper(\Magento\Directory\Helper\Data::class)->getRegionJson() ?>,
+                                            "defaultRegion": "<?= (int)$block->getConfigProvider()->getDefaultRegion() ?>",
+                                            "countriesWithOptionalZip": []
+                                        }
+                                    }
+                                }
+
+
+                        </script>
+
+                    <?php endif; ?>
+                <?php endif; ?>
+
+                <?php if ($block->getConfigProvider()->isShowPostcodeField()): ?>
+                    <div class="field required">
+                        <label for="zip-<?= $uniqid ?>"
+                               class="label"><span><?= $block->escapeHtml(__('Zip/Postal Code')) ?></span></label>
+                        <div class="control">
+                            <input type="text" name="postcode" id="zip-<?= $uniqid ?>"
+                                   class="input-text validate-zip-international required-entry"
+                                   value="<?= $block->escapeHtml($block->getConfigProvider()->getDefaultPostcode()) ?>"/>
+                        </div>
+                    </div>
+                <?php endif; ?>
+            </fieldset>
+            <div class="actions-toolbar">
+                <div class="primary actions-primary">
+                    <button type="submit" class="action submit primary calculate">
+                        <span><?= $block->escapeHtml(__('Calculate')) ?></span></button>
+                </div>
+            </div>
+
+            <div class="shipping-calculation-result-container">
+
+            </div>
+        </form>
+
+
+        <script type="text/x-magento-init">
+        {
+            "#form-estimation-<?= $uniqid ?>": {
+                "validation": {},
+                "Amasty_ShippingCalculator/js/shipping-calculator": {
+                    "product_sku": "shipping-calculation-result-container"
+                }
+            }
+        }
+        </script>
+
+    </div>
+</div>

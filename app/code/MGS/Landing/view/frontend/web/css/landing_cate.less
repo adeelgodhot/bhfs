@@ -1,0 +1,183 @@
+// Create variables
+.border-radius (@radius) {
+    border-radius: @radius;
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    -o-border-radius: @radius;
+}
+.transform (@translate) {
+    transform: @translate;
+    -webkit-transform: @translate;
+    -moz-transform: @translate;
+    -o-transform: @translate;
+}
+.transition  (@transition) {
+    transition: @transition;
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+}
+.transform-origin  (@tforigin) {
+    transform-origin: @tforigin;
+    -webkit-transform-origin: @tforigin;
+    -moz-transform-origin: @tforigin;
+    -o-transform-origin: @tforigin;
+}
+.box-shadow (@boxshadow) {
+    -webkit-box-shadow: @boxshadow;
+    -moz-box-shadow: @boxshadow;
+    -ms-box-shadow: @boxshadow;
+    box-shadow: @boxshadow;
+}
+
+.landing-categories {
+    &--item {
+        margin-bottom: 30px;
+        position: relative;
+        overflow: hidden;
+        h2 {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            opacity: 1;
+            visibility: visible;
+            text-align: center;
+            margin: 0;
+            .transform(~'translateY(-50%) scale(1)');
+            .transition(all 0.35s);
+        }
+        &:hover {
+            .landing-categories {
+                &--count {
+                    .transform(translateY(0));
+                }
+                &--thumb img {
+                    .transform(scale(1.1));
+                    filter: brightness(0.7);
+                    -webkit-filter: brightness(0.7);
+                }
+                &-detail {
+                    .btn-white {
+                        .transform(translateY(0));
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                    .category-description {
+                        .transform(translateY(0));
+                        opacity: 1;
+                        visibility: visible;
+                    }
+                }
+            }
+            h2 {
+                .transform(~'translateY(-50%) scale(0)');
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+    }
+    &--thumb img {
+        min-width: 100%;
+        display: block;
+        position: relative;
+        .transform(scale(1));
+        .transition(all 0.35s);
+    }
+}
+.landing-categories-detail {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    .transform(translateY(-50%));
+    .btn-white {
+        opacity: 0;
+        visibility: hidden;
+        font-size: 12px;
+        padding: 9px 10px;
+        .transform(translateY(20px));
+        .transition(all 0.35s);
+    }
+    .category-description {
+        .transform(translateY(-20px));
+        .transition(all 0.35s);
+        padding: 0 20px;
+        color: #fff;
+        font-weight: 500;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+@media (min-width: 992px) {
+  .col-item-5 {
+    width: calc(~'100% / 5');
+  }
+  .first-item-md {
+    clear: left;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .first-item-sm {
+    clear: left;
+  }
+}
+/* Landing Parralax */
+.landing-parralax {
+    &--item {
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        background-attachment: fixed;
+        position: relative;
+        display: flex;
+        -webkit-align-content: center;
+        -ms-flex-line-pack: center;
+        align-content: center;
+        align-items: center;
+        .landing-parralax-detail {
+            color: #999;
+            text-align: center;
+            background-color: #fff;
+            width: 500px;
+            max-width: calc(~'100% - 30px');
+            padding: 23px 30px 30px;
+            display: inline-block;
+            margin: 0 auto;
+            h2 {
+                font-size: 20px;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin: 0;
+            }
+        }
+    }
+    &--shortdes {
+      padding-top: 10px;
+    }
+    &--count {
+      display: inline-block;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 13px;
+      margin-bottom: 5px;
+      margin-top: 5px;
+    }
+}
+
+.collection-new-product {
+    margin-top: 50px;
+    .content-heading { text-align: left; }
+}
+
+.category-landing-parallax {
+    .footer { margin: 0; }
+    #maincontent { width: 100%; }
+    .page-title-wrapper { display: none !important; }
+}

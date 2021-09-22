@@ -1,0 +1,26 @@
+<products>
+    <item>
+        <sku><![CDATA[24-MB01]]></sku>
+        <name><![CDATA[Joust Duffle Bag]]></name>
+        <description><![CDATA[The sporty Joust Duffle Bag can't be beat - not in the gym, not on the luggage carousel, not anywhere. Big enough to haul a basketball or soccer ball and some sneakers with plenty of room to spare, it's ideal for athletes with places to go.    Dual top handles.  Adjustable shoulder strap.  Full-length zipper.  L 29" x W 13" x H 11".]]></description>
+        <price><![CDATA[34.00]]></price>
+    </item>
+    <item>
+        <sku><![CDATA[24-MB04]]></sku>
+        <name><![CDATA[Strive Shoulder Pack]]></name>
+        <description><![CDATA[Convenience is next to nothing when your day is crammed with action. So whether you're heading to class, gym, or the unbeaten path, make sure you've got your Strive Shoulder Pack stuffed with all your essentials, and extras as well.    Zippered main compartment.  Front zippered pocket.  Side mesh pocket.  Cell phone pocket on strap.  Adjustable shoulder strap and top carry handle.]]></description>
+        <price><![CDATA[32.00]]></price>
+    </item>
+    <item>
+        <sku><![CDATA[24-MB03]]></sku>
+        <name><![CDATA[Crown Summit Backpack]]></name>
+        <description><![CDATA[The Crown Summit Backpack is equally at home in a gym locker, study cube or a pup tent, so be sure yours is packed with books, a bag lunch, water bottles, yoga block, laptop, or whatever else you want in hand. Rugged enough for day hikes and camping trips, it has two large zippered compartments and padded, adjustable shoulder straps.  Top handle. Grommet holes. Two-way zippers. H 20" x W 14" x D 12". Weight: 2 lbs, 8 oz. Volume: 29 L.]]></description>
+        <price><![CDATA[38.00]]></price>
+    </item>
+    <item>
+        <sku><![CDATA[24-MB05]]></sku>
+        <name><![CDATA[Wayfarer Messenger Bag]]></name>
+        <description><![CDATA[Perfect for class, work or the gym, the Wayfarer Messenger Bag is packed with pockets. The dual-buckle flap closure reveals an organizational panel, and the roomy main compartment has spaces for your laptop and a change of clothes. An adjustable shoulder strap and easy-grip handle promise easy carrying.  Multiple internal zip pockets. Made of durable nylon.]]></description>
+        <price><![CDATA[45.00]]></price>
+    </item>
+</products>

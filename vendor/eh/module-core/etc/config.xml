@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author ExtensionHut Team
+ * @copyright Copyright (c) 2020 ExtensionHut (https://www.extensionhut.com/)
+ * @package EH_Core
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <eh_core>
+            <general>
+                <site_name>ExtensionHut</site_name>
+                <site_link>https://www.extensionhut.com/</site_link>
+                <support_link>https://www.extensionhut.com/support</support_link>
+                <extensions_link>https://www.extensionhut.com/magento-2-extensions.html?utm_source=admin-settings</extensions_link>
+                <logo_link>https://www.extensionhut.com/pub/media/logo/stores/1/logo.png</logo_link>
+                <extension_versions>https://license.extensionhut.com/fetch.php</extension_versions>
+            </general>
+        </eh_core>
+    </default>
+</config>

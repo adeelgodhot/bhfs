@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_ThankYouPage
+ */
+-->
+<!--
+  @author Amasty Team
+  @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+  @package Amasty_ThankYouPage
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="\Amasty\ThankYouPage\Api\ConfigBasicInterface" type="Amasty\ThankYouPage\Model\Config\Types\Basic"/>
+    <preference for="\Amasty\ThankYouPage\Api\ConfigCustomInterface" type="Amasty\ThankYouPage\Model\Config\Types\Custom"/>
+    <preference for="\Amasty\ThankYouPage\Api\ConfigNewsletterInterface" type="Amasty\ThankYouPage\Model\Config\Types\Newsletter"/>
+    <preference for="\Amasty\ThankYouPage\Api\ConfigCrosssellInterface" type="Amasty\ThankYouPage\Model\Config\Types\Crosssell"/>
+    <preference for="\Amasty\ThankYouPage\Api\ConfigCreateAccountInterface" type="Amasty\ThankYouPage\Model\Config\Types\CreateAccount"/>
+    <preference for="\Amasty\ThankYouPage\Api\OrderCustomerManagementInterface" type="Amasty\ThankYouPage\Model\Sales\Order\CustomerManagement"/>
+
+    <type name="Magento\CatalogInventory\Model\ResourceModel\Stock\Status">
+        <plugin name="Amasty_ThankYouPage::InventoryStatus" type="Amasty\ThankYouPage\Plugin\CatalogInventory\Model\ResourceModel\Stock\StatusPlugin"/>
+    </type>
+
+    <type name="Magento\InventoryCatalog\Model\ResourceModel\AddStockDataToCollection">
+        <plugin name="Amasty_ThankYouPage::InventoryStockData"
+                type="Amasty\ThankYouPage\Plugin\InventoryCatalog\Model\ResourceModel\AddStockDataToCollectionPlugin"/>
+    </type>
+
+    <type name="Magento\Checkout\Model\Session\SuccessValidator">
+        <plugin name="Amasty_ThankYouPage::PreviewSuccess" type="Amasty\ThankYouPage\Plugin\Session\Model\PreviewSuccess"/>
+    </type>
+</config>

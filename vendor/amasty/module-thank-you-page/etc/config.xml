@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_ThankYouPage
+ */
+-->
+<!--
+  @author Amasty Team
+  @copyright Copyright (c) 2019 Amasty (https://www.amasty.com)
+  @package Amasty_ThankYouPage
+  -->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amasty_thank_you_page>
+            <general>
+                <enable>0</enable>
+            </general>
+
+            <block_header>
+                <display>0</display>
+                <title>Thank you for your purchase!</title>
+            </block_header>
+
+            <block_newsletter>
+                <title>Subscribe to newsletter</title>
+                <confirmation_message>Thank you for your subscription.</confirmation_message>
+                <text_subscribed>You already subscribed to the newsletter.</text_subscribed>
+            </block_newsletter>
+
+            <block_crosssell>
+                <limit>4</limit>
+                <show_out_of_stock>0</show_out_of_stock>
+            </block_crosssell>
+
+            <block_create_account>
+                <title>Create Account</title>
+<!--                <auto_generate_password>1</auto_generate_password>-->
+                <show_email_field>0</show_email_field>
+                <show_terms_and_conditions>0</show_terms_and_conditions>
+            </block_create_account>
+
+            <advanced_layout_management>
+                <markup_editor><![CDATA[{{header}}.{{order_review}}.{{custom1}}.{{custom2}}.{{custom3}}.{{newsletter}}.{{cross_sell}}.{{create_account}}]]></markup_editor>
+                <mobile_view>1</mobile_view>
+            </advanced_layout_management>
+        </amasty_thank_you_page>
+    </default>
+</config>

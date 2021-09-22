@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+   <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+        <system>
+			<tab id="magecomp" translate="label" sortOrder="100" class="magecomp-logo">
+				<label><![CDATA[]]></label>
+			</tab>
+            <section id="qtydropdown" translate="label" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Quantity Dropdown</label>
+                <tab>magecomp</tab>
+				<resource>Magecomp_Qtydropdown::config</resource>
+				<group id="qtydropdownoption" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1" >
+					<label>Configuration</label>
+					<field id="enable" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+						<label>Quantity Dropdown</label>
+						<source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+				   </field>
+			   </group>
+			   <group id="generalsettings" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Quantity Dropdown Configuration</label>
+					<depends><field id="qtydropdown/qtydropdownoption/enable">1</field></depends>
+					<field id="qtytype" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Dropdown Type</label>
+						<source_model>Magecomp\Qtydropdown\Model\Config\Qtytype</source_model>
+                    </field> 
+                    <field id="minvalue" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Minimum Value</label>
+						<validate>validate-not-negative-number validate-greater-than-zero required-entry</validate>
+						<depends><field id="qtytype">0</field></depends>
+                    </field>
+					<field id="maxvalue" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Maximum Value</label>
+						<validate>validate-not-negative-number validate-greater-than-zero required-entry</validate>
+						<depends><field id="qtytype">0</field></depends>
+                    </field> 
+					<field id="qtyincreament" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Value Increament By</label>
+						<source_model>Magecomp\Qtydropdown\Model\Config\Increments</source_model>
+						<depends><field id="qtytype">0</field></depends>
+                    </field> 
+					<field id="customvalue" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                        <label>Custom Value</label>
+						<validate>validate-not-negative-number required-entry</validate>
+						<comment><![CDATA[Use Format : 10,12,20... etc]]></comment>
+						<depends><field id="qtytype">1</field></depends>
+                    </field>
+				</group> 
+            </section>
+        </system>
+    </config>

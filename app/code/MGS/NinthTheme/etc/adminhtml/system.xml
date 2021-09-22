@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright Â© 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="mgs" translate="label" sortOrder="150"><label>Mage Solutions</label></tab>
+		<section id="ninththeme" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+			<class>separator-top</class>
+			<label>Ninth Theme Settings</label>
+			<tab>mgs</tab>
+			<resource>MGS_NinthTheme::ninththeme</resource>
+			<group id="ninth_catalog" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Catalog</label>
+				<field id="grid_type" translate="label comment" type="select" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Product grid type</label>
+					<source_model>MGS\NinthTheme\Model\Config\Source\GridType</source_model>
+				</field>
+				<field id="change_img" translate="label comment" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Hover Change Image</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="display_overlay" translate="label comment" type="select" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Display Overlay</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+				<field id="attribute_text" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Show attribute text</label>
+					<source_model>MGS\NinthTheme\Model\Config\Source\AttributeShow</source_model>
+				</field>
+				<field id="one_product" translate="label comment" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label><![CDATA[1 Product per row on mobile (< 500px)]]></label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+			<group id="ninth_detail_products" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+				<label>Product Detail</label>
+				<field id="glr_type" translate="label comment" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Product Gallery type</label>
+					<source_model>MGS\NinthTheme\Model\Config\Source\Gallery</source_model>
+				</field>
+				<field id="glr_effect" translate="label comment" type="select" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Gallery Effect</label>
+					<source_model>MGS\NinthTheme\Model\Config\Source\GalleryEffect</source_model>
+				</field>
+				<field id="zoom_magnify" translate="label comment" type="text" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Zoom Magnify</label>
+					<depends>
+                        <field id="glr_effect">1</field>
+                    </depends>
+				</field>
+				<field id="zoom_mobile" translate="label comment" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+					<label>Disable Zoom on Mobile</label>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+					<depends>
+                        <field id="glr_effect">1</field>
+                    </depends>
+				</field>
+			</group>
+		</section>
+    </system>
+</config>

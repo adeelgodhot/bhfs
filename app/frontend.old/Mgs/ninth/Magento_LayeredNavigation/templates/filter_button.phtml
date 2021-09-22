@@ -1,0 +1,32 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<button id="action-filter" class="action-filter" style="display: none;"><span class="pe-7s-edit"></span></button>
+
+<script type="text/javascript">
+    require([ 'jquery' ], function($){
+        $(document).ready(function(){
+            if($('body').has('#layered-filter-block')){
+                var closebtn = '<button class="action-filter close"><span class="pe-7s-close"></span></button>';
+                $('.column.main .block.filter > .filter-title').append(closebtn);
+                $('.page-layout-1column #action-filter').show();
+                $('.page-layout-1column .category-actions').addClass('filter-installed');
+            }
+        });
+        
+        $(document).on('click', '.action-filter.close', function(){
+             $('body').removeClass('active-filter');
+        });
+        
+        $(document).on('click', '#action-filter', function(){
+            $('body').addClass('active-filter');
+        });
+    });
+</script>

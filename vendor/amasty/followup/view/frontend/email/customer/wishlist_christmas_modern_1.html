@@ -1,0 +1,57 @@
+<!--@subject Christmas is here!  @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"var store_name":"Store Name",
+"var couponCode":"Coupon Code",
+"var unsubscribeUrl":"Unsubscribe Url",
+"var customerName":"Customer Name",
+"var customerGroupCode":"Customer: Group",
+"var dateOfBirth":"Customer: Date Of Birth",
+"var registrationDate":"Customer: Registration Date",
+"var lastLoginDate":"Customer: Last Login"
+}
+@-->
+{{template config_path="amfollowup/emails/header_template"}}
+
+<table class="container bord_color am-christmas-template" cellpadding="0" cellspacing="0" border="0">
+    <tr class="email-head">
+        <td align="center" valign="top">
+            <table class="table-head am-fullwidth" cellspacing="0" cellpadding="0" border="0">
+                <tbody>
+                <tr>
+                    <td class="am-head">
+                        <p class="am-name">{{trans "Dear %customer_name !" customer_name=$customerName}}</p>
+                        <p class="am-email-text">
+                            <img class="am-elf-hat" src="{{view url='Amasty_Followup/images/Elf-Hat.png'}}" alt="Elf Hat">
+                            {{trans "We know this is a busy time of year, but let us draw your mind from the fuss for a second.<br/>
+                            We’ve just launched our CHRISTMAS SALE!<br/>
+                            So, hurry up to spoil yourself with new purchases in the year ending.<br/>
+                            And good luck in the coming year!<br/>
+                            As always, thank you for your business and the confidence you have placed in us!" |raw}}</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
+        {{layout
+            handle="amfollowup_email_wishlist"
+            customer=$customer
+            history=$history
+            mode=list_modern
+            image=yes
+            price=yes
+            priceFormat=exculdeTax
+            descriptionFormat=short
+            discount=yes
+        }}<br/>
+
+    <tr>
+        <td class="am-button-box">
+            <a href="{{config path="web/secure/base_url"}}" title="Visit {{config path="web/secure/base_url"}}" class="am-button red-orange">Visit Our Store</a>
+        </td>
+    </tr>
+</table>
+{{template config_path="amfollowup/emails/footer_template"}}

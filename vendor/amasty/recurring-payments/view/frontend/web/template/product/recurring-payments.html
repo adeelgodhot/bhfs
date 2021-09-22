@@ -1,0 +1,8 @@
+<div if="isAllowSpecifyStartEndDate || data.length > 1" class="amrec-subscription-options">
+    <each args="getRegion('select')" render=""/>
+    <each if="isAllowSpecifyStartEndDate" args="getRegion('date')" render=""/>
+</div>
+<if args="!isAllowSpecifyStartEndDate && data.length === 1">
+    <each args="getRegion('select')" render=""/>
+</if>
+<div class="amrec-subscription-info" each="getRegion('table')" render=""></div>

@@ -1,0 +1,22 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Paction
+ */
+?>
+<?php
+/* @var $block \Amasty\Paction\Block\Adminhtml\Product\Edit\Action\Attribute\Tab\TierPrice\Checkbox */
+?>
+
+<div class="field" style="margin-left: 20%;">
+    <span class="attribute-change-checkbox">
+        <input type="checkbox"
+               id="<?= $block->escapeHtmlAttr($block->getCheckboxElementId())?>"
+               name="<?= $block->escapeHtmlAttr($block->getCheckboxElementName()) ?>"
+               class="checkbox" />
+        <label class="label" for="<?= $block->escapeHtmlAttr($block->getCheckboxElementId()) ?>">
+            <?= $block->escapeHtml(__('Delete Previously Saved Advanced Pricing')) ?>
+        </label>
+    </span>
+</div>

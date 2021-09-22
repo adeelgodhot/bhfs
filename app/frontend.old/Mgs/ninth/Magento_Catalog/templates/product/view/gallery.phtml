@@ -1,0 +1,284 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/**
+ * Product media data template
+ *
+ * @var $block \Magento\Catalog\Block\Product\View\Gallery
+ * @overwrite $block \MGS\NinthTheme\Block\Product\View\Gallery
+ */
+?>
+
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+<?php $_product = $block->getProduct(); ?>
+<?php $galleryImages = $block->getGalleryImages(); ?>
+
+<?php // Get Config Gallery Template ?>
+<?php $glrTemplate = $themeHelper->getStoreConfig('ninththeme/ninth_detail_products/glr_type'); ?>
+<?php $glr_effect = $themeHelper->getStoreConfig('ninththeme/ninth_detail_products/glr_effect'); ?>
+<?php $zoom_image = $glr_effect == 1 ? 1 : 0; ?>
+<?php $lbox_image = $glr_effect == 2 ? 1 : 0; ?>
+<?php $zoom_mobile = $themeHelper->getStoreConfig('ninththeme/ninth_detail_products/zoom_mobile'); ?>
+
+<?php // Image 360 ?>
+<?php $rotateImage = $_product->getData('mgs_j360') ?>
+<?php $rotateImages = [] ?>
+<?php if($rotateImage): ?>
+	<?php $rotateImages = $themeHelper->getRotateImages($_product->getId()) ?>
+<?php endif ?>
+
+<?php if($block->getViewType() == 'quickview'): ?>
+    <?php
+        $glrTemplate = 5;
+        $lbox_image = 0;
+        $zoom_mobile = 0;
+    ?>
+<?php endif ?>
+<input id="glr_layout" type="hidden" name="glr_layout" value="<?php echo $glrTemplate; ?>">
+<input id="zoom_image" type="hidden" name="zoom_image" value="<?php echo $zoom_image; ?>">
+<input id="lbox_image" type="hidden" name="lbox_image" value="<?php echo $lbox_image; ?>">
+<input id="zoom_mobile" type="hidden" name="zoom_mobile" value="<?php echo $zoom_mobile; ?>">
+<input id="view_type" type="hidden" name="view_type" value="<?php echo $block->getViewType(); ?>">
+
+<div class="product media">
+    <?php if(count($galleryImages) > 1): ?>
+        <?php echo $this->getLayout()
+                        ->createBlock('Magento\Framework\View\Element\Template')
+                        ->setProduct($_product)
+                        ->setThemeHelper($themeHelper)
+                        ->setProduct($_product)
+                        ->setGalleryImages($galleryImages)
+                        ->setEnableZoom($zoom_image)
+                        ->setLbox($lbox_image)
+                        ->setZoomMobile($zoom_mobile)
+                        ->setViewType($block->getViewType())
+                        ->setTemplate('Magento_Catalog::product/view/gallery/gallery_'.$glrTemplate.'.phtml')
+                        ->toHtml(); ?>
+    <?php elseif(count($galleryImages) == 1): ?>
+        <?php foreach($galleryImages as $image): ?>
+            <?php $lbImage = $image->getLabel() ? $image->getLabel() : $image->getLabelDefault(); ?>
+            <div class="product single-image item-image base-image imgzoom" data-zoom="<?php echo $image->getImageZoom(); ?>">
+                <?php if($lbox_image): ?>
+                    <?php if($image->getMediaType() != 'external-video'): ?>
+                        <a class="lb" href="<?php echo $image->getImageZoom(); ?>"><img class="img-responsive" src="<?php echo $image->getLargeImageUrl(); ?>" alt="<?php echo $lbImage ?>"/></a>
+                    <?php else: ?>
+                        <a class="lb video-link" href="<?php echo $image->getVideoUrl(); ?>"><img class="img-responsive" src="<?php echo $image->getLargeImageUrl(); ?>" alt="<?php echo $lbImage ?>"/></a>
+                    <?php endif ?>
+                <?php else: ?>
+                    <img class="img-responsive" src="<?php echo $image->getLargeImageUrl(); ?>" alt="<?php echo $lbImage ?>"/>
+                    <?php if($image->getMediaType() == 'external-video'): ?>
+                        <a href="<?php echo $image->getVideoUrl(); ?>"></a>
+                    <?php endif ?>
+                <?php endif ?>
+            </div>
+        <?php endforeach ?>
+        <?php if($zoom_image): ?>
+        <script type="text/javascript">
+            require([ 'jquery', 'zoom-images' ],function($) { zoomElement('.imgzoom'); });
+        </script>
+        <?php endif ?>
+    <?php else: ?>
+        <?php // Product no image ?>
+        <?php $_imagehelper = $this->helper('Magento\Catalog\Helper\Image'); ?>
+        <?php $noImage = $_imagehelper->init($_product, 'product_page_image_large')->getUrl() ?>
+        <div class="product item-image base-image">
+            <img class="img-responsive" src="<?php echo $noImage; ?>" alt=""/>
+        </div>
+    <?php endif ?>
+
+
+<div class="social_share_custom">
+
+ <a href="http://www.facebook.com/sharer.php?u=https://www.besthealthfoodshop.com" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+<a href="https://twitter.com/home?status=https://www.besthealthfoodshop.com/ " target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+
+<a href="https://pinterest.com/pin/create/button/?url=https://www.besthealthfoodshop.com/&media=&description=" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+
+<a href="mailto:?subject=Healthy%20food%20selection&body=I%20found%20this%20website%20with%20amazing%20healthy%20food%20selection.%20For%20more%20information%20visit%20https%3A%2F%2Fwww.besthealthfoodshop.com" target="_blank"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>
+
+
+</div>
+
+
+
+<?php // Rating Summary  ?>
+
+<?php
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$product = $objectManager->get('Magento\Framework\Registry')->registry('current_product');
+$storeManager = $objectManager->get('Magento\Store\Model\StoreManagerInterface');
+$reviewFactory = $objectManager->create('Magento\Review\Model\Review');
+$storeId = $storeManager->getStore()->getId();
+$reviewFactory->getEntitySummary($product, $storeId);
+$ratingSummary = $product->getRatingSummary()->getRatingSummary();
+?>
+<div class="rating-summary item" itemprop="reviewRating" itemscope="" >
+    <div class="rating-result" title="<?php echo $ratingSummary; ?>%">
+        <meta itemprop="worstRating" content="1">
+        <meta itemprop="bestRating" content="100">
+        <span style="width:<?php echo $ratingSummary; ?>%">
+            <span itemprop="ratingValue"><?php echo $ratingSummary; ?>%</span>
+        </span>
+    </div>
+</div>
+
+
+
+
+</div>
+
+<?php // Image 360 ?>
+<?php if($rotateImage && (count($rotateImages)>0)): ?>
+    <a class="rotate-image btn btn-default" href="#" onclick="rotate360(); return false"><?php echo __('360 Deg') ?></a>
+    <script type="text/javascript">
+        function rotate360(){
+            require([
+                'jquery',
+                "mage/translate",
+                'rotateImage'
+            ], function ($) {
+                $.ajax({
+                    url: '<?php echo $this->getUrl('mpanel/index/rotate') ?>',
+                    data: ('&product=<?php echo $_product->getId() ?>'),
+                    type: 'get',
+                    dataType: 'json',
+                    cache: true,
+                    showLoader: true
+                }).done(function (response) {
+                    $('.loading-mask').append(response.html);
+                    $('.loading-mask').addClass('j360-container');
+                    setTimeout(initImageRotate, 1);
+                    
+                }).fail(function (error) {
+                    alert($.mage.__('Sorry, something went wrong. Please try again later.'));
+                });
+            });
+        }
+        
+        function initImageRotate(){
+            require([
+                'jquery',
+                "mage/translate",
+                'rotateImage'
+            ], function ($) {
+                $('.loading-mask').show();
+                $('#mgs_j360').j360();
+            });
+        }
+        
+        function closeRotateContainer(){
+            require([
+                'jquery',
+                "mage/translate",
+                'rotateImage'
+            ], function ($) {
+                $('.rotate-image-container').remove();
+                $('.loading-mask').removeClass('j360-container');
+                $('.loading-mask').hide();
+                $('.preload_img').parent().remove();
+            });
+        }
+    </script>
+<?php endif ?>
+
+<script type="text/javascript">
+    <?php if($lbox_image): ?>
+        require([
+            'jquery',
+            'magnificPopup'
+        ], function(jQuery){
+            (function($) {
+                $(document).ready(function() {
+                    $('.product.media').magnificPopup({
+                        delegate: '.imgzoom .lb',
+                        type: 'image',
+                        tLoading: 'Loading image #%curr%...',
+                        mainClass: 'mfp-img-gallery',
+                        fixedContentPos: true,
+                        gallery: {
+                            enabled: true,
+                            navigateByImgClick: true,
+                            preload: [0,1]
+                        },
+                        iframe: {
+                            markup: '<div class="mfp-iframe-scaler">'+
+                                    '<div class="mfp-close"></div>'+
+                                    '<iframe class="mfp-iframe" frameborder="0" allowfullscreen></iframe>'+
+                                    '<div class="mfp-bottom-bar">'+
+                                      '<div class="mfp-title"></div>'+
+                                      '<div class="mfp-counter"></div>'+
+                                    '</div>'+
+                                    '</div>'
+                        },
+                        image: {
+                            tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+                        },
+                        callbacks: {
+                            elementParse: function(item) {
+                                if(item.el.context.className == 'lb video-link') {
+                                    item.type = 'iframe';
+                                } else {
+                                    item.type = 'image';
+                                }
+                            }
+                        }
+                    });
+                });
+            })(jQuery);
+        });
+    <?php endif ?>
+    <?php if($zoom_image): ?>
+        function zoomElement(el){
+            require([ 'jquery', 'zoom-images' ],function($) {
+                var dataZ = $(el).attr('data-zoom');
+                <?php if($zoom_mobile): ?>
+                    if($(window).width() > 767){
+                        $(el).zoom({
+                            magnify: 1,
+                            url: dataZ
+                        });
+                    }else {
+                        $(el).trigger('zoom.destroy');
+                    }
+                <?php else: ?>
+                    $(el).zoom({
+                        magnify: 1,
+                        url: dataZ
+                    });
+                <?php endif ?>
+            });
+        }
+        <?php if($zoom_mobile): ?>
+            require([ 'jquery', 'zoom-images' ],function($) {
+                $(window).resize(function(){
+                    if($(window).width() < 766){
+                        $('.imgzoom').trigger('zoom.destroy');
+                    }
+                });
+            });
+        <?php endif ?>
+    <?php endif ?>
+</script>
+<?php if($glrTemplate == 1): ?>
+<script type="text/javascript">
+	require([
+		'jquery',
+		'sticky-content'
+	], function(jQuery){
+		(function($) {
+			$(window).scroll(function(){
+				if($(this).width() > 767){
+					$(".product-info-main").stick_in_parent();
+				}
+			});
+		})(jQuery);
+	});
+</script>
+<?php endif ?>
+

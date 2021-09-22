@@ -1,0 +1,27 @@
+{
+    "name": "amasty/module-recurring-payments-stripe",
+    "description": "Amasty Subscriptions & Recurring Payments: Stripe",
+    "require": {
+        "php": "^7.1.0",
+        "amasty/recurring-payments": ">=1.6.5",
+        "amasty/base": ">=1.12.1",
+        "stripe/stripe-php": ">=6.31.0",
+        "amasty/module-stripe": ">=3.0.8"
+    },
+    "provide": {
+        "amasty/recurring-payments-gateway": "1.0.0"
+    },
+    "type": "magento2-module",
+    "version": "1.6.3",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\RecurringStripe\\": ""
+        }
+    }
+}

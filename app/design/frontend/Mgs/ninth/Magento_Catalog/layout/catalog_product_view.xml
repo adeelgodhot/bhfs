@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <remove src="mage/gallery/gallery.css"/>
+    </head>
+    <body>
+		<referenceBlock name="head.additional">
+            <block class="Magento\Framework\View\Element\Template" name="script.sharethis" template="MGS_Mpanel::sharethis/sharethis_script.phtml" ifconfig="mpanel/share_config/share_product_detail"/>
+        </referenceBlock>
+        
+        <referenceContainer name="content">
+
+
+      
+            
+
+
+
+
+
+           <container name="product.info.media" htmlTag="div" htmlClass="product_media_Custom" before="product.info.main">
+                <block class="Magento\Framework\View\Element\Template" name="skip_gallery_after.target" before="skip_gallery_before.wrapper" template="Magento_Theme::html/skiptarget.phtml">
+                    <arguments>
+                        <argument name="target_id" xsi:type="string">gallery-prev-area</argument>
+                    </arguments>
+                </block>
+               
+                <block class="Magento\Catalog\Block\Product\View\Gallery" name="product.info.media.image" template="Magento_Catalog::product/view/gallery.phtml">
+                    <arguments>
+                        <argument name="gallery_options" xsi:type="object">Magento\Catalog\Block\Product\View\GalleryOptions</argument>
+                        <argument name="imageHelper" xsi:type="object">Magento\Catalog\Helper\Image</argument>
+                    </arguments>
+                </block>
+                
+                <block class="Magento\Framework\View\Element\Template" name="skip_gallery_before.target" after="skip_gallery_after.wrapper" template="Magento_Theme::html/skiptarget.phtml">
+                    <arguments>
+                        <argument name="target_id" xsi:type="string">gallery-next-area</argument>
+                    </arguments>
+                </block>
+            </container>
+
+
+            <block class="Magento\Catalog\Block\Product\View" name="product.detail.info" as="product_detail_info" template="product/view/detail_layout.phtml" before="-">
+
+
+
+                <block class="Magento\Catalog\Block\Product\View" name="product.sticky" ifconfig="mpanel/product_details/product_sticky" template="product/view/product_sticky.phtml">
+                    <block class="Magento\Catalog\Block\Product\AbstractProduct" name="product.sticky.price" template="product/view/price_clone.phtml" />
+                </block>
+            </block>
+        </referenceContainer>
+        
+        <referenceContainer name="product.info.main">
+            <block class="Magento\Framework\View\Element\Template" name="product.detail.sharethis" after="-" template="MGS_Mpanel::sharethis/sharethis.phtml" ifconfig="mpanel/share_config/share_product_detail"/>
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.minimum_quantity" before="product.info" template="product/view/minimum_quantity.phtml">
+                <block class="Magento\Cms\Block\Block" name="product.min.qty" as="product_min_qty">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">moq</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceContainer>
+        <referenceBlock name="amlocator.link">
+            
+            <block class="Magento\Catalog\Block\Product\View" name="product.info.stock_info" as="product_info_stock_info" template="product/view/stock_info.phtml">
+                <block class="Magento\Cms\Block\Block" name="block_stock_info" as="block_stock_info">
+                    <arguments>
+                        <argument name="block_id" xsi:type="string">product_information_icon</argument>
+                    </arguments>
+                </block>
+            </block>
+        </referenceBlock>
+
+        
+
+          <!-- <referenceContainer name="content" >
+
+<block class="Magento\Cms\Block\Block" name="footer_above_bottom" after='-'>
+        <arguments>
+            <argument name="block_id" xsi:type="string">footer_above_bottom</argument>
+        </arguments>
+    </block>
+</referenceContainer> -->
+          
+
+ 
+        <move element="product.info.main" destination="product.detail.info"/>
+        <move element="page.main.title" destination="product.info.main" before="product.info.price"/>
+         <move element="product.info.description" destination="product.info.main" after="page.main.title"/>
+         <move element="product.attributes" destination="product.info.main" after="-"/>
+       <!--  <move element="product.info.details" destination="product.info.main" after="product_options_wrapper_bottom"/> -->
+
+        <move element="product.price.final" destination="product.info.main" before="product.info.price"/>
+        
+        <move element="product.info.overview" destination="product.info.main" after="alert.urls"/>
+        <move element="product.info.review" destination="product.info.media" after="-"/>
+        <!-- New Gallery -->
+        <referenceContainer name="product.info.media" remove="true"/>
+        <referenceBlock name="product.info.media.image" template="Magento_Catalog::product/view/gallery.phtml" />
+        <move element="product.info.media.image" destination="product.detail.info"/>
+        <move element="mp.SocialShare.InlineBottom" destination="product.info.media"/>
+        
+        
+        <referenceBlock name="product.info.stock.sku" remove="true"/>
+
+
+
+
+<referenceContainer name="page.bottom">
+    <block class="Magento\Cms\Block\Block" name="footer_above_bottom" after='-'>
+        <arguments>
+            <argument name="block_id" xsi:type="string">footer_above_bottom</argument>
+        </arguments>
+    </block>
+</referenceContainer>
+
+
+
+
+    </body>
+</page>

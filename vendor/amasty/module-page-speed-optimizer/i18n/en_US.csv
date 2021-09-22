@@ -1,0 +1,98 @@
+Start,Start
+"Clear Bundle","Clear Bundle"
+"The JS optimization is finished. Please check your website.","The JS optimization is finished. Please check your website."
+"Use Clear Bundle button to roll back the JavaScript optimization.","Use Clear Bundle button to roll back the JavaScript optimization."
+"Please update Amasty Base module. Re-upload it and replace all the files.","Please update Amasty Base module. Re-upload it and replace all the files."
+Default,Default
+"Unable to save diagnostic result with ID %1. Error: %2","Unable to save diagnostic result with ID %1. Error: %2"
+"Unable to save new diagnostic result. Error: %1","Unable to save new diagnostic result. Error: %1"
+"Unable to clear diagnostic result. Error: %1","Unable to clear diagnostic result. Error: %1"
+"Diagnostic result with specified ID ""%1"" not found.","Diagnostic result with specified ID ""%1"" not found."
+"Diagnostic result with specified Version ""%1"" not found.","Diagnostic result with specified Version ""%1"" not found."
+Disabled,Disabled
+"Enabled (Recommended)","Enabled (Recommended)"
+"Enable (Recommended)","Enable (Recommended)"
+Disable,Disable
+Yes,Yes
+"No (Recommended)","No (Recommended)"
+"Yes (Recommended)","Yes (Recommended)"
+No,No
+Enabled,Enabled
+"You can close the window","You can close the window"
+Homepage,Homepage
+"Category Page","Category Page"
+"Product Page","Product Page"
+"Diagnose your website's speed","Diagnose your website's speed"
+"Start Diagnostics","Start Diagnostics"
+"Please note that Magento Production mode should be set instead of Developer or Default to get the best performance of the settings below.","Please note that Magento Production mode should be set instead of Developer or Default to get the best performance of the settings below."
+"The server needs to be configured correspondingly for the proper work of the functionality. Please consult the user guide to find additional details.","The server needs to be configured correspondingly for the proper work of the functionality. Please consult the user guide to find additional details."
+"Follow the recommendations, then run the diagnostics again to see the score improvement.","Follow the recommendations, then run the diagnostics again to see the score improvement."
+Mobile,Mobile
+Desktop,Desktop
+"Preparing links","Preparing links"
+"Processing links:","Processing links:"
+"Optimization Finished","Optimization Finished"
+"Please wait...","Please wait..."
+"Select stores to optimize (usually it's unnecessary to optimize more than one store with the same theme/language):","Select stores to optimize (usually it's unnecessary to optimize more than one store with the same theme/language):"
+Next,Next
+"You can add specific pages to javascript bundle (e.g. Checkout page). Every link should be on a new line:","You can add specific pages to javascript bundle (e.g. Checkout page). Every link should be on a new line:"
+Finish,Finish
+"Please, click on the link(s) below to open it.","Please, click on the link(s) below to open it."
+"It can take some time for the page(s) to load. Open all the links if there are several of them.","It can take some time for the page(s) to load. Open all the links if there are several of them."
+"Wait until you get the message You can close the window","Wait until you get the message You can close the window"
+"Please copy the code below and paste it in the 'system=>default' section of the 'app/etc/config.php' file.","Please copy the code below and paste it in the 'system=>default' section of the 'app/etc/config.php' file."
+"If this key already exists, then replace it with the new one.","If this key already exists, then replace it with the new one."
+"In the section 'system=>default=>dev=>js:' enable the following options: merge_files => 1, minify_files => 1, enable_js_bundling=> 1","In the section 'system=>default=>dev=>js:' enable the following options: merge_files => 1, minify_files => 1, enable_js_bundling=> 1"
+"Push changes into your cloud repository","Push changes into your cloud repository"
+"Launch the following CLI commands one by one:","Launch the following CLI commands one by one:"
+"your locales","your locales"
+Recommendations:,Recommendations:
+"Something went wrong. Please reload the page.","Something went wrong. Please reload the page."
+"Select at least one store.","Select at least one store."
+"Google Page Speed Optimizer","Google Page Speed Optimizer"
+Information,Information
+Diagnostic,Diagnostic
+General,General
+"Enable Module","Enable Module"
+Settings,Settings
+HTML:,HTML:
+"Minify HTML","Minify HTML"
+JavaScript:,JavaScript:
+"Amasty JS Optimization","Amasty JS Optimization"
+"Amasty JS optimization is a unique process that will significantly optimize JavaScript for your Magento website using Advanced JS Bundling feature and JS Minification.<br><br>You will need to use CLI commands to run through the optimization. Please make sure that you have access to the console and know how to do it.<br><br>Please create a full backup of your Magento instance and follow the instructions that are displayed in the 'Run Optimization"" section.","Amasty JS optimization is a unique process that will significantly optimize JavaScript for your Magento website using Advanced JS Bundling feature and JS Minification.<br><br>You will need to use CLI commands to run through the optimization. Please make sure that you have access to the console and know how to do it.<br><br>Please create a full backup of your Magento instance and follow the instructions that are displayed in the 'Run Optimization"" section."
+"JS Optimization for Magento Cloud","JS Optimization for Magento Cloud"
+"If the setting is enabled, Amasty JS Optimization will correctly work for Magento Cloud hosting platform. The setting may be also used in case you have automatic deployment. Please, find more details on how to set it up from the user guide.","If the setting is enabled, Amasty JS Optimization will correctly work for Magento Cloud hosting platform. The setting may be also used in case you have automatic deployment. Please, find more details on how to set it up from the user guide."
+"Run Optimization","Run Optimization"
+"Merge JavaScript Files","Merge JavaScript Files"
+"'bin/magento setup:static-content:deploy' command must be run in the console when any of the settings in the field been changed.","'bin/magento setup:static-content:deploy' command must be run in the console when any of the settings in the field been changed."
+"Enable JavaScript Bundling","Enable JavaScript Bundling"
+"Minify JavaScript Files","Minify JavaScript Files"
+"Include JS of the Admin Area Pages into Merged JS File","Include JS of the Admin Area Pages into Merged JS File"
+"Optimizing the admin area pages sometimes lead to malfunctions and doesn't affect the Google rating","Optimizing the admin area pages sometimes lead to malfunctions and doesn't affect the Google rating"
+"Exclude URLs from JS Bundling and Merge","Exclude URLs from JS Bundling and Merge"
+"Each URL or part of the URL from new line","Each URL or part of the URL from new line"
+"Move JavaScript To Page Bottom","Move JavaScript To Page Bottom"
+"Ignore URL List","Ignore URL List"
+"Ignore Scripts that Contain","Ignore Scripts that Contain"
+CSS:,CSS:
+"Merge CSS Files","Merge CSS Files"
+"Merge CSS Files in Admin Area","Merge CSS Files in Admin Area"
+"Exclude URLs from CSS Merge","Exclude URLs from CSS Merge"
+"Minify CSS Files","Minify CSS Files"
+"Defer Fonts Loading","Defer Fonts Loading"
+"Do Not Defer Fonts That Contain","Do Not Defer Fonts That Contain"
+"Example: Luma-Icons","Example: Luma-Icons"
+"Move Print CSS Files to Page Bottom","Move Print CSS Files to Page Bottom"
+"Flat Tables:","Flat Tables:"
+"Use Flat Catalog Category","Use Flat Catalog Category"
+"Use Flat Catalog Product","Use Flat Catalog Product"
+"Server Push:","Server Push:"
+"Enable Server Push","Enable Server Push"
+"Asset Types to Server Push","Asset Types to Server Push"
+"Exclude URLs from Server Push","Exclude URLs from Server Push"
+"Other Settings:","Other Settings:"
+"Sign Static Files","Sign Static Files"
+"Asynchronous indexing","Asynchronous indexing"
+"JS Files","JS Files"
+"CSS Files","CSS Files"
+"Font Files","Font Files"

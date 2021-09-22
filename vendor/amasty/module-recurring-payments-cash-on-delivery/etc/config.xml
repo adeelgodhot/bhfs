@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringCashOnDelivery
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <cashondelivery>
+                <supports_amasty_subscriptions>1</supports_amasty_subscriptions>
+                <amasty_subscriptions_cron_handled>1</amasty_subscriptions_cron_handled>
+            </cashondelivery>
+        </payment>
+    </default>
+</config>

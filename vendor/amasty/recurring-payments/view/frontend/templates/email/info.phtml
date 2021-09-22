@@ -1,0 +1,108 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+?>
+<?php
+
+use Amasty\RecurringPayments\Api\Subscription\NotificationInterface;
+
+/** @var \Amasty\RecurringPayments\Block\Email\Info $block */
+?>
+<div class="amrec-product-container">
+    <?php if ($block->getProduct() && $block->getProductId()): ?>
+    <div class="amrec-image-wrapper amrec-image">
+        <img class="amrec-image"
+             src="<?= $block->escapeHtmlAttr($block->getProductImage()) ?>"
+             alt="<?= $block->escapeHtmlAttr($block->getProductName()) ?>">
+    </div>
+    <div class="amrec-subscription-info amrec-info">
+        <table>
+            <tbody>
+            <tr class="amrec-row">
+                <td class="amrec-name amrec-cell" colspan="2">
+                    <a href="<?= $block->escapeUrl($block->getProductUrl()) ?>"><?= $block->escapeHtml($block->getProductName()) ?></a>
+                </td>
+            </tr>
+            <tr class="amrec-row">
+                <td class="amrec-cell">
+                    <strong><?= $block->escapeHtml(__('Delivery & Billing Cycle')) ?></strong>
+                </td>
+                <td class="amrec-cell">
+                   <?= $block->escapeHtml($block->getRecurringData(NotificationInterface::INTERVAL)) ?>
+                </td>
+            </tr>
+            <?php if ((float)$block->getRecurringData(NotificationInterface::INITIAL_FEE)): ?>
+            <tr class="amrec-row">
+                <td class="amrec-cell">
+                    <strong><?= $block->escapeHtml(__('Initial Fee')) ?></strong>
+                </td>
+                <td class="amrec-cell">
+                    <?= $block->escapeHtml($block->getOriginalPrice($block->getRecurringData(NotificationInterface::INITIAL_FEE))) ?>
+                </td>
+            </tr>
+            <?php endif; ?>
+            <tr class="amrec-row">
+                <td class="amrec-cell">
+                    <strong><?= $block->escapeHtml(__('Regular Payment')) ?></strong>
+                </td>
+                <td class="amrec-cell">
+                    <?= $block->escapeHtml($block->getOriginalPrice($block->getRecurringData(NotificationInterface::PAYMENT_WITH_DISCOUNT))) ?>
+                </td>
+            </tr>
+            <?php if ($block->escapeHtml($block->getRecurringData(NotificationInterface::DISCOUNT_CYCLE))): ?>
+                <tr class="amrec-row">
+                    <td class="amrec-cell">
+                        <strong><?= $block->escapeHtml(__('Discounted Cycles')) ?></strong>
+                    </td>
+                    <td class="amrec-cell">
+                        <?= $block->escapeHtml($block->getRecurringData(NotificationInterface::DISCOUNT_CYCLE)) ?>
+                        <span>
+                        <?= $block->escapeHtml(
+                            __(
+                                '(After the first %1 cycle(s) you will be paying <span>%2</span> per delivery)',
+                                $block->getRecurringData(NotificationInterface::DISCOUNT_CYCLE),
+                                $block->getOriginalPrice(
+                                    $block->getRecurringData(NotificationInterface::REGULAR_PAYMENT)
+                                )
+                            ),
+                            ['span']
+                        ) ?>
+                    </span>
+                    </td>
+                </tr>
+            <?php endif; ?>
+            <tr class="amrec-row">
+                <td class="amrec-cell">
+                    <strong><?= $block->escapeHtml(__('Free Trials')) ?></strong>
+                </td>
+                <td class="amrec-cell">
+                    <img class="amrec-image-status"
+                        src="<?= $block->escapeUrl($block->getViewFileUrl('Amasty_RecurringPayments/images/' . $block->getRecurringData(NotificationInterface::TRIAL_STATUS) . '-status.png')) ?>">
+                </td>
+            </tr>
+            <?php if ($block->escapeHtml($block->getRecurringData(NotificationInterface::TRIAL_STATUS)) === 'yes'): ?>
+                <tr class="amrec-row">
+                    <td class="amrec-cell">
+                        <strong><?= $block->escapeHtml(__('Number of Trial Days')) ?></strong>
+                    </td>
+                    <td class="amrec-cell">
+                        <?= $block->escapeHtml($block->getRecurringData(NotificationInterface::TRIAL_DAYS)) ?>
+                    </td>
+                </tr>
+            <?php endif; ?>
+            <tr class="amrec-row">
+                <td class="amrec-cell">
+                    <strong><?= $block->escapeHtml(__('Subscription Start')) ?></strong>
+                </td>
+                <td class="amrec-cell">
+                    <?= $block->escapeHtml($block->getRecurringData(NotificationInterface::START_DATE)) ?>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <?php endif; ?>
+</div>

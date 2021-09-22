@@ -1,0 +1,58 @@
+<!--@subject Spring is here!  @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"var store_name":"Store Name",
+"var couponCode":"Coupon Code",
+"var unsubscribeUrl":"Unsubscribe Url",
+"var customerName":"Customer Name",
+"var customerGroupCode":"Customer: Group",
+"var dateOfBirth":"Customer: Date Of Birth",
+"var registrationDate":"Customer: Registration Date",
+"var lastLoginDate":"Customer: Last Login"
+}
+@-->
+{{template config_path="amfollowup/emails/header_template"}}
+
+<table class="container bord_color am-spring-template" cellpadding="0" cellspacing="0" border="0">
+    <tr>
+        <td class="am-table-header-container">
+            <div class="am-table-header" style="background: url({{view url='Amasty_Followup/images/bg_spring.png'}}) right;">
+                <p class="am-name">{{trans "Dear %customer_name !" customer_name=$customerName}}</p>
+            </div>
+        </td>
+    </tr>
+    <tr class="email-head">
+        <td align="center" valign="top">
+            <table class="table-head am-fullwidth" cellspacing="0" cellpadding="0" border="0">
+                <tr>
+                    <td class="am-head">
+                        <p class="am-email-text">
+                            {{trans "We were so anxious for the spring to come, but even more, we were waiting to impress you with our SPRING SALE!<br/>
+                            Don’t push your luck, it's a once-a-year opportunity we don't want you to miss.<br/>
+                            Acquire desired products at a knock-down price. Your cart is waiting.<br/>" |raw}}</p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+        {{layout
+            handle="amfollowup_email_wishlist"
+            customer=$customer
+            history=$history
+            mode=list_modern
+            image=yes
+            price=yes
+            priceFormat=exculdeTax
+            descriptionFormat=short
+            discount=yes
+        }}<br/>
+
+    <tr>
+        <td class="am-button-box">
+            <a href="{{config path="web/secure/base_url"}}" title="Visit {{config path="web/secure/base_url"}}" class="am-button green">Visit Our Store</a>
+        </td>
+    </tr>
+</table>
+{{template config_path="amfollowup/emails/footer_template"}}

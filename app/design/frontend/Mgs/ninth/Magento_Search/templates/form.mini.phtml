@@ -1,0 +1,110 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+?>
+<?php
+/** @var $block \Magento\Framework\View\Element\Template */
+/** @var $helper \Magento\Search\Helper\Data */
+$helper = $this->helper(\Magento\Search\Helper\Data::class);
+?>
+<?php
+$mpanelHelper = $this->helper('MGS\Mpanel\Helper\Data');
+
+$helperBrand = $this->helper('MGS\Brand\Helper\Data');
+$paramsBrand = $this->getRequest()->getParams();
+
+
+if($mpanelHelper->getStoreConfig('instantsearch/general/result') == 1){
+    $action = $block->getBaseUrl().'/instantsearch/result/';
+}else{
+    $action = $helper->getResultUrl();
+}
+?>
+<div class="block-search-custom">
+    
+
+<!-- <div class="block-brand-custom-content">
+
+<form id="search_brand_form" action="<?php echo $block->getBaseUrl(); ?>shop-by-brand" method="get">
+      <div class="control form-group">
+        <input id="search_brand"
+             type="text"
+             name="keyword"
+             value="<?php if (isset($params['keyword'])) {
+               echo $params['keyword'];
+             } ?>"
+             placeholder="<?php echo __('Search brand here...'); ?>"
+             class="input-text"
+             autocomplete="off"/>
+        <?php if (isset($paramsBrand['char']) && $paramsBrand['char'] != ''): ?>
+          <input id="search_brand_by_char"
+               type="hidden"
+               name="char"
+               value="<?php echo $params['char']; ?>"/>
+        <?php endif; ?>
+      </div>
+      <div class="actions" style='display: none;'>
+        <button type="submit"
+            title="<?php echo $block->escapeHtml(__('Search')) ?>"
+            class="action primary">
+          <span><?php echo __('Search'); ?></span>
+        </button>
+        <?php if (isset($paramsBrand['keyword']) || isset($paramsBrand['char'])): ?>
+          <button type="button"
+              onclick="window.location.href='<?php echo $helperBrand->getBrandUrl(); ?>'"
+              title="<?php echo $block->escapeHtml(__('Reset')) ?>"
+              class="action btn btn-secondary btn-sm search">
+            <span><?php echo __('Reset'); ?></span>
+          </button>
+        <?php endif; ?>
+      </div>
+    </form>
+
+</div>
+
+<span>
+<p>And/Or</p>
+</span> -->
+
+
+    <div class="block-search-custom-content">
+
+        <form class="form minisearch" id="search_mini_form" action="<?php echo /* @escapeNotVerified */ $action; ?>" method="get">
+            <div class="field search">
+               
+                <div class="control">
+                    <input id="search"
+                           data-mage-init='{"quickSearch":{
+                                "formSelector":"#search_mini_form",
+                                "url":"<?php echo /* @escapeNotVerified */ $helper->getSuggestUrl()?>",
+                                "destinationSelector":"#search_autocomplete"}
+                           }'
+                           type="text"
+                           name="<?php echo /* @escapeNotVerified */ $helper->getQueryParamName() ?>"
+                           value="<?php echo /* @escapeNotVerified */ $helper->getEscapedQueryText() ?>"
+                           placeholder="<?php echo /* @escapeNotVerified */ __('Search by brand, product, description and / or keyword...') ?>"
+                           class="input-text"
+                           maxlength="<?php echo /* @escapeNotVerified */ $helper->getMaxQueryLength() ?>"
+                           role="combobox"
+						   aria-expanded="true"
+                           aria-haspopup="false"
+                           aria-autocomplete="both"
+                           autocomplete="off"/>
+                    <div id="search_autocomplete" class="search-autocomplete"></div>
+                    <?php echo $block->getChildHtml() ?>
+                </div>
+            </div>
+           <!--  <div class="actions">
+                <button type="submit"
+                        title="<?php //echo $block->escapeHtml(__('Search')) ?>"
+                        class="action search">
+                    <span><?php // echo /* @escapeNotVerified */ __('Search') ?></span>
+                </button>
+            </div> -->
+        </form>
+    </div>
+</div>

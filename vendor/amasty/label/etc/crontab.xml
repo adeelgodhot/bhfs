@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Label
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Cron:etc/crontab.xsd">
+    <group id="index">
+        <job name="amasty_label_refresh_is_new" instance="Amasty\Label\Cron\InvalidateIsNewLabels" method="execute">
+            <schedule>20 4 * * *</schedule>
+        </job>
+        <job name="amasty_label_enable_labels" instance="Amasty\Label\Cron\ProcessLabelStatus" method="enableLabels">
+            <schedule>*/5 * * * *</schedule>
+        </job>
+        <job name="amasty_label_disable_outdated_labels" instance="Amasty\Label\Cron\ProcessLabelStatus" method="disableLabels">
+            <schedule>*/5 * * * *</schedule>
+        </job>
+    </group>
+</config>

@@ -1,0 +1,150 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Label
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="amasty_label_entity" resource="default" engine="innodb" comment="Label Main Entity">
+        <column xsi:type="int" name="label_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Label Id"/>
+        <column xsi:type="varchar" name="name" length="255" nullable="false" comment="Label Name"/>
+        <column xsi:type="tinyint" name="status" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Label Status"/>
+        <column xsi:type="tinyint" name="priority" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Label Priority"/>
+        <column xsi:type="tinyint" name="is_single" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Hide if Label with Higher Priority is Already Applied"/>
+        <column xsi:type="tinyint" name="use_for_parent" padding="10" unsigned="true" nullable="false" identity="false" default="0" comment="Display child`s label for parent (configurable and grouped products only)"/>
+        <column xsi:type="datetime" name="active_from" nullable="true" comment="Active from"/>
+        <column xsi:type="datetime" name="active_to" nullable="true" comment="Active to"/>
+        <column xsi:type="text" name="conditions_serialized" nullable="false" comment="Display Label Conditions"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="label_id"/>
+        </constraint>
+
+        <index referenceId="AMASTY_LABEL_ENTITY_STATUS" indexType="btree">
+            <column name="status"/>
+        </index>
+        <index referenceId="AMASTY_LABEL_ENTITY_STATUS_PRIORITY" indexType="btree">
+            <column name="status"/>
+            <column name="priority"/>
+        </index>
+    </table>
+
+    <table name="amasty_label_store" resource="default" engine="innodb" comment="Label to Store Relation">
+        <column xsi:type="int" name="label_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Label Id"/>
+        <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" comment="Store ID"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="label_id"/>
+            <column name="store_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign"
+                    referenceId="AMASTY_LABEL_STORE_LABEL_ENTITY"
+                    table="amasty_label_store"
+                    column="label_id"
+                    referenceTable="amasty_label_entity"
+                    referenceColumn="label_id"
+                    onDelete="CASCADE"
+        />
+        <constraint xsi:type="foreign"
+                    referenceId="AMASTY_LABEL_STORE_STORE"
+                    table="amasty_label_store"
+                    column="store_id"
+                    referenceTable="store"
+                    referenceColumn="store_id"
+                    onDelete="CASCADE"
+        />
+    </table>
+
+    <table name="amasty_label_customer_group" resource="default" engine="innodb" comment="Label to Customer Group Relation">
+        <column xsi:type="int" name="label_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Label Id"/>
+        <column xsi:type="int" name="customer_group_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Customer Group ID"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="label_id"/>
+            <column name="customer_group_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign"
+                    referenceId="AMASTY_LABEL_CUSTOMER_GROUP_LABEL_ENTITY"
+                    table="amasty_label_customer_group"
+                    column="label_id"
+                    referenceTable="amasty_label_entity"
+                    referenceColumn="label_id"
+                    onDelete="CASCADE"
+        />
+    </table>
+
+    <table name="amasty_label_catalog_parts" resource="default" engine="innodb" comment="Label Catalog Part Preferences">
+        <column xsi:type="int" name="label_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Label Id"/>
+        <column xsi:type="tinyint" name="type" padding="10" unsigned="true" nullable="false" identity="false" comment="Part Type"/>
+        <column xsi:type="text" name="label_text" nullable="false" comment="Label Text"/>
+        <column xsi:type="mediumtext" name="image" nullable="true" comment="Label Image"/>
+        <column xsi:type="varchar" name="image_size" nullable="true" comment="Percent of the product image."/>
+        <column xsi:type="tinyint" name="position" nullable="false" unsigned="true" comment="Label Position"/>
+        <column xsi:type="mediumtext" name="style" nullable="true" comment="Styles"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="label_id"/>
+            <column name="type"/>
+        </constraint>
+
+        <constraint xsi:type="foreign"
+                    referenceId="AMASTY_LABEL_CATALOG_PARTS_LABEL_ENTITY"
+                    table="amasty_label_catalog_parts"
+                    column="label_id"
+                    referenceTable="amasty_label_entity"
+                    referenceColumn="label_id"
+                    onDelete="CASCADE"
+        />
+
+        <index referenceId="AMASTY_LABEL_CATALOG_PARTS_TYPE" indexType="btree">
+            <column name="type"/>
+        </index>
+    </table>
+
+    <table name="amasty_label_index" resource="default" engine="innodb" comment="Label Index for Increase Frontend Performance">
+        <column xsi:type="int" name="label_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Label Id"/>
+        <column xsi:type="int" name="product_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Product Id"/>
+        <column xsi:type="smallint" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" comment="Store ID"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="product_id"/>
+            <column name="store_id"/>
+            <column name="label_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign"
+                    referenceId="AMASTY_LABEL_INDEX_LABEL_ENTITY"
+                    table="amasty_label_index"
+                    column="label_id"
+                    referenceTable="amasty_label_entity"
+                    referenceColumn="label_id"
+                    onDelete="CASCADE"
+        />
+    </table>
+
+    <table name="amasty_label_tooltip" resource="default" engine="innodb" comment="Label Tooltip Data">
+        <column xsi:type="int" name="label_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Label Id"/>
+        <column xsi:type="tinyint" name="status" padding="10" unsigned="true" default="1" nullable="false" identity="false" comment="Active Status"/>
+        <column xsi:type="varchar" name="color" nullable="true" length="30" comment="Tooltip Color"/>
+        <column xsi:type="varchar" name="text_color" nullable="true" length="30" comment="Tooltip Text Color"/>
+        <column xsi:type="text" name="text" nullable="true" comment="Tooltip Text"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="label_id"/>
+        </constraint>
+
+        <constraint xsi:type="foreign"
+                    referenceId="AMASTY_LABEL_ENTITY_TOOLTIP"
+                    table="amasty_label_tooltip_part"
+                    column="label_id"
+                    referenceTable="amasty_label_entity"
+                    referenceColumn="label_id"
+                    onDelete="CASCADE"
+        />
+    </table>
+</schema>

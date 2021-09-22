@@ -1,0 +1,53 @@
+<?php
+/** @var \Amasty\Storelocator\Block\Location $block */
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface');
+
+$_product = $block->getAltProduct();
+$stockItem = $objectManager->get('\Magento\CatalogInventory\Api\StockRegistryInterface');
+$productStock = $stockItem->getStockItem($_product->getId());
+
+
+$stocksta = ($productStock->getIsInStock()=="1") ? "In Stock":"Out of Stock";
+$pickup_only = $_product->getPickupOnly();
+
+if ($_product) {
+    if (!$block->getRequest()->getParam("product")) {
+        $productId = $_product->getId();
+    }
+    $locationCollection = $block->getLocationCollection();
+
+    if (count($locationCollection) > 0 && $block->isNeedToShowLink($locationCollection, $_product)) {
+        $target = $block->getTarget();
+        $linkText = $block->getLinkText();
+
+        $stock_qty = $StockState->getStockQty($productId, $_product->getStore()->getWebsiteId());
+
+        if ( $stock_qty > 5 ) {
+            // hide stock qty information where 5 or more stock available
+            $stock_qty = '';
+        }
+        ?>
+        <div class="stock_section">
+            <?php echo $stock_qty . ' ' . $stocksta ?>
+        </div>
+        <div class="product_custom_deliver">
+            <a href="<?php echo $block->escapeHtml($block->getLinkToMap()) ?>"<?php echo $block->escapeHtml($target) ?> >
+                in store collection
+            </a>
+        </div>    
+        <?php
+
+    }
+}
+?>
+
+<div class="custom_pad_section">
+    <?php
+    if ( !$pickup_only ):
+        ?>
+        <p class='del_left_ok'> for delivery </p>
+    <?php else: ?>
+        <p class='del_left'> for delivery </p>
+    <?php endif; ?>
+</div>

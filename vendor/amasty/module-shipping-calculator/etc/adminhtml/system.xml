@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_ShippingCalculator
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="amasty_shipping_calculator" translate="label" type="text" sortOrder="190803" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Shipping Calculator</label>
+            <tab>amasty</tab>
+            <resource>Amasty_ShippingCalculator::config</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+
+            <group id="display_options" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Display Options</label>
+                <field id="places" translate="label comment" type="multiselect" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Shipping Calculator in</label>
+                    <source_model>Amasty\ShippingCalculator\Model\Config\Source\ShippingCalculatorPlace</source_model>
+                    <comment><![CDATA[A new tab with shipping calculator will be added to product tabs on a Product Page]]></comment>
+                    <validate>required-entry</validate>
+                </field>
+                <field id="tab_name" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipping Calculator Tab Name</label>
+                </field>
+                <field id="description" translate="label comment" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Shipping Calculator Description</label>
+                    <comment><![CDATA[Leave blank if no description needed]]></comment>
+                </field>
+                <field id="show_country_field" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Country Field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_region_field" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show State/Region Field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="show_country_field">1</field>
+                    </depends>
+                </field>
+                <field id="show_postcode_field" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Zip/Postcode Field</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="not_found_message" translate="label" type="textarea" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Warning "Not Found" Message</label>
+                </field>
+            </group>
+
+            <group id="default_values" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Default Values</label>
+                <field id="country_id" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Country</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <frontend_class>countries</frontend_class>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="region_id" translate="label" type="text" sortOrder="27" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default State/Region</label>
+                </field>
+                <field id="postcode" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Default Zip/Postcode</label>
+                </field>
+            </group>
+
+            <group id="display_restrictions" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Display Restrictions</label>
+                <field id="restricted_products_ids" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ignore Display Shipping Calculator for Next Products</label>
+                    <comment><![CDATA[Comma separated product IDs. Shipping Calculator will not be displayed]]></comment>
+                </field>
+                <field id="restricted_categories_ids" translate="label comment" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ignore Display Shipping Calculator for Products from Next Categories</label>
+                    <comment><![CDATA[Products from the following categories will be ignored for showing. Comma separated category IDs]]></comment>
+                </field>
+            </group>
+
+        </section>
+    </system>
+</config>

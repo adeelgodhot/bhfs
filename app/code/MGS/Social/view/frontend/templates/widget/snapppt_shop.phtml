@@ -1,0 +1,21 @@
+<?php $helper = $this->helper('MGS\Social\Helper\Data'); ?>
+<?php $enable_snapppt = $helper->getConfig('snapppt_setting/enable_snapppt'); ?>
+<?php $snapppt_code = $helper->getConfig('snapppt_setting/snapppt_script'); ?>
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data'); ?>
+
+<?php if($this->hasData('mgs_panel_title') || $this->hasData('mgs_panel_note')): ?>
+    <div class="content-heading instagram-shop-title">
+        <?php if($this->hasData('mgs_panel_title')): ?>
+            <h2 class="title"><?php echo $themeHelper->decodeHtmlTag($this->getData('mgs_panel_title')) ?></h2>
+        <?php endif ?>
+        <?php if($this->hasData('mgs_panel_note')): ?>
+            <div class="block-note"><?php echo $themeHelper->decodeHtmlTag($this->getData('mgs_panel_note')) ?></div>
+        <?php endif ?>
+    </div>
+<?php endif ?>
+
+<?php if($enable_snapppt && $snapppt_code != ""): ?>
+	<?php echo $snapppt_code; ?>
+<?php else: ?>
+	<div class="message error"><div><?php echo __('Please config your Snapppt settings'); ?></div></div>
+<?php endif ?>

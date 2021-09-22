@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="MidoriWeb_AdvanceCategorySorting::AdvanceCategorySorting_Label"
+            title="Category Sorting"
+            module="MidoriWeb_AdvanceCategorySorting"
+            sortOrder="90"
+            parent="Magento_Catalog::catalog"
+            resource="MidoriWeb_AdvanceCategorySorting::AdvanceCategorySorting_Label"
+        />
+        <add
+            id="MidoriWeb_AdvanceCategorySorting::AdvanceCategorySorting"
+            title="Category Sorting Settings"
+            module="MidoriWeb_AdvanceCategorySorting"
+            action="adminhtml/system_config/edit/section/midoriweb_advance_category_sorting/"
+            sortOrder="20"
+            parent="MidoriWeb_AdvanceCategorySorting::AdvanceCategorySorting_Label"
+            resource="MidoriWeb_AdvanceCategorySorting::AdvanceCategorySorting"
+        />
+    </menu>
+</config>

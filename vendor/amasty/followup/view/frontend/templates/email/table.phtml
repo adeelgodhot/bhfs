@@ -1,0 +1,100 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+?>
+<?php
+    $quoteItems = $this->getItems();
+?>
+<?php $itemsCount = count($quoteItems); ?>
+<tr class="email-body">
+    <td class="am-products-container" <?= ($itemsCount > 0) ? : 'style="display: none"' ?>>
+        <div class="am-table-template-old">
+        <table cellspacing="0" cellpadding="0" border="0" width="650">
+            <tr>
+            <?php $i = 0; foreach ($quoteItems as $_item){ $i++ ?>
+                <?php
+                    $_product = $this->loadProduct($_item);
+                    if ($_product) {
+                    $price = $this->getProductPrice($_item);
+                    $formatedPrice = $this->getFormatedProductPrice($price);
+                    $discountPrice = $this->getDiscountPrice($price);
+                    $showDiscount = $price != $discountPrice && $this->showDiscount();
+                    $showSpecialPrice = $this->showSpecialPrice();
+                ?>
+
+                <td width="32%">
+                    <?php if ($this->showImage()) {?>
+                        <?php $block->initProductImageHelper($_product, 'amasty_followup_item_table');?>
+                        <?php $_imageHelper = $block->getProductImageHelper();?>
+                    <p align="center" class="am-product-description-text">
+                        <a href="<?php echo $this->getProductUrl($_product) ?>">
+                            <img class="am-product-image" src="<?php echo $_imageHelper->getUrl()?>" alt="<?php echo $block->escapeHtml($_imageHelper->getLabel())?>" width="<?php echo $_imageHelper->getWidth()?>" height="<?php echo $_imageHelper->getHeight()?>"/>
+                        </a>
+                    </p>
+                    <?php }?>
+                    <p align="center" class="am-product-description-text"><a href="<?php echo $this->getProductUrl($_product) ?>" class="am-product-name"><strong><?php echo $this->escapeHtml($_product->getName()) ?></strong></a></p>
+                    <?php if ($this->showPrice()) {?>
+                    <p align="center" class="am-product-description-text" style="<?php print $showDiscount ? "text-decoration: line-through;" : "";?>"><?php
+                        print __('Price:') ;
+                        print "&nbsp;";
+                        print $formatedPrice;
+                        if ($_item->getQty() > 1){
+                            print '&nbsp;x&nbsp;'.floor($_item->getQty());
+                        }
+                    ?></p>
+
+                    <?php if ($showDiscount) {?>
+                    <p align="center" class="am-product-description-text">
+                        <p align="center" class="am-product-description-text"><?php
+                            print __('Discount Price').":" ;
+                            print "&nbsp;";
+                            print $this->formatPrice($discountPrice);
+                            if ($_item->getQty() > 1){
+                                print '&nbsp;x&nbsp;'.floor($_item->getQty());
+                            }
+                        ?></p>
+                    </p>
+
+                    <?php }?>
+
+                    <?php if ($showSpecialPrice) {?>
+                          <p align="center" class="am-product-description-text">
+                              <?php
+                            print __('Special Price').":" ;
+                            print "&nbsp;";
+                            print $this->formatPrice($_product->getSpecialPrice());
+                            if ($_item->getQty() > 1){
+                                print '&nbsp;x&nbsp;'.floor($_item->getQty());
+                            }
+                            if ($_product->getSpecialToDate()) {
+                                print '<div>';
+                                print __('Offer ends') . ' ' . $this->getDate($_product->getSpecialToDate(), false);
+                                print '</div>';
+                            }
+                            ?>
+                          </p>
+                    <?php }?>
+
+                    <?php }?>
+
+                </td>
+                <?php if ($i%3!=0) { ?>
+                    <td width="2%"></td>
+                <?php } else { ?>
+                   </tr>
+                    <tr>
+                        <td colspan="5">&nbsp;</td>
+                    </tr>
+                    <?php if ($i<$itemsCount) { ?>
+                       <tr>
+                    <?php } ?>
+                <?php } ?>
+               <?php }?>
+            <?php } ?>
+        </table>
+        </div>
+    </td>
+</tr>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_ExitPopup
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../Magento/Email/etc/email_templates.xsd">
+    <template id="amasty_exit_popup_email_settings_template" label="Exit Intent Popup" file="exit_popup.html" type="html" module="Amasty_ExitPopup" area="frontend"/>
+</config>

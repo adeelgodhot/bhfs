@@ -1,0 +1,9 @@
+<?php
+/**
+ *DS
+ */
+\Magento\Framework\Component\ComponentRegistrar::register(
+    \Magento\Framework\Component\ComponentRegistrar::MODULE,
+    'Dotsquares_Subcatlist',
+    __DIR__
+);

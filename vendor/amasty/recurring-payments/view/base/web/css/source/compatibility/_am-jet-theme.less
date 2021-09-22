@@ -1,0 +1,217 @@
+//
+// Compatibility with Amasty Jet Theme
+// ______________________________________________
+
+//
+//  Variables
+//  --------------------------------------------
+
+@amrec-status-indicator__yes__background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iNyIgZmlsbD0iIzdBQTAyMiIvPjxwYXRoIGQ9Ik05LjIyNCA0Ljg2N2EuNDE3LjQxNyAwIDAwLS4yOTMuMTM3Yy0xLjA0NCAxLjEtMS44MzQgMi4wMTQtMi44MTcgMy4wNjVsLTEuMDc4LS45NmEuNDIuNDIgMCAwMC0uMzEtLjEwNS40MS40MSAwIDAwLS4yOS4xNTYuNDU2LjQ1NiAwIDAwLS4xMDEuMzI3LjQ2Ny40NjcgMCAwMC4xNDguMzA1bDEuMzg1IDEuMjM0QS40MTMuNDEzIDAgMDA2LjQ0OCA5YzEuMTQ0LTEuMjA4IDEuOTYxLTIuMTc0IDMuMDg5LTMuMzYzYS40Ny40NyAwIDAwLjA5Ni0uNDk5LjQ0My40NDMgMCAwMC0uMTY1LS4yMDMuNDEuNDEgMCAwMC0uMjQ0LS4wNjl6IiBmaWxsPSIjZmZmIi8+PC9zdmc+) no-repeat center;
+@amrec-status-indicator__no__background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQiIGhlaWdodD0iMTQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE0IiBoZWlnaHQ9IjE0IiByeD0iNyIgZmlsbD0iI0YyM0IzQiIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNNC4wNjcgOS41NDZsNS40NzktNS40OC4zODcuMzg4LTUuNDc5IDUuNDgtLjM4Ny0uMzg4eiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNOS45MzMgOS41NDZsLTUuNDc5LTUuNDgtLjM4Ny4zODggNS40NzkgNS40OC4zODctLjM4OHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=) no-repeat center;
+@amrec-main__color: @amtheme__secondary__color;
+@amrec-radio-input-label__border: @amtheme__border;
+@amrec-radio-input-label__checked__border: 1px solid @color-black;
+@amrec-radio-input-label__checked__background: @amtheme__background-secondary__color;
+@amrec-button__font-size: 1.4rem;
+@amrec-button-cancel__color: #333;
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    ._amrec-radio-input + .amrec-label {
+        &:before {
+            position: static;
+        }
+
+        &:after {
+            content: none;
+        }
+    }
+
+    .amrec-purchase-option .amrec-label {
+        padding-left: 0;
+    }
+
+    .amrec-subscription-start .amrec-datepicker + .ui-datepicker-trigger {
+        bottom: 0;
+    }
+
+    .amrec-cancel-confirmation .amrec-header {
+        font-size: @modal-popup-title__font-size;
+    }
+
+    .amasty-jet-theme {
+        .amrec-subscription-options {
+            & {
+                margin-top: @indent__base;
+                padding: 0;
+                background: none;
+            }
+
+            .amrec-cycle-container .amrec-input.-radio,
+            .amrec-end-type .amrec-input.-radio {
+                & + .amrec-label {
+                    padding: @indent__s;
+                }
+
+                & + .amrec-label:before {
+                    display: none;
+                }
+
+                &:checked + .amrec-label {
+                    background: @amrec-radio-input-label__checked__background;
+                }
+
+                &:checked + .amrec-label,
+                &:focus + .amrec-label,
+                & + .amrec-label:hover {
+                    border: @amrec-radio-input-label__checked__border;
+                    box-shadow: none;
+                }
+            }
+        }
+
+        .amrec-purchase-option .amrec-input.-radio,
+        .amrec-subscription-options .amrec-cycle-container .amrec-input.-radio,
+        .amrec-subscription-options .amrec-end-type .amrec-input.-radio {
+            &:checked + .amrec-label,
+            &:focus + .amrec-label,
+            & + .amrec-label:hover {
+                text-shadow: none;
+            }
+        }
+
+        .amrec-subscription-info {
+            & {
+                padding: 0;
+                border-radius: @amtheme__border-radius__s;
+            }
+
+            table > tbody > tr td {
+                padding: @indent__s;
+            }
+
+            table > tbody:last-of-type > tr:last-of-type td {
+                padding-bottom: @indent__s;
+            }
+        }
+
+        .amrec-subscriptions-grid {
+            .actions-toolbar {
+                margin-top: 0;
+            }
+
+            .amrec-cell.col {
+                padding: 10px;
+            }
+
+            .amrec-button {
+                &:extend(.button-as-link);
+
+                font-weight: 700;
+            }
+
+            .amrec-button:hover {
+                background: none;
+            }
+        }
+
+        .amrec-subscriptions-grid .amtheme-status {
+            &.-active {
+                .am-status-indicator(@color-green);
+            }
+
+            &.-canceled {
+                .am-status-indicator(@color-red);
+            }
+        }
+
+        .amrec-cancel-confirmation .amrec-button {
+            & {
+                padding: 12px;
+                font-size: @amrec-button__font-size;
+            }
+
+            &.-cancel {
+                color: @amrec-button-cancel__color;
+            }
+
+            &.-confirm {
+                background: @button__background;
+            }
+
+            &.-confirm:hover {
+                background: @button__hover__background;
+            }
+        }
+
+        .amrec-cancel-confirmation .amrec-close {
+            &:hover {
+                background: none;
+            }
+
+            &:before,
+            &:after {
+                width: 14px;
+                height: 1px;
+                background: @amtheme__system-icon__color;
+            }
+        }
+    }
+
+    .opc-block-summary {
+        .product-item > .product {
+            flex-wrap: wrap;
+        }
+
+        .amrec-subscriptional-label {
+            width: 100%;
+        }
+
+        .product-item .product-item-details {
+            flex: 1 0;
+        }
+
+        .product-item .product-item-inner .product-item-name-block,
+        .product-item .product-item-inner .amrec-subtotal {
+            flex: 1 1;
+        }
+
+        .product-item .product-item-inner .amrec-label {
+            width: 100%;
+        }
+
+        .product-item .product-item-inner .amrec-subtotal {
+            align-items: flex-start;
+            flex-flow: wrap row;
+            margin-left: 20px;
+            font-size: 1.4rem;
+            line-height: 1.6rem;
+        }
+    }
+}
+
+//
+//  Mobile
+//  --------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__xs) {
+    .opc-block-summary .product-item .product-item-inner .subtotal.amrec-subtotal {
+        margin-left: 0;
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__s) {
+    .amasty-jet-theme .table-wrapper.amrec-subscriptions-grid .table {
+        .amrec-cell.col[data-th]:before {
+            width: 40%;
+        }
+
+        .amrec-cell.amrec-info .amrec-name {
+            display: block;
+            margin: 10px 0;
+        }
+    }
+}

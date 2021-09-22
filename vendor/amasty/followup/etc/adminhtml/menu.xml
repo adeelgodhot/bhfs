@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_Followup::followup" title="Follow Up Email" module="Amasty_Followup" parent="Magento_Backend::marketing" sortOrder="100" resource="Amasty_Followup::followup"/>
+
+        <add id="Amasty_Followup::followup_rule" title="Rules" sortOrder="10" module="Amasty_Followup" parent="Amasty_Followup::followup" action="amasty_followup/rule/" resource="Amasty_Followup::followup_rule"/>
+
+        <add id="Amasty_Followup::followup_queue" title="Emails Queue" sortOrder="20" module="Amasty_Followup" parent="Amasty_Followup::followup" action="amasty_followup/queue/" resource="Amasty_Followup::followup_queue"/>
+
+        <add id="Amasty_Followup::followup_history" title="History" sortOrder="30" module="Amasty_Followup" parent="Amasty_Followup::followup" action="amasty_followup/history/" resource="Amasty_Followup::followup_history"/>
+
+        <add id="Amasty_Followup::followup_blacklist" title="Blacklist" sortOrder="40" module="Amasty_Followup" parent="Amasty_Followup::followup" action="amasty_followup/blacklist/" resource="Amasty_Followup::followup_blacklist"/>
+    </menu>
+</config>

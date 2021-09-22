@@ -1,0 +1,149 @@
+<div data-bind="blockLoader: isLoading" >
+    <div class="table-wrapper amrec-subscriptions-grid">
+        <table class="table table-order-items">
+            <thead>
+                <tr>
+                    <th data-bind="i18n: 'Order #', visible: visible" class="col amrec-th"></th>
+                    <th data-bind="i18n: 'Subscription', visible: visible" class="col amrec-th"></th>
+                    <th data-bind="i18n: 'Delivery', visible: visible" class="col amrec-th"></th>
+                    <th data-bind="i18n: 'Last Billing Date', visible: visible" class="col amrec-th"></th>
+                    <th data-bind="i18n: 'Amount Billed', visible: visible" class="col amrec-th"></th>
+                    <th data-bind="visible: visible" class="col amrec-th">
+                        <span data-bind="i18n: 'Next Billing Date'"></span>
+                        <!-- ko if: (nextBillingDateTooltipEnabled) -->
+                        <span class="amrec-tooltip"
+                              data-amrec-js="tooltip"
+                              data-bind="attr:{title: nextBillingDateTooltipText}">
+                            </span>
+                        <!-- /ko -->
+                    </th>
+                    <th data-bind="i18n: 'Amount to Bill', visible: visible" class="col amrec-th"></th>
+                    <th data-bind="i18n: 'Status', visible: visible" class="col amrec-th"></th>
+                    <th data-bind="i18n: 'Actions', visible: visible" class="col amrec-th"></th>
+                </tr>
+            </thead>
+            <tbody>
+            <!-- ko foreach: { data: subscriptions, as: 'subscriptionInfo'}  -->
+            <tr>
+                <td class="amrec-cell col id"
+                    data-bind="attr: {'data-th': $t('Order #')}">
+                    <a attr="href: subscriptionInfo.order_link" target="_blank">
+                        <span data-bind="text: subscriptionInfo.order_increment_id"></span>
+                    </a>
+                </td>
+                <td class="amrec-cell amrec-info col"
+                    data-bind="attr: {'data-th': $t('Subscription')}">
+                        <span class="amrec-name"
+                              data-bind="
+                                  text: subscriptionInfo.subscription_name,
+                                  click: $parent.toggleDetailsVisibility.bind($parent, subscriptionInfo),
+                                  css: {'-up': subscriptionInfo.detailsVisibility}"></span>
+                    <div class="amrec-details" data-bind="visible: subscriptionInfo.detailsVisibility">
+                        <span class="amrec-label" data-bind="i18n: 'Quantity:'"></span><span class="amrec-value" data-bind="text: subscriptionInfo.subscription.qty"></span><br/>
+                        <!-- ko if: (subscriptionInfo.trial_start_date) -->
+                        <span class="amrec-label" data-bind="i18n: 'Trial Start Date:'"></span><span class="amrec-value" data-bind="text: subscriptionInfo.trial_start_date"></span><br/>
+                        <!-- /ko -->
+                        <!-- ko if: (subscriptionInfo.trial_end_date) -->
+                        <span class="amrec-label" data-bind="i18n: 'Trial End Date:'"></span><span class="amrec-value" data-bind="text: subscriptionInfo.trial_end_date"></span><br/>
+                        <!-- /ko -->
+                        <span class="amrec-label" data-bind="i18n: 'Subscription Start Date:'"></span><span class="amrec-value" data-bind="text: subscriptionInfo.start_date"></span><br/>
+                        <!-- ko if: (subscriptionInfo.address) -->
+                        <div class="amrec-shipping">
+                            <span class="amrec-label" data-bind="i18n: 'Shipping Address'"></span><br/>
+                            <!-- ko text: subscriptionInfo.address.prefix -->
+                            <!-- /ko -->
+                            <!-- ko text: subscriptionInfo.address.firstname -->
+                            <!-- /ko -->
+                            <!-- ko text: subscriptionInfo.address.middlename -->
+                            <!-- /ko -->
+                            <!-- ko text: subscriptionInfo.address.lastname -->
+                            <!-- /ko -->
+                            <!-- ko text: subscriptionInfo.address.suffix -->
+                            <!-- /ko -->
+                            <br/>
+                            <!-- ko text: _.values(subscriptionInfo.address.street).join(', ') -->
+                            <!-- /ko -->
+                            <br/>
+                            <!-- ko text: subscriptionInfo.address.city -->
+                            <!-- /ko -->
+                            <span data-bind="text: subscriptionInfo.address.region"></span>
+                            <!-- ko text: subscriptionInfo.address.postcode -->
+                            <!-- /ko -->
+                            <br/>
+                            <!-- ko text: subscriptionInfo.address.country -->
+                            <!-- /ko -->
+                            <br/>
+                            <!-- ko text: subscriptionInfo.address.telephone -->
+                            <!-- /ko -->
+                        </div>
+                        <!-- /ko -->
+                    </div>
+                </td>
+                <td class="amrec-cell col"
+                    data-bind="text: subscriptionInfo.subscription.delivery,
+                                   attr: {'data-th': $t('Delivery')}"></td>
+                <td class="amrec-cell col"
+                    data-bind="text: subscriptionInfo.last_billing,
+                                   attr: {'data-th': $t('Last Billing Date')}"></td>
+                <td class="amrec-cell col"
+                    data-bind="text: subscriptionInfo.last_billing_amount,
+                                   attr: {'data-th': $t('Amount Billed')}"></td>
+                <td class="amrec-cell col"
+                    data-bind="i18n: subscriptionInfo.next_billing,
+                                   attr: {'data-th': $t('Next Billing Date')}"></td>
+                <td class="amrec-cell col total"
+                    data-bind="attr: {'data-th': $t('Amount to Bill')}">
+                    <span class="price" if="subscriptionInfo.next_billing_amount" text="subscriptionInfo.next_billing_amount"></span>
+                </td>
+                <!-- ko if: (subscriptionInfo.approval_link) -->
+                <td class="amrec-cell col">
+                    <a data-bind="text: subscriptionInfo.status,
+                                      attr: {href: subscriptionInfo.approval_link}"
+                       target="_blank"></a>
+                </td>
+                <!-- /ko -->
+                <!-- ko if: (!subscriptionInfo.approval_link) -->
+                <td class="amrec-cell col"
+                    data-bind="attr: {'data-th': $t('Status')}">
+                    <span attr="class: 'amtheme-status -' + subscriptionInfo.status.toLocaleLowerCase()"
+                          text="subscriptionInfo.status"></span>
+                </td>
+                <!-- /ko -->
+                <td class="amrec-cell col actions"
+                    data-bind="attr: {'data-th': $t('Actions')}">
+                    <!-- ko if: (subscriptionInfo.is_active) -->
+                    <div class="actions-toolbar">
+                        <div class="primary">
+                            <button class="amrec-button"
+                                    type="submit"
+                                    data-bind="
+                                        click: $parent.cancelClick.bind($parent, subscriptionInfo),
+                                        attr: {title: $t('Cancel')}
+                                ">
+                                <span data-bind="i18n: 'Cancel'"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- /ko -->
+                </td>
+            </tr>
+            <!-- /ko -->
+            </tbody>
+        </table>
+    </div>
+    <div class="amrec-cancel-confirmation" data-amrec-js="cancel-confirmation-popup" style="display: none">
+        <div class="amrec-overlay" data-amrec-js="close-confirmation"></div>
+        <div class="amrec-popup amrec-subscription-cancel">
+            <span class="amrec-close"  data-amrec-js="close-confirmation"></span>
+            <h3 class="amrec-header" data-bind="i18n: 'Are you sure you want to cancel this subscription?'"></h3>
+            <p class="amrec-text"
+               data-bind="i18n: 'In case you cancel it by mistake, you will have to place a new order to purchase the same subscription again, since it is currently not possible to automatically renew any subscription after cancellation.'"></p>
+            <div class="amrec-wrapper">
+                <button class="amrec-button -cancel" data-amrec-js="close-confirmation" data-bind="i18n: 'No, keep subscription active'"></button>
+                <button class="amrec-button -confirm"
+                        data-amrec-js="cancel-subscription"
+                        data-bind="i18n: 'Yes, cancel this subscription'"></button>
+            </div>
+        </div>
+    </div>
+</div>

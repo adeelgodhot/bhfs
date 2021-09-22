@@ -1,0 +1,106 @@
+<?php
+$blogHelper = $this->helper('MGS\Blog\Helper\Data');
+$collection = $block->getCollection();
+$view_mode = $blogHelper->getConfig('general_settings/view_mode');
+?>
+<?php if (count($collection)): ?>
+    <?php if($view_mode == 'list'): ?>
+        <div class="blog-list list-mode">
+            <?php $i=0; foreach ($collection as $post): $i++ ?>
+                
+                <div class="blog-post post-item-info<?php if($i == 1): ?> featured-post<?php endif ?>">
+                
+                    <div class="post-image">
+                        <a class="img-link" href="<?php echo $post->getPostUrlWithNoCategory(); ?>" title="<?php echo $post->getTitle(); ?>">
+                            <?php if($i == 1): ?>
+                                <?php if($blogHelper->getImagePost($post) != ""): ?>
+                                    <img class="img-responsive" src="<?php echo $blogHelper->getImagePost($post); ?>" alt="<?php echo $post->getTitle(); ?>"/>
+                                <?php endif ?>
+                            <?php else: ?>
+                                <?php if($blogHelper->getImageThumbnailPost($post) != ""): ?>
+                                    <img class="img-responsive" src="<?php echo $blogHelper->getImageThumbnailPost($post); ?>" alt="<?php echo $post->getTitle(); ?>"/>
+                                <?php endif ?>
+                            <?php endif ?>
+                        </a>
+                        <?php if($post->getThumbType() == "video" && $post->getVideoThumbId() != ""): ?>
+                            <a class="popup-youtube btn btn-default" href="<?php echo $blogHelper->getVideoThumbUrl($post); ?>" title="<?php echo $post->getTitle(); ?>"><?php echo __('Video'); ?></a>
+                        <?php endif ?>
+                    </div>
+                    
+                    <div class="post-detail">
+                    
+                        <h3 class="post-title"><a class="post-title-link" title="<?php echo $post->getTitle(); ?>" href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo $post->getTitle(); ?></a></h3>
+                        
+                        <div class="entry-metas">
+                            <span class="entry-meta"><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::FULL, false)); ?></span>
+                            <span class="entry-author entry-meta">
+                                <?php echo __('By '); ?><span class="color-theme"><?php echo __('%1', $post->getUpdatedByUser() ? $post->getUpdatedByUser() : $post->getUser()); ?></span>
+                            </span>
+                        </div>
+                        
+                        <?php if ($post->getShortContent()): ?>
+                            <div class="post-short-description"><?php echo $post->getShortContent(); ?></div>
+                            <button class="action-shop-now" onclick="setLocation('<?php echo $post->getPostUrlWithNoCategory(); ?>');"><span><?php echo __('Read More'); ?></span></button>
+                        <?php endif; ?>
+                        
+                    </div>
+                    
+                </div>
+                
+            <?php endforeach ?>
+        </div>
+    <?php else: ?>
+        <div class="blog-list grid-mode row">
+            <?php $i=0; foreach ($collection as $post): $i++ ?>
+                <?php $c = $i -1; ?>
+                <div class="<?php if($i != 1): ?>col-sm-6<?php endif ?> col-xs-12<?php if($c % 2 == 1): ?> first-row-item first-sm-item<?php endif ?>">
+                    <div class="blog-post post-item-info<?php if($i == 1): ?> featured-post<?php endif ?>">
+                    
+                        <div class="post-image">
+                            <a class="img-link" href="<?php echo $post->getPostUrlWithNoCategory(); ?>" title="<?php echo $post->getTitle(); ?>">
+                                <?php if($i == 1): ?>
+                                    <?php if($blogHelper->getImagePost($post) != ""): ?>
+                                        <img class="img-responsive" src="<?php echo $blogHelper->getImagePost($post); ?>" alt="<?php echo $post->getTitle(); ?>"/>
+                                    <?php endif ?>
+                                <?php else: ?>
+                                    <?php if($blogHelper->getImageThumbnailPost($post) != ""): ?>
+                                        <img class="img-responsive" src="<?php echo $blogHelper->getImageThumbnailPost($post); ?>" alt="<?php echo $post->getTitle(); ?>"/>
+                                    <?php endif ?>
+                                <?php endif ?>
+                            </a>
+                            <?php if($post->getThumbType() == "video" && $post->getVideoThumbId() != ""): ?>
+                                <a class="popup-youtube btn btn-default" href="<?php echo $blogHelper->getVideoThumbUrl($post); ?>" title="<?php echo $post->getTitle(); ?>"><?php echo __('Video'); ?></a>
+                            <?php endif ?>
+                        </div>
+                        
+                        <div class="post-detail">
+                        
+                            <h3 class="post-title"><a class="post-title-link" title="<?php echo $post->getTitle(); ?>" href="<?php echo $post->getPostUrlWithNoCategory(); ?>"><?php echo $post->getTitle(); ?></a></h3>
+                            
+                            <div class="entry-metas">
+                                <span class="entry-meta"><?php echo __('%1', $block->formatDate($post->getCreatedAt(), \IntlDateFormatter::FULL, false)); ?></span>
+                                <span class="entry-author entry-meta">
+                                    <?php echo __('By '); ?><span class="color-theme"><?php echo __('%1', $post->getUpdatedByUser() ? $post->getUpdatedByUser() : $post->getUser()); ?></span>
+                                </span>
+                            </div>
+                            
+                            <?php if ($post->getShortContent()): ?>
+                                <div class="post-short-description"><?php echo $post->getShortContent(); ?></div>
+                                <button class="action-shop-now" onclick="setLocation('<?php echo $post->getPostUrlWithNoCategory(); ?>');"><span><?php echo __('Read More'); ?></span></button>
+                            <?php endif; ?>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            <?php endforeach ?>
+        </div>
+    <?php endif ?>
+    
+	<div class="bottom-pagination"><div class="toolbar"><?php echo $block->getPagerHtml(); ?></div></div>
+    
+<?php else: ?>
+    <div class="message error">
+        <div><?php echo __('Have no posts.') ?></div>
+    </div>
+<?php endif; ?>

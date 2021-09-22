@@ -1,0 +1,45 @@
+//
+//  Shape Chooser Component
+//  ______________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amlabel-shapes-container {
+        & {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: start;
+        }
+
+        > .amlabel-shape {
+            & {
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
+                justify-content: center;
+                margin: 0 10px 10px 0;
+                padding: 0 10px;
+                width: 115px;
+                height: 55px;
+                border: 1px solid #eee;
+                vertical-align: top;
+            }
+
+            &:hover {
+                border-color: #c4c4c4;
+            }
+
+            &.-am-checked {
+                border-color: #000;
+            }
+        }
+
+        .amlabel-image {
+            height: 40px;
+        }
+    }
+}

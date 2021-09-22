@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Label
+ */
+-->
+
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">amasty_labels_edit.amasty_labels_edit_data_source</item>
+        </item>
+        <item name="template" xsi:type="string">templates/form/collapsible</item>
+    </argument>
+
+    <settings>
+        <buttons>
+            <button name="save">
+                <label translate="true">Save</label>
+                <class>save primary</class>
+            </button>
+            <button name="save_and_continue" class="Amasty\Label\Ui\Component\Form\Label\Buttons\SaveAndContinue"/>
+            <button name="duplicate" class="Amasty\Label\Ui\Component\Form\Label\Buttons\Duplicate"/>
+            <button name="delete" class="Amasty\Label\Ui\Component\Form\Label\Buttons\Delete"/>
+            <button name="back">
+                <url path="*/*/"/>
+                <label translate="true">Back</label>
+                <class>back</class>
+            </button>
+        </buttons>
+        <namespace>amasty_labels_edit</namespace>
+        <dataScope>data</dataScope>
+        <deps>
+            <dep>amasty_labels_edit.amasty_labels_edit_data_source</dep>
+        </deps>
+    </settings>
+
+    <dataSource name="amasty_labels_edit_data_source">
+        <argument name="data" xsi:type="array">
+            <item name="js_config" xsi:type="array">
+                <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+            </item>
+        </argument>
+        <settings>
+            <submitUrl path="amasty_label/label/save"/>
+        </settings>
+        <dataProvider class="Amasty\Label\Ui\DataProvider\Label\Form" name="amasty_labels_edit_data_source">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>label_id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+
+    <fieldset name="general" sortOrder="10">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">General</label>
+            <opened>true</opened>
+        </settings>
+
+        <field name="label_id" formElement="hidden" sortOrder="10">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">label_id</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>text</dataType>
+                <dataScope>label_id</dataScope>
+            </settings>
+        </field>
+        <field name="status" sortOrder="10" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">1</item>
+                    <item name="toggleLabels" xsi:type="array">
+                        <item name="on" translate="true" xsi:type="string">Active</item>
+                        <item name="off" translate="true" xsi:type="string">Inactive</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Status</label>
+                <dataScope>status</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="true" xsi:type="number">1</map>
+                            <map name="false" xsi:type="number">0</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+
+        <container name="date_group" component="Magento_Ui/js/form/components/group" sortOrder="15">
+            <argument name="data" xsi:type="array">
+                <item name="type" xsi:type="string">group</item>
+                <item name="config" xsi:type="array">
+                    <item name="additionalClasses" xsi:type="string">admin__control-grouped-date</item>
+                    <item name="breakLine" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+            <field name="active_from" sortOrder="90" formElement="date">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="options" xsi:type="array">
+                            <item name="showsTime" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                </argument>
+                <settings>
+                    <additionalClasses>
+                        <class name="admin__field-date">true</class>
+                    </additionalClasses>
+                    <dataType>string</dataType>
+                    <label translate="true">Show From</label>
+                </settings>
+            </field>
+            <field name="active_to" sortOrder="100" formElement="date">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="options" xsi:type="array">
+                            <item name="showsTime" xsi:type="boolean">true</item>
+                        </item>
+                    </item>
+                </argument>
+                <settings>
+                    <scopeLabel/>
+                    <additionalClasses>
+                        <class name="admin__field-date">true</class>
+                    </additionalClasses>
+                    <dataType>string</dataType>
+                    <label translate="true">To</label>
+                </settings>
+            </field>
+        </container>
+
+        <field name="name" sortOrder="20" formElement="input">
+            <settings>
+                <required>true</required>
+                <validation>
+                    <rule name="required-entry" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <label translate="true">Name</label>
+                <dataScope>name</dataScope>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+        <field name="priority" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-number" xsi:type="boolean">true</rule>
+                    <rule name="integer" xsi:type="boolean">true</rule>
+                    <rule name="validate-number-range" xsi:type="string">0-99</rule>
+                </validation>
+                <dataType>string</dataType>
+                <label translate="true">Priority</label>
+                <notice translate="true">Use 0 to show label first, and 99 to show it last</notice>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+        <field name="is_single" sortOrder="40" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Hide if Label with Higher Priority is Already Applied</label>
+                <dataScope>is_single</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="true" xsi:type="number">1</map>
+                            <map name="false" xsi:type="number">0</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="use_for_parent" sortOrder="50" formElement="checkbox">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Use for Parent</label>
+                <dataScope>use_for_parent</dataScope>
+                <notice translate="true">Display child`s label for parent (configurable and grouped products only)</notice>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="true" xsi:type="number">1</map>
+                            <map name="false" xsi:type="number">0</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
+        </field>
+        <field name="stores" sortOrder="60" formElement="multiselect">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">0</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Store View</label>
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="Amasty\Label\Model\Source\Stores"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+        <field name="customer_group_ids" sortOrder="70" formElement="multiselect">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="default" xsi:type="number">32000</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Customer Group</label>
+            </settings>
+            <formElements>
+                <multiselect>
+                    <settings>
+                        <options class="Magento\Customer\Model\Customer\Source\GroupSourceInterface"/>
+                    </settings>
+                </multiselect>
+            </formElements>
+        </field>
+    </fieldset>
+
+    <fieldset name="pdp" sortOrder="20">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Product Page</label>
+            <opened>false</opened>
+        </settings>
+
+        <field name="product_label_preview" sortOrder="0" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_Label/js/form/element/label-preview</item>
+                    <item name="previewType" xsi:type="string">product</item>
+                    <item name="links" xsi:type="array">
+                        <item name="externalPreviewLinks.labelType" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_label_type:value</item>
+                        <item name="externalPreviewLinks.shapeContent" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_label_shape:currentShapeContent</item>
+                        <item name="externalPreviewLinks.shapeType" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_label_shape:value</item>
+                        <item name="externalPreviewLinks.shapeColor" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_label_shape_color:value</item>
+                        <item name="externalPreviewLinks.labelImage" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_image:value</item>
+                        <item name="externalPreviewLinks.position" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_position:value</item>
+                        <item name="externalPreviewLinks.labelSize" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_image_size:value</item>
+                        <item name="labelText" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_label_text:value</item>
+                        <item name="externalPreviewLinks.labelTextColor" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_color:value</item>
+                        <item name="externalPreviewLinks.labelTextSize" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_size:value</item>
+                        <item name="externalPreviewLinks.externalLabelStyle" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_style:value</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <additionalClasses>
+                    <class name="-amlabel-hidden">true</class>
+                </additionalClasses>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="product_label_type" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_Label/js/form/element/visual-chooser</item>
+                    <item name="optionTitles" xsi:type="array">
+                        <item name="0" xsi:type="string" translate="true">Text Only</item>
+                        <item name="1" xsi:type="string" translate="true">Select Shape</item>
+                        <item name="2" xsi:type="string" translate="true">Upload Image</item>
+                    </item>
+                    <item name="additionalClasses" xsi:type="array">
+                        <item name="amlabel-visual-chooser" xsi:type="boolean">true</item>
+                        <item name="amlabel-position-chooser" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="switcherConfig" xsi:type="array">
+                        <item name="enabled" xsi:type="boolean">true</item>
+                        <item name="rules" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="value" xsi:type="number">0</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_image</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_label_shape</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="2" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_label_shape_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="3" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_image_size</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="value" xsi:type="number">1</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_image</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_label_shape</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                    <item name="2" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_label_shape_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                    <item name="3" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_image_size</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="2" xsi:type="array">
+                                <item name="value" xsi:type="number">2</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_image</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_label_shape</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="2" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_label_shape_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="3" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.pdp.product_image_size</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Label Type</label>
+                <dataType>number</dataType>
+            </settings>
+        </field>
+
+        <field name="product_image" sortOrder="20" formElement="imageUploader">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_Label/js/form/element/image-uploader</item>
+                </item>
+            </argument>
+            <settings>
+                <elementTmpl>ui/form/element/uploader/image</elementTmpl>
+                <label>Upload Image</label>
+                <dataType>string</dataType>
+                <visible>true</visible>
+                <notice translate="true"><![CDATA[
+                        Click <a href="https://amasty.com/media/downloads/labels/labels-images.zip">here</a> to download the packs of label images.
+                        ]]>
+                </notice>
+            </settings>
+            <formElements>
+                <imageUploader>
+                    <settings>
+                        <required>false</required>
+                        <uploaderConfig>
+                            <param xsi:type="url" name="url" path="amasty_label/label/edit_uploadImage"/>
+                        </uploaderConfig>
+                        <previewTmpl>Amasty_Label/form/element/image-preview</previewTmpl>
+                        <openDialogTitle>Media Gallery</openDialogTitle>
+                        <initialMediaGalleryOpenSubpath>amasty/amlabel</initialMediaGalleryOpenSubpath>
+                        <allowedExtensions>jpg jpeg gif png svg</allowedExtensions>
+                        <maxFileSize>4194304</maxFileSize>
+                    </settings>
+                </imageUploader>
+            </formElements>
+        </field>
+
+        <field name="product_label_shape" sortOrder="23" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_Label/js/form/element/shape-chooser</item>
+                    <item name="shapeIdPostfix" xsi:type="string">_pdp</item>
+                </item>
+            </argument>
+            <settings>
+                <label>Select Shape</label>
+                <dataType>string</dataType>
+            </settings>
+        </field>
+
+        <field name="product_label_shape_color" sortOrder="26" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/color-picker</item>
+                    <item name="colorPickerConfig" xsi:type="array">
+                        <item name="preferredFormat" xsi:type="string">hex6</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-hex-color" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <elementTmpl>ui/form/element/color-picker</elementTmpl>
+                <label translate="true">Select Shape Color</label>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="product_position" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_Label/js/form/element/position-chooser</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Label Position</label>
+                <dataType>number</dataType>
+            </settings>
+        </field>
+
+        <field name="product_image_size" sortOrder="40" formElement="input">
+            <settings>
+                <validation>
+                    <rule name="amlabel-validate-percent-or-number" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <label translate="true">Label Size</label>
+                <notice translate="true">Percent of the product image.</notice>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="product_label_text" sortOrder="50" formElement="textarea">
+            <settings>
+                <validation>
+                    <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <label translate="true">Label Text</label>
+                <notice translate="true"><![CDATA[
+                Variables: {PRICE} - regular price; {BR} - new line;
+                {SAVE_PERCENT} - save percent; {SAVE_AMOUNT} - save amount;
+                {SPECIAL_PRICE} - special price; {ATTR:code} - attribute value, e.g. {ATTR:color};
+                {SPDL} - days left for special price; {SPHL} - hours left for special price;
+                {NEW_FOR} - days ago the product was added; {SKU} - product SKU; {STOCK} - product qty (for product view page).
+                ]]></notice>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="product_color" sortOrder="60" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/color-picker</item>
+                    <item name="colorPickerConfig" xsi:type="array">
+                        <item name="preferredFormat" xsi:type="string">hex6</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-hex-color" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <elementTmpl>ui/form/element/color-picker</elementTmpl>
+                <label translate="true">Text Color</label>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="product_size" sortOrder="70" formElement="input">
+            <settings>
+                <validation>
+                    <rule name="validate-css-text-size-directive" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <label translate="true">Text Size</label>
+                <componentType>field</componentType>
+                <notice translate="true">Example: 12px;</notice>
+            </settings>
+        </field>
+
+        <field name="product_style" sortOrder="80" formElement="textarea">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Advanced Settings/CSS</label>
+                <componentType>field</componentType>
+                <notice translate="true">Customize label and text styles with CSS parameters. Ex.: text-align: center; line-height: 20px; transform: rotate(-90deg);</notice>
+            </settings>
+        </field>
+    </fieldset>
+
+    <fieldset name="category_page" sortOrder="30">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Category Page</label>
+            <opened>false</opened>
+        </settings>
+
+        <field name="category_label_preview" sortOrder="0" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_Label/js/form/element/label-preview</item>
+                    <item name="previewType" xsi:type="string">category</item>
+                    <item name="links" xsi:type="array">
+                        <item name="externalPreviewLinks.labelType" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_label_type:value</item>
+                        <item name="externalPreviewLinks.shapeContent" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_label_shape:currentShapeContent</item>
+                        <item name="externalPreviewLinks.shapeType" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_label_shape:value</item>
+                        <item name="externalPreviewLinks.shapeColor" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_label_shape_color:value</item>
+                        <item name="externalPreviewLinks.labelImage" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_image:value</item>
+                        <item name="externalPreviewLinks.position" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_position:value</item>
+                        <item name="externalPreviewLinks.labelSize" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_image_size:value</item>
+                        <item name="labelText" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_label_text:value</item>
+                        <item name="externalPreviewLinks.labelTextColor" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_color:value</item>
+                        <item name="externalPreviewLinks.labelTextSize" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_size:value</item>
+                        <item name="externalPreviewLinks.externalLabelStyle" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_style:value</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <additionalClasses>
+                    <class name="-amlabel-hidden">true</class>
+                </additionalClasses>
+                <dataType>string</dataType>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="category_label_type" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_Label/js/form/element/visual-chooser</item>
+                    <item name="optionTitles" xsi:type="array">
+                        <item name="0" xsi:type="string" translate="true">Text Only</item>
+                        <item name="1" xsi:type="string" translate="true">Select Shape</item>
+                        <item name="2" xsi:type="string" translate="true">Upload Image</item>
+                    </item>
+                    <item name="additionalClasses" xsi:type="array">
+                        <item name="amlabel-visual-chooser" xsi:type="boolean">true</item>
+                        <item name="amlabel-position-chooser" xsi:type="boolean">true</item>
+                    </item>
+                    <item name="switcherConfig" xsi:type="array">
+                        <item name="enabled" xsi:type="boolean">true</item>
+                        <item name="rules" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="value" xsi:type="number">0</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_image</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_label_shape</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="2" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_label_shape_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="3" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_image_size</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="value" xsi:type="number">1</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_image</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_label_shape</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                    <item name="2" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_label_shape_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                    <item name="3" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_image_size</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="2" xsi:type="array">
+                                <item name="value" xsi:type="number">2</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_image</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_label_shape</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="2" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_label_shape_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="3" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.category_page.category_image_size</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Label Type</label>
+                <dataType>number</dataType>
+            </settings>
+        </field>
+
+        <field name="category_image" sortOrder="20" formElement="imageUploader">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_Label/js/form/element/image-uploader</item>
+                </item>
+            </argument>
+            <settings>
+                <elementTmpl>ui/form/element/uploader/image</elementTmpl>
+                <label>Upload Image</label>
+                <dataType>string</dataType>
+                <visible>true</visible>
+                <notice translate="true"><![CDATA[
+                        Click <a href="https://amasty.com/media/downloads/labels/labels-images.zip">here</a> to download the packs of label images.
+                        ]]>
+                </notice>
+            </settings>
+            <formElements>
+                <imageUploader>
+                    <settings>
+                        <required>false</required>
+                        <uploaderConfig>
+                            <param xsi:type="url" name="url" path="amasty_label/label/edit_uploadImage"/>
+                        </uploaderConfig>
+                        <previewTmpl>Amasty_Label/form/element/image-preview</previewTmpl>
+                        <openDialogTitle>Media Gallery</openDialogTitle>
+                        <initialMediaGalleryOpenSubpath>amasty/amlabel</initialMediaGalleryOpenSubpath>
+                        <allowedExtensions>jpg jpeg gif png svg</allowedExtensions>
+                        <maxFileSize>4194304</maxFileSize>
+                    </settings>
+                </imageUploader>
+            </formElements>
+        </field>
+
+        <field name="category_label_shape" sortOrder="23" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_Label/js/form/element/shape-chooser</item>
+                    <item name="shapeIdPostfix" xsi:type="string">_category</item>
+                </item>
+            </argument>
+            <settings>
+                <label>Select Shape</label>
+                <dataType>string</dataType>
+            </settings>
+        </field>
+
+        <field name="category_label_shape_color" sortOrder="26" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/color-picker</item>
+                    <item name="colorPickerConfig" xsi:type="array">
+                        <item name="preferredFormat" xsi:type="string">hex6</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-hex-color" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <elementTmpl>ui/form/element/color-picker</elementTmpl>
+                <label translate="true">Select Shape Color</label>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="category_position" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_Label/js/form/element/position-chooser</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Label Position</label>
+                <dataType>number</dataType>
+            </settings>
+        </field>
+
+        <field name="category_image_size" sortOrder="40" formElement="input">
+            <settings>
+                <validation>
+                    <rule name="amlabel-validate-percent-or-number" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <label translate="true">Label Size</label>
+                <notice translate="true">Percent of the product image.</notice>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="category_label_text" sortOrder="50" formElement="textarea">
+            <settings>
+                <validation>
+                    <rule name="validate-no-html-tags" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <label translate="true">Label Text</label>
+                <notice translate="true"><![CDATA[
+                Variables: {PRICE} - regular price; {BR} - new line;
+                {SAVE_PERCENT} - save percent; {SAVE_AMOUNT} - save amount;
+                {SPECIAL_PRICE} - special price; {ATTR:code} - attribute value, e.g. {ATTR:color};
+                {SPDL} - days left for special price; {SPHL} - hours left for special price;
+                {NEW_FOR} - days ago the product was added; {SKU} - product SKU; {STOCK} - product qty (for product view page).
+                ]]></notice>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="category_color" sortOrder="60" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/color-picker</item>
+                    <item name="colorPickerConfig" xsi:type="array">
+                        <item name="preferredFormat" xsi:type="string">hex6</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-hex-color" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <elementTmpl>ui/form/element/color-picker</elementTmpl>
+                <label translate="true">Text Color</label>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="category_size" sortOrder="70" formElement="input">
+            <settings>
+                <validation>
+                    <rule name="validate-css-text-size-directive" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <label translate="true">Text Size</label>
+                <componentType>field</componentType>
+                <notice translate="true">Example: 12px;</notice>
+            </settings>
+        </field>
+
+        <field name="category_style" sortOrder="80" formElement="textarea">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Advanced Settings/CSS</label>
+                <componentType>field</componentType>
+                <notice translate="true">Customize label and text styles with CSS parameters. Ex.: text-align: center; line-height: 20px; transform: rotate(-90deg);</notice>
+            </settings>
+        </field>
+    </fieldset>
+
+    <fieldset name="product_conditions" sortOrder="40">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Product Conditions</label>
+            <opened>false</opened>
+        </settings>
+
+        <field name="label_display_conditions" sortOrder="10" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Amasty_Label/js/form/element/rule-conditions-chooser</item>
+                    <item name="elementTmpl" xsi:type="string">Amasty_Label/form/element/rule-conditions-chooser</item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Product Conditions</label>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <container name="preview_button" sortOrder="20">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="boolean">false</item>
+                    <item name="formElement" xsi:type="string">container</item>
+                    <item name="componentType" xsi:type="string">container</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/button</item>
+                    <item name="title" xsi:type="string" translate="true">Preview Products</item>
+                    <item name="actions" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="targetName" xsi:type="string">${ $.parentName + ".products_grid" }</item>
+                            <item name="actionName" xsi:type="string">visible</item>
+                            <item name="params" xsi:type="array">
+                                <item name="0" xsi:type="boolean">true</item>
+                            </item>
+                        </item>
+                        <item name="1" xsi:type="array">
+                            <item name="targetName" xsi:type="string">amasty_labels_product_preview_listing.amasty_labels_product_preview_listing_data_source</item>
+                            <item name="actionName" xsi:type="string">reload</item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </container>
+
+        <container name="hide_preview" sortOrder="30">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="label" xsi:type="boolean">false</item>
+                    <item name="formElement" xsi:type="string">container</item>
+                    <item name="componentType" xsi:type="string">container</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/button</item>
+                    <item name="title" xsi:type="string" translate="true">Hide Products</item>
+                    <item name="actions" xsi:type="array">
+                        <item name="0" xsi:type="array">
+                            <item name="targetName" xsi:type="string">${ $.parentName + ".products_grid" }</item>
+                            <item name="actionName" xsi:type="string">visible</item>
+                            <item name="params" xsi:type="array">
+                                <item name="0" xsi:type="boolean">false</item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+        </container>
+
+        <field name="preview_comment">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="content" xsi:type="string" translate="true">Please click here to preview the product list.</item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="formElement" xsi:type="string">container</item>
+                    <item name="componentType" xsi:type="string">container</item>
+                    <item name="template" xsi:type="string">Amasty_Label/form/element/comment</item>
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/components/html</item>
+                </item>
+            </argument>
+        </field>
+
+        <insertListing name="products_grid" sortOrder="40">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="visible" xsi:type="boolean">false</item>
+                </item>
+            </argument>
+            <settings>
+                <externalProvider>amasty_labels_product_preview_listing.amasty_labels_product_preview_listing_data_source</externalProvider>
+                <autoRender>true</autoRender>
+                <externalFilterMode>true</externalFilterMode>
+                <ns>amasty_labels_product_preview_listing</ns>
+            </settings>
+        </insertListing>
+    </fieldset>
+
+    <fieldset name="tooltip" sortOrder="50">
+        <settings>
+            <collapsible>true</collapsible>
+            <label translate="true">Tooltip</label>
+            <opened>false</opened>
+        </settings>
+
+        <field name="label_tooltip_status" formElement="select" sortOrder="10">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">Amasty\Label\Model\Source\TooltipStatus</item>
+                <item name="config" xsi:type="array">
+                    <item name="switcherConfig" xsi:type="array">
+                        <item name="enabled" xsi:type="boolean">true</item>
+                        <item name="rules" xsi:type="array">
+                            <item name="0" xsi:type="array">
+                                <item name="value" xsi:type="number">1</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.tooltip.label_tooltip_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.tooltip.label_tooltip_text_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                    <item name="2" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.tooltip.label_tooltip_text</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">false</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="1" xsi:type="array">
+                                <item name="value" xsi:type="number">2</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.tooltip.label_tooltip_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.tooltip.label_tooltip_text_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                    <item name="2" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.tooltip.label_tooltip_text</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="2" xsi:type="array">
+                                <item name="value" xsi:type="number">3</item>
+                                <item name="actions" xsi:type="array">
+                                    <item name="0" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.tooltip.label_tooltip_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                    <item name="1" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.tooltip.label_tooltip_text_color</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                    <item name="2" xsi:type="array">
+                                        <item name="target" xsi:type="string">amasty_labels_edit.amasty_labels_edit.tooltip.label_tooltip_text</item>
+                                        <item name="callback" xsi:type="string">visible</item>
+                                        <item name="params" xsi:type="array">
+                                            <item name="0" xsi:type="boolean">true</item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <dataType>number</dataType>
+                <label translate="true">Enabled</label>
+            </settings>
+        </field>
+
+        <field name="label_tooltip_color" sortOrder="20" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/color-picker</item>
+                    <item name="colorPickerConfig" xsi:type="array">
+                        <item name="preferredFormat" xsi:type="string">hex6</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-hex-color" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <elementTmpl>ui/form/element/color-picker</elementTmpl>
+                <label translate="true">Tooltip Color</label>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="label_tooltip_text_color" sortOrder="30" formElement="input">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/form/element/color-picker</item>
+                    <item name="colorPickerConfig" xsi:type="array">
+                        <item name="preferredFormat" xsi:type="string">hex6</item>
+                    </item>
+                </item>
+            </argument>
+            <settings>
+                <validation>
+                    <rule name="validate-hex-color" xsi:type="boolean">true</rule>
+                </validation>
+                <dataType>string</dataType>
+                <elementTmpl>ui/form/element/color-picker</elementTmpl>
+                <label translate="true">Tooltip Text Color</label>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+
+        <field name="label_tooltip_text" sortOrder="40" formElement="textarea">
+            <settings>
+                <dataType>string</dataType>
+                <label translate="true">Tooltip Text</label>
+                <notice translate="true"><![CDATA[
+                Variables: {PRICE} - regular price; {BR} - new line;{SAVE_PERCENT} - save percent;
+                {SAVE_AMOUNT} - save amount; {SPECIAL_PRICE} - special price; {ATTR:code} - attribute value, e.g.
+                {ATTR:color};{SPDL} - days left for special price; {SPHL} - hours left for special price;
+                {NEW_FOR} - days ago the product was added; {SKU} - product SKU;
+                {STOCK} - product qty (for product view page).
+                ]]></notice>
+                <componentType>field</componentType>
+            </settings>
+        </field>
+    </fieldset>
+</form>

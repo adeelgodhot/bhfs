@@ -1,0 +1,17 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_MWishlist
+ */
+?>
+<?php
+/** @var \Amasty\MWishlist\Block\Account\Wishlist\Search $block */
+?>
+
+<section class="amwishlist-search-block"
+         data-bind="scope:'search', mageInit: {
+            'Magento_Ui/js/core/app': <?= $block->escapeHtml($block->getJsLayout()) ?>
+         }">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</section>

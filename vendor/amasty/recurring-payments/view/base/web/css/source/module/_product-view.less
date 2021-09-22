@@ -1,0 +1,277 @@
+//
+//  Amasty Recurring Payments Product View
+//  ____________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amrec-tooltip {
+        vertical-align: middle;
+    }
+
+    .amrec-tooltip {
+        & {
+            display: inline-block;
+            margin-left: 5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            .lib-css(background, #8fbee3 @amrec-tooltip__background-image no-repeat center);
+            cursor: pointer;
+        }
+
+        &:hover {
+            .lib-css(background, #459be0 @amrec-tooltip__background-image no-repeat center);
+        }
+    }
+
+    .amrec-tooltip-content.ui-tooltip {
+        padding: 10px;
+        max-width: 160px;
+        border: none;
+        border-radius: 2px;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(158, 158, 158, .35);
+    }
+
+    .amrec-calendar-component {
+        &:extend(._am-calendar-component all);
+    }
+
+    .amrec-product-view {
+        & {
+            margin-bottom: 25px;
+            color: #000;
+        }
+
+        .amrec-panel:not(:last-of-type) {
+            margin-bottom: 20px;
+        }
+
+        .amrec-label {
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .amrec-comment {
+            font-size: 11px;
+        }
+    }
+
+    .amrec-purchase-option {
+        & {
+            margin-bottom: 20px;
+        }
+
+        .amrec-input.-radio {
+            &:extend(._amrec-radio-input all);
+        }
+
+        > .amrec-label {
+            font-weight: 600;
+            font-size: 18px;
+        }
+    }
+
+    .amrec-subscription-options {
+        & {
+            &:extend(._amrec-panel);
+
+            margin-top: 15px;
+        }
+
+        & > .amrec-block {
+            & {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+        }
+    }
+
+    .amrec-cycle-container {
+        .amrec-title {
+            &:extend(._amrec-title);
+        }
+
+        .amrec-input.-radio {
+            &:extend(._amrec-radio-input.-plate all);
+        }
+
+        .amrec-error {
+            width: 100%;
+        }
+    }
+
+    .amrec-subscription-start {
+        & {
+            position: relative;
+            margin-top: 30px;
+        }
+
+        .amrec-title {
+            &:extend(._amrec-title);
+        }
+
+        .amrec-datepicker {
+            &:extend(._amrec-datepicker all);
+        }
+    }
+
+    .amrec-subscription-end {
+        & {
+            margin-top: 40px;
+        }
+
+        .amrec-title {
+            &:extend(._amrec-title);
+        }
+    }
+
+    .amrec-end-type {
+        & {
+            display: flex;
+            align-items: center;
+            flex-grow: 1;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        .amrec-input.-radio {
+            &:extend(._amrec-radio-input.-plate all);
+        }
+
+        .amrec-input.-radio:checked ~ .amrec-content {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .amrec-content {
+            position: relative;
+            width: 100%;
+            opacity: .5;
+            pointer-events: none;
+        }
+
+        .amrec-error {
+            width: 100%;
+            text-align: right;
+        }
+    }
+
+    .amrec-end-type.-date > .amrec-content .amrec-datepicker {
+        &:extend(._amrec-datepicker all);
+    }
+
+    .amrec-end-type.-cycles > .amrec-content {
+        & {
+            display: flex;
+            align-items: center;
+        }
+
+        & > .amrec-input {
+            &:extend(._amrec-input);
+
+            margin-right: 12px;
+            width: 80px;
+            text-align: center;
+        }
+    }
+
+    .amrec-subscription-info {
+        & {
+            &:extend(._amrec-panel);
+
+            margin-top: 20px;
+        }
+
+        .amrec-status {
+            display: block;
+            width: 20px;
+            height: 20px;
+        }
+
+        .amrec-status.-yes {
+            .lib-css(background, @amrec-status-indicator__yes__background);
+            background-size: contain;
+        }
+
+        .amrec-status.-no {
+            .lib-css(background, @amrec-status-indicator__no__background);
+            background-size: contain;
+        }
+    }
+
+    .amrec-info-table {
+        .amrec-cell.-value {
+            font-weight: 600;
+        }
+
+        .amrec-row:nth-of-type(even) .amrec-cell {
+            background: #fff;
+        }
+
+        .amrec-row:nth-of-type(even) .amrec-cell:first-of-type {
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+
+        .amrec-row:nth-of-type(even) .amrec-cell:last-of-type {
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .-nobackground {
+        background: none !important;
+    }
+
+    .-nobold {
+        font-weight: 400 !important;
+    }
+}
+
+//
+//  Desktop
+//  ----------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .amrec-product-view {
+        .amrec-cycle-container .amrec-label:nth-of-type(odd),
+        .amrec-end-type > .amrec-label {
+            margin-right: 10px;
+        }
+
+        .amrec-cycle-container .amrec-input.-radio + .amrec-label,
+        .amrec-subscription-start > .amrec-datepicker,
+        .amrec-end-type > .amrec-input.-radio + .amrec-label,
+        .amrec-end-type > .amrec-content {
+            width: @amrec-datepicker-input-desktop__width;
+        }
+
+        .amrec-end-type > .amrec-input.-radio + .amrec-label {
+            margin-bottom: 0;
+        }
+    }
+
+    // Override jqueryUi css classes
+    .amrec-subscription-start .amrec-datepicker + .ui-datepicker-trigger {
+        top: auto;
+        left: @amrec-subscription-start-datepicker-trigger-desktop__left;
+        transform: @amrec-subscription-start-datepicker-trigger-desktop__translateX;
+    }
+}

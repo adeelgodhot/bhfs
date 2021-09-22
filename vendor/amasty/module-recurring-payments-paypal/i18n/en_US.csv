@@ -1,0 +1,36 @@
+"<strong>Important</strong>: Webhook Secret can be generated only after you fill in Client ID and Client Secret and save these settings by pressing the ""Save Config"" button.","<strong>Important</strong>: Webhook Secret can be generated only after you fill in Client ID and Client Secret and save these settings by pressing the ""Save Config"" button."
+"Please ensure that your store url (%1) is available for public access and supports secure connections (HTTPS)","Please ensure that your store url (%1) is available for public access and supports secure connections (HTTPS)"
+"Unable to create webhook: %1","Unable to create webhook: %1"
+"Please install ""paypal/rest-api-sdk-php"" composer package","Please install ""paypal/rest-api-sdk-php"" composer package"
+"Please fill ""Client ID"" and ""Client Secret"" fields and press ""Save Config"" button","Please fill ""Client ID"" and ""Client Secret"" fields and press ""Save Config"" button"
+"Please configure ""Webhook ID""","Please configure ""Webhook ID"""
+"Unable to save paypalProduct with ID %1. Error: %2","Unable to save paypalProduct with ID %1. Error: %2"
+"Unable to save new paypalProduct. Error: %1","Unable to save new paypalProduct. Error: %1"
+"Paypal Product with specified ID ""%1"" not found.","Paypal Product with specified ID ""%1"" not found."
+"Unable to remove paypalProduct with ID %1. Error: %2","Unable to remove paypalProduct with ID %1. Error: %2"
+"Unable to remove paypalProduct. Error: %1","Unable to remove paypalProduct. Error: %1"
+"Cancelled by customer","Cancelled by customer"
+"Approval Pending","Approval Pending"
+Active,Active
+Cancelled,Cancelled
+Create,Create
+"Your Subscription Needs Attention","Your Subscription Needs Attention"
+"Dear %customer_name,","Dear %customer_name,"
+"Discounted billing cycles are over. Please <a href=""%link"">confirm</a> that you agree to the new terms listed below. Otherwise, your subscription will be cancelled and you'll no longer receive the product(s) ordered.","Discounted billing cycles are over. Please <a href=""%link"">confirm</a> that you agree to the new terms listed below. Otherwise, your subscription will be cancelled and you'll no longer receive the product(s) ordered."
+Confirm,Confirm
+"Kindest Regards","Kindest Regards"
+Team,Team
+"Place Order","Place Order"
+Paypal,Paypal
+"Client ID","Client ID"
+"Please find more information regarding Client ID and Client Secret in PayPal documentation which is available
+                        <a href=""https://developer.paypal.com/developer/applications"" target=""_blank"">here</a>","Please find more information regarding Client ID and Client Secret in PayPal documentation which is available
+                        <a href=""https://developer.paypal.com/developer/applications"" target=""_blank"">here</a>"
+"Client Secret","Client Secret"
+"Webhook ID","Webhook ID"
+"Please ensure that your webhook works. You can check whether it functions properly by going to
+                     <a href=""https://developer.paypal.com/developer/dashboard/webhooks/sandbox/"" target=""_blank"">
+                     https://developer.paypal.com/developer/dashboard/webhooks/sandbox/</a> and monitoring its status.","Please ensure that your webhook works. You can check whether it functions properly by going to
+                     <a href=""https://developer.paypal.com/developer/dashboard/webhooks/sandbox/"" target=""_blank"">
+                     https://developer.paypal.com/developer/dashboard/webhooks/sandbox/</a> and monitoring its status."
+"PayPal Subscription Terms Change Email Template","PayPal Subscription Terms Change Email Template"

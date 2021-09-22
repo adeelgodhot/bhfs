@@ -1,0 +1,89 @@
+{
+    "amasty_label_entity": {
+        "column": {
+            "label_id": true,
+            "name": true,
+            "status": true,
+            "priority": true,
+            "is_single": true,
+            "use_for_parent": true,
+            "active_from": true,
+            "active_to": true,
+            "conditions_serialized": true
+        },
+        "index": {
+            "AMASTY_LABEL_ENTITY_STATUS": true,
+            "AMASTY_LABEL_ENTITY_STATUS_PRIORITY": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "amasty_label_store": {
+        "column": {
+            "label_id": true,
+            "store_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_LBL_STORE_LBL_ID_AMASTY_LBL_ENTT_LBL_ID": true,
+            "AMASTY_LABEL_STORE_STORE_ID_STORE_STORE_ID": true
+        }
+    },
+    "amasty_label_customer_group": {
+        "column": {
+            "label_id": true,
+            "customer_group_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_LBL_CSTR_GROUP_LBL_ID_AMASTY_LBL_ENTT_LBL_ID": true
+        }
+    },
+    "amasty_label_catalog_parts": {
+        "column": {
+            "label_id": true,
+            "type": true,
+            "label_text": true,
+            "image": true,
+            "image_size": true,
+            "position": true,
+            "style": true
+        },
+        "index": {
+            "AMASTY_LABEL_CATALOG_PARTS_TYPE": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_LBL_CAT_PARTS_LBL_ID_AMASTY_LBL_ENTT_LBL_ID": true
+        }
+    },
+    "amasty_label_index": {
+        "column": {
+            "index_id": true,
+            "label_id": true,
+            "product_id": true,
+            "store_id": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_LABEL_INDEX_LABEL_ENTITY": true
+        }
+    },
+
+    "am_label": {},
+
+    "amasty_label_tooltip": {
+        "column": {
+            "label_id": true,
+            "status": true,
+            "color": true,
+            "text_color": true,
+            "text": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+            "AMASTY_LABEL_ENTITY_TOOLTIP": true
+        }
+    }
+}

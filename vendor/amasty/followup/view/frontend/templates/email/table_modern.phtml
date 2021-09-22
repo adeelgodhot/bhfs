@@ -1,0 +1,121 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+?>
+<?php /** @var $block \Amasty\Followup\Block\Email\Items */ ?>
+<?php $quoteItems = $this->getItems(); ?>
+<?php $itemsCount = count($quoteItems); ?>
+<tr class="email-body">
+    <td class="am-products-container" <?= ($itemsCount > 0) ? : 'style="display: none"' ?>>
+        <table cellspacing="0" cellpadding="0" border="0" class="am-table-modern">
+            <tbody>
+            <tr class="am-table-row">
+                <td class="am-table-maincolumn">
+                <?php $i = 0; foreach ($quoteItems as $_item): ?>
+                    <?php $i++; $_product = $this->loadProduct($_item); ?>
+                    <?php if (!$_product) continue; ?>
+
+                    <?php
+                    $price = $this->getProductPrice($_item);
+                    $discountPrice = $this->getDiscountPrice($price);
+                    $showDiscount = $price != $discountPrice && $this->showDiscount();
+                    ?>
+                    <div class="am-product-div" style="<?= ($i % 2 != 0) ? "padding-right: 17px;" : "" ?>">
+                        <table cellspacing="0" cellpadding="0" border="0">
+                            <tbody>
+                            <tr class="am-product-container">
+                                <td>
+                                    <?php if ($this->showImage()): ?>
+                                        <?php $block->initProductImageHelper($_product, 'amasty_followup_item_table_modern'); ?>
+                                        <?php $_imageHelper = $block->getProductImageHelper(); ?>
+                                        <p class="am-image-container">
+                                            <a href="<?php echo $this->getProductUrl($_product) ?>">
+                                                <img src="<?php echo $_imageHelper->getUrl() ?>" class="am-product-image"
+                                                     alt="<?php echo $block->escapeHtml($_imageHelper->getLabel()) ?>"
+                                                     width="<?php echo $_imageHelper->getWidth() ?>"
+                                                     height="<?php echo $_imageHelper->getHeight() ?>"/>
+                                            </a>
+                                        </p>
+                                    <?php endif; ?>
+                                </td>
+                                <td class="am-fullwidth am-description-wrapper">
+                                    <table align="right" cellspacing="0" cellpadding="0" border="0" class="am-product-text">
+                                        <tbody>
+                                        <tr>
+                                            <td class="am-title-wrapper">
+                                                <p align="right" class="am-product-name">
+                                                    <a href="<?php echo $this->getProductUrl($_product) ?>">
+                                                        <strong><?php echo $this->escapeHtml($_product->getName()) ?></strong>
+                                                    </a>
+                                                </p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="right" class="am-price-wrapper">
+                                                <table cellspacing="0" cellpadding="0" border="0">
+                                                    <tbody>
+                                                    <?php if ($this->showPrice()): ?>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="right"
+                                                                   class="am-product-price<?= $showDiscount ? "" : " am-final-price" ?>">
+                                                                    <?= $this->getFormatedProductPrice($price); ?>
+                                                                    <?= $this->displayFormatQty($_item->getQty()); ?>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endif; ?>
+
+                                                    <?php if ($showDiscount): ?>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="right" class="am-product-price am-final-price">
+                                                                    <?= $this->formatPrice($discountPrice); ?>
+                                                                    <?= $this->displayFormatQty($_item->getQty()); ?>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endif; ?>
+
+                                                    <?php if ($this->showSpecialPrice()): ?>
+                                                        <tr>
+                                                            <td>
+                                                                <p align="center" class="am-product-description-text">
+                                                                    <?= __('Special Price') . ":&nbsp;"; ?>
+                                                                    <?= $this->formatPrice($_product->getSpecialPrice()); ?>
+                                                                    <?php if ($_product->getSpecialToDate()): ?>
+                                                                    <div>
+                                                                        <?= __('Offer ends') . ' ' . $this->getDate($_product->getSpecialToDate(), false); ?>
+                                                                    </div>
+                                                                    <?php endif; ?>
+                                                                </p>
+                                                            </td>
+                                                        </tr>
+                                                    <?php endif; ?>
+                                                    </tbody>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <?php if (($i % 2) == 0): ?>
+                            </td>
+                        </tr>
+                        <?php if ($i < $itemsCount): ?>
+                            <tr class="am-table-row">
+                                <td class="am-table-maincolumn">
+                        <?php endif; ?>
+                    <?php endif; ?>
+            <?php endforeach; ?>
+            </tbody>
+        </table>
+    </td>
+</tr>

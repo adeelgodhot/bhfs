@@ -1,0 +1,34 @@
+//
+//  Amasty Recurring Payments Cart
+//  ____________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amrec-product-label {
+        & {
+            margin-top: 25px;
+            padding: 6px 10px;
+            border-left: 5px solid #f2c94c;
+            background: #f2f2f2;
+            color: #000;
+            font-weight: 600;
+        }
+
+        &:before {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            .lib-css(background, @amrec-pin-icon__background);
+            background-size: contain;
+            content: '';
+            vertical-align: middle;
+        }
+
+        .amrec-text {
+            vertical-align: middle;
+        }
+    }
+}

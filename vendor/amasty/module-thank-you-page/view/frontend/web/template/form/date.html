@@ -1,0 +1,17 @@
+<input class="input-text"
+       type="text"
+       name="amasty-thank-you-page-dob"
+       data-ampage-js="dob-field"
+       data-bind="
+    hasFocus: focused,
+    valueUpdate: valueUpdate,
+    attr: {
+        value: shiftedValue,
+        placeholder: placeholder,
+        'data-validate':JSON.stringify({required:isRequired()}),
+        'aria-describedby': noticeId,
+        disabled: disabled,
+        id: uid,
+        readonly: true
+    },
+    amastydatepicker: { storage: shiftedValue, options: options, elem: $data }"/>

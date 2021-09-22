@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="mgs" translate="label" sortOrder="600">
+            <label>MGS</label>
+        </tab>
+        <section id="mgs_landing" translate="label" type="text" sortOrder="160" showInDefault="1" showInWebsite="1" showInStore="1">
+            <label>Landing</label>
+            <tab>mgs</tab>
+            <resource>MGS_Landing::config_landing</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General</label>
+                <field id="per_row" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number Item Per Row</label>
+                    <source_model>MGS\Landing\Model\Config\Source\Perrow</source_model>
+                </field>
+                <field id="show_shortdes" translate="label" type="select" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show Short Description</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>              
+                <field id="character" translate="label" type="text" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Summary character count</label>
+					<depends>
+                        <field id="show_shortdes">1</field>
+                    </depends>
+                </field>  
+                <field id="show_newproduct" translate="label" type="select" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Show New Product (Only Grid and Masonry)</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field> 
+                <field id="number_show" translate="label" type="text" sortOrder="75" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Number Item to show</label>
+					<depends>
+                        <field id="show_newproduct">1</field>
+                    </depends>
+                </field>     
+                <field id="new_product_title" translate="label" type="text" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New block title</label>
+					<depends>
+                        <field id="show_newproduct">1</field>
+                    </depends>
+                </field>     
+                <field id="new_product_subtitle" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New block subtitle</label>
+					<depends>
+                        <field id="show_newproduct">1</field>
+                    </depends>
+                </field>  
+            </group>            
+        </section>
+    </system>
+</config>

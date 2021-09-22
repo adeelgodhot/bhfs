@@ -1,0 +1,31 @@
+<?php
+/**
+ * Copyright © Mageside. All rights reserved.
+ * See MS-LICENSE.txt for license details.
+ */
+/** @var Mageside\Recipe\Block\Frontend\Recipe\Filters\RecipeFilterType $block
+ */
+$filterType = $block->getFilterType();
+?>
+<div id="filters" class="control">
+    <?php foreach ($filterType->getItems() as $type) : ?>
+        <select name="<?php echo $block->escapeHtml($type->getCode()); ?>" id="<?php echo $block->escapeHtml($type->getCode()); ?>">
+            <?php $dataOption = $block->getFilterOption($type->getId()); ?>
+            <optgroup label="<?php echo $block->escapeHtml($type->getType()); ?>">
+            <option value="" selected><?php echo $block->escapeHtml('All '.$type->getType()); ?></option>
+                <?php foreach ($dataOption->getData('options') as $option) : ?>
+                    <option value="<?php echo $block->escapeHtml($option['slug']); ?>"><?php echo $block->escapeHtml($option['label']); ?></option>
+                <?php endforeach; ?>
+            </optgroup>
+        </select>
+    <?php endforeach; ?>
+</div>
+<script type="text/x-magento-init">
+    {
+        "#filters": {
+            "Mageside_Recipe/js/filter-recipe": {
+                "url": "<?php /* @escapeNotVerified */ echo $block->getAjaxUrl() ?>"
+            }
+        }
+    }
+</script>

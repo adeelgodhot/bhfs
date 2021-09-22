@@ -1,0 +1,55 @@
+
+<?php 
+    $width = "300px";
+?>
+
+<div class="product_stock_popup mfp-with-anim mfp-hide" id="product-stock-popup" style="width: <?php echo $width; ?>; ">
+    <div class="block-popup-subscribe">
+        <div class="block-popup-top">
+            <div class="block-popup-content">
+                <div class="pop-sletter-title">
+                    <h4>
+                        <strong class="text-uppercase">
+                            <?php echo __('Product Stock Information'); ?>
+                        </strong>
+                    </h4>
+                </div>
+                    <div class="popup-content">
+                        <?php echo $block->getChildHtml('block_stock_info') ?>
+                    </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    require(
+        [
+            'jquery',
+            'magnificPopup'
+        ],
+        function( $, modal ) {
+            $("#product_stock_info").click(function () {
+                //if($(window).width() > 991) {
+                    
+
+                    $.magnificPopup.open({
+                        items: {
+                            src: '#product-stock-popup' 
+                        },
+                        type: 'inline',
+                        removalDelay: 300,
+                        callbacks: {
+                            beforeOpen: function() {
+                                this.st.mainClass = 'mfp-zoom-out modal_product_stock_popup';
+                            }
+                        }
+                    });
+
+                    
+                //}
+            });
+        });
+</script>                    
+

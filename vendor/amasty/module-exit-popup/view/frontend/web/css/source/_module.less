@@ -1,0 +1,94 @@
+//
+//  Amasty Exit Popup
+//  _________________________
+
+//
+//  Common
+//  --------------------------
+
+& when (@media-common = true) {
+    .amexit-popup-container {
+        & {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9998;
+            .lib-vendor-prefix-display(flex);
+            .lib-vendor-box-align(center);
+            width: 100vw;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            background: rgba(0, 0, 0, .17);
+        }
+
+        .amexit-popup {
+            position: relative;
+            width: 90%;
+            max-width: 450px;
+            height: auto;
+            margin: auto;
+            padding: 15px;
+            background: #fff;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .25);
+        }
+
+        .amexit-title {
+            margin: 0 15px 10px 0;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .amexit-message {
+            margin-bottom: 10px;
+        }
+
+        .amexit-email {
+            .lib-vendor-prefix-display(flex);
+            margin-bottom: 5px;
+        }
+
+        .amexit-button {
+            & {
+                .lib-vendor-prefix-flex-shrink(0);
+                margin-left: 10px;
+                color: #fff;
+                background: #1979c3;
+                box-shadow: none;
+            }
+
+            &:hover {
+                background: lighten(#1979c3, 10%);
+            }
+        }
+
+        .amexit-close {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 15px;
+            height: 15px;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .amexit-close > .amexit-icon {
+            fill: #ccc;
+        }
+
+        .amexit-close:hover > .amexit-icon {
+            fill: #1979c3;
+        }
+    }
+}
+
+//
+//  Tablet +
+//  --------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__m) {
+    .amexit-popup-container .amexit-popup {
+        width: 450px;
+    }
+}

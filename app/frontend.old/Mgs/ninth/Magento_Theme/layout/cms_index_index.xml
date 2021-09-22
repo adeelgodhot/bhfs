@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock name="page.main.title" remove="true"/>
+    
+    <container name="page.messages.rebuild" htmlTag="div" htmlClass="page messages">
+        <block class="Magento\Framework\View\Element\Template" name="ajax.message.placeholder.rebuild" template="Magento_Theme::html/messages.phtml"/>
+        <block class="Magento\Framework\View\Element\Messages" name="messagess.rebuild" as="messagesrebuild" template="Magento_Theme::messages.phtml"/>
+    </container>
+    
+	<referenceContainer name="page.wrapper">
+		<block class="Magento\Framework\View\Element\Template" name="home.script" template="Magento_Theme::newletter-popup.phtml" after="footer-container"/>
+    </referenceContainer>
+    
+    <referenceBlock name="ajax.message.placeholder" remove="true"/>
+    <referenceBlock name="messages" remove="true"/>
+</page>

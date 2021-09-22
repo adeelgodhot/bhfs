@@ -1,0 +1,23 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Label
+ */
+?>
+<?php
+/**
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Amasty\Label\ViewModel\Label\Ui\Configuration $viewModel
+ */
+
+$viewModel = $block->getViewModel();
+?>
+
+<script type="text/x-magento-init">
+     {
+         "*": {
+             "amInitLabelUi": <?= /* @noEscape */ $viewModel->getConfig() ?>
+         }
+     }
+</script>

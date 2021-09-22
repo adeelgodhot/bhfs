@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_ExitPopup
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Store/etc/config.xsd">
+    <default>
+        <amasty_exit_popup>
+            <general>
+                <recovery_time>6</recovery_time>
+            </general>
+            <promo_settings>
+                <enable_ask>1</enable_ask>
+                <consent_message>I agree to receive marketing emails and other materials</consent_message>
+            </promo_settings>
+            <email_settings>
+                <template>amasty_exit_popup_email_settings_template</template>
+            </email_settings>
+        </amasty_exit_popup>
+    </default>
+</config>

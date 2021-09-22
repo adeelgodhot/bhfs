@@ -1,0 +1,37 @@
+//
+//  Position Chooser Component
+//  ______________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amlabel-position-chooser {
+        & {
+            border-spacing: 2px;
+            border-collapse: initial;
+        }
+
+        td {
+            & {
+                padding: 20px;
+                border: 2px solid;
+                cursor: pointer;
+            }
+
+            &[data-amlabel-position-enabled='0'] {
+                background-color: #ced4de;
+                cursor: not-allowed;
+            }
+
+            &[data-amlabel-position-selected='1'] {
+                background-color: rgb(255, 167, 38);
+            }
+
+            &:hover:not([data-amlabel-position-enabled='0']) {
+                background-color: rgba(255, 167, 38, .5);
+            }
+        }
+    }
+}

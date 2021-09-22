@@ -1,0 +1,267 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+use Magento\Framework\App\Action\Action;
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<?php // Helper ?>
+<?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); ?>
+<?php $StockState = $objectManager->get('\Magento\CatalogInventory\Api\StockStateInterface'); ?>
+<?php $stockItem = $objectManager->get('\Magento\CatalogInventory\Api\StockRegistryInterface'); ?>
+<?php $_imagehelper = $this->getImageHelper(); ?>
+<?php $themeHelper = $this->getThemeHelper(); ?>
+<?php $quickViewHelper = $this->getQuickViewHelper(); ?>
+<?php $_helper = $this->getCatalogHelperOutput(); ?>
+<?php $themeSettings = $themeHelper->getThemeSettings(); ?>
+<?php $compareHelper = $this->helper('Magento\Catalog\Helper\Product\Compare'); ?>
+
+<?php // Product item & attribute ?>
+<?php $_product = $this->getProduct(); ?>
+<?php $lazyLoad = $this->setLazyLoad(); ?>
+<?php $baseImage = $hoverBaseImage = $this->getLazyLoadBaseImage(); ?>
+<?php $ratio = $this->getRatio(); ?>
+<?php $productUrl = $_product->getProductUrl(); ?>
+<?php $change_img = $this->getHoverChange(); ?>
+
+<div class="product-item-info" data-container="product-grid">
+    <div class="row">
+        <div class="col-sm-3 col-xs-12">
+            <div class="product-top">
+                
+                <?php 
+                $size = $this->getSize();
+                $productImage = $_imagehelper->init($_product, 'category_page_list')->resize($size['width'], $size['height'])->getUrl();
+                if(!$lazyLoad){
+                    $baseImage = $productImage;
+                }
+                
+                if($change_img){
+                    $productImageHover = $_imagehelper->init($_product, 'product_thumbnail_image')->resize($size['width'], $size['height'])->getUrl();
+                    if(!$lazyLoad){
+                        $hoverBaseImage = $productImageHover;
+                    }
+                }
+                ?>
+                
+                
+                
+                <a href="<?php echo $productUrl ?>" class="product photo product-item-photo" style="padding-bottom: <?php echo $this->getPadding(); ?>;"  tabindex="-1">
+                    
+                    <?php $imgAlt = $block->stripTags($_product->getName(), null, true); ?>
+                    
+                    <img src="<?php echo $baseImage ?>" alt="<?php echo $imgAlt; ?>" class="img-responsive product-image-photo img-thumbnail<?php if($lazyLoad): ?> lazy<?php endif ?>" data-src="<?php echo $productImage ?>"/>
+                    
+                    <?php if($change_img): ?>
+                        <?php if(basename($_product->getData('thumbnail')) !=  'no_selection'): ?>
+                            <?php if(basename($_product->getData('thumbnail')) != basename($_product->getData('small_image'))): ?>
+                            <img src="<?php echo $hoverBaseImage ?>" alt="<?php echo $imgAlt ?>" class="img-responsive img-hover-show<?php if($lazyLoad): ?> lazy<?php endif ?>" data-src="<?php echo $productImageHover ?>" />
+                        <?php endif ?>
+                    <?php endif ?>
+                <?php endif ?>
+                
+                <div class="product-image-photo"></div>
+                
+            </a>
+            <?php // Product Label ?>
+            <?php echo $themeHelper->getProductLabel($_product) ?>
+        </div>
+    </div>
+    <div class="col-sm-9 col-xs-12">
+        <?php // Product Detail ?>
+        <div class="product details product-item-details">
+           
+           <div class="product_review_name_custom">
+             <?php // Product Name ?>
+             <h5 class="product name product-item-name">
+                <a class="product-item-link"
+                href="<?php /* @escapeNotVerified */ echo $productUrl ?>">
+                <?php /* @escapeNotVerified */ echo $_helper->productAttribute($_product, $_product->getName(), 'name'); ?>
+            </a>
+        </h5>
+        
+        <?php echo $this->getReview(); ?>
+    </div>	
+    <div class="product-detail-content">
+        
+        <?php $ct_attr = $this->getCustomAttribute(); ?>
+        <?php if($ct_attr): ?>
+            <?php $attribute_text = $_product->getAttributeText($ct_attr); ?>
+            <div class="ct-attribute-text<?php if(!$attribute_text): ?> empty<?php endif ?>"><?php echo $attribute_text ?></div>
+        <?php endif ?>
+        
+        
+        <?php echo $this->getPrdPrice() ?>
+        
+        
+        
+        <?php echo $this->getSwatches(); ?>
+        
+        <?php $prdShortDescription = $_helper->productAttribute($_product, $_product->getShortDescription(), 'short_description'); ?>
+        <?php if($prdShortDescription): ?>
+            <div class="product description product-item-description">
+                <?php /* @escapeNotVerified */ echo $prdShortDescription  ?>
+            </div>
+        <?php endif ?>
+    </div>
+
+    <div class="product-dietary-requirements list-view">
+        <?php
+        $data = explode(',', $_product->getData('dietary_requirements'));
+        $top_dietary = ["DF", "GF", "O", "V+", "V", "WF"];
+        foreach($data as $value):            
+        ?>
+            <?php 
+            $attr = $_product->getResource()->getAttribute('dietary_requirements');
+            if ($attr->usesSource()): ?>
+                <?php 
+                $option_value = $attr->getSource()->getOptionText($value);
+
+                $words = explode(' ', $option_value);
+                
+                if( !empty($words[0]) ):
+                    $result = $words[0][0];
+
+                    if ( count( $words ) > 1 ) {
+                        $result .= $words[1][0];
+                    }
+
+                    if( $option_value == "Vegan" || $option_value == "Vegetarian" ){
+                        $result_colour = strtolower($option_value);
+                        if ( $option_value == "Vegan" ) {
+                            $result .= "+";
+                        }
+                    } else {
+                        $result_colour = strtolower($result);
+                    }
+
+                    if( in_array($result, $top_dietary) ):
+                    ?>
+                        <span class="dietary-colour-<?php echo $result_colour; ?>" title="<?php echo $option_value; ?>"><?php echo $result; ?></span>
+                    <?php 
+                    endif;
+                endif;
+                ?>
+            <?php endif;?>
+        <?php endforeach;?>
+    </div>
+
+    <div class="other_ex_button">
+        
+        <div class="col-left">
+            <div class="product_custom_deliver" style="clear: both"><a href="https://www.besthealthfoodshop.com/amlocator/?product=<?php echo $_product->getId(); ?>">In store collection (<span style="text-decoration: underline;">find nearest store</span>)</a></div>
+
+            <?php $pickup_only = $this->getPickupOnly(); ?>
+
+            <div class="custom_pad_section">
+               <?php if ( !$pickup_only ): ?>
+                    <p class='del_left_ok'> for delivery </p>  
+                <?php else: ?>
+                    <p class='del_left'> for delivery </p>  
+                <?php endif; ?>
+            </div>
+
+        </div>		
+        <div class="col-right">
+          
+            <?php // Product Action ?>
+            <div class="product-detail-action">
+             <?php // QuickView  ?>
+             <?php echo $quickViewHelper->aroundQuickViewHtml($_product, $ratio); ?>
+             <div class="actions-link">
+              
+              
+                <?php // Add ?>
+                <div class="actions-primary"<?php echo strpos($this->getPos(), 'grid-primary') ? "" : ''; ?>>
+                  
+                  <?php // Wishlist  ?>
+                  
+                  <button class="action towishlist"
+                  data-title="<?php echo __('Add to Wish List') ?>"
+                  aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+                  data-post='<?php /* @escapeNotVerified */ echo $this->getWishListPost(); ?>'
+                  data-action="add-to-wishlist"
+                  role="button">
+                  <i class="pe-7s-like"></i>
+              </button>
+              
+              <?php if ($_product->isSaleable()): ?>
+                <?php $postParams = $this->getPostParams(); ?>
+                <form data-role="tocart-form" action="<?php /* @escapeNotVerified */ echo $postParams['action']; ?>" method="post">
+                    <input type="hidden" name="product" value="<?php /* @escapeNotVerified */ echo $postParams['data']['product']; ?>">
+                    <input type="hidden" name="<?php /* @escapeNotVerified */ echo Action::PARAM_NAME_URL_ENCODED; ?>" value="<?php /* @escapeNotVerified */ echo $postParams['data'][Action::PARAM_NAME_URL_ENCODED]; ?>">
+                    
+                    <?php echo $block->getBlockHtml('formkey')?>
+                    
+                    <input type="number"
+                    name="qty"
+                    id="qty"
+                    maxlength="12"
+                    value="<?php /* @escapeNotVerified */ echo '1' ?>"
+                    title="<?php /* @escapeNotVerified */ echo __('Qty') ?>" class="input-text qty" />
+                    
+                    <button type="submit" title="<?php echo $block->escapeHtml(__('Add')); ?>" class="action tocart">
+                        <span class="pe-7s-cart"></span>
+                        <span class="text"><?php /* @escapeNotVerified */ echo __('Add') ?></span>
+                    </button>
+                </form>
+                <?php else: ?>
+                    <button class="action tocart disabled" type="button" title="<?php /* @escapeNotVerified */ echo __('Add') ?>">
+                        <span class="pe-7s-cart"></span>
+                        <span class="text"><?php /* @escapeNotVerified */ echo __('Add') ?></span>
+                    </button>
+                <?php endif; ?>
+
+                <?php 
+                $productStock = $stockItem->getStockItem($_product->getId());
+                $stocksta = ($productStock->getIsInStock()=="1") ? "In Stock":"Out of Stock";
+
+                $stock_qty = $StockState->getStockQty($_product->getId(), $_product->getStore()->getWebsiteId());
+
+                if ( $stock_qty > 5 ) {
+                    // hide stock qty information where 5 or more stock available
+                    $stock_qty = '';
+                }
+
+                echo '<div class="stock_right list-view">' . $stock_qty . ' ' . $stocksta . ' </div>';
+                ?>
+            </div>
+        </div>
+        <?php // Compare  ?>
+        <?php if($this->getCompare()): ?>
+            <button class="action tocompare"
+            title="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+            data-title="<?php echo __('Add to Compare') ?>"
+            aria-label="<?php echo $block->escapeHtml(__('Add to Compare')); ?>"
+            data-post='<?php /* @escapeNotVerified */ echo $compareHelper->getPostDataParams($_product); ?>'
+            role="button">
+            <i class="pe-7s-graph3"></i>
+        </button>
+    <?php endif ?>
+
+    <?php // Wishlist  ?>
+    <?php if ($this->getWishList()): ?>
+        <button class="action towishlist"
+        title="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+        data-title="<?php echo __('Add to Wish List') ?>"
+        aria-label="<?php echo $block->escapeHtml(__('Add to Wish List')); ?>"
+        data-post='<?php /* @escapeNotVerified */ echo $block->getAddToWishlistParams($_product); ?>'
+        data-action="add-to-wishlist"
+        role="button">
+        <i class="pe-7s-like"></i>
+    </button>
+<?php endif; ?>
+
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

@@ -1,0 +1,21 @@
+"<strong>Important</strong>: Webhook Secret can be generated only after you fill in Publishable Key and Secret Key and save these settings by pressing the ""Save Config"" button.","<strong>Important</strong>: Webhook Secret can be generated only after you fill in Publishable Key and Secret Key and save these settings by pressing the ""Save Config"" button."
+Create,Create
+"Please install ""stripe/stripe-php"" composer package","Please install ""stripe/stripe-php"" composer package"
+"Stripe payment method is not enabled","Stripe payment method is not enabled"
+"Stripe payment method is not configured","Stripe payment method is not configured"
+"Please configure ""Webhook Secret""","Please configure ""Webhook Secret"""
+"Customer with specified ID ""%1"" not found.","Customer with specified ID ""%1"" not found."
+"Unable to save stripeProduct with ID %1. Error: %2","Unable to save stripeProduct with ID %1. Error: %2"
+"Unable to save new stripeProduct. Error: %1","Unable to save new stripeProduct. Error: %1"
+"Stripe Product with specified ID ""%1"" not found.","Stripe Product with specified ID ""%1"" not found."
+"Unable to remove stripeProduct with ID %1. Error: %2","Unable to remove stripeProduct with ID %1. Error: %2"
+"Unable to remove stripeProduct. Error: %1","Unable to remove stripeProduct. Error: %1"
+Trial,Trial
+Active,Active
+Canceled,Canceled
+"Incomplete And Expired","Incomplete And Expired"
+"Past Due","Past Due"
+"This is a test payment for authorization purposes to verify the validity of the card. Refund is issued immediately but its processing may take some time.","This is a test payment for authorization purposes to verify the validity of the card. Refund is issued immediately but its processing may take some time."
+Stripe,Stripe
+"Webhook Secret","Webhook Secret"
+"Required for Recurring Payments.","Required for Recurring Payments."

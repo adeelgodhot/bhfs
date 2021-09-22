@@ -1,0 +1,73 @@
+<table class="amrec-info-table">
+    <tbody>
+        <!-- ko if: data.length === 1 -->
+        <tr class="amrec-row">
+            <td class="amrec-cell" translate="'Billing Cycle & Delivery'"></td>
+            <td class="amrec-cell -value" text="billingCycleName"></td>
+        </tr>
+        <!-- /ko -->
+        <tr class="amrec-row">
+            <td class="amrec-cell -nobackground" translate="'Free Trials'"></td>
+            <td class="amrec-cell -value -nobackground">
+                <span class="amrec-status" css="'-yes': enableTrial(), '-no': !enableTrial()"></span>
+            </td>
+        </tr>
+        <!-- ko if: enableTrial-->
+            <tr class="amrec-row amrec-comment">
+                <td class="amrec-cell -nobackground" colspan="2" html="getTranslateText('amTrialMessage')"></td>
+            </tr>
+            <tr class="amrec-row">
+                <td class="amrec-cell" translate="'Number of Trial Days'"></td>
+                <td class="amrec-cell -value" text="trialDays"></td>
+            </tr>
+        <!-- /ko -->
+        <tr class="amrec-row" if="isEnableFee">
+            <td class="amrec-cell"  translate="'Initial Fee (excl. tax)'"></td>
+            <td class="amrec-cell -value"
+                data-amrec-js="initial-fee"
+                attr="'data-fee-type': feeType, 'data-fee-amount': feeAmount"
+                text="feeAmountValue"></td>
+        </tr>
+        <!-- ko if: isEnableDiscount -->
+            <tr class="amrec-row" >
+                <td class="amrec-cell" translate="'Savings (excl. tax)'"></td>
+                <td class="amrec-cell -value" >
+                    <span text="discountAmountValue"
+                          data-amrec-js="discount-amount"
+                          attr="'data-discount-type': discountAmountType, 'data-discount-amount': discountAmount"></span>
+                    <translate args="'per billing cycle'"/>
+                </td>
+            </tr>
+            <!-- ko if: isEnableDiscountCycle -->
+            <tr class="amrec-row">
+                <td class="amrec-cell" translate="'Discounted Cycles'"></td>
+                <td class="amrec-cell -value" data-amrec-js="tooltip-content">
+                    <text args="discountCycles"/>
+                    <span class="amrec-tooltip"
+                          data-amrec-js="tooltip-base"
+                          data-bind="afterRender: initCyclesTooltip"></span>
+                </td>
+            </tr>
+            <!-- /ko -->
+        <!-- /ko -->
+        <tr class="amrec-row">
+            <td class="amrec-cell -nobackground" translate="'Free Shipping on This Product'"></td>
+            <td class="amrec-cell -value -nobackground">
+                <span class="amrec-status"
+                      css="'-yes': isFreeShipping, '-no': !isFreeShipping"></span>
+            </td>
+        </tr>
+        <!-- ko ifnot: isAllowSpecifyStartEndDate -->
+            <tr class="amrec-row">
+                <td class="amrec-cell -nobackground" translate="'Subscription Start Date'"></td>
+                <td class="amrec-cell -value -nobackground -nobold" text="StartDateWithTrial"></td>
+            </tr>
+            <tr class="amrec-row">
+                <td class="amrec-cell -nobackground" translate="'Subscription End Date'"></td>
+                <td class="amrec-cell -value -nobackground -nobold">
+                    <translate args="'Until failed or canceled'"/>
+                </td>
+            </tr>
+        <!-- /ko -->
+    </tbody>
+</table>

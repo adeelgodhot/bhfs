@@ -1,0 +1,16 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringStripe
+ */
+?>
+<?php /** @var \Magento\Backend\Block\Template $block */ ?>
+
+<?= /* @noEscape */ $block->getData('input_html') ?>
+<div>
+    <?= $block->getChildHtml('button') ?>
+</div>
+<div class="details collapsed" data-role="details">
+    <div class="error-message" data-role="message"></div>
+</div>

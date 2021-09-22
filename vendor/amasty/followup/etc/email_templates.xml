@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="amfollowup_emails_header_template" label="Amasty Follow Email Header" file="header.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_emails_header_template_modern" label="Amasty Follow Email Header Modern" file="header_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_emails_footer_template" label="Amasty Follow Email Footer" file="footer.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_emails_footer_template_modern" label="Amasty Follow Email Footer Modern" file="footer_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_order_new" label="Amasty Follow Up Email: Order Created" file="order/new.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_new_modern" label="Amasty Follow Up Email: Order Created modern" file="order/new_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_new_winter_modern" label="Amasty Follow Up Email: Order Created modern winter theme" file="order/new_winter_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_new_autumn_modern" label="Amasty Follow Up Email: Order Created modern autumn theme" file="order/new_autumn_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_new_summer_modern" label="Amasty Follow Up Email: Order Created modern summer theme" file="order/new_summer_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_new_spring_modern" label="Amasty Follow Up Email: Order Created modern spring theme" file="order/new_spring_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_new_christmas_1_modern" label="Amasty Follow Up Email: Order Created modern Christmas theme I" file="order/new_christmas_modern_1.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_new_christmas_2_modern" label="Amasty Follow Up Email: Order Created modern Christmas theme II" file="order/new_christmas_modern_2.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_order_ship" label="Amasty Follow Up Email: Order Shipped" file="order/ship.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_ship_modern" label="Amasty Follow Up Email: Order Shipped modern" file="order/new_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_ship_winter_modern" label="Amasty Follow Up Email: Order Shipped modern winter theme" file="order/new_winter_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_ship_autumn_modern" label="Amasty Follow Up Email: Order Shipped modern autumn theme" file="order/new_autumn_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_ship_summer_modern" label="Amasty Follow Up Email: Order Shipped modern summer theme" file="order/new_summer_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_ship_spring_modern" label="Amasty Follow Up Email: Order Shipped modern spring theme" file="order/new_spring_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_ship_christmas_1_modern" label="Amasty Follow Up Email: Order Shipped modern Christmas theme I" file="order/new_christmas_modern_1.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_ship_christmas_2_modern" label="Amasty Follow Up Email: Order Shipped modern Christmas theme II" file="order/new_christmas_modern_2.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_order_invoice" label="Amasty Follow Up Email: Order Invoiced" file="order/invoice.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_invoice_modern" label="Amasty Follow Up Email: Order Invoiced modern" file="order/new_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_invoice_winter_modern" label="Amasty Follow Up Email: Order Invoiced modern winter theme" file="order/new_winter_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_invoice_autumn_modern" label="Amasty Follow Up Email: Order Invoiced modern autumn theme" file="order/new_autumn_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_invoice_summer_modern" label="Amasty Follow Up Email: Order Invoiced modern summer theme" file="order/new_summer_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_invoice_spring_modern" label="Amasty Follow Up Email: Order Invoiced modern spring theme" file="order/new_spring_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_invoice_christmas_1_modern" label="Amasty Follow Up Email: Order Invoiced modern Christmas theme I" file="order/new_christmas_modern_1.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_invoice_christmas_2_modern" label="Amasty Follow Up Email: Order Invoiced modern Christmas theme II" file="order/new_christmas_modern_2.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_order_complete" label="Amasty Follow Up Email: Order Completed" file="order/complete.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_complete_modern" label="Amasty Follow Up Email: Order Completed modern" file="order/new_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_complete_winter_modern" label="Amasty Follow Up Email: Order Completed modern winter theme" file="order/new_winter_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_complete_autumn_modern" label="Amasty Follow Up Email: Order Completed modern autumn theme" file="order/new_autumn_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_complete_summer_modern" label="Amasty Follow Up Email: Order Completed modern summer theme" file="order/new_summer_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_complete_spring_modern" label="Amasty Follow Up Email: Order Completed modern spring theme" file="order/new_spring_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_complete_christmas_1_modern" label="Amasty Follow Up Email: Order Completed modern Christmas theme I" file="order/new_christmas_modern_1.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_complete_christmas_2_modern" label="Amasty Follow Up Email: Order Completed modern Christmas theme II" file="order/new_christmas_modern_2.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_order_cancel" label="Amasty Follow Up Email: Order Cancelled" file="order/cancel.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_cancel_modern" label="Amasty Follow Up Email: Order Cancelled modern" file="order/new_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_cancel_winter_modern" label="Amasty Follow Up Email: Order Cancelled modern winter theme" file="order/new_winter_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_cancel_autumn_modern" label="Amasty Follow Up Email: Order Cancelled modern autumn theme" file="order/new_autumn_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_cancel_summer_modern" label="Amasty Follow Up Email: Order Cancelled modern summer theme" file="order/new_summer_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_cancel_spring_modern" label="Amasty Follow Up Email: Order Cancelled modern spring theme" file="order/new_spring_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_cancel_christmas_1_modern" label="Amasty Follow Up Email: Order Cancelled modern Christmas theme I" file="order/new_christmas_modern_1.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_order_cancel_christmas_2_modern" label="Amasty Follow Up Email: Order Cancelled modern Christmas theme II" file="order/new_christmas_modern_2.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+
+    <template id="amfollowup_customer_group" label="Amasty Follow Up Email: Customer Changed Group" file="customer/group.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_customer_birthday" label="Amasty Follow Up Email: Customer Birthday" file="customer/birthday.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_customer_new" label="Amasty Follow Up Email: Customer Registration" file="customer/new.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_customer_subscription" label="Amasty Follow Up Email: Customer Subscribed to Newsletter" file="customer/subscription.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_customer_activity" label="Amasty Follow Up Email: Customer No Activity" file="customer/activity.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_customer_date" label="Amasty Follow Up Email: Merry Christmas" file="customer/date.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_date_winter_modern" label="Amasty Follow Up Email: Merry Christmas modern winter theme" file="customer/date_winter.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_date_autumn_modern" label="Amasty Follow Up Email: Merry Christmas modern autumn theme" file="customer/date_autumn.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_date_summer_modern" label="Amasty Follow Up Email: Merry Christmas modern summer theme" file="customer/date_summer.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_date_spring_modern" label="Amasty Follow Up Email: Merry Christmas modern spring theme" file="customer/date_spring.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_date_christmas_1_modern" label="Amasty Follow Up Email: Merry Christmas modern Christmas theme I" file="customer/date_christmas_1.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_date_christmas_2_modern" label="Amasty Follow Up Email: Merry Christmas modern Christmas theme II" file="customer/date_christmas_2.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_customer_wishlist" label="Amasty Follow Up Email: Customer Wish List Product Added" file="customer/wishlist.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_winter_modern" label="Amasty Follow Up Email: Customer Wish List Product Added modern winter theme" file="customer/wishlist_winter_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_autumn_modern" label="Amasty Follow Up Email: Customer Wish List Product Added modern autumn theme" file="customer/wishlist_autumn_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_summer_modern" label="Amasty Follow Up Email: Customer Wish List Product Added modern summer theme" file="customer/wishlist_summer_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_spring_modern" label="Amasty Follow Up Email: Customer Wish List Product Added modern spring theme" file="customer/wishlist_spring_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_christmas_1_modern" label="Amasty Follow Up Email: Customer Wish List Product Added modern Christmas theme I" file="customer/wishlist_christmas_modern_1.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_christmas_2_modern" label="Amasty Follow Up Email: Customer Wish List Product Added modern Christmas theme II" file="customer/wishlist_christmas_modern_2.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_customer_wishlist_shared" label="Amasty Follow Up Email: Customer Wish List Shared" file="customer/wishlist_shared.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_shared_winter_modern" label="Amasty Follow Up Email: Customer Wish List Shared modern winter theme" file="customer/wishlist_winter_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_shared_autumn_modern" label="Amasty Follow Up Email: Customer Wish List Shared modern autumn theme" file="customer/wishlist_autumn_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_shared_summer_modern" label="Amasty Follow Up Email: Customer Wish List Shared modern summer theme" file="customer/wishlist_summer_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_shared_spring_modern" label="Amasty Follow Up Email: Customer Wish List Shared modern spring theme" file="customer/wishlist_spring_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_shared_christmas_1_modern" label="Amasty Follow Up Email: Customer Wish List Shared modern Christmas theme I" file="customer/wishlist_christmas_modern_1.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_shared_christmas_2_modern" label="Amasty Follow Up Email: Customer Wish List Shared modern Christmas theme II" file="customer/wishlist_christmas_modern_2.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_customer_wishlist_sale" label="Amasty Follow Up Email: Customer Wish List on Sale" file="customer/wishlist_sale.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_sale_winter_modern" label="Amasty Follow Up Email: Customer Wish List on Sale modern winter theme" file="customer/wishlist_winter_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_sale_autumn_modern" label="Amasty Follow Up Email: Customer Wish List on Sale modern autumn theme" file="customer/wishlist_autumn_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_sale_summer_modern" label="Amasty Follow Up Email: Customer Wish List on Sale modern summer theme" file="customer/wishlist_summer_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_sale_spring_modern" label="Amasty Follow Up Email: Customer Wish List on Sale modern spring theme" file="customer/wishlist_spring_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_sale_christmas_1_modern" label="Amasty Follow Up Email: Customer Wish List on Sale modern Christmas theme I" file="customer/wishlist_christmas_modern_1.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_sale_christmas_2_modern" label="Amasty Follow Up Email: Customer Wish List on Sale modern Christmas theme II" file="customer/wishlist_christmas_modern_2.html" type="html" module="Amasty_Followup" area="frontend"/>
+
+    <template id="amfollowup_customer_wishlist_back_instock" label="Amasty Follow Up Email: Customer Wish List Product Back In Stock" file="customer/wishlist_instock.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_back_instock_winter_modern" label="Amasty Follow Up Email: Customer Wish List Product Back In Stock modern winter theme" file="customer/wishlist_winter_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_back_instock_autumn_modern" label="Amasty Follow Up Email: Customer Wish List Product Back In Stock modern autumn theme" file="customer/wishlist_autumn_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_back_instock_summer_modern" label="Amasty Follow Up Email: Customer Wish List Product Back In Stock modern summer theme" file="customer/wishlist_summer_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_back_instock_spring_modern" label="Amasty Follow Up Email: Customer Wish List Product Back In Stock modern spring theme" file="customer/wishlist_spring_modern.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_back_instock_christmas_1_modern" label="Amasty Follow Up Email: Customer Wish List Product Back In Stock modern Christmas theme I" file="customer/wishlist_christmas_modern_1.html" type="html" module="Amasty_Followup" area="frontend"/>
+    <template id="amfollowup_customer_wishlist_back_instock_christmas_2_modern" label="Amasty Follow Up Email: Customer Wish List Product Back In Stock modern Christmas theme II" file="customer/wishlist_christmas_modern_2.html" type="html" module="Amasty_Followup" area="frontend"/>
+</config>

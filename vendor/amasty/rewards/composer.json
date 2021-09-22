@@ -1,0 +1,28 @@
+{
+    "name": "amasty/rewards",
+    "description": "Amasty Rewards",
+    "require": {
+        "php": "^7.1.0",
+        "amasty/base": ">=1.12.5",
+        "amasty/module-advanced-conditions": ">=1.5.2",
+        "amasty/cron-schedule-list": ">=1.0.5"
+    },
+    "suggest": {
+        "amasty/rewards-mftf-2": "Install rewards-mftf-2 module to be able to run Reward Points MFTF tests for Magento 2.3.5+ version",
+        "amasty/rewards-mftf-3": "Install rewards-mftf-3 module to be able to run Reward Points MFTF tests for Magento 2.4.0+ version",
+        "amasty/rewards-graph-ql": "Install rewards-graph-ql module to be able to use Reward Points GraphQL queries."
+    },
+    "type": "magento2-module",
+    "version": "1.14.6",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\Rewards\\": ""
+        }
+    }
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="checkout" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="checkout.root" >
+            <arguments>
+                <argument name="jsLayout" xsi:type="array">
+                    <item name="components" xsi:type="array">
+                        <item name="checkout" xsi:type="array">
+                            <item name="children" xsi:type="array">
+                                <item name="sidebar" xsi:type="array">
+                                    <item name="children" xsi:type="array">
+                                        <item name="summary" xsi:type="array">
+                                            <item name="children" xsi:type="array">
+                                                <item name="totals" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="amasty_recurring_payments_fee" xsi:type="array">
+                                                            <item name="component"  xsi:type="string">Amasty_RecurringPayments/js/view/summary/fee</item>
+                                                            <item name="sortOrder" xsi:type="string">50</item>
+                                                            <item name="template" xsi:type="string">Amasty_RecurringPayments/summary/fee</item>
+                                                            <item name="title" xsi:type="string" translate="true">Initial Subscription Fee</item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                                <item name="cart_items" xsi:type="array">
+                                                    <item name="children" xsi:type="array">
+                                                        <item name="amasty_recurring_payments_label" xsi:type="array">
+                                                            <item name="component" xsi:type="string">Amasty_RecurringPayments/js/view/summary/item/details/label</item>
+                                                            <item name="sortOrder" xsi:type="string">0</item>
+                                                            <item name="template" xsi:type="string">Amasty_RecurringPayments/summary/item/details/label</item>
+                                                            <item name="provider" xsi:type="string">checkoutProvider</item>
+                                                        </item>
+                                                        <item name="details" xsi:type="array">
+                                                            <item name="children" xsi:type="array">
+                                                                <item name="amasty_recurring_payments_estimation" xsi:type="array">
+                                                                    <item name="component" xsi:type="string">Amasty_RecurringPayments/js/view/summary/item/details/estimation</item>
+                                                                    <item name="sortOrder" xsi:type="string">10000</item>
+                                                                    <item name="template" xsi:type="string">Amasty_RecurringPayments/summary/item/details/estimation</item>
+                                                                </item>
+                                                            </item>
+                                                        </item>
+                                                    </item>
+                                                </item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                        </item>
+                    </item>
+                </argument>
+            </arguments>
+        </referenceBlock>
+    </body>
+</page>

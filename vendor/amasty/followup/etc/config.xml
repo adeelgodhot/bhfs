@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Followup
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Store/etc/config.xsd">
+    <default>
+        <amfollowup>
+            <general>
+                <winback_period>7</winback_period>
+                <customer_coupon>0</customer_coupon>
+                <birthday_offset>0</birthday_offset>
+                <clear_history>90</clear_history>
+            </general>
+            <statuses>
+                <new>pending</new>
+                <ship>processing</ship>
+                <invoice>processing</invoice>
+                <complete>complete</complete>
+                <cancel>canceled</cancel>
+            </statuses>
+            <template>
+                <name>Owner</name>
+                <email>owner@example.com</email>
+            </template>
+            <test>
+                <safe_mode>0</safe_mode>
+                <recipient></recipient>
+            </test>
+            <emails>
+                <header_template>amfollowup_emails_header_template</header_template>
+                <footer_template>amfollowup_emails_footer_template</footer_template>
+            </emails>
+        </amfollowup>
+    </default>
+</config>

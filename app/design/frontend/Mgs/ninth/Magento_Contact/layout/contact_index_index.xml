@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+			<container name="custom.contact.content" htmlTag="div" htmlClass="row row-contact">
+                <container name="custom.contact.content.child" htmlTag="div" htmlClass="contact-static">
+                    <block class="Magento\Cms\Block\Block" name="custom.contact.static.block">
+                        <arguments>
+                            <argument name="block_id" xsi:type="string">contact_page_custom_block</argument>
+                            <argument name="enabled_builder" xsi:type="string">1</argument>
+                        </arguments>
+                    </block>
+                </container>
+			</container>
+            <block class="Magento\Contact\Block\ContactForm" name="contactMap" template="Magento_Contact::map.phtml" after="custom.contact.content" />
+        </referenceContainer>
+        
+        <move element="contactForm" destination="custom.contact.content" before="custom.contact.content.child" />
+    </body>
+</page>

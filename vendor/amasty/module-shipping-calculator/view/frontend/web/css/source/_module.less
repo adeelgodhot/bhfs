@@ -1,0 +1,64 @@
+//
+//  Variables
+//  _____________________________________________
+
+@shippingcalculator-border: solid 1px #333333;
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .block-content.shipping-calculation {
+        fieldset {
+            margin: 5px 0 20px 0;
+        }
+    }
+    .shipping-calculation-result-container {
+        table {
+            border: 0;
+        }
+        & {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .item-title{
+            margin: 1rem 0;
+            border: 0;
+            th {
+                padding: 8px 0;
+                border: 0;
+            }
+        }
+        .item-options {
+            & {
+                margin: 0 0 0 10px;
+                text-align: left;
+                border: @shippingcalculator-border;
+            }
+            td {
+                padding: 8px;
+                border: @shippingcalculator-border;
+            }
+        }
+    }
+}
+
+//
+//  Desktop
+//  ----------------------------------------------
+
+.media-width(@extremum, @break) when (@extremum = 'min') and (@break = @screen__l) {
+    .block-content.shipping-calculation {
+        max-width: 500px;
+        .actions-toolbar {
+            & {
+                text-align: center;
+            }
+
+            .actions-primary {
+                float: none;
+            }
+        }
+    }
+}
+

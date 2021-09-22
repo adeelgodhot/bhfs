@@ -1,0 +1,445 @@
+<class_setting>
+	<theme_color>
+		<color>
+			<![CDATA[.color-theme, blockquote:after, a:hover, a:focus, a:active, .message > * a, .action-shop-now:hover, .service-icon .icon, .footer a:hover, .products-grid .product-item-details .tocart:hover, .products-grid .product-item-details .tocart:focus, .products-grid .grid-template-4 .product-detail-price .price-box .price, .products-grid .grid-template-5 .actions-and-attr .actions-link .action.tocart:hover, .rotate-image-container .close-rotate:hover, .breadcrumbs li a:hover, .minicart-wrapper .block-content > .subtotal .price, .minicart-items .product-item-details .price, .big-deal-products .owl-carousel .owl-nav > div:hover, .list-products .owl-carousel .owl-nav > div:hover, .product.media #owl-carousel-gallery.owl-carousel .owl-nav > div:hover, .product.media .horizontal-thumbnail.owl-carousel .owl-nav > div:hover, .product.media .vertical-gallery .slick-arrow:hover, .block.review-list .review-items li.review-item .review-title, .detail-page-grid-products .owl-carousel .owl-nav > div:hover, .product-data-items-menu .data.item.title a:hover, .product-data-items-menu .data.item.title.active a, .product-info-main .price-box .price, .product-info-main .product-info-stock-sku .stock:not(.available), .product-info-main .product-options-wrapper .items.samples .samples-item-link, .product-social-links a:hover, .box-tocart .edit-qty:hover, .bundle-info .product-details .stock.unavailable span, .checkout-cart-index .column.main .cart-empty a, .checkout-cart-index #shopping-cart-table .cart-price .price, .checkout-cart-index #shopping-cart-table .gift-options-cart-item .action-gift:hover, .shipping-address-items .shipping-address-item.selected-item, .opc-block-summary .table-totals tr.totals.grand th, .opc-block-summary .table-totals tr.totals.grand td, .opc-block-summary .table-totals tr.totals.grand th strong, .opc-block-summary .table-totals tr.totals.grand td strong, .opc-block-shipping-information .shipping-information-title .action-edit:hover:before,#multiship-addresses-table tbody tr td.product .product-item-name a:hover, .multishipping-checkout-shipping table tbody tr td .product-item-name a:hover, .multishipping-checkout-overview table tbody tr td .product-item-name a:hover, .multishipping-checkout-overview table tfoot tr.grand.totals th, .multishipping-checkout-overview table tfoot tr.grand.totals td, .page-print.sales-order-print .table-order-items tfoot tr td, .multicheckout.success + #registration .action.primary, .checkout-success + #registration .action.primary, .mfp-mgs-quickview .mfp-iframe-scaler .mfp-close:hover:before, .twitter-feed-block .twitter-item .twitter-content .content a, .footer address a, .footer .list-icon .fa, .footer .list-icon a:hover, .footer.footer2 .social-link li a:hover, .template-4 .slider_mgs_carousel.owl-carousel .owl-nav > div:hover, .price-box .special-price .price]]>
+		</color>
+		<border_color>
+			<![CDATA[.owl-carousel .owl-nav > div:not(.disabled):hover, .products-grid .product-detail-action button:hover, .products-grid .grid-template-3 .product-detail-action form button, .products-grid .grid-template-4 .product-detail-action form button,.instagram-block .owl-carousel .owl-nav > div:hover, .sidebar > .block.block-wishlist .product-items .product-item .product-item-info .product-item-details .btn-remove:hover,.list-products .action.mgs-quickview:hover, .list-products .actions-link .action:hover, .toolbar .toolbar-sorter .sorter-action:hover, .toolbar .modes strong.modes-mode, .toolbar .modes a.modes-mode:hover,.product.media .horizontal-thumbnail .owl-item .item-thumb.active, .product.media .vertical-gallery .item-thumb.active img, .product-data-items-menu .data.item.title a:hover, .product-data-items-menu .data.item.title.active a, .shipping-address-items .shipping-address-item.selected-item, .filter-installed .action-filter:hover,.newsletter_popup, .action-shop-now, .products-grid .grid-template-1 .product-item-details .tocart, .minicart-items .product-item-details .details-qty .update-cart-item, .multicheckout.success + #registration .action.primary, .checkout-success + #registration .action.primary,.newsletter_popup]]>
+		</border_color>
+		<background_color>
+            <![CDATA[blockquote:before, .btn.btn-default, .action.secondary, .cart.main.actions .action.clear, .checkout-shipping-address > .step-content .action.action-show-popup, .form-discount .action.action-apply, .action-primary.action-accept, .authentication-wrapper .action-auth-toggle, .multicheckout .actions-toolbar .secondary .action.add, .form.send.friend .action.back, #compare-clear-all, .block-dashboard-orders .action.order, .block-dashboard-info .action.change-password, .table-order-items .action.order,.owl-carousel .owl-nav > div:not(.disabled):hover,.footer-social--content .ft-social.youtube, .product-label, .products-grid .product-detail-action button:hover,.products-grid .grid-template-1 .product-item-details .tocart, .products-grid .grid-template-2 .product-detail-action button:hover, .products-grid .grid-template-3 .product-detail-action button:hover, .products-grid .grid-template-3 .product-detail-action form button, .products-grid .grid-template-4 .product-detail-action form button,.products-grid .grid-template-4 .product-detail-action button:hover,.menu-product-tabs.nav-tabs > li a:after,.instagram-block .owl-carousel .owl-nav > div:hover,.home-newsletter.white-block,.account .actions-toolbar > .secondary .action.back,.sidebar > .block.block-wishlist .product-items .product-item .product-item-info .product-item-details .btn-remove:hover,.minicart-wrapper .action.showcart .counter.qty, .minicart-items .product-item-details .details-qty .update-cart-item, .list-products .action.mgs-quickview:hover, .list-products .actions-link .action:hover, .toolbar .toolbar-sorter .sorter-action:hover, .toolbar .modes strong.modes-mode, .toolbar .modes a.modes-mode:hover, .newsletter_popup .form-group.newsletter .action.subscribe:hover, .cart-footer .fixed-mini-cart .cart-items .item .product .item-qty, .filter-installed .action-filter:hover]]>
+		</background_color>
+        <box_shadow_0>
+            <![CDATA[.btn.btn-primary, .action.primary, .cart.main.actions .action.continue, .shipping-address-items .action, .page-title-wrapper a.print, .action-secondary.action-dismiss, .multicheckout .actions-toolbar .secondary .action.update, .sidebar .block-wishlist .action.details, .block-dashboard-orders .action.view, .block-dashboard-info .action.edit, .block-dashboard-addresses .action.edit, .block-reviews-dashboard .action.view, .block-reorder .action.view, .table-order-items .action.view, .gift-options .action.action-cancel, .btn-white]]>
+        </box_shadow_0>
+        <background_color>
+            <![CDATA[.btn.btn-primary:hover, .action.primary:hover, .cart.main.actions .action.continue:hover, .shipping-address-items .action:hover, .page-title-wrapper a.print:hover, .action-secondary.action-dismiss:hover, .multicheckout .actions-toolbar .secondary .action.update:hover, .sidebar .block-wishlist .action.details:hover, .block-dashboard-orders .action.view:hover, .block-dashboard-info .action.edit:hover, .block-dashboard-addresses .action.edit:hover, .block-reviews-dashboard .action.view:hover, .block-reorder .action.view:hover, .table-order-items .action.view:hover, .gift-options .action.action-cancel:hover]]>
+        </background_color>
+        <box_shadow_2>
+            <![CDATA[.btn-white:hover]]>
+        </box_shadow_2>
+        <fill>
+            <![CDATA[.share-this-wrapper .sharethis-inline-share-buttons .st-btn:hover > svg]]>
+        </fill>
+	</theme_color>
+	
+	<!-- HEADER -->
+	<header>
+		
+		<!-- Header border color -->
+		<header_border_color>
+			<border_color>
+				<![CDATA[.header]]>
+			</border_color>
+		</header_border_color>
+		
+		<!-- Header background color -->
+		<header_background_color>
+			<background_color>
+				<![CDATA[.header]]>
+			</background_color>
+		</header_background_color>
+		
+		
+		<!-- TOP LINKS SECTION -->
+		<!-- Background color -->
+		<background_color>
+			<background_color>
+				<![CDATA[.top-header-content]]>
+			</background_color>
+		</background_color>
+		
+		<!-- Text color -->
+		<text_color>
+			<color>
+				<![CDATA[.top-header-content]]>
+			</color>
+		</text_color>
+		
+		<!-- Link color -->
+		<link_color>
+			<color>
+				<![CDATA[.top-header-content a, .top-header-content .dropdown-switcher .switcher-toggle]]>
+			</color>
+		</link_color>
+		
+		<!-- Link hover color -->
+		<link_hover_color>
+			<color>
+				<![CDATA[.top-header-content a:hover, .top-header-content .dropdown-switcher .switcher-toggle:hover]]>
+			</color>
+		</link_hover_color>
+		
+		<!-- Dropdown link color -->
+		<drd_link_color>
+			<color>
+				<![CDATA[.header .dropdown-switcher .dropdown-menu li > a]]>
+			</color>
+		</drd_link_color>
+		
+		<!-- Dropdown link hover color -->
+		<drd_link_hover_color>
+			<color>
+				<![CDATA[.header .dropdown-switcher .dropdown-menu li > a:hover, .header .dropdown-switcher .dropdown-menu li > a:focus]]>
+			</color>
+		</drd_link_hover_color>
+		
+		
+		<!-- HEADER MIDDLE SECTION -->
+		<!-- Background color -->
+		<middle_background>
+			<background_color>
+				<![CDATA[.middle-header-content]]>
+			</background_color>
+		</middle_background>
+		
+		<!-- Middle link color -->
+		<middle_link>
+			<color>
+				<![CDATA[.middle-header-content a]]>
+			</color>
+		</middle_link>
+		
+		<!-- Middle link color -->
+		<middle_link_hover>
+			<color>
+				<![CDATA[.middle-header-content a:hover]]>
+			</color>
+		</middle_link_hover>
+		
+		<!-- Middle text color -->
+		<middle_text>
+			<color>
+				<![CDATA[.middle-header-content]]>
+			</color>
+		</middle_text>
+		
+		<!-- Icon color -->
+		<cart_icon>
+			<color>
+				<![CDATA[.minicart-wrapper .action.showcart:before, .top-search .enable_search_form,.flex-top-content .switcher-myaccount .switcher-trigger]]>
+			</color>
+			<border_color>
+				<![CDATA[.mobile-action.nav-toggle span]]>
+			</border_color>
+			<background_color>
+				<![CDATA[.mobile-action.nav-toggle span:before]]>
+			</background_color>
+		</cart_icon>
+		
+		<!-- Icon color (Hover) -->
+		<cart_icon_hover>
+			<color>
+				<![CDATA[.header .search-form .actions-search .action-search:hover,.header .dropdown-toplinks .dropdown-toggle:hover,.header .dropdown-toplinks:hover .dropdown-toggle,.header .header-wl a:hover,.header .dropdown-toplinks.open .dropdown-toggle,.minicart-wrapper .action.showcart:hover::before, .minicart-wrapper .action.showcart:active::before]]>
+			</color>
+		</cart_icon_hover>
+		
+		<!-- Number color -->
+		<cart_number>
+			<color>
+				<![CDATA[.minicart-wrapper .action.showcart > .counter.qty,.header .header-wl .count-wl]]>
+			</color>
+		</cart_number>
+		
+		<!-- Number color -->
+		<cart_number_background>
+			<background_color>
+				<![CDATA[.minicart-wrapper .action.showcart > .counter.qty,.header .header-wl .count-wl]]>
+			</background_color>
+		</cart_number_background>
+		
+		
+		<!-- MENU SECTION -->
+		<!-- Section background color -->
+		<menu_background>
+			<background_color>
+				<![CDATA[.bottom-header-content]]>
+			</background_color>
+		</menu_background>
+		
+		<!-- Level 1 link color -->
+		<lv1_color>
+			<color>
+				<![CDATA[#mainMenu .level0 a.level0]]>
+			</color>
+		</lv1_color>
+		
+		<!-- Level 1 link hover color -->
+		<lv1_color_hover>
+			<color>
+				<![CDATA[#mainMenu .level0:hover a.level0]]>
+			</color>
+		</lv1_color_hover>
+		
+		<!-- Level 1 background color -->
+		<lv1_background>
+			<background_color>
+				<![CDATA[#mainMenu .level0 a.level0]]>
+			</background_color>
+		</lv1_background>
+		
+		<!-- Level 1 hover background color -->
+		<lv1_background_hover>
+			<background_color>
+				<![CDATA[#mainMenu .level0:hover a.level0]]>
+			</background_color>
+		</lv1_background_hover>
+	</header>
+	
+	<!-- FOOTER -->
+	<footer>
+		<!-- TOP SECTION -->
+		<!-- Background color -->
+		<top_background_color>
+			<background_color>
+				<![CDATA[footer .top-footer]]>
+			</background_color>
+		</top_background_color>
+		
+		<!-- Text color -->
+		<top_text_color>
+			<color>
+				<![CDATA[footer .top-footer]]>
+			</color>
+		</top_text_color>
+		
+		<!-- Border top color -->
+		<top_border_color>
+			<border_color>
+				<![CDATA[footer .top-footer]]>
+			</border_color>
+		</top_border_color>
+		
+		<!-- Heading color -->
+		<top_heading_color>
+			<color>
+				<![CDATA[footer .top-footer h1,footer .top-footer h2,footer .top-footer h3,footer .top-footer h4,footer .top-footer h5,footer .top-footer h6,footer .top-footer .h1,footer .top-footer .h2,footer .top-footer .h3,footer .top-footer .h4,footer .top-footer .h5,footer .top-footer .h6]]>
+			</color>
+		</top_heading_color>
+		
+		<!-- Link color -->
+		<top_link_color>
+			<color>
+				<![CDATA[footer .top-footer a]]>
+			</color>
+		</top_link_color>
+		
+		<!-- Link hover color -->
+		<top_link_color_hover>
+			<color>
+				<![CDATA[footer .top-footer a:hover]]>
+			</color>
+		</top_link_color_hover>
+		
+		
+		<!-- MIDDLE SECTION -->
+		<!-- Background color -->
+		<middle_background_color>
+			<background_color>
+				<![CDATA[footer .middle-footer]]>
+			</background_color>
+		</middle_background_color>
+		
+		<!-- Text color -->
+		<middle_text_color>
+			<color>
+				<![CDATA[footer .middle-footer]]>
+			</color>
+		</middle_text_color>
+		
+		<!-- Border color -->
+		<middle_border_color>
+			<border_color>
+				<![CDATA[footer .middle-footer]]>
+			</border_color>
+		</middle_border_color>
+		
+		<!-- Heading color -->
+		<middle_heading_color>
+			<color>
+				<![CDATA[footer .middle-footer h1,footer .middle-footer h2,footer .middle-footer h3,footer .middle-footer h4,footer .middle-footer h5,footer .middle-footer h6,footer .middle-footer .h1,footer .middle-footer .h2,footer .middle-footer .h3,footer .middle-footer .h4,footer .middle-footer .h5,footer .middle-footer .h6]]>
+			</color>
+		</middle_heading_color>
+		
+		<!-- Link color -->
+		<middle_link_color>
+			<color>
+				<![CDATA[footer .middle-footer a]]>
+			</color>
+		</middle_link_color>
+		
+		<!-- Link hover color -->
+		<middle_link_color_hover>
+			<color>
+				<![CDATA[footer .middle-footer a:hover]]>
+			</color>
+		</middle_link_color_hover>
+		
+		
+		<!-- BOTTOM SECTION -->
+		<!-- Background color -->
+		<bottom_background_color>
+			<background_color>
+				<![CDATA[footer .bottom-footer]]>
+			</background_color>
+		</bottom_background_color>
+		
+		<!-- Text color -->
+		<bottom_text_color>
+			<color>
+				<![CDATA[footer .bottom-footer, .footer .payment-icons]]>
+			</color>
+		</bottom_text_color>
+		
+		<!-- Border color -->
+		<bottom_border_color>
+			<border_color>
+				<![CDATA[footer .bottom-footer]]>
+			</border_color>
+		</bottom_border_color>
+		
+		<!-- Heading color -->
+		<bottom_heading_color>
+			<color>
+				<![CDATA[footer .bottom-footer h1,footer .bottom-footer h2,footer .bottom-footer h3,footer .bottom-footer h4,footer .bottom-footer h5,footer .bottom-footer h6,footer .bottom-footer .h1,footer .bottom-footer .h2,footer .bottom-footer .h3,footer .bottom-footer .h4,footer .bottom-footer .h5,footer .bottom-footer .h6]]>
+			</color>
+		</bottom_heading_color>
+		
+		<!-- Link color -->
+		<bottom_link_color>
+			<color>
+				<![CDATA[footer .bottom-footer a]]>
+			</color>
+		</bottom_link_color>
+		
+		<!-- Link hover color -->
+		<bottom_link_color_hover>
+			<color>
+				<![CDATA[footer .bottom-footer a:hover, .footer .payment-icons:hover]]>
+			</color>
+		</bottom_link_color_hover>
+	</footer>
+    
+    <main>
+        <!-- Default Color -->
+        <text_color>
+            <color>
+				<![CDATA[body]]>
+			</color>
+        </text_color>
+        <link_color>
+            <color>
+				<![CDATA[a]]>
+			</color>
+        </link_color>
+        <link_color_hover>
+            <color>
+				<![CDATA[a:hover, a:focus, a:active]]>
+			</color>
+        </link_color_hover>
+        <price_color>
+            <color>
+				<![CDATA[.price-box .price]]>
+			</color>
+        </price_color>
+        
+        <!-- Default Button -->
+        <button_text>
+            <color>
+				<![CDATA[.btn.btn-default, .action.secondary, .cart.main.actions .action.clear, .checkout-shipping-address > .step-content .action.action-show-popup, .form-discount .action.action-apply, .action-primary.action-accept, .authentication-wrapper .action-auth-toggle, .multicheckout .actions-toolbar .secondary .action.add, .form.send.friend .action.back, #compare-clear-all, .block-dashboard-orders .action.order, .block-dashboard-info .action.change-password, .table-order-items .action.order]]>
+			</color>
+        </button_text>
+        <button_text_hover>
+            <color>
+				<![CDATA[.btn.btn-default:hover, .action.secondary:hover, .cart.main.actions .action.clear:hover, .checkout-shipping-address > .step-content .action.action-show-popup:hover, .form-discount .action.action-apply:hover, .action-primary.action-accept:hover, .authentication-wrapper .action-auth-toggle:hover, .multicheckout .actions-toolbar .secondary .action.add:hover, .form.send.friend .action.back:hover, #compare-clear-all:hover, .block-dashboard-orders .action.order:hover, .block-dashboard-info .action.change-password:hover, .table-order-items .action.order:hover]]>
+			</color>
+        </button_text_hover>
+        <button_background>
+            <background_color>
+				<![CDATA[.btn.btn-default, .action.secondary, .cart.main.actions .action.clear, .checkout-shipping-address > .step-content .action.action-show-popup, .form-discount .action.action-apply, .action-primary.action-accept, .authentication-wrapper .action-auth-toggle, .multicheckout .actions-toolbar .secondary .action.add, .form.send.friend .action.back, #compare-clear-all, .block-dashboard-orders .action.order, .block-dashboard-info .action.change-password, .table-order-items .action.order]]>
+			</background_color>
+        </button_background>
+        <button_background_hover>
+            <background_color>
+				<![CDATA[.btn.btn-default:hover, .action.secondary:hover, .cart.main.actions .action.clear:hover, .checkout-shipping-address > .step-content .action.action-show-popup:hover, .form-discount .action.action-apply:hover, .action-primary.action-accept:hover, .authentication-wrapper .action-auth-toggle:hover, .multicheckout .actions-toolbar .secondary .action.add:hover, .form.send.friend .action.back:hover, #compare-clear-all:hover, .block-dashboard-orders .action.order:hover, .block-dashboard-info .action.change-password:hover, .table-order-items .action.order:hover]]>
+			</background_color>
+        </button_background_hover>
+        <button_border>
+            <border_color>
+				<![CDATA[.btn.btn-default, .action.secondary, .cart.main.actions .action.clear, .checkout-shipping-address > .step-content .action.action-show-popup, .form-discount .action.action-apply, .action-primary.action-accept, .authentication-wrapper .action-auth-toggle, .multicheckout .actions-toolbar .secondary .action.add, .form.send.friend .action.back, #compare-clear-all, .block-dashboard-orders .action.order, .block-dashboard-info .action.change-password, .table-order-items .action.order]]>
+			</border_color>
+        </button_border>
+        <button_border_hover>
+            <border_color>
+				<![CDATA[.btn.btn-default:hover, .action.secondary:hover, .cart.main.actions .action.clear:hover, .checkout-shipping-address > .step-content .action.action-show-popup:hover, .form-discount .action.action-apply:hover, .action-primary.action-accept:hover, .authentication-wrapper .action-auth-toggle:hover, .multicheckout .actions-toolbar .secondary .action.add:hover, .form.send.friend .action.back:hover, #compare-clear-all:hover, .block-dashboard-orders .action.order:hover, .block-dashboard-info .action.change-password:hover, .table-order-items .action.order:hover]]>
+			</border_color>
+        </button_border_hover>
+        <!-- Primary Button -->
+        <primary_button_text>
+            <color>
+				<![CDATA[.btn.btn-primary, .action.primary, .cart.main.actions .action.continue, .shipping-address-items .action, .page-title-wrapper a.print, .action-secondary.action-dismiss, .multicheckout .actions-toolbar .secondary .action.update, .sidebar .block-wishlist .action.details, .block-dashboard-orders .action.view, .block-dashboard-info .action.edit, .block-dashboard-addresses .action.edit, .block-reviews-dashboard .action.view, .block-reorder .action.view, .table-order-items .action.view, .gift-options .action.action-cancel,
+				.products-grid .product-detail-action button, .products-grid .product-detail-action button:before]]>
+			</color>
+        </primary_button_text>
+        <primary_button_text_hover>
+            <color>
+				<![CDATA[.btn.btn-primary:hover, .action.primary:hover, .cart.main.actions .action.continue:hover, .shipping-address-items .action:hover, .page-title-wrapper a.print:hover, .action-secondary.action-dismiss:hover, .multicheckout .actions-toolbar .secondary .action.update:hover, .sidebar .block-wishlist .action.details:hover, .block-dashboard-orders .action.view:hover, .block-dashboard-info .action.edit:hover, .block-dashboard-addresses .action.edit:hover, .block-reviews-dashboard .action.view:hover, .block-reorder .action.view:hover, .table-order-items .action.view:hover, .gift-options .action.action-cancel:hover,.products-grid .product-detail-action button:hover]]>
+			</color>
+        </primary_button_text_hover>
+        <primary_button_background>
+        	<border_top_color>
+                <![CDATA[.products-grid .product-detail-action button:after]]>
+			</border_top_color>
+            <background_color>
+                <![CDATA[.btn.btn-primary, .action.primary, .cart.main.actions .action.continue, .shipping-address-items .action, .page-title-wrapper a.print, .action-secondary.action-dismiss, .multicheckout .actions-toolbar .secondary .action.update, .sidebar .block-wishlist .action.details, .block-dashboard-orders .action.view, .block-dashboard-info .action.edit, .block-dashboard-addresses .action.edit, .block-reviews-dashboard .action.view, .block-reorder .action.view, .table-order-items .action.view, .gift-options .action.action-cancel, .products-grid .product-detail-action button, .products-grid .product-detail-action button:before]]>
+            </background_color>
+        </primary_button_background>
+        <primary_button_background_hover>
+            <background_color>
+				<![CDATA[.btn.btn-primary:hover, .action.primary:hover, .cart.main.actions .action.continue:hover, .shipping-address-items .action:hover, .page-title-wrapper a.print:hover, .action-secondary.action-dismiss:hover, .multicheckout .actions-toolbar .secondary .action.update:hover, .sidebar .block-wishlist .action.details:hover, .block-dashboard-orders .action.view:hover, .block-dashboard-info .action.edit:hover, .block-dashboard-addresses .action.edit:hover, .block-reviews-dashboard .action.view:hover, .block-reorder .action.view:hover, .table-order-items .action.view:hover, .gift-options .action.action-cancel:hover, .products-grid .product-detail-action button:hover]]>
+			</background_color>
+        </primary_button_background_hover>
+        <primary_button_border>
+            <border_color>
+                <![CDATA[.btn.btn-primary, .action.primary, .cart.main.actions .action.continue, .shipping-address-items .action, .page-title-wrapper a.print, .action-secondary.action-dismiss, .multicheckout .actions-toolbar .secondary .action.update, .sidebar .block-wishlist .action.details, .block-dashboard-orders .action.view, .block-dashboard-info .action.edit, .block-dashboard-addresses .action.edit, .block-reviews-dashboard .action.view, .block-reorder .action.view, .table-order-items .action.view, .gift-options .action.action-cancel, .products-grid .product-detail-action button]]>
+			</border_color>
+        </primary_button_border>
+        <primary_button_border_hover>
+            <border_color>
+                <![CDATA[.btn.btn-primary:hover, .action.primary:hover, .cart.main.actions .action.continue:hover, .shipping-address-items .action:hover, .page-title-wrapper a.print:hover, .action-secondary.action-dismiss:hover, .multicheckout .actions-toolbar .secondary .action.update:hover, .sidebar .block-wishlist .action.details:hover, .block-dashboard-orders .action.view:hover, .block-dashboard-info .action.edit:hover, .block-dashboard-addresses .action.edit:hover, .block-reviews-dashboard .action.view:hover, .block-reorder .action.view:hover, .table-order-items .action.view:hover, .gift-options .action.action-cancel:hover, .products-grid .product-detail-action button:hover]]>
+			</border_color>
+        </primary_button_border_hover>
+        
+        <!-- Secondary Button -->
+        <secondary_button_text>
+            <color>
+				<![CDATA[.btn.btn-secondary, .cart.main.actions .action.update, .minicart-wrapper .action.viewcart, .multicheckout .actions-toolbar .secondary .action.back, .form.send.friend .action.add]]>
+			</color>
+        </secondary_button_text>
+        <secondary_button_text_hover>
+            <color>
+				<![CDATA[.btn.btn-secondary:hover, .cart.main.actions .action.update:hover, .minicart-wrapper .action.viewcart:hover, .multicheckout .actions-toolbar .secondary .action.back:hover, .form.send.friend .action.add:hover]]>
+			</color>
+        </secondary_button_text_hover>
+        <secondary_button_background>
+            <background_color>
+                <![CDATA[.btn.btn-secondary, .cart.main.actions .action.update, .minicart-wrapper .action.viewcart, .multicheckout .actions-toolbar .secondary .action.back, .form.send.friend .action.add]]>
+            </background_color>
+        </secondary_button_background>
+        <secondary_button_background_hover>
+            <background_color>
+				<![CDATA[.btn.btn-secondary:hover, .cart.main.actions .action.update:hover, .minicart-wrapper .action.viewcart:hover, .multicheckout .actions-toolbar .secondary .action.back:hover, .form.send.friend .action.add:hover]]>
+			</background_color>
+        </secondary_button_background_hover>
+        <secondary_button_border>
+            <border_color>
+				<![CDATA[.btn.btn-secondary, .cart.main.actions .action.update, .minicart-wrapper .action.viewcart, .multicheckout .actions-toolbar .secondary .action.back, .form.send.friend .action.add]]>
+			</border_color>
+        </secondary_button_border>
+        <secondary_button_border_hover>
+            <border_color>
+				<![CDATA[.btn.btn-secondary:hover, .cart.main.actions .action.update:hover, .minicart-wrapper .action.viewcart:hover, .multicheckout .actions-toolbar .secondary .action.back:hover, .form.send.friend .action.add:hover]]>
+			</border_color>
+        </secondary_button_border_hover>
+    </main>
+</class_setting>

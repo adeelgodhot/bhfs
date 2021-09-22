@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringStripe
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Amasty\Stripe\Gateway\Command\CaptureStrategyCommand">
+        <plugin name="Amasty_RecurringStripe::GatewayCommandCaptureStrategyCommand" type="Amasty\RecurringStripe\Plugin\Gateway\Command\CaptureStrategyCommandPlugin"/>
+    </type>
+    <type name="Magento\Backend\Model\Menu\Builder">
+        <plugin name="Amasty_RecurringStripe::menu_builder" type="Amasty\RecurringStripe\Plugin\Backend\Model\Menu\Builder"/>
+    </type>
+</config>
+

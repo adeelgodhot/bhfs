@@ -1,0 +1,29 @@
+<ul class="ampaction-action-submenu action-submenu"
+    data-bind="foreach: {data: action.actions, as: 'action'}, css: { _active: action.visible }">
+    <li data-bind="css: { '_visible': $data.visible}">
+        <div class="ampaction-form-container">
+            <label class="ampaction-label" data-bind="i18n: action.fieldLabel"></label>
+            <!-- ko if: $data.typefield == 'textbox' -->
+            <input type="text"
+                   class="ampaction-input admin__control-text"
+                   data-bind="attr: {placeholder: action.placeholder}, value: action.value"/>
+            <!-- /ko -->
+            <!-- ko if: $data.typefield == 'select' -->
+            <select id="amasty-paction-select"
+                    class="ampaction-select admin__control-select"
+                    data-bind="
+                            options: action.child,
+                            optionsText: 'label',
+                            optionsValue: 'fieldvalue',
+                            value: action.value">
+            </select>
+            <!-- /ko -->
+            <button class="ampgrid-button action-save"
+                    data-bind="
+                        click: $parent.applyMassaction.bind($parent, action),
+                        i18n: 'Apply',
+                        attr: {title: $t('Apply'), 'aria-label': $t('Apply')}">
+            </button>
+        </div>
+    </li>
+</ul>

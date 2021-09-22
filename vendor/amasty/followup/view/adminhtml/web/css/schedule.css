@@ -1,0 +1,70 @@
+.amasty-followup-coupon-main label,
+.amasty-followup-coupon-extra label,
+.amasty-followup-delivery-time label{
+    display: inline-block;
+    width: 40%;
+    text-align: left;
+    padding-right: 1rem;
+}
+
+.amasty-followup-delivery-time-row label{
+    display: inline-block;
+}
+
+.amasty-followup-coupon-main label.mage-error,
+.amasty-followup-coupon-extra label.mage-error,
+.amasty-followup-delivery-time label.mage-error{
+    width: inherit;
+}
+
+.amasty-followup-coupon input,
+.amasty-followup-delivery-time input,
+.amasty-followup-coupon select,
+.amasty-followup-delivery-time select{
+    width: 60%;
+}
+
+/*.amasty-followup-coupon label{*/
+    /*width: 20%;*/
+/*}*/
+
+.amasty-followup-coupon-main>div,
+.amasty-followup-coupon-extra>div,
+div.amasty-followup-delivery-time-row{
+    margin-bottom: 0.5rem;
+}
+
+.admin__control-table th.amasty-followup-coupon-header,
+.admin__control-table th.amasty-followup-delivery-time-header{
+    text-align: left;
+}
+
+.amasty-followup-coupon-hide{
+    text-align: center;
+}
+
+.amasty-followup-coupon-cart-rule{
+    margin-top: 0.5rem;
+}
+
+.amasty-followup-coupon-cart-rule select{
+    width: 100%;
+}
+
+.amasty-followup-delivery-template select{
+    width: 100%;
+}
+
+.amasty-followup-coupon{
+    width: 60%;
+    text-align: right;
+}
+
+#amasty_rule_schedule_container td.amasty-followup-delivery-time {
+    padding-right: 1.5rem;
+    text-align: right;
+}
+
+.amasty-followup-use-shopping-cart-rule {
+    float: left;
+}

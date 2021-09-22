@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_ExitPopup
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Amasty\ExitPopup\Block\Component\Popup" name="amasty.exitpopup.template" after="-" template="Amasty_ExitPopup::component/popup.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="amasty-exit-popup-component" xsi:type="array">
+                                <item name="component" xsi:type="string">Amasty_ExitPopup/js/model/popup-trigger</item>
+                            </item>
+                        </item>
+                    </argument>
+                    <argument name="scope" xsi:type="string">2</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>

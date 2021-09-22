@@ -1,0 +1,78 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Paction
+ */
+?>
+<?php
+/* @var $block \Amasty\Paction\Block\Adminhtml\Product\Edit\Action\Attribute\Tab\TierPrice\Content */
+
+    const COL_COUNT_WITHOUT_WEBSITE = 5;
+    const COL_COUNT_WITH_WEBSITE = 6;
+
+    $allGroupId = $block->getAllGroupsId();
+    $groups = array_replace_recursive($allGroupId, $block->getCustomerGroups());
+    $htmlId = $block->getElement()->getHtmlId();
+    $htmlClass = $block->getElement()->getClass();
+    $htmlName = $block->getElement()->getName();
+    $readonly = $block->getElement()->getReadonly();
+    $showWebsite = $block->isMultiWebsites();
+    $editWebsite = $block->isAllowChangeWebsite();
+    $priceValueValidation = $block->getPriceValidation('validate-greater-than-zero');
+?>
+
+<div class="field" id="attribute-<?= $block->escapeHtmlAttr($htmlId) ?>-container" data-attribute-code="<?= $block->escapeHtmlAttr($htmlId) ?>"
+     data-apply-to="<?= $block->escapeHtmlAttr($block->getApplyToJson())?>">
+    <label class="label">
+        <?= $block->escapeHtml($block->getElement()->getLabel()) ?>
+    </label>
+    <div class="control" data-bind="scope: 'tier-price'">
+        <table class="admin__control-table ampaction-table-container">
+            <thead>
+            <tr>
+                <th class="col-websites <?php if (!$showWebsite): ?>'-hide'<?php endif ?>"><?= $block->escapeHtml(__('Web Site')) ?></th>
+                <th class="col-customer-group"><?= $block->escapeHtml(__('Customer Group')) ?></th>
+                <th class="col-qty required"><?= $block->escapeHtml(__('Quantity')) ?></th>
+                <th class="col-price-value-type required"><?= $block->escapeHtml(__('Price Type')) ?></th>
+                <th class="col-price required"><?= /* @noEscape */ $block->getPriceColumnHeader(__('Item Price')) ?></th>
+                <th class="col-delete"><?= $block->escapeHtml(__('Action')) ?></th>
+            </tr>
+            </thead>
+            <tbody id="<?= $block->escapeHtmlAttr($htmlId) ?>_container">
+                <!-- ko template: getTemplate() --><!-- /ko -->
+            </tbody>
+            <tfoot>
+            <tr>
+                <td colspan="<?= /* @noEscape */ !$showWebsite ? COL_COUNT_WITHOUT_WEBSITE : COL_COUNT_WITH_WEBSITE ?>" class="col-actions-add">
+                    <button data-bind="click: addRow"
+                            title="<?= $block->escapeHtml(__('Add')) ?>"
+                            aria-label="<?= $block->escapeHtml(__('Add')) ?>">
+                        <?= $block->escapeHtml(__('Add')) ?>
+                    </button>
+                </td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "tier-price": {
+                        "component": "Amasty_Paction/js/tier-prices",
+                        "showWebsite": "<?= /* @noEscape */ $showWebsite ?>",
+                        "htmlClass": "<?= /* @noEscape */ $htmlClass ?>",
+                        "websites": <?= /* @noEscape */ $block->getWebsitesJson() ?>,
+                        "groups": <?= /* @noEscape */ $block->getGroupsJson() ?>,
+                        "htmlName": "<?= /* @noEscape */ $htmlName ?>",
+                        "priceValueValidationClass": "<?= /* @noEscape */ $priceValueValidation ?>",
+                        "priceTypes": <?= /* @noEscape */ $block->getPriceValueTypesJson() ?>
+                    }
+                }
+            }
+        }
+    }
+</script>

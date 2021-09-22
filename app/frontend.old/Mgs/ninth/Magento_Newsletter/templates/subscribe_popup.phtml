@@ -1,0 +1,47 @@
+<?php
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+?>
+
+<div class="block newsletter">
+    <div class="content">
+        <form class="form subscribe"
+                novalidate
+                action="<?php /* @escapeNotVerified */ echo $block->getFormActionUrl() ?>"
+                method="post"
+                data-mage-init='{"validation": {"errorClass": "mage-error"}}'
+                id="newsletter-popup-validate-detail">
+            <?php if ($this->helper('MGS\Mpanel\Helper\Data')->getStoreConfig('mpanel/newsletter_popup/disable_form_newsletter')== 0): ?>
+            <div class="field form-group newsletter">
+                <div class="control">
+                    
+                <input name="fname" type="fname" id="newsletter-popup-fname"
+                                    placeholder="<?php /* @escapeNotVerified */ echo __('Enter your first name') ?>"
+                                    data-validate="{required:true}"/>  
+                    <input name="lname" type="lname" id="newsletter-popup-lname"
+                                    placeholder="<?php /* @escapeNotVerified */ echo __('Enter your last name') ?>"
+                                    data-validate="{required:true}"/>  
+                     <input name="email" type="email" id="newsletter-popup-email"
+                                    placeholder="<?php /* @escapeNotVerified */ echo __('Enter your email address') ?>"
+                                    data-validate="{required:true, 'validate-email':true}"/>
+
+                </div>
+                <div class="actions">
+                    <button class="action subscribe" title="<?php /* @escapeNotVerified */ echo __('Subscribe') ?>" type="submit"><span class="pe-7s-mail"></span></button>
+                </div>
+            </div>
+            <?php endif; ?>
+    		<div class="checkbox">
+    			<label for="dont_show">
+    				<input id="dont_show" onclick="dontShowPopup('dont_show')" type="checkbox">
+    				<?php echo __("Don't show this popup again");  ?>
+    			</label>
+    		</div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<?php 
+/* Get Helper */
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+$themeHelper = $this->helper('MGS\Mpanel\Helper\Data');
+$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+$quickViewHelper = $this->helper('MGS\QuickView\Helper\Data');
+?>
+<?php /* Get Backend config */
+$ct_attr = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/attribute_text');
+$grid_tp = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/grid_type');
+$display_overlay = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/display_overlay');
+$change_img = $themeHelper->getStoreConfig('ninththeme/ninth_catalog/change_img');
+$lazyLoad = $themeHelper->getStoreConfig('mgstheme/general/lazy_load');
+if($grid_tp == ""){ $grid_tp = 1; }
+?>
+<?php /* Ratio config */
+$ratio = $this->getRatio();
+$size = $themeHelper->getImageSize($ratio);
+$padding = $themeHelper->getImagePadding($ratio);
+$baseImage = $this->getViewFileUrl('MGS_Mpanel::images/blank'.$ratio.'.png');
+?>
+<?php /* Button Config */
+$settings = $themeHelper->getThemeSettings();
+$showCompare = $settings['catalog']['compare_button'] ? false : true;
+$showWishList = $settings['catalog']['wishlist_button'] && $this->helper('Magento\Wishlist\Helper\Data')->isAllow() ? false : true;
+?>
+<?php 
+    $fk = $block->getBlockHtml('formkey');
+	if($this->getTabs()){
+		$_productCollection = $this->getProductCollection($this->getAdditionalData(), $this->getAttributeCode());
+	}else{
+		$_productCollection = $this->getAttributeProductByCategories($this->getAdditionalData(), $this->getAttributeCode());
+	}
+	$_helper = $this->helper('Magento\Catalog\Helper\Output');
+	$themeHelper = $this->helper('MGS\Mpanel\Helper\Data');
+	$_imagehelper = $this->helper('Magento\Catalog\Helper\Image');
+	
+	$col = $this->getCol();
+	$ratio = $this->getRatio();
+	$perRow = $this->getPerRow();
+	$limit = $this->getLimit();
+	
+	$curPage = $this->getCurPage();
+	if($this->getPrevPage()){ $curPage = $curPage + 1; }
+	if($this->getNextPage()){ $curPage = $curPage - 1; }
+	$i = ($curPage - 1) * $limit;
+?>
+
+<?php foreach ($_productCollection as $_product): $i++; ?>
+    <?php $review = $block->getReviewsSummaryHtml($_product, \Magento\Catalog\Block\Product\ReviewRendererInterface::SHORT_VIEW); ?>
+    <?php $postParams = $block->getAddToCartPostParams($_product); ?>
+    <?php $prdPrice = $block->getProductPrice($_product) ?>
+    <?php $swatches = $this->getLayout()->createBlock('Magento\Swatches\Block\Product\Renderer\Listing\Configurable')->setProduct($_product)->setTemplate('Magento_Swatches::product/listing/renderer.phtml')->toHtml() ?>
+    <?php $wlDataPost = $block->getAddToWishlistParams($_product); ?>
+    <?php $pos = $block->getPositioned(); ?>
+    
+	<div class="product grid-template-<?php echo $grid_tp ?> product-item <?php echo $themeHelper->getClearClass($perRow, $i) ?> <?php echo $themeHelper->convertColClass($col, 'col') ?>">
+		<?php echo $this->getLayout()
+                        ->createBlock('Magento\Framework\View\Element\Template')
+                        ->setProduct($_product)
+                        ->setThemeHelper($themeHelper)
+                        ->setImageHelper($_imagehelper)
+                        ->setCatalogHelperOutput($_helper)
+                        ->setQuickViewHelper($quickViewHelper)
+                        ->setRatio($ratio)
+                        ->setSize($size)
+                        ->setCustomAttribute($ct_attr)
+                        ->setPadding($padding)
+                        ->setLazyLoadBaseImage($baseImage)
+                        ->setCompare($showCompare)
+                        ->setFk($fk)
+                        ->setPostParams($postParams)
+                        ->setReview($review)
+                        ->setPrdPrice($prdPrice)
+                        ->setWishList($showWishList)
+                        ->setLazyLoad($lazyLoad)
+                        ->setHoverChange($change_img)
+                        ->setWishListPost($wlDataPost)
+                        ->setTemplate('MGS_Mpanel::products/grid_item/grid_item_'.$grid_tp.'.phtml')
+                        ->setSwatches($swatches)
+                        ->setPos($pos)
+                        ->toHtml(); ?>
+	</div>
+<?php endforeach; ?>

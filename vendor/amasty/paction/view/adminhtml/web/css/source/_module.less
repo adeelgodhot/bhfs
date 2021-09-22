@@ -1,0 +1,61 @@
+//
+//  Amasty Product Actions
+//  ____________________________________________
+
+//
+//  Common
+//  --------------------------------------------
+
+& when (@media-common = true) {
+    .ampaction-form-container {
+        & {
+            display: flex;
+            align-items: center;
+            padding: 8px;
+        }
+
+        .ampaction-input {
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .ampaction-label {
+            display: inline-block;
+            margin-right: 8px;
+            max-width: 84px;
+            vertical-align: middle;
+        }
+
+        .ampaction-select {
+            margin-right: 8px;
+            max-width: 170px;
+            vertical-align: middle;
+        }
+
+        .ampgrid-button {
+            vertical-align: middle;
+        }
+    }
+
+    .ampaction-table-container .col-websites.-hide {
+        display: none;
+    }
+
+    // override magento styles
+    .ampaction-select-container {
+        .action-select-wrap .action-menu._active {
+            max-height: 300px;
+        }
+
+        .action-menu .ampaction-action-submenu {
+            top: 100%;
+            margin-top: 2px;
+        }
+
+        .action-menu .ampaction-line {
+            cursor: default;
+            pointer-events: none;
+        }
+    }
+    // END override magento styles
+}

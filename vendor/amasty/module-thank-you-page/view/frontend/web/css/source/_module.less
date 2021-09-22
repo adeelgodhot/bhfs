@@ -1,0 +1,39 @@
+//
+//  Amasty Thank You Page
+//  ____________________________________________
+
+//
+//  Common
+//  ----------------------------------------------
+
+& when (@media-common = true) {
+    .amtypage-background {
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .amtypage-main-container {
+        & {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        > div {
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+    }
+}
+
+.media-width(@extremum, @break) when (@extremum = 'max') and (@break = @screen__m) {
+    .amtypage-main-container.-stretched-blocks {
+        > div { // need each child div without united css class
+            width: 100% !important; // override style attribute
+        }
+
+        > hr {
+            margin: 0;
+        }
+    }
+}

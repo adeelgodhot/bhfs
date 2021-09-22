@@ -1,0 +1,21 @@
+{
+    "name": "eh/module-category-custom-url",
+    "description": "Add category custom URL to include additional links in the top navigation menu.",
+    "require": {
+        "eh/module-core": "*",
+        "magento/module-catalog": "*"
+    },
+    "type": "magento2-module",
+    "version": "1.0.2",
+    "license": [
+        "ExtensionHut EULA"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "EH\\CategoryCustomUrl\\": ""
+        }
+    }
+}

@@ -1,0 +1,139 @@
+<?php
+/**
+ * Copyright © Mageside. All rights reserved.
+ * See MS-LICENSE.txt for license details.
+ */
+/**
+ * @var Mageside\Recipe\Block\Frontend\Recipe\RecipeList $block
+ * @var Mageside\Recipe\Helper\Config $config
+ */
+$recipeCollection = $block->getAvailableRecipeCollection();
+$config = $this->helper(\Mageside\Recipe\Helper\Config::class);
+$imageHelper = $this->helper(\Mageside\Recipe\Helper\Image::class);
+$_params = $block->getRequest()->getParams();
+?>
+<?php if ($config->isRecipeEnabled()) : ?>
+    <?php if (count($recipeCollection) == 0) : ?>
+        <div class="page-title-wrapper">
+            <h1 class="page-title">
+                <span class="base">
+                    <?php echo $block->escapeHtml(__("Recipes not found")); ?>
+                </span>
+            </h1>
+        </div>
+    <?php else : ?>
+        <?php foreach ($recipeCollection as $recipe) : ?>
+            <li class="recipe-item item">
+                <div class="recipe-item-info">
+                    <div class="recipe-item-details">
+                        <strong class="recipe-item-name">
+                            <a class="recipe-item-link"
+                               href="<?php echo $block->escapeHtml($block->getUrl($config->getSeoRoute()
+                                   . '/' . $recipe->getUrlKey() . $config->getSeoPostfix())) ?>">
+                                <?php echo $block->escapeHtml($recipe->getTitle()); ?>
+                            </a>
+                        </strong>
+                    </div>
+                    <div class="recipe-media">
+                        <a class="recipe-item-photo"
+                           href="<?php echo $block->escapeHtml($block->getUrl($config->getSeoRoute()
+                               . '/' . $recipe->getUrlKey() . $config->getSeoPostfix())) ?>">
+                            <?php if ($recipe->getThumbnail()) : ?>
+                                <img src="<?php echo $block->escapeHtml($imageHelper->getResizedImage(
+                                    $block->getRecipeThumbnail($recipe->getThumbnail()),
+                                    'recipe_listing_image_thumbnail'
+                                )); ?>"
+                                     alt="<?php echo $block->escapeHtml($recipe->getTitle()) ?>"
+                                     title="<?php echo $block->escapeHtml($recipe->getTitle()) ?>">
+                            <?php else : ?>
+                                <img src="<?php echo $block->escapeHtml($imageHelper->getResizedImage(
+                                    $block->getImageStub(),
+                                    'recipe_listing_image_thumbnail'
+                                )); ?>"
+                                     alt="<?php $block->escapeHtml(__('Recipe Image')); ?>">
+                            <?php endif; ?>
+                        </a>
+                    </div>
+                    <ul class="filter-icon">
+                        <?php if (!empty($recipe->getOptions())) : ?>
+                            <?php  foreach ($recipe->getOptions() as $filterOption) : ?>
+                                <?php $d = 1; ?>
+                                <?php foreach ($filterOption as $optionData) : ?>
+                                    <?php if (!empty($optionData['option_image'])) : ?>
+                                        <li><img title="<?php echo $block->escapeHtml($optionData['option_label']); ?>"
+                                                 src="<?php echo $block->escapeHtml($block->getImageUrl()
+                                                     . '/' . $optionData['option_image']); ?>"
+                                                 width="35" height="35"></li>
+                                    <?php endif; ?>
+                                    <?php if ($d == 5) : ?>
+                                        <?php break; ?>
+                                    <?php endif; ?>
+                                    <?php $d++; ?>
+                                <?php endforeach; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </ul>
+                    <div class="container-recipe-cooking">
+                        <div class="cooking recipe-servings-number">
+                            <img src="<?php echo $block->escapeHtml($block->getViewFileUrl('Mageside_Recipe::images/recipe/serving.png')); ?>"
+                                 title="<?php echo $block->escapeHtml(__('Servings Number')) ?>" width="35" height="35">
+                            <?php $servingsNumber = $block->getFormatServingsNumber($recipe->getServingsNumber()); ?>
+                            <span>
+                                <?php echo $block->escapeHtml($servingsNumber . ' ' . (($servingsNumber == '1')
+                                        ? __('person') : __('people'))); ?>
+                            </span>
+                        </div>
+                        <div class="cooking prep-time">
+                            <img src="<?php echo $block->escapeHtml($block->getViewFileUrl('Mageside_Recipe::images/recipe/prep-time.png')); ?>"
+                                 title="<?php echo $block->escapeHtml(__('Prep Time')) ?>" width="35" height="35">
+                            <span><?php echo $block->escapeHtml($block->getFormatCookTime($recipe->getPrepTime())); ?></span>
+                        </div>
+                        <div class="cooking cooking-time">
+                            <img src="<?php echo $block->escapeHtml($block->getViewFileUrl('Mageside_Recipe::images/recipe/cooking-time.png')); ?>"
+                                 title="<?php echo $block->escapeHtml(__('Cooking Time')) ?>" width="35" height="35">
+                            <span><?php echo $block->escapeHtml($block->getFormatCookTime($recipe->getCookTime())); ?></span>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach ?>
+    <?php endif; ?>
+    <script type="text/x-magento-init">
+    {
+        "#update-recipes": {
+            "Mageside_Recipe/js/load-recipes-list": {
+                "url": "<?php /* @escapeNotVerified */ echo $block->getAjaxUrl() ?>",
+                "items": "<?php /* @escapeNotVerified */ echo $block->getCollectionSize() ?>",
+                "itemsPerPage": "<?php /* @escapeNotVerified */ echo $config->getRecipesPerPage() ?>"
+            }
+        }
+    }
+    </script>
+    <script type="text/javascript">
+        require([
+            'jquery'
+        ], function ($) {
+            (function () {
+                var items = {};
+                $('.recipe-grid > li').each(function () {
+                    var rect = $(this).offset(),
+                        curOffset = rect.top,
+                        data = items[curOffset] || {items: [], max: 0},
+                        title = $(this).find('.recipe-item-details');
+
+                    data.items.push(title.get(0));
+                    data.max = Math.max(title.outerHeight(true), data.max);
+
+                    items[curOffset] = data;
+                });
+
+                Object.keys(items).forEach(function (key) {
+                    var data = items[key];
+
+                    $(data.items).height(data.max);
+                });
+            })();
+        });
+    </script>
+<?php endif; ?>
+

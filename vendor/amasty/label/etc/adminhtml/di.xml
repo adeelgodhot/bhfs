@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Label
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Amasty\Label\Ui\DataProvider\Label\Form\DataModifierPool"
+                 type="Magento\Ui\DataProvider\Modifier\Pool">
+        <arguments>
+            <argument name="modifiers" xsi:type="array">
+                <item name="add_shapes_data" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddShapesData</item>
+                    <item name="sortOrder" xsi:type="number">10</item>
+                </item>
+                <item name="add_product_conditions_content" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddProductConditionsFormContent</item>
+                    <item name="sortOrder" xsi:type="number">20</item>
+                </item>
+                <item name="add_stores" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddStoresData</item>
+                    <item name="sortOrder" xsi:type="number">30</item>
+                </item>
+                <item name="add_customer_groups" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddCustomerGroupsData</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                </item>
+                <item name="add_catalog_parts_data" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddCatalogPartsData</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
+                </item>
+                <item name="convert_catalog_images" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\ConvertCatalogPartsImages</item>
+                    <item name="sortOrder" xsi:type="number">60</item>
+                </item>
+                <item name="select_type_tabs" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\SelectTypeTab</item>
+                    <item name="sortOrder" xsi:type="number">70</item>
+                </item>
+                <item name="part_css_settings" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\ExtractCssSettings</item>
+                    <item name="sortOrder" xsi:type="number">80</item>
+                </item>
+                <item name="add_tooltip_data" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddTooltipData</item>
+                    <item name="sortOrder" xsi:type="number">90</item>
+                </item>
+                <item name="add_preview_images_urls" xsi:type="array">
+                    <item name="class" xsi:type="string">
+                        Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddPreviewData
+                    </item>
+                    <item name="sortOrder" xsi:type="number">100</item>
+                </item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddShapesData">
+        <arguments>
+            <argument name="sectionNames" xsi:type="array">
+                <item name="0" xsi:type="string">pdp</item>
+                <item name="1" xsi:type="string">category_page</item>
+            </argument>
+            <argument name="elementNames" xsi:type="array">
+                <item name="pdp" xsi:type="string">product_label_shape</item>
+                <item name="category_page" xsi:type="string">category_label_shape</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Ui\DataProvider\Label\Form">
+        <arguments>
+            <argument name="uiDataModifiersPool" xsi:type="object">Amasty\Label\Ui\DataProvider\Label\Form\DataModifierPool</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Amasty\Label\Controller\Adminhtml\Label\Image\Upload\Processor" type="Magento\Catalog\Model\ImageUploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="const">Amasty\Label\Model\Label\Parts\FrontendSettings\GetImageFilePath::AMASTY_LABEL_TMP_MEDIA_PATH</argument>
+            <argument name="basePath" xsi:type="const">Amasty\Label\Model\Label\Parts\FrontendSettings\GetImageFilePath::AMASTY_LABEL_MEDIA_PATH</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+                <item name="svg" xsi:type="string">svg</item>
+            </argument>
+            <argument name="allowedMimeTypes" xsi:type="array">
+                <item name="jpg" xsi:type="string">image/jpg</item>
+                <item name="jpeg" xsi:type="string">image/jpeg</item>
+                <item name="gif" xsi:type="string">image/gif</item>
+                <item name="png" xsi:type="string">image/png</item>
+                <item name="svg" xsi:type="string">image/svg</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Label\Controller\Adminhtml\Label\Edit\UploadImage">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">
+                Amasty\Label\Controller\Adminhtml\Label\Image\Upload\Processor
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Model\Rule\Condition\Combine">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="amlabel_custom_condition" xsi:type="array">
+                    <item name="is_new" xsi:type="object">Amasty\Label\Model\Rule\Condition\IsNew</item>
+                    <item name="on_sale" xsi:type="object">Amasty\Label\Model\Rule\Condition\OnSale</item>
+                    <item name="qty" xsi:type="object">Amasty\Label\Model\Rule\Condition\Qty</item>
+                    <item name="stock_status" xsi:type="object">Amasty\Label\Model\Rule\Condition\StockStatus</item>
+                </item>
+                <item name="amasty_sorting" xsi:type="array">
+                    <item name="bestseller" xsi:type="object">Amasty\Label\Model\Rule\Condition\Bestsellers</item>
+                </item>
+                <item name="module_manager" xsi:type="object">Magento\Framework\Module\Manager</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Amasty\Label\Model\Rule\Condition\CombineFactory"
+                 type="Magento\CatalogRule\Model\Rule\Condition\CombineFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Amasty\Label\Model\Rule\Condition\Combine</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Label\Model\Rule">
+        <arguments>
+            <argument name="combineFactory" xsi:type="object">Amasty\Label\Model\Rule\Condition\CombineFactory</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddStoresData">
+        <arguments>
+            <argument name="getStoreIdsByLabelId" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\GetLabelStoresIds</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddCustomerGroupsData">
+        <arguments>
+            <argument name="getCustomerGroupsIds" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\GetLabelCustomerGroupsIds</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Model\Label\Save\Preprocessors\SaveImages">
+        <arguments>
+            <argument name="imageUploader" xsi:type="object">Amasty\Label\Controller\Adminhtml\Label\Image\Upload\Processor</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Model\Label\Save\DataPreprocessorCombine">
+        <arguments>
+            <argument name="preprocessors" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="preprocessor" xsi:type="object">Amasty\Label\Model\Label\Save\Preprocessors\FilterActiveFromToDates</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="preprocessor" xsi:type="object">Amasty\Label\Model\Label\Save\Preprocessors\EscapeLabelsText</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="preprocessor" xsi:type="object">Amasty\Label\Model\Label\Save\Preprocessors\MergeCssConfigs</item>
+                </item>
+                <item name="3" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="preprocessor" xsi:type="object">Amasty\Label\Model\Label\Save\Preprocessors\ProcessRelatedEntities</item>
+                </item>
+                <item name="4" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">50</item>
+                    <item name="preprocessor" xsi:type="object">Amasty\Label\Model\Label\Save\Preprocessors\ProcessRulesConditions</item>
+                </item>
+                <item name="5" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">60</item>
+                    <item name="preprocessor" xsi:type="object">Amasty\Label\Model\Label\Save\Preprocessors\ProcessTextOnlyLabel</item>
+                </item>
+                <item name="6" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">70</item>
+                    <item name="preprocessor" xsi:type="object">Amasty\Label\Model\Label\Save\Preprocessors\SaveImages</item>
+                </item>
+                <item name="7" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">80</item>
+                    <item name="preprocessor" xsi:type="object">Amasty\Label\Model\Label\Save\Preprocessors\ProcessShapeLabelType</item>
+                </item>
+                <item name="8" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">90</item>
+                    <item name="preprocessor" xsi:type="object">Amasty\Label\Model\Label\Save\Preprocessors\ExtractFrontendSettings</item>
+                </item>
+                <item name="9" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">100</item>
+                    <item name="preprocessor" xsi:type="object">Amasty\Label\Model\Label\Save\Preprocessors\ValidateTooltipColors</item>
+                </item>
+                <item name="10" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">110</item>
+                    <item name="preprocessor" xsi:type="object">Amasty\Label\Model\Label\Save\Preprocessors\ExtractTooltipData</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Amasty\Label\Ui\DataProvider\Product\Listing\DataProvider" type="Magento\Catalog\Ui\DataProvider\Product\ProductDataProvider">
+        <arguments>
+            <argument name="addFilterStrategies" xsi:type="array">
+                <item name="label_rule_condition" xsi:type="object">Amasty\Label\Ui\DataProvider\Product\Filter\RuleConditionFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+</config>

@@ -1,0 +1,33 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_ThankYouPage
+ */
+?>
+
+<?php if (!$block->getMarkup()) : ?>
+<table class="amthankyoublocks-sort-order"
+       id="amthankyoublocks-sort-order"
+       data-mage-init='{"mageSortable": {"axis": "y", "handle": ".item-position", "items": "tr", "tolerance":"pointer"}}'
+>
+    <?php foreach ($block->getBlocks() as $id => $itemBlock) : ?>
+        <tr>
+            <th></th>
+            <td class="item-position">
+                <?= $itemBlock['title']; ?>
+                <div class="draggable"></div>
+                <input type="hidden"
+                       name="<?= $block->getElementName() . '[]'; ?>"
+                       value="<?= $id; ?>">
+            </td>
+            <th style="min-width: 69px; visibility: hidden;"></th>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<?php else : ?>
+    <span>
+        <?= $block->escapeHtml(__('To access simplified block sorting, please disable Thank You Page Markup Editor in the Advanced Layout Management section.')) ?>
+    </span>
+<?php endif; ?>
+

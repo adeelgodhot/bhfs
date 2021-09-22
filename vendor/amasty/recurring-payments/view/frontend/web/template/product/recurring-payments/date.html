@@ -1,0 +1,83 @@
+<input type="hidden" name="am_rec_timezone" ko-value="clientTimezone">
+<div class="amrec-subscription-start amrec-block">
+    <span class="amrec-title" translate="'Subscription Start Date'"></span>
+    <input type="text"
+           class="amrec-datepicker"
+           name="am_rec_start_date"
+           data-validate="{required: true}"
+           data-bind="datepicker: { storage: startDate, options: dateConfigStartDate }"
+           attr="placeholder: datePlaceholder"
+           readonly="readonly">
+</div>
+<div class="amrec-subscription-end amrec-block">
+    <span class="amrec-title" translate="'Subscription End Date'"></span>
+    <div class="amrec-end-type">
+        <input type="radio"
+               id="amrec-end-infinite"
+               class="amrec-input -radio"
+               name="am_subscription_end_type"
+               data-validate="{'validate-one-required-by-name':true}"
+               data-errors-message-box="[data-amrec-js='subscription-end-error']"
+               ko-checked="checkedValue"
+               attr="placeholder: datePlaceholder"
+               value="amrec-end-infinite">
+        <label for="amrec-end-infinite"
+               class="amrec-label"
+               translate="'Infinite'"></label>
+        <div class="amrec-content" translate="'until failed or canceled'"></div>
+    </div>
+    <div class="amrec-end-type -date">
+        <input type="radio"
+               id="amrec-end-date"
+               class="amrec-input -radio"
+               name="am_subscription_end_type"
+               data-validate="{'validate-one-required-by-name':true}"
+               data-errors-message-box="[data-amrec-js='subscription-end-error']"
+               ko-checked="checkedValue"
+               value="amrec-end-date"
+        >
+        <label for="amrec-end-date"
+               class="amrec-label"
+               translate="'End by a date'"></label>
+        <div class="amrec-content">
+            <input type="text"
+                   class="amrec-datepicker"
+                   name="am_rec_end_date"
+                   data-amrec-js="subscription-end-date"
+                   data-validate="{required: true}"
+                   data-errors-message-box="[data-amrec-js='end-date-error']"
+                   data-bind="datepicker: { storage: endDate, options: dateConfigEndDate }"
+                   readonly="readonly"
+                   attr="placeholder: datePlaceholder"
+                   ko-checked="checkedValue"
+                   ko-disabled="isDisabled('amrec-end-date')"
+            >
+        </div>
+        <div class="amrec-error" data-amrec-js="end-date-error"></div>
+    </div>
+    <div class="amrec-end-type -cycles">
+        <input type="radio"
+               id="amrec-end-cycles"
+               class="amrec-input -radio"
+               name="am_subscription_end_type"
+               data-validate="{'validate-one-required-by-name':true}"
+               data-errors-message-box="[data-amrec-js='subscription-end-error']"
+               ko-checked="checkedValue"
+               value="amrec-end-cycles">
+        <label for="amrec-end-cycles"
+               class="amrec-label"
+               translate="'End by a cycle'"></label>
+        <div class="amrec-content">
+            <input type="number"
+                   class="amrec-input"
+                   name="am_rec_count_cycles"
+                   data-validate="{number: true, required:true, 'validate-item-quantity':{'minAllowed': 2}}"
+                   data-errors-message-box="[data-amrec-js='end-cycles-error']"
+                   ko-disabled="isDisabled('amrec-end-cycles')"
+            >
+            <translate args="'repeat times'"/>
+        </div>
+        <div class="amrec-error" data-amrec-js="end-cycles-error"></div>
+    </div>
+    <div class="amrec-error" data-amrec-js="subscription-end-error"></div>
+</div>

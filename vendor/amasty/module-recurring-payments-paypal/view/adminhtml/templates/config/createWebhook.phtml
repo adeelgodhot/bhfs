@@ -1,0 +1,18 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPaypal
+ */
+?>
+<?php /** @var \Amasty\RecurringPaypal\Block\Adminhtml\System\Config\CreateWebhook $block */ ?>
+
+<?php if (!$block->getPrimaryElement()->getEscapedValue() && $block->isPaypalApiConfigured()): ?>
+<div>
+    <br/>
+    <a class="action-default"
+       href="<?= $block->escapeUrl($block->getUrl('amasty_recurring/config_paypal/createWebhook')) ?>">
+        <?= $block->escapeHtml(__('Create')) ?>
+    </a>
+</div>
+<?php endif ?>

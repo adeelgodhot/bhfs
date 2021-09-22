@@ -1,0 +1,16 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Amp
+ */
+?>
+<?php
+/** @var $block \Amasty\Amp\Block\Checkout\Cart\Sidebar */
+?>
+
+<a [class]="cart_fullness ? 'amamp-minicart-link -full' : 'amamp-minicart-link -empty'"
+   class="amamp-minicart-link <?= $block->getQuote()->getItemsCount() ? '-full' : '' ?>"
+   href="<?= $block->escapeUrl($block->getShoppingCartUrl()); ?>"
+   aria-label="<?= $block->escapeHtml(__('Open cart page')); ?>">
+</a>

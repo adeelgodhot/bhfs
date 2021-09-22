@@ -1,0 +1,118 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+		<css src="css/bootstrap.min.css"/>
+		<css src="css/font-awesome.css"/>
+        <css src="css/pe-icon-7-stroke.css"/>
+		<css src="css/theme.css"/>
+		<css src="css/responsive.css"/>
+		<css src="MGS_Mpanel::css/color.css"/>
+		<script src="js/bootstrap.js"/>
+		<script src="js/custom.js"/>
+    </head>
+    <body>
+
+        <referenceContainer name="header.container">
+            
+            <block class="Magento\Theme\Block\Html\Header" name="header" as="header" after="-">
+                <arguments>
+                    <argument name="show_part" xsi:type="string">welcome</argument>
+                </arguments>
+                
+                <block class="Magento\Store\Block\Switcher" name="store_language" as="store_language" template="switch/languages.phtml"/>
+                <block class="Magento\Directory\Block\Currency" name="currency" before="store_language" template="currency.phtml"/>
+                
+                <block class="Magento\Framework\View\Element\Html\Links" name="top.links">
+                    <arguments>
+                        <argument name="css_class" xsi:type="string">top-links</argument>
+                    </arguments>
+                </block>
+
+                <block class="Magento\Theme\Block\Html\Header\Logo" name="logo">
+                    <arguments>
+                        <argument name="logo_img_width" xsi:type="number">189</argument>
+                        <argument name="logo_img_height" xsi:type="number">64</argument>
+                    </arguments>
+                </block>
+
+				
+                <block class="Magento\Framework\View\Element\Template" name="top.search" as="topSearch" template="Magento_Search::form.mini.phtml" />
+
+                <block class="MGS\Mmegamenu\Block\Mmegamenu" name="megamenu" template="MGS_Mmegamenu::navigation.phtml"/>
+
+                <block class="Magento\Theme\Block\Html\Topmenu" name="catalog.topnav" template="html/topmenu.phtml" ttl="3600" before="-"/>
+
+                <block class="Magento\Framework\View\Element\Template" name="store.settings" template="Magento_Theme::html/container.phtml">
+                    <arguments>
+                        <argument name="title" translate="true" xsi:type="string">Settings</argument>
+                    </arguments>
+                    <block class="Magento\Store\Block\Switcher" name="store.settings.language" template="switch/languages.phtml">
+                        <arguments>
+                            <argument name="id_modifier" xsi:type="string">nav</argument>
+                        </arguments>
+                    </block>
+                    <block class="Magento\Directory\Block\Currency" name="store.settings.currency" template="currency.phtml">
+                        <arguments>
+                            <argument name="id_modifier" xsi:type="string">nav</argument>
+                        </arguments>
+                    </block>
+                </block>
+            </block>
+
+            <referenceBlock name="header">
+                <block class="MGS\Mpanel\Block\Form\Register" name="customer_form_register_header" template="Magento_Customer::form/register_header.phtml">
+                    <container name="form.additional.info.header" as="form_additional_info_header"/>
+                    <container name="customer.form.register.fields.before" as="form_fields_before" label="Form Fields Before" htmlTag="div" htmlClass="customer-form-before"/>
+                </block>
+                <block class="MGS\Mpanel\Block\Form\Login" name="customer_form_login_header" template="Magento_Customer::form/login_header.phtml">
+                    <container name="form.additional.info.header" as="form_additional_info_header"/>
+                </block>
+
+
+            </referenceBlock>
+
+
+
+
+
+        </referenceContainer>
+        
+        <block class="Magento\Theme\Block\Html\Footer" name="footer" template="Magento_Theme::html/footer.phtml"/>
+        
+        <move element="top.search" destination="header"/>
+        <move element="minicart" destination="header"/>
+        <move element="page.main.title" destination="page.wrapper" after="header.container" />
+       <!--  <move element="breadcrumbs" destination="page.main.title" /> -->
+        <move element="footer" destination="footer-container" />
+        
+        <referenceBlock name="wish-list-link" remove="true"/>
+        <referenceBlock name="advanced-search-link" remove="true"/>
+        <referenceBlock name="skip_to_content" remove="true"/>
+        <referenceBlock name="navigation.sections" remove="true"/>
+
+
+<referenceContainer name="header.container" >
+
+<block class="Magento\Cms\Block\Block" name="top-bar-global" after='-'>
+        <arguments>
+            <argument name="block_id" xsi:type="string">top-bar-global</argument>
+        </arguments>
+    </block>
+</referenceContainer>
+
+
+
+
+
+
+
+    </body>
+</page>
+

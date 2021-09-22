@@ -1,0 +1,20 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Amp
+ */
+?>
+<?php
+/**
+ * @var Amasty\Amp\Block\Cms\Widget\ProductLink $block
+ *
+ * Amp widget template for link type block
+ */
+?>
+
+<a class="amamp-link -block"
+   href="<?= $block->escapeHtmlAttr($block->getHref()); ?>"
+   aria-label="<?= $block->escapeHtmlAttr($block->getTitle()); ?>">
+    <?= $block->escapeHtml($block->getLabel()); ?>
+</a>

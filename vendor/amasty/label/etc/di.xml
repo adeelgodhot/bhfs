@@ -1,0 +1,314 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_Label
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Amasty\Label\Api\Data\LabelInterface" type="Amasty\Label\Model\Label" />
+    <preference for="Amasty\Label\Api\Data\LabelFrontendSettingsInterface" type="Amasty\Label\Model\Label\Parts\FrontendSettings"/>
+    <preference for="Amasty\Label\Api\Label\GetLabelImageUrlInterface" type="Amasty\Label\Model\Label\Parts\FrontendSettings\GetLabelImageUrl"/>
+    <preference for="Amasty\Label\Model\Label\Save\DataPreprocessorInterface" type="Amasty\Label\Model\Label\Save\DataPreprocessorCombine"/>
+    <preference for="Amasty\Label\Model\Label\GetMatchedProductIdsInterface" type="Amasty\Label\Model\Label\GetMatchedProductIds"/>
+    <preference for="Amasty\Label\Model\Label\Text\VariableProcessorInterface" type="Amasty\Label\Model\Label\Text\VariableProcessor"/>
+    <preference for="Amasty\Label\Api\Data\RenderSettingsInterface" type="Amasty\Label\Model\Label\Parts\RenderSettings"/>
+    <preference for="Amasty\Label\Api\Data\LabelTooltipInterface" type="Amasty\Label\Model\Label\Parts\LabelTooltip"/>
+    <preference for="Amasty\Label\Model\Label\Text\ZeroValueCheckerInterface" type="Amasty\Label\Model\Label\Text\DefaultZeroValueChecker"/>
+
+    <type name="Amasty\Label\Model\Rule">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="amastySerializer" xsi:type="object">Amasty\Base\Model\Serializer</item>
+                <item name="storeEmulation" xsi:type="object">Magento\Store\Model\App\Emulation</item>
+                <item name="scopeCodeResolver" xsi:type="object">Amasty\Label\Plugin\App\Config\ScopeCodeResolver</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Amasty\Label\Api\LabelRepositoryInterface" type="Amasty\Label\Model\Repository\LabelsRepository" />
+
+    <type name="Amasty\Label\Model\Config\Backend\StockStatus">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="object">Amasty\Label\Model\ConfigProvider</item>
+                <item name="changeStatus" xsi:type="object">Amasty\Label\Model\Label\Actions\ChangeStatus</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Model\Config\Backend\DefaultStockLabel">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="changeStatus" xsi:type="object">Amasty\Label\Model\Label\Actions\ChangeStatus</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Model\ResourceModel\Label\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="const">Amasty\Label\Model\ResourceModel\Label::TABLE_NAME</argument>
+            <argument name="identifierName" xsi:type="const">Amasty\Label\Api\Data\LabelInterface::LABEL_ID</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="amasty_labels_listing_data_source" xsi:type="string">Amasty\Label\Model\ResourceModel\Label\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Cron\RefreshSpecialPrices">
+        <plugin name="Amasty_Label::detect-refresh-price" type="Amasty\Label\Plugin\Catalog\Indexer\Product\Price"/>
+    </type>
+    <type name="Magento\Catalog\Model\Indexer\Product\Price">
+        <plugin name="Amasty_Label::reindex-label-price-changes" type="Amasty\Label\Plugin\Catalog\Indexer\Product\Price"/>
+    </type>
+    <type name="Magento\Framework\App\Config\ScopeCodeResolver">
+        <plugin name="Amasty_Label::clean-scope-code" type="Amasty\Label\Plugin\App\Config\ScopeCodeResolver"/>
+    </type>
+
+    <type name="Magento\CatalogStaging\Helper\ReindexPool">
+        <arguments>
+            <argument name="reindexPool" xsi:type="array">
+                <item name="AmastyLabelProcessor" xsi:type="object">Amasty\Label\Model\Indexer\LabelIndexer</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Model\ResourceModel\Label\Collection">
+        <arguments>
+            <argument name="extensionAttributesJoinProcessor" xsi:type="object">Magento\Framework\Api\ExtensionAttribute\JoinProcessor</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Model\ResourceModel\Label\GetRelatedEntitiesIds">
+        <arguments>
+            <argument name="identifierField" xsi:type="const">Amasty\Label\Api\Data\LabelInterface::LABEL_ID</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Amasty\Label\Model\ResourceModel\Label\GetLabelStoresIds" type="Amasty\Label\Model\ResourceModel\Label\GetRelatedEntitiesIds">
+        <arguments>
+            <argument name="mainTable" xsi:type="const">Amasty\Label\Setup\Uninstall::AMASTY_LABEL_STORE_TABLE</argument>
+            <argument name="aggregationField" xsi:type="const">Amasty\Label\Model\ResourceModel\Label\Collection::STORE_ID_FIELD</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\Label\Model\ResourceModel\Label\GetLabelCustomerGroupsIds" type="Amasty\Label\Model\ResourceModel\Label\GetRelatedEntitiesIds">
+        <arguments>
+            <argument name="mainTable" xsi:type="const">Amasty\Label\Setup\Uninstall::AMASTY_LABEL_CUSTOMER_GROUP_TABLE</argument>
+            <argument name="aggregationField" xsi:type="const">Amasty\Label\Model\ResourceModel\Label\Collection::CUSTOMER_GROUP_ID</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Label\Model\Label\Parts\MetaProvider">
+        <arguments>
+            <argument name="config" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="part_code" xsi:type="const">Amasty\Label\Api\Data\LabelFrontendSettingsInterface::PART_CODE</item>
+                    <item name="table_name" xsi:type="const">Amasty\Label\Setup\Uninstall::AMASTY_LABEL_CATALOG_PARTS_TABLE</item>
+                    <item name="part_interface" xsi:type="string">Amasty\Label\Api\Data\LabelFrontendSettingsInterface</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="part_code" xsi:type="const">Amasty\Label\Api\Data\LabelTooltipInterface::PART_CODE</item>
+                    <item name="table_name" xsi:type="const">Amasty\Label\Setup\Uninstall::AMASTY_LABEL_TOOLTIP_TABLE</item>
+                    <item name="part_interface" xsi:type="string">Amasty\Label\Api\Data\LabelTooltipInterface</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Amasty\Label\Model\ResourceModel\Label\Save\Actions\CatalogPart" type="Amasty\Label\Model\ResourceModel\Label\Save\Actions\SaveExtensionAttributeAction">
+        <arguments>
+            <argument name="labelPartCode" xsi:type="const">Amasty\Label\Model\Label\Parts\MetaProvider::FRONTEND_SETTINGS_PART</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\Label\Model\ResourceModel\Label\Save\Actions\Tooltip" type="Amasty\Label\Model\ResourceModel\Label\Save\Actions\SaveExtensionAttributeAction">
+        <arguments>
+            <argument name="labelPartCode" xsi:type="const">Amasty\Label\Api\Data\LabelTooltipInterface::PART_CODE</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Label\Model\ResourceModel\Label\Save\Actions\SaveCatalogPart">
+        <arguments>
+            <argument name="saveExtensionAttributeAction" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\Save\Actions\CatalogPart</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Amasty\Label\Model\ResourceModel\Label\Save\Actions\SaveStoreIds" type="Amasty\Label\Model\ResourceModel\Label\Save\Actions\SaveRelatedEntities">
+        <arguments>
+            <argument name="mainTable" xsi:type="const">Amasty\Label\Setup\Uninstall::AMASTY_LABEL_STORE_TABLE</argument>
+            <argument name="identifierField" xsi:type="const">Amasty\Label\Model\ResourceModel\Label\Collection::STORE_ID_FIELD</argument>
+            <argument name="labelEntityKey" xsi:type="const">Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddStoresData::DATA_SCOPE</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\Label\Model\ResourceModel\Label\Save\Actions\SaveCustomerGroups" type="Amasty\Label\Model\ResourceModel\Label\Save\Actions\SaveRelatedEntities">
+        <arguments>
+            <argument name="mainTable" xsi:type="const">Amasty\Label\Setup\Uninstall::AMASTY_LABEL_CUSTOMER_GROUP_TABLE</argument>
+            <argument name="identifierField" xsi:type="const">Amasty\Label\Model\ResourceModel\Label\Collection::CUSTOMER_GROUP_ID</argument>
+            <argument name="labelEntityKey" xsi:type="const">Amasty\Label\Ui\DataProvider\Label\Modifiers\Form\AddCustomerGroupsData::DATA_SCOPE</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Label\Model\ResourceModel\Label\Save\AdditionalSaveActionsPool">
+        <arguments>
+            <argument name="saveActions" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">10</item>
+                    <item name="action" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\Save\Actions\SaveCatalogPart</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">20</item>
+                    <item name="action" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\Save\Actions\SaveStoreIds</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">30</item>
+                    <item name="action" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\Save\Actions\SaveCustomerGroups</item>
+                </item>
+                <item name="3" xsi:type="array">
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="action" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\Save\Actions\Tooltip</item>
+                </item>
+                <item name="4" xsi:type="array">
+                    <item name="sortOrder" xsi:type="const">PHP_INT_MAX</item>
+                    <item name="action" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\Save\Actions\ProcessLabelIndex</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Model\Repository\LabelsRepository">
+        <arguments>
+            <argument name="getLabelStoreIds" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\GetLabelStoresIds</argument>
+            <argument name="getLabelCustomerGroupIds" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\GetLabelCustomerGroupsIds</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Amasty\Label\Model\ResourceModel\Label\GetLabelStoresIdsForIndex" type="Amasty\Label\Model\ResourceModel\Label\GetLabelStoresIds">
+        <arguments>
+            <argument name="fetchStrategy" xsi:type="const">Amasty\Label\Model\ResourceModel\Label\GetRelatedEntitiesIds::FETCH_ALL</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Label\Model\Indexer\IndexBuilder">
+        <arguments>
+            <argument name="getStoreIdsByLabelId" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\GetLabelStoresIdsForIndex</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Model\Label\GetMatchedProductIds">
+        <arguments>
+            <argument name="getStoreIdsByLabelId" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\GetLabelStoresIdsForIndex</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Model\LabelViewer">
+        <arguments>
+            <argument name="getLabelCustomerGroupIds" xsi:type="object">Amasty\Label\Model\ResourceModel\Label\GetLabelCustomerGroupsIds</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="amLabelStockResolver" type="Amasty\Label\Model\Di\Wrapper">
+        <arguments>
+            <argument name="name" xsi:type="string">Magento\InventorySalesApi\Api\StockResolverInterface</argument>
+            <argument name="isShared" xsi:type="boolean">true</argument>
+            <argument name="isProxy" xsi:type="boolean">true</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="amLabelDefaultStockProvider" type="Amasty\Label\Model\Di\Wrapper">
+        <arguments>
+            <argument name="name" xsi:type="string">Magento\InventoryCatalogApi\Api\DefaultStockProviderInterface</argument>
+            <argument name="isShared" xsi:type="boolean">true</argument>
+            <argument name="isProxy" xsi:type="boolean">true</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="amLabelStockIndexTableNameResolver" type="Amasty\Label\Model\Di\Wrapper">
+        <arguments>
+            <argument name="name" xsi:type="string">Magento\InventoryIndexer\Model\StockIndexTableNameResolverInterface</argument>
+            <argument name="isShared" xsi:type="boolean">true</argument>
+            <argument name="isProxy" xsi:type="boolean">true</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Label\Model\Rule\Condition\Qty">
+        <arguments>
+            <argument name="stockResolver" xsi:type="object">amLabelStockResolver</argument>
+            <argument name="stockIndexTableNameResolver" xsi:type="object">amLabelStockIndexTableNameResolver</argument>
+            <argument name="defaultStockProviderInterface" xsi:type="object">amLabelDefaultStockProvider</argument>
+        </arguments>
+    </type>
+
+    <!--Add possibility for apply patches before DS start-->
+    <virtualType name="Magento\Framework\Setup\Patch\DeclarativeSchemaApplyBeforeReader" type="Magento\Framework\Setup\Patch\PatchReader">
+        <arguments>
+            <argument name="type" xsi:type="string">declarativeSchemaApplyBefore</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Amasty\Label\Setup\Patch\PatchApplier" type="Magento\Framework\Setup\Patch\PatchApplier">
+        <arguments>
+            <argument name="dataPatchReader" xsi:type="object">Magento\Framework\Setup\Patch\DeclarativeSchemaApplyBeforeReader</argument>
+            <argument name="schemaPatchReader" xsi:type="object">Magento\Framework\Setup\Patch\DeclarativeSchemaApplyBeforeReader</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Label\Plugin\Setup\Model\DeclarationInstaller\ApplyPatchesBeforeDeclarativeSchema">
+        <arguments>
+            <argument name="patchApplier" xsi:type="object">Amasty\Label\Setup\Patch\PatchApplier</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Setup\Model\DeclarationInstaller">
+        <plugin name="Amasty_Label::execute-patches-before-schema-apply"
+                type="Amasty\Label\Plugin\Setup\Model\DeclarationInstaller\ApplyPatchesBeforeDeclarativeSchema"/>
+    </type>
+    <!--Add possibility for apply patches before DS end-->
+
+    <type name="Amasty\Label\ViewModel\Label\TextProcessor">
+        <arguments>
+            <argument name="processorConfig" xsi:type="array">
+                <item name="0" xsi:type="array">
+                    <item name="sortOrder" xsi:type="string">0</item>
+                    <item name="processor" xsi:type="object">Amasty\Label\Model\Label\Text\Processors\NewForProcessor</item>
+                </item>
+                <item name="1" xsi:type="array">
+                    <item name="sortOrder" xsi:type="string">10</item>
+                    <item name="processor" xsi:type="object">Amasty\Label\Model\Label\Text\Processors\NewLineProcessor</item>
+                </item>
+                <item name="2" xsi:type="array">
+                    <item name="sortOrder" xsi:type="string">20</item>
+                    <item name="processor" xsi:type="object">Amasty\Label\Model\Label\Text\Processors\PricesProcessor</item>
+                </item>
+                <item name="3" xsi:type="array">
+                    <item name="sortOrder" xsi:type="string">30</item>
+                    <item name="processor" xsi:type="object">Amasty\Label\Model\Label\Text\Processors\SkuProcessor</item>
+                </item>
+                <item name="4" xsi:type="array">
+                    <item name="sortOrder" xsi:type="string">40</item>
+                    <item name="processor" xsi:type="object">Amasty\Label\Model\Label\Text\Processors\SpecialDatesProcessor</item>
+                </item>
+                <item name="5" xsi:type="array">
+                    <item name="sortOrder" xsi:type="string">50</item>
+                    <item name="processor" xsi:type="object">Amasty\Label\Model\Label\Text\Processors\StockProcessor</item>
+                </item>
+            </argument>
+            <argument name="defaultProcessor" xsi:type="object">Amasty\Label\Model\Label\Text\Processors\ProductAttributesProcessor</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Label\Block\Label">
+        <arguments>
+            <argument name="data" xsi:type="array">
+                <item name="text_processor" xsi:type="object">Amasty\Label\ViewModel\Label\TextProcessor</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

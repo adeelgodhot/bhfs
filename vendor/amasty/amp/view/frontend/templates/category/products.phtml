@@ -1,0 +1,16 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2020 Amasty (https://www.amasty.com)
+ * @package Amasty_Amp
+ */
+?>
+<?php
+/**
+ * Category view template
+ * @var $block \Magento\Catalog\Block\Category\View
+ */
+?>
+<?php if (!$block->isContentMode() || $block->isMixedMode()): ?>
+    <?= $block->getProductListHtml() ?>
+<?php endif; ?>

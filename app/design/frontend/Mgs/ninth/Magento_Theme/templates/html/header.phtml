@@ -1,0 +1,513 @@
+<?php $themeHelper = $this->helper('MGS\Mpanel\Helper\Data') ?>
+<?php $canUsePanel = $themeHelper->acceptToUsePanel() ?>
+
+<?php // Get version header ?>
+<?php $header = $themeHelper->getStoreConfig('mgstheme/header/header'); ?>
+<?php if($header == 'header' || $header == '') { $header = "header_1"; } ?>
+
+<?php // Menu ?>
+<?php $mgsMegamenu = $themeHelper->checkModuleStatus('MGS_Mmegamenu') ? $block->getChildHtml('megamenu') : $block->getChildHtml('catalog.topnav'); ?>
+<?php $classMenu =  $themeHelper->checkModuleStatus('MGS_Mmegamenu') ? 'mgs-megamenu' : 'mgt-menu'; ?>
+
+<?php $topLink = $block->getChildHtml('top.links'); // Top Search ?>
+<?php $topSearch = $block->getChildHtml('top.search'); // Top Search ?>
+<?php $storeSetting = $block->getChildHtml('store.settings'); // Store Setting ?>
+<?php $miniCart = $block->getChildHtml('minicart'); //Mini Cart ?>
+<?php $wishlist = $block->getChildHtml('wish-list-link'); //Mini Cart ?>
+
+<?php $storeLanguage = $block->getChildHtml('store_language'); //Store ?>
+<?php $currency = $block->getChildHtml('currency'); //Currency ?>
+<?php // Wishlist link ?>
+<?php $htmlWishlist = "" ?>
+<?php if($this->helper('Magento\Wishlist\Helper\Data')->isAllow()): ?>
+    <?php $htmlWishlist = '<div class="header-wl"><a href="'.$this->helper('Magento\Wishlist\Helper\Data')->getListUrl().'"><i class="pe-7s-like"></i>'; ?>
+    <?php if($this->helper('Magento\Wishlist\Helper\Data')->getItemCount() > 0): ?>
+        <?php $htmlWishlist .= '<span class="count-wl">'. $this->helper('Magento\Wishlist\Helper\Data')->getItemCount() .'</span>'; ?>
+    <?php endif ?>
+    <?php $htmlWishlist .= '</a></div>'; ?>
+<?php endif ?>
+
+<div class="mobile-navigation">
+    <ul class="nav nav-tabs mobile-navigation--tabs">
+        <li class="active"><a data-toggle="tab" href="#mobile_navigation_menu"><?php echo __('Menu'); ?></a></li>
+        <li><a data-toggle="tab" href="#mobile_navigation_account"><?php echo __('Account'); ?></a></li>
+        <?php if(strlen($storeSetting) > 1): ?>
+            <li class="setting"><a data-toggle="tab" href="#mobile_navigation_setting"><?php echo __('Setting'); ?></a></li>
+        <?php endif ?>
+    </ul>
+    <div class="tab-content">
+        <div id="mobile_navigation_menu" class="tab-pane fade in active"></div>
+        <div id="mobile_navigation_account" class="tab-pane fade <?php echo $classMenu ?>"><?php echo $topLink ?></div>
+        <?php if(strlen($storeSetting) > 1): ?><div id="mobile_navigation_setting" class="tab-pane fade"><?php echo $storeSetting ?></div><?php endif ?>
+    </div>
+</div>
+<?php if($header == 'header_2'): ?>
+
+    <div class="middle-header-content desktop-navigation">
+        <div class="container-fluid">
+            <div class="flex-header">
+                <div class="mobile-actions"><div class="mobile-action nav-toggle"><span></span></div></div>
+                <div id="menu_navigation" class="menu-navigation <?php echo $classMenu ?>">
+                    <?php echo $mgsMegamenu ?>
+                </div>
+                <?php echo $block->getChildHtml('logo'); ?>
+                <div class="middle-header-content--right">
+                    <?php if($currency): ?><?php echo $currency ?><?php endif ?>
+                    <?php if($storeLanguage): ?><?php echo $storeLanguage ?><?php endif ?>
+                    
+                    <div class="top-search">
+                        <button id="enable_search_form" class="enable_search_form"><span class="pe-7s-search"></span></button>
+                        <?php echo $topSearch; ?>
+                    </div>
+                    
+					<?php echo $htmlWishlist; ?>
+                    <?php echo $miniCart; ?>
+                    
+                    <div class="switcher myaccount switcher-myaccount" data-ui-id="myaccount-switcher" id="switcher-myaccount">
+                        <div class="actions dropdown options switcher-options">
+                            <div class="action toggle switcher-trigger" id="switcher-myaccount-trigger">
+                                <span class="pe-7s-user"></span>
+                            </div>
+                            <div style="display: none;" class="dropdown switcher-dropdown"
+                                data-mage-init='{"dropdownDialog":{
+                                    "appendTo":"#switcher-myaccount .options",
+                                    "triggerTarget":"#switcher-myaccount-trigger",
+                                    "closeOnMouseLeave": false,
+                                    "triggerClass":"active",
+                                    "parentClass":"active",
+                                    "buttons":null}}'>
+                                <?php echo $topLink ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php elseif($header == 'header_3'): ?>
+
+    <div class="middle-header-content desktop-navigation">
+        <div class="no-display hidden">
+            <div id="menu_navigation" class="menu-navigation <?php echo $classMenu ?>">
+                <?php echo $mgsMegamenu ?>
+            </div>
+            <?php echo $topLink ?>
+            <?php if($currency): ?><?php echo $currency ?><?php endif ?>
+            <?php if($storeLanguage): ?><?php echo $storeLanguage ?><?php endif ?>
+        </div>
+        <div class="container-fluid">
+            <div class="flex-header">
+                <div class="mobile-actions"><div class="mobile-action nav-toggle"><span></span></div></div>
+                
+                <?php echo $block->getChildHtml('logo'); ?>
+                
+                <div class="middle-header-content--right">
+                    <div class="top-search">
+                        <button id="enable_search_form" class="enable_search_form"><span class="pe-7s-search"></span></button>
+                        <?php echo $topSearch; ?>
+                    </div>
+					
+					<?php echo $htmlWishlist; ?>
+                    <?php echo $miniCart; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php elseif($header == 'header_4'): ?>
+
+    <div class="top-header-content">
+        <div class="container-fluid">
+            <div class="flex-top-content">
+                <?php //Static block ninth_top_header_4_static ?>
+                <div class="left-top-content">
+                    <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('ninth_top_header_4_static')->setCanUsePanel($canUsePanel)->toHtml() ?>
+                </div>
+                <div class="right-top-content">
+                    <div class="top-search">
+                        <button id="enable_search_form" class="enable_search_form"><span class="pe-7s-search"></span></button>
+                        <?php echo $topSearch; ?>
+                    </div>
+                    
+					<?php echo $htmlWishlist; ?>
+                    <?php echo $miniCart; ?>
+                    
+                    <div class="switcher myaccount switcher-myaccount" data-ui-id="myaccount-switcher" id="switcher-myaccount">
+                        <div class="actions dropdown options switcher-options">
+                            <div class="action toggle switcher-trigger" id="switcher-myaccount-trigger">
+                                <span class="pe-7s-user"></span>
+                            </div>
+                            <div style="display: none;" class="dropdown switcher-dropdown"
+                                data-mage-init='{"dropdownDialog":{
+                                    "appendTo":"#switcher-myaccount .options",
+                                    "triggerTarget":"#switcher-myaccount-trigger",
+                                    "closeOnMouseLeave": false,
+                                    "triggerClass":"active",
+                                    "parentClass":"active",
+                                    "buttons":null}}'>
+                                <?php echo $topLink ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="middle-header-content desktop-navigation">
+        <div class="container-fluid">
+            <div class="flex-header">
+                <div class="mobile-actions"><div class="mobile-action nav-toggle"><span></span></div></div>
+                <div id="menu_navigation" class="menu-navigation <?php echo $classMenu ?>">
+                    <?php echo $mgsMegamenu ?>
+                </div>
+                <?php echo $block->getChildHtml('logo'); ?>
+                <div class="middle-header-content--right">
+                    <?php if($currency): ?><?php echo $currency ?><?php endif ?>
+                    <?php if($storeLanguage): ?><?php echo $storeLanguage ?><?php endif ?>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php elseif($header == 'header_5'): ?>
+
+    <div class="top-header-content">
+        <div class="container">
+            <div class="flex-top-content">
+                <?php //Static block ninth_top_header_5_static_left ?>
+                <div class="left-top-content">
+                    <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('ninth_top_header_5_static_left')->setCanUsePanel($canUsePanel)->toHtml() ?>
+                </div>
+                <?php //Static block ninth_top_header_5_static_right ?>
+                <div class="right-top-content">
+                    <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('ninth_top_header_5_static_right')->setCanUsePanel($canUsePanel)->toHtml() ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="middle-header-content">
+        <div class="container">
+            <div class="flex-header <?php if(!$storeSetting): ?> no-store-setting<?php endif ?>">
+                <?php if($storeSetting): ?>
+                    <div class="middle-header-content--right left--content">
+                        <?php echo $block->getChildHtml('logo'); ?>
+                        <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('bhfs_middle_header_5_extra')->setCanUsePanel($canUsePanel)->toHtml() ?>
+
+                        <?php if($currency): ?><?php echo $currency ?><?php endif ?>
+                        <?php if($storeLanguage): ?><?php echo $storeLanguage ?><?php endif ?>
+                    </div>
+                <?php endif ?>
+                <div class="mobile-actions"><div class="mobile-action nav-toggle"><span></span></div></div>
+                <?php //echo $block->getChildHtml('logo'); ?>
+                <div class="middle-header-content--right">
+
+<div class="top-search-custom-header">
+                   <?php echo $topSearch; ?>
+</div>
+
+<!--<a href="<?php echo $block->getBaseUrl(); ?>customer/account/create/" class="m-button"> <?php echo __('Join Us'); ?> </a>-->
+<a href="<?php echo $block->getBaseUrl(); ?>optin/" class="m-button"> <?php echo __('Join Us'); ?> </a>
+
+                   <!--  <div class="top-search">
+                        <button id="enable_search_form" class="enable_search_form"><span class="pe-7s-search"></span></button>
+                        <?php // echo $topSearch; ?>
+                    </div> -->
+					<?php //echo $htmlWishlist; ?>
+                   
+                    <div class="switcher myaccount switcher-myaccount" data-ui-id="myaccount-switcher" id="switcher-myaccount">
+                        <div class="actions dropdown options switcher-options">
+                            <div class="action toggle switcher-trigger" id="switcher-myaccount-trigger">
+                                <span class="pe-7s-user"></span>
+                            </div>
+                            <div style="display: none;" class="dropdown switcher-dropdown"
+                                data-mage-init='{"dropdownDialog":{
+                                    "appendTo":"#switcher-myaccount .options",
+                                    "triggerTarget":"#switcher-myaccount-trigger",
+                                    "closeOnMouseLeave": false,
+                                    "triggerClass":"active",
+                                    "parentClass":"active",
+                                    "buttons":null}}'>
+                                <?php echo $topLink ?>
+                            </div>
+                        </div>
+                    </div>
+
+                     <?php echo $miniCart; ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-header-content desktop-navigation">
+        <div class="container">
+            <div id="menu_navigation" class="menu-navigation <?php echo $classMenu ?>">
+                <?php echo $mgsMegamenu ?>
+            </div>
+        </div>
+    </div>
+
+<?php elseif($header == 'header_6'): ?>
+
+    <div class="middle-header-content">
+        <div class="container-fluid">
+            <div class="flex-header desktop-navigation">
+                <div class="mobile-action nav-toggle"><span></span></div>
+                <div class="logonav">
+                    <?php echo $block->getChildHtml('logo'); ?>
+                    <div id="menu_navigation" class="menu-navigation <?php echo $classMenu ?>">
+                        <?php echo $mgsMegamenu ?>
+                    </div>
+                </div>
+                <div class="middle-header-content--right">
+                    <div class="top-search">
+                        <button id="enable_search_form" class="enable_search_form"><span class="pe-7s-search"></span></button>
+                        <?php echo $topSearch; ?>
+                    </div>
+					<?php echo $htmlWishlist; ?>
+                    <?php echo $miniCart; ?>
+                    <button id="enable_setting_menu" class="enable-setting-menu"><span></span></button>
+                </div>
+                <div class="middle-header-content--setting">
+                    <button id="close_setting_menu" class="close-setting-menu"><span class="pe-7s-close" aria-hidden="true"></span></button>
+                    <h5 class="title-myac"><strong><?php echo __('My Account'); ?></strong></h5>
+                    <?php echo $topLink ?>
+                    <?php if($currency): ?><?php echo $currency ?><?php endif ?>
+                    <?php if($storeLanguage): ?><?php echo $storeLanguage ?><?php endif ?>
+				    <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header_contact_us')->setCanUsePanel($canUsePanel)->toHtml() ?>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php elseif($header == 'header_7'): ?>
+
+    <div class="middle-header-content">
+        <div class="container-fluid">
+            <div class="flex-header desktop-navigation">
+                <div class="mobile-action nav-toggle"><span></span></div>
+                <div class="logonav">
+                    <?php echo $block->getChildHtml('logo'); ?>
+                    <div id="menu_navigation" class="menu-navigation <?php echo $classMenu ?>">
+                        <?php echo $mgsMegamenu ?>
+                    </div>
+                </div>
+                <div class="middle-header-content--right">
+                    <?php if($currency): ?><?php echo $currency ?><?php endif ?>
+                    
+                    <?php if($storeLanguage): ?><?php echo $storeLanguage ?><?php endif ?>
+                    
+                    <div class="top-search">
+                        <button id="enable_search_form" class="enable_search_form"><span class="pe-7s-search"></span></button>
+                        <?php echo $topSearch; ?>
+                    </div>
+                    
+					<?php echo $htmlWishlist; ?>
+                    <?php echo $miniCart; ?>
+                    
+                    <div class="switcher myaccount switcher-myaccount" data-ui-id="myaccount-switcher" id="switcher-myaccount">
+                        <div class="actions dropdown options switcher-options">
+                            <div class="action toggle switcher-trigger" id="switcher-myaccount-trigger">
+                                <span class="pe-7s-user"></span>
+                            </div>
+                            <div style="display: none;" class="dropdown switcher-dropdown"
+                                data-mage-init='{"dropdownDialog":{
+                                    "appendTo":"#switcher-myaccount .options",
+                                    "triggerTarget":"#switcher-myaccount-trigger",
+                                    "closeOnMouseLeave": false,
+                                    "triggerClass":"active",
+                                    "parentClass":"active",
+                                    "buttons":null}}'>
+                                <?php echo $topLink ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php elseif($header == 'header_8'): ?>
+
+    <div class="middle-header-content">
+        <div class="flex-header<?php if(!$storeSetting): ?> no-store-setting<?php endif ?>">
+            <?php if($storeSetting): ?>
+                <div class="middle-header-content--right left--content">
+                    <?php if($currency): ?><?php echo $currency ?><?php endif ?>
+                    <?php if($storeLanguage): ?><?php echo $storeLanguage ?><?php endif ?>
+                </div>
+            <?php endif ?>
+            <div class="mobile-actions"><div class="mobile-action nav-toggle"><span></span></div></div>
+            <?php echo $block->getChildHtml('logo'); ?>
+            <div class="middle-header-content--right">
+                <div class="top-search">
+                    <button id="enable_search_form" class="enable_search_form"><span class="pe-7s-search"></span></button>
+                    <?php echo $topSearch; ?>
+                </div>
+				<?php echo $htmlWishlist; ?>
+                <?php echo $miniCart; ?>
+                <div class="switcher myaccount switcher-myaccount" data-ui-id="myaccount-switcher" id="switcher-myaccount">
+                    <div class="actions dropdown options switcher-options">
+                        <div class="action toggle switcher-trigger" id="switcher-myaccount-trigger">
+                            <span class="pe-7s-user"></span>
+                        </div>
+                        <div style="display: none;" class="dropdown switcher-dropdown"
+                            data-mage-init='{"dropdownDialog":{
+                                "appendTo":"#switcher-myaccount .options",
+                                "triggerTarget":"#switcher-myaccount-trigger",
+                                "closeOnMouseLeave": false,
+                                "triggerClass":"active",
+                                "parentClass":"active",
+                                "buttons":null}}'>
+                            <?php echo $topLink ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom-header-content desktop-navigation">
+        <div id="menu_navigation" class="menu-navigation <?php echo $classMenu ?>">
+            <?php echo $mgsMegamenu ?>
+        </div>
+    </div>
+
+<?php elseif($header == 'header_9'): ?>
+
+    <div class="top-header-content<?php if(!$storeSetting): ?> no-store-setting<?php endif ?>">
+        <div class="container">
+            <div class="flex-top-content">
+                <?php //Static block ninth_top_header_9_static_left ?>
+                <div class="left-top-content">
+                    <?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('ninth_top_header_9_static_left')->setCanUsePanel($canUsePanel)->toHtml() ?>
+                </div>
+                <?php if($storeSetting): ?>
+                    <div class="right-top-content middle-header-content--right">
+                        <?php if($currency): ?><?php echo $currency ?><?php endif ?>
+                        <?php if($storeLanguage): ?><?php echo $storeLanguage ?><?php endif ?>
+                    </div>
+                <?php endif ?>
+            </div>
+        </div>
+    </div>
+    <div class="middle-header-content">
+        <div class="middle-header-bg">
+            <div class="container">
+                <div class="flex-header desktop-navigation">
+                    <div class="mobile-actions"><div class="mobile-action nav-toggle"><span></span></div></div>
+                    <?php echo $block->getChildHtml('logo'); ?>
+                    <div id="menu_navigation" class="menu-navigation <?php echo $classMenu ?>">
+                        <?php echo $mgsMegamenu ?>
+                    </div>
+                    <div class="middle-header-content--right">
+                        <div class="top-search">
+                            <button id="enable_search_form" class="enable_search_form"><span class="pe-7s-search"></span></button>
+                            <?php echo $topSearch; ?>
+                        </div>
+						
+						<?php echo $htmlWishlist; ?>
+                        <?php echo $miniCart; ?>
+                        
+                        <div class="switcher myaccount switcher-myaccount" data-ui-id="myaccount-switcher" id="switcher-myaccount">
+                            <div class="actions dropdown options switcher-options">
+                                <div class="action toggle switcher-trigger" id="switcher-myaccount-trigger">
+                                    <span class="pe-7s-user"></span>
+                                </div>
+                                <div style="display: none;" class="dropdown switcher-dropdown"
+                                    data-mage-init='{"dropdownDialog":{
+                                        "appendTo":"#switcher-myaccount .options",
+                                        "triggerTarget":"#switcher-myaccount-trigger",
+                                        "closeOnMouseLeave": false,
+                                        "triggerClass":"active",
+                                        "parentClass":"active",
+                                        "buttons":null}}'>
+                                    <?php echo $topLink ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php else: ?>
+    <div class="middle-header-content">
+        <div class="container-fluid">
+            <div class="flex-header desktop-navigation">
+                <div class="mobile-action nav-toggle"><span></span></div>
+                <?php echo $block->getChildHtml('logo'); ?>
+                <div id="menu_navigation" class="menu-navigation <?php echo $classMenu ?>">
+                    <?php echo $mgsMegamenu ?>
+                </div>
+                <div class="middle-header-content--right">
+                    <div class="top-search">
+                        <button id="enable_search_form" class="enable_search_form"><span class="pe-7s-search"></span></button>
+                        <?php echo $topSearch; ?>
+                    </div>
+					
+					<?php echo $htmlWishlist; ?>
+                    <?php echo $miniCart; ?>
+                    <button id="enable_setting_menu" class="enable-setting-menu"><span></span></button>
+                </div>
+                <div class="middle-header-content--setting">
+                    <button id="close_setting_menu" class="close-setting-menu"><span class="pe-7s-close" aria-hidden="true"></span></button>
+                    <h5 class="title-myac"><strong><?php echo __('My Account'); ?></strong></h5>
+                    <?php echo $topLink ?>
+                    <?php if($currency): ?><?php echo $currency ?><?php endif ?>
+                    <?php if($storeLanguage): ?><?php echo $storeLanguage ?><?php endif ?>
+					<?php echo $this->getLayout()->createBlock('Magento\Cms\Block\Block')->setBlockId('header_contact_us')->setCanUsePanel($canUsePanel)->toHtml() ?>
+                </div>
+            </div>
+        </div>
+    </div>
+<?php endif ?>
+
+
+<script type="text/javascript">
+    require([ 'jquery' ], function($){
+        /* Search Toggle */
+        $('#enable_search_form').click(function(){
+            $('html').toggleClass('active-top-search');
+        });
+        $(document).mouseup(function(e) {
+            var containerSearch = $(".top-search");
+            var containerSetting = $(".middle-header-content--setting");
+            if (!containerSearch.is(e.target) && containerSearch.has(e.target).length === 0) {
+                $('html.active-top-search').removeClass('active-top-search');
+            }
+            if (!containerSetting.is(e.target) && containerSetting.has(e.target).length === 0) {
+                $('html.active_setting_menu').removeClass('active_setting_menu');
+            }
+        });
+        // RESPONSIVE
+        $('.mobile-action.nav-toggle').click(function(){
+            if ($('html').hasClass('nav-open')) {
+                $('html').removeClass('nav-open');
+                setTimeout(function () {
+                    $('html').removeClass('nav-before-open');
+                }, 300);
+            } else {
+                $('html').addClass('nav-before-open');
+                setTimeout(function () {
+                    $('html').addClass('nav-open');
+                }, 42);
+            }
+        });
+        
+        $('#enable_setting_menu').click(function(){
+            $('html').addClass('active_setting_menu');
+        });
+        $('#close_setting_menu').click(function(){
+            $('html').removeClass('active_setting_menu');
+        });
+        
+        $("#menu_navigation").clone().appendTo("#mobile_navigation_menu");
+        
+        $('#mobile_navigation_setting .switcher-label').click(function(){
+            $(this).parent().toggleClass('active');
+            $(this).parent().find('.switcher-options').slideToggle();
+        });
+    });
+</script>

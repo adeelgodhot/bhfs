@@ -1,0 +1,24 @@
+{
+    "name": "amasty/module-multiple-wishlist",
+    "description": "Multiple Wishlist for Magento 2 by Amasty",
+    "require": {
+        "php": "^7.1.0",
+        "amasty/base": ">=1.12.5"
+    },
+    "suggest": {
+        "amasty/module-multiple-wishlist-mftf-3": "Install module-multiple-wishlist-mftf-3 module to be able to run Multiple Wishlist MFTF tests for Magento 2.4.0+ version"
+    },
+    "type": "magento2-module",
+    "version": "1.1.1",
+    "license": [
+        "Commercial"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Amasty\\MWishlist\\": ""
+        }
+    }
+}

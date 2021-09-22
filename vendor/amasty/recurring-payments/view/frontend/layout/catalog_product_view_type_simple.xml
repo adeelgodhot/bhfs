@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="product.info.form.options">
+            <block class="Amasty\RecurringPayments\Block\Product\View\RecurringPayments"
+                   name="product.info.recurring.payments.options"
+                   before="-"
+                   template="Amasty_RecurringPayments::product/view/recurring-payments.phtml">
+                <arguments>
+                    <argument name="jsLayout" xsi:type="array">
+                        <item name="components" xsi:type="array">
+                            <item name="amasty-recurring-payments" xsi:type="array">
+                                <item name="component" xsi:type="string">uiCollection</item>
+                                <item name="config" xsi:type="array">
+                                    <item name="template" xsi:type="string">Amasty_RecurringPayments/product/recurring-payments</item>
+                                    <item name="provider" xsi:type="string">recurringPaymentsProvider</item>
+                                    <item name="imports" xsi:type="array">
+                                        <item name="isAllowSpecifyStartEndDate" xsi:type="string">${ $.provider }:isAllowSpecifyStartEndDate</item>
+                                        <item name="data" xsi:type="string">${ $.provider }:plans</item>
+                                    </item>
+                                    <item name="deps" xsi:type="array">
+                                        <item name="0" xsi:type="string">recurringPaymentsProvider</item>
+                                    </item>
+                                </item>
+                                <item name="children" xsi:type="array">
+                                    <item name="select" xsi:type="array">
+                                        <item name="component" xsi:type="string">Amasty_RecurringPayments/js/view/product/recurring-payments/select</item>
+                                        <item name="displayArea" xsi:type="string">select</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="provider" xsi:type="string">recurringPaymentsProvider</item>
+                                            <item name="deps" xsi:type="array">
+                                                <item name="0" xsi:type="string">recurringPaymentsProvider</item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="date" xsi:type="array">
+                                        <item name="component" xsi:type="string">Amasty_RecurringPayments/js/view/product/recurring-payments/date</item>
+                                        <item name="displayArea" xsi:type="string">date</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="provider" xsi:type="string">recurringPaymentsProvider</item>
+                                            <item name="deps" xsi:type="array">
+                                                <item name="0" xsi:type="string">recurringPaymentsProvider</item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                    <item name="table" xsi:type="array">
+                                        <item name="component" xsi:type="string">Amasty_RecurringPayments/js/view/product/recurring-payments/table</item>
+                                        <item name="displayArea" xsi:type="string">table</item>
+                                        <item name="config" xsi:type="array">
+                                            <item name="provider" xsi:type="string">recurringPaymentsProvider</item>
+                                            <item name="deps" xsi:type="array">
+                                                <item name="0" xsi:type="string">recurringPaymentsProvider</item>
+                                            </item>
+                                        </item>
+                                    </item>
+                                </item>
+                            </item>
+                            <item name="recurringPaymentsProvider" xsi:type="array">
+                                <item name="component" xsi:type="string">uiComponent</item>
+                            </item>
+                        </item>
+                    </argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

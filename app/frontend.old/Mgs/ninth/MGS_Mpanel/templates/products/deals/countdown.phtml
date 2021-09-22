@@ -1,0 +1,25 @@
+<?php $_product = $this->getProduct() ?>
+<?php $now = $this->getTimeNow() ?>
+<?php $endTime = $this->getSpecialToDate() ?>
+<?php $specialFromDate = $this->getSpecialFromDate() ?>
+
+<div class="deal-timer">
+    <div id="deal-timer-<?php echo $_product->getId(); ?>" class="countdown"></div>
+    <div class="time-note">
+        <span class="days"><?php echo __('days') ?></span>
+        <span class="hours"><?php echo __('hrs') ?></span>
+        <span class="mins"><?php echo __('mins') ?></span>
+        <span class='secs'><?php echo __('secs') ?></span>
+    </div>
+</div>
+<script type="text/javascript">
+    var dthen<?php echo $_product->getId(); ?> = new Date("<?php echo Date("m/d/y", strtotime($endTime)).' 11:59:59 PM'; ?>");
+    start = "<?php echo $now; ?>";
+    start_date = Date.parse(start);
+    var dnow<?php echo $_product->getId(); ?> = new Date(start_date);
+    ddiff = new Date((dthen<?php echo $_product->getId(); ?>)-(dnow<?php echo $_product->getId(); ?>));
+    gsecs<?php echo $_product->getId(); ?> = Math.floor(ddiff.valueOf()/1000);
+
+    var iid<?php echo $_product->getId(); ?> = "deal-timer-<?php echo $_product->getId(); ?>";
+    CountBack(gsecs<?php echo $_product->getId(); ?>,"deal-timer-<?php echo $_product->getId(); ?>", <?php echo $_product->getId(); ?>);
+</script>

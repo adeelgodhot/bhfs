@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2021 Amasty (https://www.amasty.com)
+ * @package Amasty_RecurringPayments
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amasty_recurring_payments>
+            <general>
+                <next_billing_date_tooltip_text>Kindly consider that in some cases the displayed date/time may vary from actual billing date/time due to possible deviations in time zones. Please get in touch with the store administrator if you have any questions.</next_billing_date_tooltip_text>
+            </general>
+            <label_comment>
+                <single_purchase_label>Purchase only once.</single_purchase_label>
+                <single_recurring_label>Subscribe to this product.</single_recurring_label>
+            </label_comment>
+            <global>
+                <subscription_only>0</subscription_only>
+                <billing_cycle>customer_decide</billing_cycle>
+                <enable_free_trials>disable</enable_free_trials>
+                <discounted_prices>0</discounted_prices>
+            </global>
+            <email_notification>
+                <notify_subscription_purchased>1</notify_subscription_purchased>
+                <notify_trial_end>1</notify_trial_end>
+                <notify_subscription_paused>1</notify_subscription_paused>
+                <notify_subscription_canceled>1</notify_subscription_canceled>
+                <notify_authenticate>1</notify_authenticate>
+                <trial_end_days_before_notification>1</trial_end_days_before_notification>
+            </email_notification>
+        </amasty_recurring_payments>
+    </default>
+</config>

@@ -1,0 +1,104 @@
+//
+//  Amasty Calendar Custom Styles
+//  _____________________________________________
+
+//
+//  Variables
+//  ---------------------------------------------
+
+@amcalendar-main__color: @amrec-main__color;
+
+//
+//  General
+//  _____________________________________________
+
+._am-calendar-component.ui-datepicker {
+    & {
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, .15);
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    .ui-datepicker-prev,
+    .ui-datepicker-next {
+        top: 7px;
+    }
+
+    .ui-datepicker-prev span,
+    .ui-datepicker-next span {
+        top: 50%;
+        left: 50%;
+        margin: 0;
+        width: 13px;
+        height: 13px;
+        border-width: 0 0 2px 2px;
+        border-color: #575855;
+    }
+
+    .ui-datepicker-prev span {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    .ui-datepicker-next span {
+        transform: translate(-50%, -50%) rotate(225deg);
+    }
+
+    .ui-datepicker-month,
+    .ui-datepicker-year {
+        border-color: #a1a1a1;
+        border-radius: 2px;
+    }
+
+    button {
+        & {
+            border-color: @amcalendar-main__color;
+            border-radius: 2px;
+            background: none;
+            box-shadow: none;
+            color: @amcalendar-main__color;
+            font-weight: @font-weight__regular;
+        }
+
+        &:hover {
+            background: lighten(@amcalendar-main__color, 45%);
+        }
+    }
+
+    .ui-datepicker-calendar {
+        & {
+            border: none;
+        }
+
+        th {
+            border: none;
+            background: none;
+            text-transform: capitalize;
+            font-weight: @font-weight__regular;
+        }
+
+        td {
+            border: none;
+            background: #fff;
+        }
+
+        td a,
+        td span,
+        th span {
+            padding: 5px;
+            text-align: center;
+        }
+
+        .ui-state-active {
+            background: @amcalendar-main__color;
+            color: #fff;
+        }
+    }
+
+    .ui-datepicker-buttonpane {
+        border: none;
+    }
+}

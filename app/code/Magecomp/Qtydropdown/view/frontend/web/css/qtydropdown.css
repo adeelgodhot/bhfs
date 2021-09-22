@@ -1,0 +1,22 @@
+/* CSS Document */
+.dropdown
+{
+	width: 60px !important;
+}
+
+/* For product list page*/
+.magecomp-dropdown
+{
+	margin-top:2px;
+	margin-bottom:15px;
+}
+.group-item {
+	width: 70% !important;
+}
+.group-qty{
+	width: 30% !important;
+}
+.group-qty-drop {
+	text-align: center;
+	width: 130px !important;
+}
