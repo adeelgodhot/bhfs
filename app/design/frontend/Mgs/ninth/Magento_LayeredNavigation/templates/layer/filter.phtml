@@ -32,6 +32,12 @@
     }
 
     if($isPreference) {
+        if(count($pFilterItems) < 10) {
+            $diffLen = 10 - count($pFilterItems);
+            $nFilterItems = array_slice($nFilterItems, 0, $diffLen);
+        } else {
+            $nFilterItems = [];
+        }
         $filterItems = array_merge( $pFilterItems, $nFilterItems);
     }
 
