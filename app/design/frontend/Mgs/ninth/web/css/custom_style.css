@@ -419,3 +419,12 @@ span.dietary-colour-sd, span.dietary-colour-af{
 .additional-attributes-wrapper.table-wrapper table td {
    padding: 8px 15px;
 }
+.box-tocart .field.qty {
+   overflow: visible !important;
+}
+.box-tocart .field.qty div.mage-error[generated]{
+   min-width: 214px;
+   position: absolute;
+   left:-50px;
+   top:-56px;
+}
