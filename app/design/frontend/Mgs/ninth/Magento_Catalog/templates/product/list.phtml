@@ -142,6 +142,43 @@ $colClass = $themeHelper->convertColClass($colCheck, 'col');
                 }
             });
         });
+
+        function plusQty(obj){
+            require([
+                'jquery'
+            ], function(jQuery){
+                (function($) {
+                    var qtyInput = $(obj).parents('.field.qty').find('input');
+                    var qtyInc = $(qtyInput).attr('qty_inc');
+                    if($(qtyInput).attr('disabled')!='disabled'){
+                        qty = $(qtyInput).attr('value');
+                        qty = parseInt(qty);
+                        qty += 1 * qtyInc;
+                        $(qtyInput).val(qty);;
+                    }
+                })(jQuery);
+            });
+
+        }
+        function minusQty(obj){
+            require([
+                'jquery'
+            ], function(jQuery){
+                (function($) {
+                    var qtyInput = $(obj).parents('.field.qty').find('input');
+                    var qtyInc = $(qtyInput).attr('qty_inc');
+                    if($(qtyInput).attr('disabled')!='disabled'){
+                        qty = $(qtyInput).attr('value');
+                        qty = parseInt(qty);
+
+                        if(qty>1){
+                            qty -= 1 * qtyInc;
+                            $(qtyInput).val(qty);
+                        }
+                    }
+                })(jQuery);
+            });
+        }
     </script>
 
     <?php if (!$block->isRedirectToCartEnabled()) : ?>
