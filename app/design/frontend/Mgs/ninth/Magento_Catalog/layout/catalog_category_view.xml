@@ -32,6 +32,13 @@
                     <action method="setToolbarBlockName">
                         <argument name="name" xsi:type="string">product_list_toolbar</argument>
                     </action>
+                    <block class="Magento\Catalog\Block\Product\View" name="product.list.minimum_quantity" as="minimum_quantity" template="product/list/minimum_quantity.phtml">
+                        <block class="Magento\Cms\Block\Block" name="product.min.qty" as="product_min_qty">
+                            <arguments>
+                                <argument name="block_id" xsi:type="string">moq</argument>
+                            </arguments>
+                        </block>
+                    </block>
                 </block>
             </block>
             <block class="Magento\Cookie\Block\RequireCookie" name="require-cookie" template="Magento_Cookie::require_cookie.phtml">

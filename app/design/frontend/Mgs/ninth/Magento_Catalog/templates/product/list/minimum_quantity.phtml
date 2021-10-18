@@ -1,0 +1,54 @@
+<?php
+$width = "300px";
+?>
+<div class="minimum-quantity-wrapper">
+    <div class="min_qty_popup mfp-with-anim mfp-hide" id="min-qty-popup" style="width: <?php echo $width; ?>; ">
+        <div class="block-popup-subscribe">
+            <div class="block-popup-top">
+                <div class="block-popup-content">
+                    <div class="pop-sletter-title">
+                        <h4>
+                            <strong class="text-uppercase">
+                                <?php echo __('Minium Quantity'); ?>
+                            </strong>
+                        </h4>
+                    </div>
+                    <div class="popup-content">
+                        <?php echo $block->getChildHtml('product_min_qty') ?>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        require(
+            [
+                'jquery',
+                'magnificPopup'
+            ],
+            function( $, modal ) {
+                $(".min_qty_popup").click(function () {
+                    //if($(window).width() > 991) {
+
+
+                    $.magnificPopup.open({
+                        items: {
+                            src: '#min-qty-popup'
+                        },
+                        type: 'inline',
+                        removalDelay: 300,
+                        callbacks: {
+                            beforeOpen: function() {
+                                this.st.mainClass = 'mfp-zoom-out modal_min_qty_popup';
+                            }
+                        }
+                    });
+
+
+                    //}
+                });
+            });
+    </script>
+</div>

@@ -221,6 +221,9 @@ use Magento\Framework\App\Action\Action;
                     </button>
                 <?php endif; ?>
             </div>
+            <div class="minimum-quantity-link-wrapper">
+                <a class="min_qty_popup" href="javascript:void(0);"> (<?php echo __("Minimum order quantity") ?>) </a>
+            </div>
             <div class="inventory-info">
                 <?php echo $blockStoreLocator->toHtml() ?>
             </div>

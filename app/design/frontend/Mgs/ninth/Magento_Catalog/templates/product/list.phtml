@@ -131,7 +131,7 @@ $colClass = $themeHelper->convertColClass($colCheck, 'col');
         </ol>
     </div>
     <?php echo $block->getToolbarHtml() ?>
-    
+    <?php echo $block->getChildHtml('minimum_quantity') ?>
     <script type="text/javascript">
         require([ 'jquery' ], function($){
             $(document).ready(function(){
